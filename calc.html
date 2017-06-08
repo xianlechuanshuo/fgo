@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            font-size:14px;
+        }
+
+        table td {
+            border: 1px solid #000;
+            padding:5px;
+        }
+
+        table td:nth-child(1),.first {
+            width:150px;
+        }
+        
+        table td:nth-child(2),.second {
+            width:250px;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td>攻击力</td>
+                <td>
+                    <input type="text" id="txtAttack" />
+                </td>
+            </tr>
+             <tr>
+                 <td>宝具倍率(%)</td>
+                 <td>
+                     <input type="text" id="txtTreasureRate">
+                 </td>
+             </tr>    
+            <tr>
+                <td>卡色</td>
+                <td>
+                    <select id="ddlCardColor">
+                        <option value="0.8">Quick</option>
+                        <option value="1.0">Arts</option>
+                        <option value="1.5">Buster</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>职介克制</td>
+                <td>
+                    <select id="ddlCareerResist">
+                        <option value="1.0">非克制</option>
+                        <option value="2.0">普通克制</option>
+                        <option value="1.5">狂阶克制</option>
+                        <option value="0.5">被克制</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>阵营克制</td>
+                <td>
+                    <select id="ddlCampResist">
+                        <option value="1.1">克制</option>
+                        <option value="1.0">非克制</option>               
+                        <option value="0.9">被克制</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>从者职介</td>
+                <td>
+                    <select id="ddlCareer">
+                        <option value="1.00">Saber</option>
+                        <option value="0.95">Archer</option>
+                        <option value="1.05">Lancer</option>
+                        <option value="1.0">Rider</option>
+                        <option value="0.9">Caster</option>
+                        <option value="0.9">Assassin</option>
+                        <option value="1.1">Berserker</option>
+                        <option value="1.1">Ruler</option>
+                        <option value="1.1">Avenger</option>
+                        <option value="1.0">Shielder</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>宝具威力Buff(%)</td>
+                <td>
+                    <input type="text" id="txtTreasurePowerBuff" value="0">
+                </td>
+            </tr> 
+             <tr>
+                <td>卡牌Buff(%)</td>
+                <td>
+                    <input type="text" id="txtCardBuff" value="0">
+                </td>
+            </tr>    
+              <tr>
+                <td>攻击力Buff(%)</td>
+                <td>
+                    <input type="text" id="txtAttackBuff" value="0">
+                </td>
+            </tr>   
+              <tr>
+                <td>敌方防御力Buff(%)</td>
+                <td>
+                    <input type="text" id="txtEnemyDefenceBuff" value="0">
+                </td>
+            </tr> 
+              <tr>
+                <td>特攻威力Buff(%)</td>
+                <td>
+                    <input type="text" id="txtSpecialAttackPowerBuff" value="0">
+                </td>
+            </tr> 
+              <tr>
+                <td>敌方特防威力Buff(%)</td>
+                <td>
+                    <input type="text" id="txtSpecialDefencePowerBuff" value="0">
+                </td>
+            </tr> 
+              <tr>
+                <td>固定伤害Buff</td>
+                <td>
+                    <input type="text" id="txtFixedDamageBuff" value="0">
+                </td>
+            </tr> 
+              <tr>
+                <td>敌方固定减伤Buff</td>
+                <td>
+                    <input type="text" id="txtEnemyFixedDamageReductionBuff" value="0">
+                </td>
+            </tr>  
+               <tr>
+                <td>宝具特攻(%)</td>
+                <td>
+                    <input type="text" id="txtTreasureSpecialAttack" value="100">
+                </td>
+            </tr> 
+            <tr>
+              <td colspan="2">
+                  <input type="button" value="计算" id="btnCalcute" onclick="calc()">
+              </td>
+            </tr>                      
+        </table>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    //根据id返回对应控件的value值，并转换为float值
+    function getFloat(id){
+        return parseFloat(document.getElementById(id).value);
+    }
+
+    //计算宝具伤害
+    function calc(){
+       //1.攻击力
+       var attack=getFloat("txtAttack");
+
+       //2.宝具倍率(%)
+       var treasureRate=getFloat("txtTreasureRate")/100; 
+
+       //3.卡色
+       var cardColor=getFloat("ddlCardColor"); 
+
+       //4.职介克制
+       var careerResist=getFloat("ddlCareerResist"); 
+
+       //5.阵营克制
+       var campResist=getFloat("ddlCampResist");
+
+       //6.从者职介 
+       var career=getFloat("ddlCareer"); 
+
+       //7.宝具威力Buff(%)
+       var treasurePowerBuff=getFloat("txtTreasurePowerBuff")/100;
+
+       //8.卡牌Buff(%)
+       var cardBuff=getFloat("txtCardBuff")/100;  
+
+       //9.攻击力Buff(%)
+       var attackBuff=getFloat("txtAttackBuff")/100;
+
+       //10.敌方防御力Buff(%)
+       var enemyDefenceBuff=getFloat("txtEnemyDefenceBuff")/100;
+
+       //11.特攻威力Buff(%)
+       var specialAttackPowerBuff=getFloat("txtSpecialAttackPowerBuff")/100;
+
+       //12.敌方特防威力Buff(%)
+       var specialDefencePowerBuff=getFloat("txtSpecialDefencePowerBuff")/100;
+
+       //13.固定伤害Buff
+       var fixedDamageBuff=getFloat("txtFixedDamageBuff");
+
+       //14.敌方固定减伤Buff
+       var enemyFixedDamageReductionBuff=getFloat("txtEnemyFixedDamageReductionBuff");
+
+       //15.宝具特攻(%)     
+       var treasureSpecialAttack=getFloat("txtTreasureSpecialAttack")/100;
+    /*
+        ATK×攻击补正(0.23)×[宝具倍率×卡牌伤害倍率×(1+卡牌BUFF)]×职阶补正×职阶相性补正×阵营相性补正×乱数补正×(1+攻击力BUFF—敌方防御力BUFF)×(1+特攻威力BUFF—敌方特防威力BUFF+宝具威力BUFF)×宝具特攻
+        +(固定伤害BUFF—敌方固定伤害BUFF)
+    */
+        var resultMin=attack*0.23*[treasureRate*cardColor*(1+cardBuff)]*career*careerResist*campResist*0.9*(1+attackBuff-enemyDefenceBuff)*(1+specialAttackPowerBuff-specialDefencePowerBuff+treasurePowerBuff)*treasureSpecialAttack+(fixedDamageBuff-enemyFixedDamageReductionBuff);
+        resultMin=Math.floor(resultMin);
+
+        var resultMax=attack*0.23*[treasureRate*cardColor*(1+cardBuff)]*career*careerResist*campResist*1.1*(1+attackBuff-enemyDefenceBuff)*(1+specialAttackPowerBuff-specialDefencePowerBuff+treasurePowerBuff)*treasureSpecialAttack+(fixedDamageBuff-enemyFixedDamageReductionBuff);
+        resultMax=Math.round(resultMax);
+
+        alert("宝具伤害："+resultMin+"~"+resultMax);   
+    } 
+</script>

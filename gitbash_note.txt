@@ -43,6 +43,7 @@ git push -u origin master
 
 更新操作1(本地存在git项目)：
 1.切换到gh-pages分支：
+git pull(从github获取最新版本)
 git checkout gh-pages
 
 2.查看当前分支
@@ -70,6 +71,7 @@ PS：记得去掉：https，因为项目git地址：https://github.com/xianlechu
 
 
 2.切换分支，默认是master
+git pull(从github获取最新版本)
 git checkout gh-pages
 
 3.在本地git项目目录下新增一个2222.txt文件，然后我们查看下差异文件(这里是新增文件)
