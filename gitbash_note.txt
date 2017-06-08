@@ -1,0 +1,85 @@
+git客户端下载地址：
+https://git-scm.com/download/
+
+第一次上传本地项目到github上：
+************************************************************************
+*github网页端创建仓库的时候不能创建ReadMe文件，否者下面提交操作会失败！*
+************************************************************************
+
+1.切换路径（这个可以通过在calc文件夹下右键git bash here达到一样切换路径效果）
+cd d:/test/calc
+
+2.创建.git文件夹
+git init
+
+3.添加所有项目文件到仓库中
+git add .
+
+4.添加此次操作的备注说明
+git commit -m "first commit"
+
+4.创建跟自己的github项目的连接
+git remote add origin https://github.com/xianlechuanshuo/test2.git
+
+5.
+git push -u origin master
+
+
+如何退出vim编辑器:
+连续按大写的z两次就退出来了。
+
+
+如何删除仓库：
+点击settings，拉到最下面，点击Delete this repository
+
+
+********************************************************
+*非常关键：必须创建好gh-pages分支，你的网站才会被发布！*
+********************************************************
+
+
+
+
+
+更新操作1(本地存在git项目)：
+1.切换到gh-pages分支：
+git checkout gh-pages
+
+2.查看当前分支
+git branch
+
+3.修改index.html，然后我们查看差异文件(修改过的文件)
+git status
+
+4.添加修改过的文件
+git add index.html
+
+5.添加此次操作的备注
+git commit -m "修改了index.html"
+
+6.提交操作
+git push --set-upstream origin gh-pages
+
+更新操作2(本地不存在git项目)：
+1.下载github项目到本地
+git clone git://github.com/xianlechuanshuo/test2.git
+
+PS：记得去掉：https，因为项目git地址：https://github.com/xianlechuanshuo/test2.git
+
+1.1 修改.git文件下的config文件，将url的值从"git://github.com/xianlechuanshuo/test2.git"修改成"https://github.com/xianlechuanshuo/test2.git"，这点很关键，否则最后提交失败！
+
+
+2.切换分支，默认是master
+git checkout gh-pages
+
+3.在本地git项目目录下新增一个2222.txt文件，然后我们查看下差异文件(这里是新增文件)
+git status
+
+4.添加新增的2222.txt文件
+git add 2222.txt
+
+5.添加此次操作的备注说明
+git commit -m "新增2222.txt"
+
+6.提交操作
+git push --set-upstream origin gh-pages
