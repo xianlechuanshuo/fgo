@@ -67,7 +67,7 @@ git clone git://github.com/xianlechuanshuo/test2.git
 
 PS：记得去掉：https，因为项目git地址：https://github.com/xianlechuanshuo/test2.git
 
-1.1 修改.git文件下的config文件，将url的值从"git://github.com/xianlechuanshuo/test2.git"修改成"https://github.com/xianlechuanshuo/test2.git"，这点很关键，否则最后提交失败！
+1.1 修改.git文件夹下的config文件，将url的值从"git://github.com/xianlechuanshuo/test2.git"修改成"https://github.com/xianlechuanshuo/test2.git"，这点很关键，否则最后提交失败！
 
 
 2.切换分支，默认是master
