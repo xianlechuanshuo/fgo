@@ -311,7 +311,6 @@
 
     }
 
-
     //计算双子宝具总倍率
     function calTreasureSpecialRemainHpAttackRate() {
         var ocLevel = $("ddlOc").value;
@@ -379,6 +378,11 @@
             }
             else if (ocs["type"] == "TreasureSpecialExplosionAttack") {//自爆弓特攻
                 calTreasureSpecialExplosionAttackRate();
+            }
+            else if (ocs["type"] == "SpecialAttackPowerBuff") {//杰克女性特攻
+                var specialAttackPowerBuff = getFloat("txtSpecialAttackPowerBuff");
+                specialAttackPowerBuff += ocs[ocLevel];
+                $("txtSpecialAttackPowerBuff").value(specialAttackPowerBuff);
             }
         }
         else {
