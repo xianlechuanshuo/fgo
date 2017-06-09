@@ -95,7 +95,7 @@ function intialData() {
     intialServant("Rider", "女王梅芙", 10296, 13968, 800, 1000, 1100, 1150, 1200, 150, 162.5, 175, 187.5, 200, "TreasureSpecialAttack", 1.5);
 
     /******************************************4星********************************************************************/
-    intialServant("Rider", "坂田金时", 9819, 10800, 1200, 1600, 1800, 1900, 2000, 0, 0, 0, 0, 0, "", 0.8);
+    intialServant("Rider", "坂田金时", 9819, 10800, 1200, 1600, 1800, 1900, 2000, 10, 30, 50, 70, 90, "TreasureSpecialCardPowerAttack", 0.8);
     intialServant("Rider", "阿尔托莉雅・潘德拉贡〔Santa Alter〕", 9258, 11286, 450, 550, 600, 625, 650, 0, 0, 0, 0, 0, "", 1.5);
     intialServant("Rider", "莫德雷德", 9212, 11400, 450, 600, 675, 712, 750, 0, 0, 0, 0, 0, "", 1);
     intialServant("Rider", "安妮・伯妮&玛丽・里德", 9029, 11286, 1600, 2000, 2200, 2300, 2400, 1200, 1600, 1800, 1900, 2000, "TreasureSpecialRemainHpAttack", 0.8);
@@ -163,7 +163,7 @@ function intialData() {
     //----------------------------------Berserker---------------------------------------------------------------------//
     /******************************************5星********************************************************************/
     intialServant("Berserker", "库・丘林〔Alter〕", 12805, 12210, 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5);
-    intialServant("Berserker", "坂田金时", 12712, 12150, 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5);
+    intialServant("Berserker", "坂田金时", 12712, 12150, 600, 800, 900, 950, 1000,0,0,0,0,0,"", 1.5);
     intialServant("Berserker", "土方岁三", 12089, 12028, 600, 800, 900, 950, 1000, 600, 800, 900, 950, 1000, "TreasureSpecialRemainHpAttack", 1.5);
     intialServant("Berserker", "源赖光", 11556, 13500, 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5);
     intialServant("Berserker", "弗拉德三世", 11499, 13770, 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1);
@@ -171,7 +171,7 @@ function intialData() {
 
     /******************************************4星********************************************************************/
     intialServant("Berserker", "赫拉克勒斯", 10655, 10327, 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5);
-    intialServant("Berserker", "兰斯洛特", 10477, 10327, 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 0.8);
+    intialServant("Berserker", "兰斯洛特", 10477, 10327, 600, 800, 900, 950, 1000, 10, 15, 20, 25, 30, "TreasureSpecialAtkPowerAttack", 0.8);
     intialServant("Berserker", "贝奥武夫", 10247, 10327, 700, 900, 1000, 1050, 1100, 0, 0, 0, 0, 0, "", 1.5);
     intialServant("Berserker", "茨木童子", 9636, 10954, 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5);
     intialServant("Berserker", "弗兰肯斯坦", 9441, 10687, 900, 1100, 1200, 1250, 1300, 0, 0, 0, 0, 0, "", 0.8);
@@ -225,6 +225,8 @@ function intialServant(career, name, atk, hp, tl1, tl2, tl3, tl4, tl5, oc1, oc2,
     ""：无特攻
     TreasureSpecialRemainHpAttack：双子宝具特攻
     TreasureSpecialExplosionAttack：自爆弓宝具特攻
+    TreasureSpecialCardPowerAttack：R金时OC绿魔放
+    TreasureSpecialAtkPowerAttack：B兰OC加攻
     */
     oc["type"] = type;
 

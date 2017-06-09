@@ -265,12 +265,13 @@
 
         //是否特攻
         $("ckIsSpecialAttack").onclick = function () {
-            if (this.checked) {
-                changeOc();
-            }
-            else {
-                $("txtTreasureSpecialAttack").value = 100;
-            }
+            //if (this.checked) {
+            //    changeOc();
+            //}
+            //else {
+            //    $("txtTreasureSpecialAttack").value = 100;
+            //}
+            changeOc();
         }
 
     }
@@ -300,7 +301,7 @@
         var careers = $("ddlCareer").options;
         for (var i = 0; i < careers.length; i++) {
             var career = careers[i];
-            if (career.text ==servant.career) {
+            if (career.text == servant.career) {
                 career.selected = true;
             }
         }
@@ -370,9 +371,6 @@
             if (ocs["type"] == "TreasureSpecialAttack") {//宝具特攻
                 $("txtTreasureSpecialAttack").value = ocs[ocLevel];
             }
-            else if (ocs["type"] == "SpecialAttackPowerBuff") {//特攻威力Buff
-                $("txtSpecialAttackPowerBuff").value = ocs[ocLevel];
-            }
             else if (ocs["type"] == "TreasureSpecialRemainHpAttack") {//双子宝具特攻
                 calTreasureSpecialRemainHpAttackRate();
             }
@@ -380,14 +378,21 @@
                 calTreasureSpecialExplosionAttackRate();
             }
             else if (ocs["type"] == "SpecialAttackPowerBuff") {//杰克女性特攻
-                var specialAttackPowerBuff = getFloat("txtSpecialAttackPowerBuff");
-                specialAttackPowerBuff += ocs[ocLevel];
-                $("txtSpecialAttackPowerBuff").value(specialAttackPowerBuff);
+                $("txtSpecialAttackPowerBuff").value = ocs[ocLevel];
+            }
+            else if (ocs["type"] == "TreasureSpecialCardPowerAttack") {//R金时OC绿魔放
+                $("txtCardBuff").value = ocs[ocLevel];
+            }
+            else if (ocs["type"] == "TreasureSpecialAtkPowerAttack") {//B兰OC加攻
+                $("txtAttackBuff").value = ocs[ocLevel];
             }
         }
         else {
             $("txtTreasureSpecialAttack").value = 100;
             $("txtSpecialAttackPowerBuff").value = 0;
+            $("txtCardBuff").value = 0;
+            $("txtAttackBuff").value = 0;
+
         }
     }
 
