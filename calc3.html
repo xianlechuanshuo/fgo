@@ -52,22 +52,30 @@
         <table>
 
             <tr>
-                <td colspan="4">
+                <td colspan="8">
                     <select id="ddlChooseServant">
                         <option value="-1">|----------------------请选择从者-------------------------|</option>
                     </select>
-
                 </td>
             </tr>
 
             <tr>
                 <td>攻击力</td>
-                <td colspan="4">
+                <td colspan="3">
                     <input type="text" id="txtAttack" />
+                </td>
+                <td>强化芙芙Atk</td>
+                <td>
+                    <input type="text" id="txtFufuAtk" value="0" />
+                </td>
+                <td>礼装Atk</td>
+                <td>
+                    <input type="text" id="txtCardAtk" value="0" />
                 </td>
             </tr>
 
             <tr>
+
                 <td>Hp最大值</td>
                 <td>
                     <input type="text" id="txtMaxHp" />
@@ -76,23 +84,9 @@
                 <td>
                     <input type="text" id="txtRemainHp" />
                 </td>
-            </tr>
-
-            <tr>
-                <td>强化芙芙Atk</td>
-                <td>
-                    <input type="text" id="txtFufuAtk" value="0" />
-                </td>
                 <td>强化芙芙Hp</td>
                 <td>
                     <input type="text" id="txtFufuHp" value="0" />
-                </td>
-            </tr>
-
-            <tr>
-                <td>礼装Atk</td>
-                <td>
-                    <input type="text" id="txtCardAtk" value="0" />
                 </td>
                 <td>礼装Hp</td>
                 <td>
@@ -101,6 +95,14 @@
             </tr>
 
             <tr>
+                <td>卡色</td>
+                <td>
+                    <select id="ddlCardColor">
+                        <option value="0.8">Quick</option>
+                        <option value="1.0">Arts</option>
+                        <option value="1.5">Buster</option>
+                    </select>
+                </td>
                 <td>宝具等级</td>
                 <td>
                     <select id="ddlTreasureLevel">
@@ -110,6 +112,10 @@
                         <option value="tl4">4</option>
                         <option value="tl5">5</option>
                     </select>
+                </td>
+                <td>宝具倍率(%)</td>
+                <td>
+                    <input type="text" id="txtTreasureRate" />
                 </td>
                 <td>OC等级</td>
                 <td>
@@ -124,23 +130,8 @@
                         <input type="checkbox" id="ckIsSpecialAttack" value="1" />特攻
                     </label>
                 </td>
-            </tr>
 
-            <tr>
-                <td>宝具倍率(%)</td>
-                <td colspan="4">
-                    <input type="text" id="txtTreasureRate" />
-                </td>
-            </tr>
-            <tr>
-                <td>卡色</td>
-                <td colspan="4">
-                    <select id="ddlCardColor">
-                        <option value="0.8">Quick</option>
-                        <option value="1.0">Arts</option>
-                        <option value="1.5">Buster</option>
-                    </select>
-                </td>
+
             </tr>
             <tr>
                 <td>职介克制</td>
@@ -160,11 +151,8 @@
                         <option value="0.9">被克制</option>
                     </select>
                 </td>
-            </tr>
-
-            <tr>
                 <td>从者职介</td>
-                <td colspan="4">
+                <td>
                     <select id="ddlCareer">
                         <option value="1.00">Saber</option>
                         <option value="0.95">Archer</option>
@@ -178,65 +166,53 @@
                         <option value="1.0">Shielder</option>
                     </select>
                 </td>
+                <td>宝具特攻(%)</td>
+                <td>
+                    <input type="text" id="txtTreasureSpecialAttack" value="100" />
+                </td>
             </tr>
 
 
             <tr>
                 <td>宝具威力Buff(%)</td>
-                <td colspan="4">
+                <td>
                     <input type="text" id="txtTreasurePowerBuff" value="0" />
                 </td>
-            </tr>
-            <tr>
                 <td>卡牌Buff(%)</td>
-                <td colspan="4">
+                <td>
                     <input type="text" id="txtCardBuff" value="0" />
                 </td>
-            </tr>
-            <tr>
                 <td>攻击力Buff(%)</td>
-                <td colspan="4">
+                <td>
                     <input type="text" id="txtAttackBuff" value="0" />
                 </td>
-            </tr>
-            <tr>
                 <td>敌方防御力Buff(%)</td>
-                <td colspan="4">
+                <td>
                     <input type="text" id="txtEnemyDefenceBuff" value="0" />
                 </td>
             </tr>
             <tr>
                 <td>特攻威力Buff(%)</td>
-                <td colspan="4">
+                <td>
                     <input type="text" id="txtSpecialAttackPowerBuff" value="0" />
                 </td>
-            </tr>
-            <tr>
                 <td>敌方特防威力Buff(%)</td>
-                <td colspan="4">
+                <td>
                     <input type="text" id="txtSpecialDefencePowerBuff" value="0" />
                 </td>
-            </tr>
-            <tr>
                 <td>固定伤害Buff</td>
-                <td colspan="4">
+                <td>
                     <input type="text" id="txtFixedDamageBuff" value="0" />
                 </td>
-            </tr>
-            <tr>
                 <td>敌方固定减伤Buff</td>
-                <td colspan="4">
+                <td>
                     <input type="text" id="txtEnemyFixedDamageReductionBuff" value="0" />
                 </td>
             </tr>
             <tr>
-                <td>宝具特攻(%)</td>
-                <td colspan="4">
-                    <input type="text" id="txtTreasureSpecialAttack" value="100" />
-                </td>
             </tr>
             <tr>
-                <td colspan="4">
+                <td colspan="8">
                     <input type="button" value="计算" id="btnCalcute" onclick="calc()" />
                 </td>
             </tr>
