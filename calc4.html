@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css">
+        a {
+            margin: 8px;
+            padding: 5px;
+            text-decoration: none;
+            color: white;
+            border: 1px solid gray;
+        }
+
+        .unselected {
+            background: gray;
+        }
+
+        .selected {
+            background: blue;
+        }
+    </style>
+    <script src="common.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            resizeWindow();
+            var links = $$("a");
+            for (var i = 0; i < links.length; i++) {
+                links[i].onclick = function () {
+                    var url = this.getAttribute("data-url");
+                    //添加删除样式前，先把所有a标签样式设置成unselected。
+                    for (var j = 0; j < links.length; j++) {
+                        links[j].className = "unselected";
+                    }
+                    this.className = "selected";
+
+                    window.frames["iContent"].src = url;
+                    resizeWindow();
+                }
+            }
+
+        }
+
+        function resizeWindow() {
+            var height = window.frames["iContent"].contentWindow.document.getElementById('content').offsetHeight;
+            window.frames["iContent"].style.height = (height + 40) + "px";
+        }
+        window.onresize = resizeWindow;
+    </script>
+</head>
+<body>
+    <a href="javascript:void(0)" class="selected" data-url="calc3.html">宝具伤害计算器</a>
+    <a href="javascript:void(0)" class="unselected" data-url="calccard.html">指令卡伤害计算器</a>
+    <a href="javascript:void(0)" class="unselected" data-url="guid.html">FGO伤害计算公式</a>
+    <div>
+        <iframe id="iContent" src="calc3.html" scrolling="auto" frameborder="0" style="width: 100%;"></iframe>
+    </div>
+</body>
+</html>
+
+
+

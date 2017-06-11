@@ -52,7 +52,7 @@
         <table>
 
             <tr>
-                <td colspan="8">
+                <td colspan="6">
                     <select id="ddlChooseServant">
                         <option value="-1">|----------------------请选择从者-------------------------|</option>
                     </select>
@@ -61,7 +61,7 @@
 
             <tr>
                 <td>攻击力</td>
-                <td colspan="3">
+                <td>
                     <input type="text" id="txtAttack" />
                 </td>
                 <td>强化芙芙Atk</td>
@@ -75,62 +75,33 @@
             </tr>
 
             <tr>
-
-                <td>Hp最大值</td>
-                <td>
-                    <input type="text" id="txtMaxHp" />
+                <td>首卡颜色
                 </td>
-                <td>剩余Hp值</td>
                 <td>
-                    <input type="text" id="txtRemainHp" />
+                    <select id="ddlFirstCardColor">
+                        <option value="0">非红色</option>
+                        <option value="0.5">红色</option>
+                    </select>
                 </td>
-                <td>强化芙芙Hp</td>
-                <td>
-                    <input type="text" id="txtFufuHp" value="0" />
-                </td>
-                <td>礼装Hp</td>
-                <td>
-                    <input type="text" id="txtCardHp" value="0" />
-                </td>
-            </tr>
-
-            <tr>
                 <td>卡色</td>
                 <td>
                     <select id="ddlCardColor">
-                        <option value="0.8">Quick</option>
-                        <option value="1.0">Arts</option>
-                        <option value="1.5">Buster</option>
+                        <option value="0.8" type="">Quick</option>
+                        <option value="1.0" type="">Arts</option>
+                        <option value="1.5" type="">Buster</option>
+                        <option value="1.0" type="ea1">Extra Attack</option>
+                        <option value="1.0" type="ea2">Extra Attack(前3张卡同色)</option>
                     </select>
                 </td>
-                <td>宝具等级</td>
+                <td>卡位</td>
                 <td>
-                    <select id="ddlTreasureLevel">
-                        <option value="tl1">1</option>
-                        <option value="tl2">2</option>
-                        <option value="tl3">3</option>
-                        <option value="tl4">4</option>
-                        <option value="tl5">5</option>
+                    <select id="ddlCardPosition">
+                        <option value="1.0" type="">一位</option>
+                        <option value="1.2" type="">二位</option>
+                        <option value="1.4" type="">三位</option>
+                        <option value="1.0" type="ea">四位(Extra Attack)</option>
                     </select>
                 </td>
-                <td>宝具倍率(%)</td>
-                <td>
-                    <input type="text" id="txtTreasureRate" />
-                </td>
-                <td>OC等级</td>
-                <td>
-                    <select id="ddlOc">
-                        <option value="oc1">1</option>
-                        <option value="oc2">2</option>
-                        <option value="oc3">3</option>
-                        <option value="oc4">4</option>
-                        <option value="oc5">5</option>
-                    </select>
-                    <label for="ckIsSpecialAttack">
-                        <input type="checkbox" id="ckIsSpecialAttack" value="1" />特攻
-                    </label>
-                </td>
-
 
             </tr>
             <tr>
@@ -166,18 +137,10 @@
                         <option value="1.0">Shielder</option>
                     </select>
                 </td>
-                <td>宝具特攻(%)</td>
-                <td>
-                    <input type="text" id="txtTreasureSpecialAttack" value="100" />
-                </td>
             </tr>
 
 
             <tr>
-                <td>宝具威力Buff(%)</td>
-                <td>
-                    <input type="text" id="txtTreasurePowerBuff" value="0" />
-                </td>
                 <td>卡牌Buff(%)</td>
                 <td>
                     <input type="text" id="txtCardBuff" value="0" />
@@ -204,15 +167,26 @@
                 <td>
                     <input type="text" id="txtFixedDamageBuff" value="0" />
                 </td>
+
+            </tr>
+            <tr>
                 <td>敌方固定减伤Buff</td>
                 <td>
                     <input type="text" id="txtEnemyFixedDamageReductionBuff" value="0" />
                 </td>
+                <td>
+                    <label for="ckIsBusterChain">Buster Chain加成<input type="checkbox" id="ckIsBusterChain" /></label></td>
+                <td style="text-align: center">
+                    <label for="ckIsCritical">暴击<input type="checkbox" id="ckIsCritical" /></label>
+
+                </td>
+                <td>暴击威力Buff(%)</td>
+                <td>
+                    <input type="text" id="txtCritialPowerBuff" value="0" /></td>
+
             </tr>
             <tr>
-            </tr>
-            <tr>
-                <td colspan="8">
+                <td colspan="6">
                     <input type="button" value="计算" id="btnCalcute" onclick="calc()" />
                 </td>
             </tr>
@@ -227,19 +201,19 @@
                 <th>排名</th>
                 <th>从者</th>
                 <th>ATK</th>
-                <th>HP</th>
-                <th>剩余HP</th>
-                <th>宝具等级</th>
-                <th>宝具倍率</th>
-                <th>宝具特攻(oc)</th>
-                <th>宝具威力Buff</th>
+                <th>首卡颜色</th>
+                <th>卡色</th>
+                <th>卡位</th>
                 <th>卡牌Buff</th>
                 <th>攻击力Buff</th>
                 <th>特攻威力Buff</th>
                 <th>敌方防御力Buff</th>
-                <th>宝具伤害最小值</th>
-                <th>宝具伤害最大值</th>
-                <th>宝具伤害平均值</th>
+                <th>Buster Chain</th>
+                <th>暴击</th>
+                <th>暴击威力Buff</th>
+                <th>最小值 </th>
+                <th>最大值</th>
+                <th>平均值</th>
                 <th>&nbsp;</th>
             </tr>
         </table>
@@ -254,60 +228,60 @@
         intialServantList();
         //下拉从者选中项发生变化事件
         $("ddlChooseServant").onchange = function () {
-            $("ckIsSpecialAttack").checked = false;
-            changeOc();
             var id = this.value;
             if (id != "-1") {
                 bindServantData(id);
             }
         }
-        //宝具等级选中项发生变化事件
-        $("ddlTreasureLevel").onchange = function () {
-            changeTreasureRate();
-        };
-
-        //OC等级选中项发生变化事件
-        $("ddlOc").onchange = function () {
-            changeOc();
-        };
-        //Hp值变动事件：动态计算双子宝具倍率
-        $("txtRemainHp").onchange = function () {
-            changeOc();
-        }
-        $("txtFufuHp").onchange = function () {
-            changeOc();
-        }
-        $("txtCardHp").onchange = function () {
-            changeOc();
-        }
-
-        //是否特攻
-        $("ckIsSpecialAttack").onclick = function () {
-            changeOc();
+        //卡色选中项发生变化事件
+        $("ddlCardColor").onchange = function () {
+            if (getDdlAttrText("ddlCardColor", "type") == "ea1" || getDdlAttrText("ddlCardColor", "type") == "ea2") {
+                $("ddlCardPosition").disabled = true;
+                var cardPostions = $("ddlCardPosition").options
+                for (var i = 0; i < cardPostions.length; i++) {
+                    if (cardPostions[i].getAttribute("type") == "ea") {
+                        cardPostions[i].selected = true;
+                    }
+                }
+            }
+            else if (getDdlText("ddlCardColor") == "Buster" && getDdlText("ddlCardPosition") == "一位") {
+                $("ddlFirstCardColor").selectedIndex = 1;
+            }
+            else {
+                $("ddlCardPosition").disabled = false;
+                if (getDdlAttrText("ddlCardPosition", "type") == "ea") {
+                    $("ddlCardPosition").selectedIndex = 0;
+                }
+            }
         }
 
+        //卡位选中项发生变化事件
+        $("ddlCardPosition").onchange = function () {
+            if (getDdlAttrText("ddlCardPosition", "type") == "ea") {
+                if (getDdlAttrText("ddlCardColor", "type") != "ea1" && getDdlAttrText("ddlCardColor", "type") != "ea2") {
+                    alert("请在卡色处选择Extra Attack");
+                    $("ddlCardPosition").selectedIndex = 0;
+                }
+            }
+        }
+
+        //暴击
+        $("txtCritialPowerBuff").disabled = $("ckIsCritical").checked ? false : true;
+        $("ckIsCritical").onchange = function () {
+            if ($("ckIsCritical").checked) {
+                $("txtCritialPowerBuff").disabled = false;
+            }
+            else {
+                $("txtCritialPowerBuff").disabled = true;
+                $("txtCritialPowerBuff").value = 0;
+            }
+        }
     }
     //绑定从者基本信息
     function bindServantData(id) {
         var servant = servants[id];
         //1.攻击力
         $("txtAttack").value = servant.atk;
-
-        //2.Hp最大值、剩余Hp值
-        $("txtMaxHp").value = servant.hp;
-        $("txtRemainHp").value = servant.hp;
-
-        //3.宝具倍率
-        changeTreasureRate(servant);
-
-        //4.卡色
-        var cardColors = $("ddlCardColor").options;
-        for (var i = 0; i < cardColors.length; i++) {
-            var cardColor = cardColors[i];
-            if (cardColor.value == servant.cardColor) {
-                cardColor.selected = true;
-            }
-        }
 
         //5.从者职介
         var careers = $("ddlCareer").options;
@@ -317,120 +291,22 @@
                 career.selected = true;
             }
         }
-
-
-        //6.OC等级
-        changeOc();
-
     }
 
-    //计算双子宝具总倍率
-    function calTreasureSpecialRemainHpAttackRate() {
-        var ocLevel = $("ddlOc").value;
-        var id = $("ddlChooseServant").value;
-        servant = servants[id];
-        var ocs = servant.oc;
-
-        var tl = $("ddlTreasureLevel").value;
-        //原宝具倍率
-        var treasureRate = servant.tl[tl];
-
-        //附加倍率《超蓄力威力提升》 (此倍率×自身已损失HP所占百分比,与宝具倍率加算)
-        //【※总倍率＝攻击倍率+HP特攻倍率*(1—现在HP/最大HP)】
-        var maxHp = getFloat("txtMaxHp");
-        var fufuHp = getFloat("txtFufuHp");
-        var cardHp = getFloat("txtCardHp");
-        var totalHp = maxHp + fufuHp + cardHp;
-
-        var remainHp = getFloat("txtRemainHp");
-        //附加倍率
-        var additionalRate = ocs[ocLevel] * (1 - remainHp / totalHp);
-
-        //总宝具倍率
-        treasureRate += additionalRate;
-        //向下取整总宝具倍率
-        $("txtTreasureRate").value = Math.floor(treasureRate);
-
-    }
-    //计算自爆弓宝具总倍率
-    function calTreasureSpecialExplosionAttackRate() {
-        var ocLevel = $("ddlOc").value;
-        var id = $("ddlChooseServant").value;
-        servant = servants[id];
-        var ocs = servant.oc;
-
-        var tl = $("ddlTreasureLevel").value;
-        //原宝具倍率
-        var treasureRate = servant.tl[tl];
-
-        //总宝具倍率
-        treasureRate += ocs[ocLevel];
-        //向下取整总宝具倍率
-        $("txtTreasureRate").value = Math.floor(treasureRate);
-    }
-
-    //OC等级选中项发生变化事件
-    function changeOc(servant) {
-        if (!servant) {
-            var id = $("ddlChooseServant").value;
-            servant = servants[id];
-        }
-
-        var ocLevel = $("ddlOc").value;
-        var isSpecialAttack = $("ckIsSpecialAttack");
-        var ocs = servant.oc;
-        if (isSpecialAttack.checked) {//是特攻
-            if (ocs["type"] == "TreasureSpecialAttack") {//宝具特攻
-                $("txtTreasureSpecialAttack").value = ocs[ocLevel];
-            }
-            else if (ocs["type"] == "TreasureSpecialRemainHpAttack") {//双子宝具特攻
-                calTreasureSpecialRemainHpAttackRate();
-            }
-            else if (ocs["type"] == "TreasureSpecialExplosionAttack") {//自爆弓特攻
-                calTreasureSpecialExplosionAttackRate();
-            }
-            else if (ocs["type"] == "SpecialAttackPowerBuff") {//杰克女性特攻
-                $("txtSpecialAttackPowerBuff").value = ocs[ocLevel];
-            }
-            else if (ocs["type"] == "TreasureSpecialCardPowerAttack") {//R金时OC绿魔放
-                $("txtCardBuff").value = ocs[ocLevel];
-            }
-            else if (ocs["type"] == "TreasureSpecialAtkPowerAttack") {//B兰OC加攻
-                $("txtAttackBuff").value = ocs[ocLevel];
-            }
-        }
-        else {
-            $("txtTreasureSpecialAttack").value = 100;
-            $("txtSpecialAttackPowerBuff").value = 0;
-            $("txtCardBuff").value = 0;
-            $("txtAttackBuff").value = 0;
-
-        }
-    }
-
-
-    //宝具等级选中项发生变化事件
-    function changeTreasureRate(servant) {
-        if (!servant) {
-            var id = $("ddlChooseServant").value;
-            servant = servants[id];
-        }
-
-        var tl = $("ddlTreasureLevel").value;
-        var treasureRate = servant.tl[tl];
-
-        $("txtTreasureRate").value = treasureRate;
-        if (servant.oc.type == "TreasureSpecialRemainHpAttack" && $("ckIsSpecialAttack").checked) {//双子宝具特攻并且勾选了特攻
-            calTreasureSpecialRemainHpAttackRate();
-        }
-        else if (servant.oc.type == "TreasureSpecialExplosionAttack" && $("ckIsSpecialAttack").checked) {//自爆弓特攻
-            calTreasureSpecialExplosionAttackRate();
-        }
-    }
     function intialServantList() {
         for (var key in servants) {
             var item = servants[key];
             $("ddlChooseServant").options.add(new Option("【" + item.career + "】" + item.name, item.id));
+        }
+    }
+
+
+    //使父窗口iContent自适应内容高度
+    function resizeParentWindow() {
+        var height = $("content").offsetHeight;//获取body的高度
+        var iContent = window.parent.frames["iContent"];
+        if (iContent) {
+            iContent.style.height = (height + 40) + "px";
         }
     }
 
@@ -455,23 +331,23 @@
 
         attack += fufuAtk + cardAtk;
 
-        //4.宝具倍率(%)
-        var treasureRate = getFloat("txtTreasureRate") / 100;
+        //4.首卡颜色
+        var firstCardColor = getFloat("ddlFirstCardColor");
 
         //5.卡色
         var cardColor = getFloat("ddlCardColor");
 
-        //6.职介克制
+        //6.卡位
+        var cardPostion = getFloat("ddlCardPosition");
+
+        //7.职介克制
         var careerResist = getFloat("ddlCareerResist");
 
-        //7.阵营克制
+        //8.阵营克制
         var campResist = getFloat("ddlCampResist");
 
-        //8.从者职介 
+        //9.从者职介 
         var career = getFloat("ddlCareer");
-
-        //9.宝具威力Buff(%)
-        var treasurePowerBuff = getFloat("txtTreasurePowerBuff") / 100;
 
         //10.卡牌Buff(%)
         var cardBuff = getFloat("txtCardBuff") / 100;
@@ -494,47 +370,60 @@
         //16.敌方固定减伤Buff
         var enemyFixedDamageReductionBuff = getFloat("txtEnemyFixedDamageReductionBuff");
 
-        //17.宝具特攻(%)     
-        var treasureSpecialAttack = getFloat("txtTreasureSpecialAttack") / 100;
+        //17.暴击威力BUFF
+        var critialPowerBuff = getFloat("txtCritialPowerBuff") / 100;
+
+        //18.EX攻击奖励
+        var exAttackReward = 1;
+        if ($("ddlCardColor").getAttribute("type") == "ea1") {//不同色
+            exAttackReward = 2.0;
+        }
+        else if ($("ddlCardColor").getAttribute("type") == "ea2") {//同色
+            exAttackReward = 3.5;
+        }
+
+        //19.Buster Chain加成
+        var busterChain = 0;
+        if ($("ckIsBusterChain").checked) {
+            busterChain = 0.2;
+        }
+
+        //20.暴击补正：暴击时计算此项。为定值[2.0]。
+        var critialCorrection = 1.0;
+        if ($("ckIsCritical").checked) {
+            critialCorrection = 2.0;
+        }
         /*
-            ATK×攻击补正(0.23)×[宝具倍率×卡牌伤害倍率×(1+卡牌BUFF)]×职阶补正×职阶相性补正×阵营相性补正×乱数补正×(1+攻击力BUFF—敌方防御力BUFF)×(1+特攻威力BUFF—敌方特防威力BUFF+宝具威力BUFF)×宝具特攻
-            +(固定伤害BUFF—敌方固定伤害BUFF)
+           ATK×攻击补正(0.23)×[卡牌伤害倍率×位置加成×(1+卡牌BUFF)+首位加成]×职阶补正×职阶相性补正×阵营相性补正×乱数补正×(1+攻击力BUFF—敌方防御力BUFF)×(1+特攻威力BUFF—敌方特防威力BUFF+暴击威力BUFF)×暴击补正×EX攻击奖励
+ +(固定伤害BUFF—敌方固定伤害BUFF)
+ + ATK×Buster Chain加成
         */
-        var resultMin = attack * 0.23 * [treasureRate * cardColor * (1 + cardBuff)] * career * careerResist * campResist * 0.9 * (1 + attackBuff - enemyDefenceBuff) * (1 + specialAttackPowerBuff - specialDefencePowerBuff + treasurePowerBuff) * treasureSpecialAttack + (fixedDamageBuff - enemyFixedDamageReductionBuff);
+        var resultMin = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 0.9 * (1 + attackBuff - enemyDefenceBuff) * (1 + specialAttackPowerBuff - specialDefencePowerBuff + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
         resultMin = Math.floor(resultMin);
 
-        var resultMax = attack * 0.23 * [treasureRate * cardColor * (1 + cardBuff)] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff) * (1 + specialAttackPowerBuff - specialDefencePowerBuff + treasurePowerBuff) * treasureSpecialAttack + (fixedDamageBuff - enemyFixedDamageReductionBuff);
+        var resultMax = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff) * (1 + specialAttackPowerBuff - specialDefencePowerBuff + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
         resultMax = Math.round(resultMax);
+
+        //alert("指令卡伤害：" + resultMin + "~" + resultMax);
 
         var resultAvg = Math.round((resultMin + resultMax) * 1.0 / 2);
 
         var servantName = getDdlText("ddlChooseServant");
 
-        var maxHp = getFloat("txtMaxHp");
-        var fufuHp = getFloat("txtFufuHp");
-        var cardHp = getFloat("txtCardHp");
-        var totalHp = maxHp + fufuHp + cardHp;
-
-        var remainHp = getFloat("txtRemainHp");
-
-        var tl = getDdlText("ddlTreasureLevel");
-        var oc = getDdlText("ddlOc");
         var model = {
             guid: guid,
             servantName: servantName,
             atk: attack,
-            hp: totalHp,
-            remainHp: remainHp,
-            cardColor: cardColor,
-            tl: tl,
-            treasureRate: getFloat("txtTreasureRate"),
-            treasureSpecialAttack: getFloat("txtTreasureSpecialAttack"),
-            oc: oc,
-            treasurePowerBuff: getFloat("txtTreasurePowerBuff"),
+            firstCard: getDdlText("ddlFirstCardColor"),
+            cardColor: getDdlText("ddlCardColor"),
+            cardPosition: getDdlText("ddlCardPosition"),
             cardBuff: getFloat("txtCardBuff"),
             attackBuff: getFloat("txtAttackBuff"),
             specialAttackPowerBuff: getFloat("txtSpecialAttackPowerBuff"),
             enemyDefenceBuff: getFloat("txtEnemyDefenceBuff"),
+            isBusterChain: $("ckIsBusterChain").checked ? "是" : "否",
+            isCritial: $("ckIsCritical").checked ? "是" : "否",
+            critialPowerBuff:getFloat("txtCritialPowerBuff"),
             min: resultMin,
             max: resultMax,
             avg: resultAvg
@@ -585,6 +474,7 @@
     //新增Tr
     function createTr(obj) {
         rankIndex++;
+
         var tb = document.getElementById("tbResult");
         var newRow = tb.insertRow(-1);
         //1.排名
@@ -593,47 +483,37 @@
         newRow.insertCell(-1).innerHTML = obj.servantName;
         //3.ATK          
         newRow.insertCell(-1).innerHTML = obj.atk;
-        //4.HP           
-        newRow.insertCell(-1).innerHTML = obj.hp;
-        //5.剩余HP        
-        newRow.insertCell(-1).innerHTML = obj.remainHp;
+        //4.首卡颜色
+        newRow.insertCell(-1).innerHTML = obj.firstCard;
+        //5.卡色
+        newRow.insertCell(-1).innerHTML = obj.cardColor;
+        //6.卡位
+        newRow.insertCell(-1).innerHTML = obj.cardPosition;
 
-        //6.宝具等级      
-        newRow.insertCell(-1).innerHTML = obj.tl;
-        //7.宝具倍率      
-        newRow.insertCell(-1).innerHTML = "<span style='color:" + getColor(obj.cardColor) + ";font-weight:bold;'>" + obj.treasureRate + "</span>"
-        //8.宝具特攻(oc)  
-        newRow.insertCell(-1).innerHTML = obj.treasureSpecialAttack + "(" + obj.oc + ")";
-        //11.宝具威力Buff 
-        newRow.insertCell(-1).innerHTML = obj.treasurePowerBuff;
-        //12.卡牌Buff     
+        //7.卡牌Buff     
         newRow.insertCell(-1).innerHTML = obj.cardBuff;
-        //13.攻击力Buff   
+        //8.攻击力Buff   
         newRow.insertCell(-1).innerHTML = obj.attackBuff;
-        //14.特攻威力Buff 
+        //9.特攻威力Buff 
         newRow.insertCell(-1).innerHTML = obj.specialAttackPowerBuff;
-        //15.特攻威力Buff     
-        newRow.insertCell(-1).innerHTML = obj.enemyDefenceBuff;
-        //16.宝具伤害最小值          
-        newRow.insertCell(-1).innerHTML = obj.min;
-        //17.宝具伤害最大值          
-        newRow.insertCell(-1).innerHTML = obj.max;
-        //18.宝具伤害平均值         
-        newRow.insertCell(-1).innerHTML = obj.avg;
-        //19.删除操作     
-        newRow.insertCell(-1).innerHTML = "<a href='javascript:void(0)' onclick='delTr(this," + obj.guid + ")'>删</a>"
-    }
-    //获取宝具颜色
-    function getColor(num) {
-        switch (num) {
-            case 1.5:
-                return "red";
-            case 1:
-                return "blue";
-            case 0.8:
-                return "green";
 
-        }
+        //10.敌人防御力Buff    
+        newRow.insertCell(-1).innerHTML = obj.enemyDefenceBuff;
+        //11.Buster Chain
+        newRow.insertCell(-1).innerHTML = obj.isBusterChain;
+        //12.暴击
+        newRow.insertCell(-1).innerHTML = obj.isCritial;
+        //13.暴击威力Buff
+        newRow.insertCell(-1).innerHTML = obj.critialPowerBuff;
+
+        //14.指令卡伤害最小值          
+        newRow.insertCell(-1).innerHTML = obj.min;
+        //15.指令卡伤害最大值          
+        newRow.insertCell(-1).innerHTML = obj.max;
+        //16.指令卡伤害平均值         
+        newRow.insertCell(-1).innerHTML = obj.avg;
+        //17.删除操作     
+        newRow.insertCell(-1).innerHTML = "<a href='javascript:void(0)' onclick='delTr(this," + obj.guid + ")'>删</a>"
     }
     function showResult() {
         $("divResult").style.display = "block";
