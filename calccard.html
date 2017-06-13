@@ -58,7 +58,10 @@
                     </select>
                 </td>
             </tr>
-
+            <tr>
+                <td>阵营</td>
+                <td colspan="5" style="text-align:center;font-weight:bold;"><span id="spanCamp"></span></td>
+            </tr>
             <tr>
                 <td>攻击力</td>
                 <td>
@@ -280,6 +283,9 @@
     //绑定从者基本信息
     function bindServantData(id) {
         var servant = servants[id];
+        //0.阵营
+        $("spanCamp").innerHTML = servant.camp;
+
         //1.攻击力
         $("txtAttack").value = servant.atk;
 
@@ -423,7 +429,7 @@
             enemyDefenceBuff: getFloat("txtEnemyDefenceBuff"),
             isBusterChain: $("ckIsBusterChain").checked ? "是" : "否",
             isCritial: $("ckIsCritical").checked ? "是" : "否",
-            critialPowerBuff:getFloat("txtCritialPowerBuff"),
+            critialPowerBuff: getFloat("txtCritialPowerBuff"),
             min: resultMin,
             max: resultMax,
             avg: resultAvg

@@ -60,8 +60,10 @@
             </tr>
 
             <tr>
+                <td>阵营</td>
+                <td><span id="spanCamp"></span></td>
                 <td>攻击力</td>
-                <td colspan="3">
+                <td>
                     <input type="text" id="txtAttack" />
                 </td>
                 <td>强化芙芙Atk</td>
@@ -290,6 +292,9 @@
     //绑定从者基本信息
     function bindServantData(id) {
         var servant = servants[id];
+        //0.阵营
+        $("spanCamp").innerHTML = servant.camp;
+
         //1.攻击力
         $("txtAttack").value = servant.atk;
 
@@ -397,6 +402,9 @@
             }
             else if (ocs["type"] == "TreasureSpecialAtkPowerAttack") {//B兰OC加攻
                 $("txtAttackBuff").value = ocs[ocLevel];
+            }
+            else if (ocs["type"] == "TreasurePowerBuff") {//宫本半藏OC宝具威力提升
+                $("txtTreasurePowerBuff").value = ocs[ocLevel];
             }
         }
         else {
