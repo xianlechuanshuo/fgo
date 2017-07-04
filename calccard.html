@@ -400,14 +400,14 @@
             critialCorrection = 2.0;
         }
         /*
-           ATK×攻击补正(0.23)×[卡牌伤害倍率×位置加成×(1+卡牌BUFF)+首位加成]×职阶补正×职阶相性补正×阵营相性补正×乱数补正×(1+攻击力BUFF—敌方防御力BUFF)×(1+特攻威力BUFF—敌方特防威力BUFF+暴击威力BUFF)×暴击补正×EX攻击奖励
+           ATK×攻击补正(0.23)×[卡牌伤害倍率×位置加成×(1+卡牌BUFF)+首位加成]×职阶补正×职阶相性补正×阵营相性补正×乱数补正×(1+攻击力BUFF—敌方防御力BUFF—敌方特防威力BUFF)×(1+特攻威力BUFF+暴击威力BUFF)×暴击补正×EX攻击奖励
  +(固定伤害BUFF—敌方固定伤害BUFF)
  + ATK×Buster Chain加成
         */
-        var resultMin = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 0.9 * (1 + attackBuff - enemyDefenceBuff) * (1 + specialAttackPowerBuff - specialDefencePowerBuff + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
+        var resultMin = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 0.9 * (1 + attackBuff - enemyDefenceBuff- specialDefencePowerBuff) * (1 + specialAttackPowerBuff  + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
         resultMin = Math.floor(resultMin);
 
-        var resultMax = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff) * (1 + specialAttackPowerBuff - specialDefencePowerBuff + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
+        var resultMax = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff- specialDefencePowerBuff) * (1 + specialAttackPowerBuff  + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
         resultMax = Math.round(resultMax);
 
         //alert("指令卡伤害：" + resultMin + "~" + resultMax);

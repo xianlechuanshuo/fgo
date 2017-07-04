@@ -507,13 +507,13 @@
         //17.宝具特攻(%)     
         var treasureSpecialAttack = getFloat("txtTreasureSpecialAttack") / 100;
         /*
-            ATK×攻击补正(0.23)×[宝具倍率×卡牌伤害倍率×(1+卡牌BUFF)]×职阶补正×职阶相性补正×阵营相性补正×乱数补正×(1+攻击力BUFF—敌方防御力BUFF)×(1+特攻威力BUFF—敌方特防威力BUFF+宝具威力BUFF)×宝具特攻
+            ATK×攻击补正(0.23)×[宝具倍率×卡牌伤害倍率×(1+卡牌BUFF)]×职阶补正×职阶相性补正×阵营相性补正×乱数补正×(1+攻击力BUFF—敌方防御力BUFF—敌方特防威力BUFF)×(1+特攻威力BUFF+宝具威力BUFF)×宝具特攻
             +(固定伤害BUFF—敌方固定伤害BUFF)
         */
-        var resultMin = attack * 0.23 * [treasureRate * cardColor * (1 + cardBuff)] * career * careerResist * campResist * 0.9 * (1 + attackBuff - enemyDefenceBuff) * (1 + specialAttackPowerBuff - specialDefencePowerBuff + treasurePowerBuff) * treasureSpecialAttack + (fixedDamageBuff - enemyFixedDamageReductionBuff);
+        var resultMin = attack * 0.23 * [treasureRate * cardColor * (1 + cardBuff)] * career * careerResist * campResist * 0.9 * (1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff) * (1 + specialAttackPowerBuff + treasurePowerBuff) * treasureSpecialAttack + (fixedDamageBuff - enemyFixedDamageReductionBuff);
         resultMin = Math.floor(resultMin);
 
-        var resultMax = attack * 0.23 * [treasureRate * cardColor * (1 + cardBuff)] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff) * (1 + specialAttackPowerBuff - specialDefencePowerBuff + treasurePowerBuff) * treasureSpecialAttack + (fixedDamageBuff - enemyFixedDamageReductionBuff);
+        var resultMax = attack * 0.23 * [treasureRate * cardColor * (1 + cardBuff)] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff) * (1 + specialAttackPowerBuff + treasurePowerBuff) * treasureSpecialAttack + (fixedDamageBuff - enemyFixedDamageReductionBuff);
         resultMax = Math.round(resultMax);
 
         var resultAvg = Math.round((resultMin + resultMax) * 1.0 / 2);
