@@ -143,6 +143,7 @@
                         <option value="2.0">普通克制</option>
                         <option value="1.5">狂阶克制</option>
                         <option value="0.5">被克制</option>
+                        <option value="1.2">克制Beast III</option>
                     </select>
                 </td>
                 <td>阵营克制</td>
@@ -166,6 +167,9 @@
                         <option value="1.1">Ruler</option>
                         <option value="1.1">Avenger</option>
                         <option value="1.0">Shielder</option>
+                        <option value="1.0">MoonCancer</option>
+                        <option value="1.0">Altergo</option>
+
                     </select>
                 </td>
                 <td>宝具特攻(%)</td>
@@ -439,6 +443,9 @@
     }
     function intialServantList() {
         for (var key in servants) {
+            if (isNaN(key)) {
+                return;
+            }
             var item = servants[key];
             $("ddlChooseServant").options.add(new Option("【" + item.career + "】" + item.name, item.id));
         }

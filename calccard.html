@@ -60,7 +60,7 @@
             </tr>
             <tr>
                 <td>阵营</td>
-                <td colspan="5" style="text-align:center;font-weight:bold;"><span id="spanCamp"></span></td>
+                <td colspan="5" style="text-align: center; font-weight: bold;"><span id="spanCamp"></span></td>
             </tr>
             <tr>
                 <td>攻击力</td>
@@ -115,6 +115,7 @@
                         <option value="2.0">普通克制</option>
                         <option value="1.5">狂阶克制</option>
                         <option value="0.5">被克制</option>
+                        <option value="1.2">克制Beast III</option>
                     </select>
                 </td>
                 <td>阵营克制</td>
@@ -138,6 +139,8 @@
                         <option value="1.1">Ruler</option>
                         <option value="1.1">Avenger</option>
                         <option value="1.0">Shielder</option>
+                        <option value="1.0">MoonCancer</option>
+                        <option value="1.0">Altergo</option>
                     </select>
                 </td>
             </tr>
@@ -301,6 +304,9 @@
 
     function intialServantList() {
         for (var key in servants) {
+            if (isNaN(key)) {
+                return;
+            }
             var item = servants[key];
             $("ddlChooseServant").options.add(new Option("【" + item.career + "】" + item.name, item.id));
         }
@@ -404,10 +410,10 @@
  +(固定伤害BUFF—敌方固定伤害BUFF)
  + ATK×Buster Chain加成
         */
-        var resultMin = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 0.9 * (1 + attackBuff - enemyDefenceBuff- specialDefencePowerBuff) * (1 + specialAttackPowerBuff  + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
+        var resultMin = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 0.9 * (1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff) * (1 + specialAttackPowerBuff + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
         resultMin = Math.floor(resultMin);
 
-        var resultMax = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff- specialDefencePowerBuff) * (1 + specialAttackPowerBuff  + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
+        var resultMax = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff) * (1 + specialAttackPowerBuff + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
         resultMax = Math.round(resultMax);
 
         //alert("指令卡伤害：" + resultMin + "~" + resultMax);
