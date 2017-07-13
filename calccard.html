@@ -326,7 +326,7 @@
     var resultArr = new Array();
     var rankIndex = 0;
     var guid = 0;
-    //计算宝具伤害
+    //计算指令卡伤害
     function calc() {
         if ($("ddlChooseServant").value == "-1") {
             alert("请选择从者")
@@ -388,10 +388,11 @@
 
         //18.EX攻击奖励
         var exAttackReward = 1;
-        if ($("ddlCardColor").getAttribute("type") == "ea1") {//不同色
+        
+        if (getDdlAttrText("ddlCardColor", "type") == "ea1") {//不同色
             exAttackReward = 2.0;
         }
-        else if ($("ddlCardColor").getAttribute("type") == "ea2") {//同色
+        else if (getDdlAttrText("ddlCardColor", "type") == "ea2") {//同色
             exAttackReward = 3.5;
         }
 
