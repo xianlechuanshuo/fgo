@@ -242,7 +242,12 @@
         }
         //卡色选中项发生变化事件
         $("ddlCardColor").onchange = function () {
+            var cardEnabled = false;
             if (getDdlAttrText("ddlCardColor", "type") == "ea1" || getDdlAttrText("ddlCardColor", "type") == "ea2") {
+                //ex卡不吃卡牌buff
+                cardEnabled = true;
+                $("txtCardBuff").value = 0;
+
                 $("ddlCardPosition").disabled = true;
                 var cardPostions = $("ddlCardPosition").options
                 for (var i = 0; i < cardPostions.length; i++) {
@@ -250,6 +255,7 @@
                         cardPostions[i].selected = true;
                     }
                 }
+
             }
             else if (getDdlText("ddlCardColor") == "Buster" && getDdlText("ddlCardPosition") == "一位") {
                 $("ddlFirstCardColor").selectedIndex = 1;
@@ -260,16 +266,25 @@
                     $("ddlCardPosition").selectedIndex = 0;
                 }
             }
+            $("txtCardBuff").disabled = cardEnabled;
         }
 
         //卡位选中项发生变化事件
         $("ddlCardPosition").onchange = function () {
+            var cardEnabled2 = false;
             if (getDdlAttrText("ddlCardPosition", "type") == "ea") {
+                //ex卡不吃卡牌buff
+                cardEnabled2 = true;
+                $("txtCardBuff").value = 0;
+
                 if (getDdlAttrText("ddlCardColor", "type") != "ea1" && getDdlAttrText("ddlCardColor", "type") != "ea2") {
                     alert("请在卡色处选择Extra Attack");
                     $("ddlCardPosition").selectedIndex = 0;
+                    cardEnabled2 = false;
                 }
+
             }
+            $("txtCardBuff").disabled = cardEnabled2;
         }
 
         //暴击
@@ -388,7 +403,7 @@
 
         //18.EX攻击奖励
         var exAttackReward = 1;
-        
+
         if (getDdlAttrText("ddlCardColor", "type") == "ea1") {//不同色
             exAttackReward = 2.0;
         }
