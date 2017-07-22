@@ -33,18 +33,15 @@
                         links[j].className = "unselected";
                     }
                     this.className = "selected";
-
-                    window.frames["iContent"].src = url;
+                    
+                    //window.frames["iContent"].src = url;
+                    $("iContent").src = url;
                     resizeWindow();
                 }
             }
 
         }
 
-        function resizeWindow() {
-            var height = window.frames["iContent"].contentWindow.document.getElementById('content').offsetHeight;
-            window.frames["iContent"].style.height = (height + 40) + "px";
-        }
         window.onresize = resizeWindow;
     </script>
 </head>
@@ -54,7 +51,7 @@
     <a href="javascript:void(0)" class="unselected" data-url="guid.html">FGO伤害计算公式</a>
     <a href="javascript:void(0)" class="unselected" data-url="updatelog.html">更新日志</a>
     <div>
-        <iframe id="iContent" src="calc3.html" scrolling="auto" frameborder="0" style="width: 100%;"></iframe>
+        <iframe id="iContent" name="iContentN" src="calc3.html" scrolling="auto" frameborder="0" style="width: 100%;"></iframe>
     </div>
 </body>
 </html>
