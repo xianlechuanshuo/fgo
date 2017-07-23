@@ -194,7 +194,7 @@
                 </td>
                 <td>暴击威力Buff(%)</td>
                 <td>
-                    <input type="text" id="txtCritialPowerBuff" value="0" /></td>
+                    <input type="text" id="txtCritialPowerBuff" value="0" data-value="0" /></td>
 
             </tr>
             <tr>
@@ -240,11 +240,33 @@
         intialServantList();
         //下拉从者选中项发生变化事件
         $("ddlChooseServant").onchange = function () {
+            $("txtCardBuff").setAttribute("data-value", "0");
+            $("txtCardBuff").value = 0;
+
+            $("txtCritialPowerBuff").setAttribute("data-value", "0");
+            $("ckIsCritical").checked = false;
+            $("txtCritialPowerBuff").disabled = true;
+
+
             var id = this.value;
             if (id != "-1") {
                 bindServantData(id);
             }
         }
+
+        //首卡颜色选中项发生变化事件
+        $("ddlFirstCardColor").onchange = function () {
+            if (getDdlText("ddlCardPosition") == "一位" && getDdlText("ddlFirstCardColor")=="红色") {
+                var cardColors = $("ddlCardColor").options;
+                for (var i = 0; i < cardColors.length; i++) {
+                    var cardColor = cardColors[i];
+                    if (cardColor.text == "Buster") {
+                        cardColor.selected = true;
+                    }
+                }
+            }
+        }
+
         //卡色选中项发生变化事件
         $("ddlCardColor").onchange = function () {
             var cardEnabled = false;
@@ -264,12 +286,16 @@
             }
             else if (getDdlText("ddlCardColor") == "Buster" && getDdlText("ddlCardPosition") == "一位") {
                 $("ddlFirstCardColor").selectedIndex = 1;
+                var index = parseInt($("ddlChooseServant").value);
+                bindServantCareerSkillInfo(servants[index]);
             }
             else {
                 $("ddlCardPosition").disabled = false;
                 if (getDdlAttrText("ddlCardPosition", "type") == "ea") {
                     $("ddlCardPosition").selectedIndex = 0;
                 }
+                var index = parseInt($("ddlChooseServant").value);
+                bindServantCareerSkillInfo(servants[index]);
             }
             $("txtCardBuff").disabled = cardEnabled;
         }
@@ -286,6 +312,8 @@
                     alert("请在卡色处选择Extra Attack");
                     $("ddlCardPosition").selectedIndex = 0;
                     cardEnabled2 = false;
+                    var index = parseInt($("ddlChooseServant").value);
+                    bindServantCareerSkillInfo(servants[index]);
                 }
 
             }
@@ -295,10 +323,11 @@
         //暴击
         $("txtCritialPowerBuff").disabled = $("ckIsCritical").checked ? false : true;
         $("ckIsCritical").onchange = function () {
-            if ($("ckIsCritical").checked) {
+            if ($("ckIsCritical").checked) {//暴击
                 $("txtCritialPowerBuff").disabled = false;
+                $("txtCritialPowerBuff").value = getTxtAttrFloatNum("txtCritialPowerBuff", "data-value");
             }
-            else {
+            else {//不暴击
                 $("txtCritialPowerBuff").disabled = true;
                 $("txtCritialPowerBuff").value = 0;
             }
@@ -313,7 +342,7 @@
         //1.攻击力
         $("txtAttack").value = servant.atk;
 
-        //5.从者职介
+        //2.从者职介
         var careers = $("ddlCareer").options;
         for (var i = 0; i < careers.length; i++) {
             var career = careers[i];
@@ -321,6 +350,76 @@
                 career.selected = true;
             }
         }
+
+        //3.职介技能
+        bindServantCareerSkillInfo(servant);
+
+    }
+
+    //绑定从者职介信息
+    function bindServantCareerSkillInfo(servant) {
+        //{ cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 }
+        var careerSkill = servant.careerSkill;
+
+        if (careerSkill) {
+            var cardColorValue = getFloat("ddlCardColor");
+            var cardBuffs = careerSkill.cardBuff;
+            if (isNaN(cardBuffs)) {//"12|11"
+                cardBuffs = careerSkill.cardBuff.split('|');
+            }
+
+            var cardColor = careerSkill.cardColor;
+            /************************************卡牌Buff******************************************************/
+            //0.8(Quick)，1(Arts)，1.5(Buster)，0(All)，-1(None)，-2(Quick和Arts)，-3(Buster和Quick)
+            if ((cardColor == 0.8 || cardColor == 1 || cardColor == 1.5) && cardColor == cardColorValue) {
+                $("txtCardBuff").setAttribute("data-value", careerSkill.cardBuff);
+                $("txtCardBuff").value = careerSkill.cardBuff;
+            }
+            else if (cardColor == 0) {//215
+                $("txtCardBuff").setAttribute("data-value", careerSkill.cardBuff);
+                $("txtCardBuff").value = careerSkill.cardBuff;
+            }
+                //Quick和Arts
+            else if (cardColor == -2 && cardColorValue == 0.8 && cardBuffs && cardBuffs.length == 2) {
+                var quickBuff = cardBuffs[0];
+                $("txtCardBuff").setAttribute("data-value", quickBuff);
+                $("txtCardBuff").value = quickBuff;
+            }
+            else if (cardColor == -2 && cardColorValue == 1 && cardBuffs && cardBuffs.length == 2) {
+                var artsBuff = cardBuffs[1];
+                $("txtCardBuff").setAttribute("data-value", artsBuff);
+                $("txtCardBuff").value = artsBuff;
+            }
+                //Buster和Quick
+            else if (cardColor == -3 && cardColorValue == 1.5 && cardBuffs && cardBuffs.length == 2) {
+                var busterBuff = cardBuffs[0];
+                $("txtCardBuff").setAttribute("data-value", busterBuff);
+                $("txtCardBuff").value = busterBuff;
+            }
+            else if (cardColor == -3 && cardColorValue == 0.8 && cardBuffs && cardBuffs.length == 2) {
+                var quickBuff = cardBuffs[1];
+                $("txtCardBuff").setAttribute("data-value", quickBuff);
+                $("txtCardBuff").value = quickBuff;
+            }
+            else {
+                $("txtCardBuff").setAttribute("data-value", 0);
+                $("txtCardBuff").value = 0;
+            }
+            /****************************************固定伤害Buff**************************************************/
+            if (!isNaN(careerSkill.fixedDamageBuff)) {
+                $("txtFixedDamageBuff").value = careerSkill.fixedDamageBuff;
+            }
+
+            /****************************************暴击威力Buff**************************************************/
+            if (!$("ckIsCritical").checked) {
+                $("txtCritialPowerBuff").value = 0;
+            }
+            else {
+                $("txtCritialPowerBuff").value = careerSkill.critialPowerBuff;
+            }
+            $("txtCritialPowerBuff").setAttribute("data-value", careerSkill.critialPowerBuff);
+        }
+
     }
 
     function intialServantList() {

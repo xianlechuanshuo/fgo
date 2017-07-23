@@ -187,7 +187,7 @@
                 </td>
                 <td>卡牌Buff(%)</td>
                 <td>
-                    <input type="text" id="txtCardBuff" value="0" />
+                    <input type="text" id="txtCardBuff" value="0" data-value="0" />
                 </td>
                 <td>攻击力Buff(%)</td>
                 <td>
@@ -262,6 +262,7 @@
         //下拉从者选中项发生变化事件
         $("ddlChooseServant").onchange = function () {
             $("ckIsSpecialAttack").checked = false;
+            $("txtCardBuff").setAttribute("data-value", "0");
             changeOc();
             var id = this.value;
             if (id != "-1") {
@@ -328,11 +329,64 @@
             }
         }
 
-
-        //6.OC等级
-        changeOc();
+        //6.职介技能
+        bindServantCareerSkillInfo(servant);
 
     }
+
+    //绑定从者职介信息
+    function bindServantCareerSkillInfo(servant) {
+        //{ cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 }
+        var careerSkill = servant.careerSkill;
+
+        if (careerSkill) {
+            var cardColorValue = getFloat("ddlCardColor");
+            var cardBuffs = careerSkill.cardBuff;
+            if (isNaN(cardBuffs)) {//"12|11"
+                cardBuffs = careerSkill.cardBuff.split('|');
+            }
+
+            var cardColor = careerSkill.cardColor;
+            /************************************卡牌Buff******************************************************/
+            //0.8(Quick)，1(Arts)，1.5(Buster)，0(All)，-1(None)，-2(Quick和Arts)，-3(Buster和Quick)
+            if ((cardColor == 0.8 || cardColor == 1 || cardColor == 1.5) && cardColor == cardColorValue) {
+                $("txtCardBuff").setAttribute("data-value", careerSkill.cardBuff);
+                $("txtCardBuff").value = careerSkill.cardBuff;
+            }
+            else if (cardColor == 0) {//215
+                $("txtCardBuff").setAttribute("data-value", careerSkill.cardBuff);
+                $("txtCardBuff").value = careerSkill.cardBuff;
+            }
+                //Quick和Arts
+            else if (cardColor == -2 && cardColorValue == 0.8 && cardBuffs && cardBuffs.length == 2) {
+                var quickBuff = cardBuffs[0];
+                $("txtCardBuff").setAttribute("data-value", quickBuff);
+                $("txtCardBuff").value = quickBuff;
+            }
+            else if (cardColor == -2 && cardColorValue == 1 && cardBuffs && cardBuffs.length == 2) {
+                var artsBuff = cardBuffs[1];
+                $("txtCardBuff").setAttribute("data-value", artsBuff);
+                $("txtCardBuff").value = artsBuff;
+            }
+                //Buster和Quick
+            else if (cardColor == -3 && cardColorValue == 1.5 && cardBuffs && cardBuffs.length == 2) {
+                var busterBuff = cardBuffs[0];
+                $("txtCardBuff").setAttribute("data-value", busterBuff);
+                $("txtCardBuff").value = busterBuff;
+            }
+            else if (cardColor == -3 && cardColorValue == 0.8 && cardBuffs && cardBuffs.length == 2) {
+                var quickBuff = cardBuffs[1];
+                $("txtCardBuff").setAttribute("data-value", quickBuff);
+                $("txtCardBuff").value = quickBuff;
+            }
+            /****************************************固定伤害Buff**************************************************/
+            if (!isNaN(careerSkill.fixedDamageBuff)) {
+                $("txtFixedDamageBuff").value = careerSkill.fixedDamageBuff;
+            }
+        }
+
+    }
+
 
     //计算双子宝具总倍率
     function calTreasureSpecialRemainHpAttackRate() {
@@ -403,7 +457,9 @@
                 $("txtSpecialAttackPowerBuff").value = ocs[ocLevel];
             }
             else if (ocs["type"] == "TreasureSpecialCardPowerAttack") {//R金时OC绿魔放
-                $("txtCardBuff").value = ocs[ocLevel];
+                //由于多了职介技能(被动buff)，这里稍微麻烦点，需要做累加操作，实际上貌似就【梅尔特莉莉丝（溶解莉莉丝）】需要累加卡牌buff。
+                var originNum = getTxtAttrFloatNum("txtCardBuff", "data-value");
+                $("txtCardBuff").value = originNum + ocs[ocLevel];
             }
             else if (ocs["type"] == "TreasureSpecialAtkPowerAttack") {//B兰OC加攻
                 $("txtAttackBuff").value = ocs[ocLevel];

@@ -19,11 +19,23 @@ function getDdlText(id) {
     return text;
 }
 
-//获取下拉列表选中项的对应属性的值
-function getDdlAttrText(id,name) {
+//获取下拉列表选中项的自定义属性值
+function getDdlAttrText(id, name) {
     var index = $(id).selectedIndex;
     var text = $(id).options[index].getAttribute(name);
     return text;
+}
+
+//获取文本框的自定属性值，并转换为float数值
+function getTxtAttrFloatNum(id, name) {
+    var text = $(id).getAttribute(name);
+    return parseFloat(text);
+}
+
+//获取文本框的自定属性值，并转换为整型数值
+function getTxtAttrIntNum(id, name) {
+    var text = $(id).getAttribute(name);
+    return parseInt(text);
 }
 
 // 对数组的原型添加remove方法
