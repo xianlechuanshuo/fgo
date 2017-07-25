@@ -33,7 +33,7 @@
             width: 250px;
         }
 
-        #divServant table tr:nth-child(1) td {
+        #divServant table tr:nth-child(1) td, #divServant table tr:last-child td {
             text-align: center;
         }
 
@@ -200,6 +200,7 @@
             <tr>
                 <td colspan="6">
                     <input type="button" value="计算" id="btnCalcute" onclick="calc()" />
+                    <label for="ckIsCalcTotal">计算总伤害<input type="checkbox" id="ckIsCalcTotal" /></label>
                 </td>
             </tr>
         </table>
@@ -256,7 +257,7 @@
 
         //首卡颜色选中项发生变化事件
         $("ddlFirstCardColor").onchange = function () {
-            if (getDdlText("ddlCardPosition") == "一位" && getDdlText("ddlFirstCardColor")=="红色") {
+            if (getDdlText("ddlCardPosition") == "一位" && getDdlText("ddlFirstCardColor") == "红色") {
                 var cardColors = $("ddlCardColor").options;
                 for (var i = 0; i < cardColors.length; i++) {
                     var cardColor = cardColors[i];
@@ -432,6 +433,8 @@
         }
     }
 
+
+
     var resultArr = new Array();
     var rankIndex = 0;
     var guid = 0;
@@ -554,8 +557,47 @@
         resultArr.push(model);
         showResult();
         reSort();
+        calcTotal();
         resizeParentWindow();
     }
+
+    //计算总伤害
+    function calcTotal() {
+        if (!$("ckIsCalcTotal").checked) {
+            return;
+        }
+        if (!resultArr || resultArr.length <= 0) {
+            return;
+        }
+        var min = 0;
+        var max = 0;
+        var avg = 0;
+        for (var i = 0; i < resultArr.length; i++) {
+            min += resultArr[i].min;
+            max += resultArr[i].max;
+            avg = Math.round((min + max) * 1.0 / 2);
+        }
+
+        rankIndex++;
+
+        var tb = document.getElementById("tbResult");
+        var newRow = tb.insertRow(-1);
+        //1.排名
+        var firstCell = newRow.insertCell(-1);
+        firstCell.innerHTML = "总伤害";
+        firstCell.colSpan = "13";//设置单元格跨13列
+        firstCell.align = "center";//居中显示
+
+        //14.指令卡伤害最小值          
+        newRow.insertCell(-1).innerHTML = min;
+        //15.指令卡伤害最大值          
+        newRow.insertCell(-1).innerHTML = max;
+        //16.指令卡伤害平均值         
+        newRow.insertCell(-1).innerHTML = avg;
+        //17.删除操作     
+        newRow.insertCell(-1).innerHTML = "&nbsp;"
+    }
+
     //从大到小重新排序
     function reSort() {
         resultArr.sort(compare("avg"));
@@ -575,9 +617,11 @@
         var deleteRow = obj.parentElement.parentElement;
         deleteRow.parentElement.removeChild(deleteRow);
         reSort();
+        calcTotal();
         if (!resultArr || resultArr.length <= 0) {
             hidResult();
         }
+
         resizeParentWindow();
     }
     //清空table
