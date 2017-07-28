@@ -1,0 +1,59 @@
+﻿a {
+    text-decoration: none;
+    color: blue;
+}
+
+table {
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+#divResult table th, #divResult table td {
+    font-size: 12px;
+    text-align: center;
+}
+
+table th, table td {
+    border: 1px solid #000;
+    padding: 5px;
+}
+
+#divServant table td:nth-child(1) {
+    width: 150px;
+}
+
+#divServant table td:nth-child(2) {
+    width: 250px;
+}
+
+#divServant table tr:nth-child(1) td, #divServant table tr:last-child td {
+    text-align: center;
+}
+
+.showSkills {
+    outline: #808080 solid thick;
+    width: 50%;
+    height: 80%;
+    position: absolute;
+    top:5%;
+    left: 25%;
+    display: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color:white;
+}
+
+.close {
+    float: right;
+    font-size: 26px;
+    line-height: 26px;
+}
+
+#divResult {
+    display: none;
+}
+
+input[type="checkbox"] {
+    vertical-align: middle;
+}
