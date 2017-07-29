@@ -46,8 +46,9 @@ table th, table td {
 
 .close {
     float: right;
-    font-size: 26px;
-    line-height: 26px;
+    font-weight:bold;
+    font-size: 46px;
+    line-height: 46px;
 }
 
 #divResult {
