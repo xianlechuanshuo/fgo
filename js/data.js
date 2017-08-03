@@ -116,7 +116,7 @@ function intialData() {
 
     //----------------------------------Caster---------------------------------------------------------------------//
     /******************************************5星********************************************************************/
-    intialServant("Caster", "玄奘三蔵", "Genjou Sanzou", "人", 11658, 12965, 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 12, fixedDamageBuff: 125, critialPowerBuff: 0 });
+    intialServant("Caster", "玄奘三蔵", "Genjou Sanzou", "人", 11658, 12965, 800, 1000, 1100, 1150, 1200, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 12, fixedDamageBuff: 125, critialPowerBuff: 0 });
     intialServant("Caster", "伊莉雅斯菲尔", "Illyasviel", "人", 10857, 13825, 600, 800, 900, 950, 1000, 20, 35, 50, 65, 80, "TreasureSpecialCardPowerAttack", 1.5);
     intialServant("Caster", "莱昂纳多・达・芬奇", "Leonardo da Vinci", "星", 10598, 14259, 450, 600, 675, 712, 750, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Caster", "诸葛孔明〔艾尔梅洛伊二世〕", "El-Melloi II", "人", 10598, 14259, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
@@ -139,7 +139,7 @@ function intialData() {
     intialServant("Caster", "库・丘林", "Cu Chulainn2", "天", 6580, 9604, 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 8, fixedDamageBuff: 175, critialPowerBuff: 0 });
     intialServant("Caster", "吉尔・德・雷", "Gilles de Rais2", "人", 6514, 9506, 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Caster", "查尔斯・巴贝奇", "Charles Babbage", "人", 5996, 10887, 400, 500, 550, 575, 600, 0, 0, 0, 0, 0, "", 1.5);
-    intialServant("Caster", "威廉・莎士比亚", "William Shakespeare", "人", 5798, 8080, 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 6, fixedDamageBuff: 0, critialPowerBuff: 0 });
+    intialServant("Caster", "威廉・莎士比亚", "William Shakespeare", "人", 5798, 8080, 400, 500, 550, 575, 600, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 6, fixedDamageBuff: 0, critialPowerBuff: 0 });
 
 
     //----------------------------------Assassin---------------------------------------------------------------------//
@@ -192,10 +192,8 @@ function intialData() {
     intialServant("Berserker", "吕布奉先", "Lu Bu Feng Xian", "人", 8119, 8302, 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1.5, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Berserker", "大流士三世", "Darius III", "人", 7608, 8763, 400, 500, 550, 575, 600, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1.5, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Berserker", "清姬", "Kiyohime", "地", 6644, 9166, 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1.5, cardBuff: 12, fixedDamageBuff: 0, critialPowerBuff: 0 });
-
-
     intialServant("Berserker", "血斧埃里克", "Eric Bloodaxe", "人", 6290, 7688, 300, 400, 450, 475, 500, 30, 35, 40, 45, 50, "TreasureSpecialAtkPowerAttack", 1.5, { cardColor: 1.5, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
-
+    intialServant("Berserker", "保罗•班扬", "Paul Bunyan", "地", 6044, 6196, 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1.5, cardBuff: 4, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Berserker", "斯巴达克斯", "Spartacus", "人", 5073, 7722, 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1.5, cardBuff: 12, fixedDamageBuff: 0, critialPowerBuff: 0 });
 
     //----------------------------------Ruler---------------------------------------------------------------------//
