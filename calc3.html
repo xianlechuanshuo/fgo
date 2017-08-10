@@ -427,7 +427,7 @@
                 $("txtSpecialAttackPowerBuff").value = ocs[ocLevel];
             }
             else if (ocs["type"] == "TreasureSpecialCardPowerAttack") {//R金时OC绿魔放
-                //由于多了职介技能(被动buff)，这里稍微麻烦点，需要做累加操作，实际上貌似就【梅尔特莉莉丝（溶解莉莉丝）】需要累加卡牌buff。
+                //由于多了职介技能(被动buff)，这里稍微麻烦点，需要做累加操作。
                 var originNum = getTxtAttrFloatNum("txtCardBuff", "data-value");
                 $("txtCardBuff").value = originNum + ocs[ocLevel];
             }
@@ -441,11 +441,15 @@
         else {
             $("txtTreasureSpecialAttack").value = 100;
             $("txtSpecialAttackPowerBuff").value = 0;
-            $("txtCardBuff").value = 0;
+            //$("txtCardBuff").value = 0;
             $("txtAttackBuff").value = 0;
             $("txtTreasurePowerBuff").value = 0;
             $("ddlOc").selectedIndex = 0;
 
+
+            //设置回被动卡牌buff
+            var originNum = getTxtAttrFloatNum("txtCardBuff", "data-value");
+            $("txtCardBuff").value = originNum ;
         }
     }
 

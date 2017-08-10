@@ -13,7 +13,12 @@ function intialData() {
     intialServant("Saber", "两仪式", "Ryougi Shiki（Saber)", "人", 10721, 15453, 450, 600, 675, 712.5, 750, 0, 0, 0, 0, 0, "", 1, { cardColor: 0, cardBuff: 6, fixedDamageBuff: 0, critialPowerBuff: 6 });
 
     /******************************************4星********************************************************************/
+    intialServant("Saber", "弗兰肯斯坦", "Frankenstein2", "地", 10335, 13262, 1200, 1600, 1800, 1900, 2000, 0, 0, 0, 0, 0, "", 0.8, { cardColor: -3, cardBuff:"2|12", fixedDamageBuff: 0, critialPowerBuff: 0 });
+
+
     intialServant("Saber", "阿尔托莉雅·潘德拉贡〔Alter〕", "Altria Pendragon（Alter)", "人", 10248, 11589, 450, 550, 600, 625, 650, 0, 0, 0, 0, 0, "", 1.5);
+
+
     intialServant("Saber", "高文", "Gawain", "地", 10173, 11419, 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 0.8, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Saber", "兰斯洛特", "Lancelot", "地", 9949, 11589, 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1, { cardColor: 0.8, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Saber", "伊丽莎白・巴陶里〔勇者〕", "Erzsebet Bathory（Brave)", "地", 9899, 11248, 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 6, fixedDamageBuff: 0, critialPowerBuff: 0 });
@@ -99,7 +104,9 @@ function intialData() {
 
     /******************************************4星********************************************************************/
     intialServant("Rider", "坂田金时", "Sakata Kintoki2", "地", 9819, 10800, 1200, 1600, 1800, 1900, 2000, 10, 30, 50, 70, 90, "TreasureSpecialCardPowerAttack", 0.8, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 150, critialPowerBuff: 0 });
-    intialServant("Rider", "阿尔托莉雅・潘德拉贡〔Santa Alter〕","Altria Pendragon（Santa Alter)", "人", 9258, 11286, 450, 550, 600, 625, 650, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 0.8, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
+    intialServant("Rider", "伊修塔尔", "Ishtar2", "天", 9603, 10692, 600, 800, 900, 950, 1000, 20, 30, 40, 50, 60, "TreasureSpecialCardPowerAttack", 0.8, { cardColor: 0.8, cardBuff: 12, fixedDamageBuff: 225, critialPowerBuff: 10 });
+
+    intialServant("Rider", "阿尔托莉雅・潘德拉贡〔Santa Alter〕", "Altria Pendragon（Santa Alter)", "人", 9258, 11286, 450, 550, 600, 625, 650, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 0.8, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Rider", "莫德雷德", "Mordred2", "地", 9212, 11400, 450, 600, 675, 712, 750, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 5, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Rider", "安妮・伯妮&玛丽・里德", "Anne Bonny&Mary Read", "人", 9029, 11286, 1600, 2000, 2200, 2300, 2400, 1200, 1600, 1800, 1900, 2000, "TreasureSpecialRemainHpAttack", 0.8);
     intialServant("Rider", "阿斯托尔福", "Astolfo", "地", 8937, 11172, 800, 1000, 1100, 1150, 1200, 0, 0, 0, 0, 0, "", 0.8, { cardColor: 0.8, cardBuff: 11, fixedDamageBuff: 0, critialPowerBuff: 8 });
@@ -117,6 +124,9 @@ function intialData() {
     //----------------------------------Caster---------------------------------------------------------------------//
     /******************************************5星********************************************************************/
     intialServant("Caster", "玄奘三蔵", "Genjou Sanzou", "人", 11658, 12965, 800, 1000, 1100, 1150, 1200, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 12, fixedDamageBuff: 125, critialPowerBuff: 0 });
+    intialServant("Caster", "尼禄・克劳狄乌斯", "Nero Claudius2", "人", 10857, 13685, 300, 400, 450, 475, 500, 20, 30, 40, 50, 60, "TreasurePowerBuff", 1.5, { cardColor: -2, cardBuff: "8|11", fixedDamageBuff: 0, critialPowerBuff: 0 });
+
+
     intialServant("Caster", "伊莉雅斯菲尔", "Illyasviel", "人", 10857, 13825, 600, 800, 900, 950, 1000, 20, 35, 50, 65, 80, "TreasureSpecialCardPowerAttack", 1.5);
     intialServant("Caster", "莱昂纳多・达・芬奇", "Leonardo da Vinci", "星", 10598, 14259, 450, 600, 675, 712, 750, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Caster", "诸葛孔明〔艾尔梅洛伊二世〕", "El-Melloi II", "人", 10598, 14259, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
@@ -152,6 +162,8 @@ function intialData() {
 
 
     /******************************************4星********************************************************************/
+    intialServant("Assassin", "尼托克丽丝", "Nitocris2", "天", 9737, 12737, 450, 600, 675, 712.5, 750, 0, 0, 0, 0, 0, "", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 185, critialPowerBuff: 0 });
+
     intialServant("Assassin", "卡米拉", "Carmilla", "地", 9408, 10473, 600, 800, 900, 950, 1000, 120, 132.5, 145, 157.5, 170, "TreasureSpecialAttack", 1.5);
     intialServant("Assassin", "斯卡哈", "Scathach2", "星", 9049, 11168, 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 0.8);
     intialServant("Assassin", "武则天", "Wu Ze Tian", "人", 8981, 10942, 1200, 1600, 1800, 1900, 2000, 0, 0, 0, 0, 0, "", 0.8);
@@ -183,6 +195,9 @@ function intialData() {
     intialServant("Berserker", "彭忒西勒亚", "Penthesilea", "地", 10502, 10175, 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1.5, cardBuff: 12, fixedDamageBuff: 175, critialPowerBuff: 0 });
     intialServant("Berserker", "兰斯洛特", "Lancelot2", "地", 10477, 10327, 600, 800, 900, 950, 1000, 10, 15, 20, 25, 30, "TreasureSpecialAtkPowerAttack", 0.8, { cardColor: 1.5, cardBuff: 6, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Berserker", "贝奥武夫", "Beowulf", "地", 10247, 10327, 700, 900, 1000, 1050, 1100, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1.5, cardBuff: 1, fixedDamageBuff: 0, critialPowerBuff: 0 });
+    intialServant("Berserker", "织田信长", "Oda Nobunaga2", "人", 10146, 10023, 600, 800, 900, 950, 1000, 150, 162.5, 175, 187.5, 200, "TreasureSpecialAttack", 1.5, { cardColor: 1.5, cardBuff: 6, fixedDamageBuff: 0, critialPowerBuff: 0 });
+
+
     intialServant("Berserker", "茨木童子", "Ibaraki Doji", "地", 9636, 10954, 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1.5, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Berserker", "弗兰肯斯坦", "Frankenstein", "地", 9441, 10687, 900, 1100, 1200, 1250, 1300, 0, 0, 0, 0, 0, "", 0.8, { cardColor: 1.5, cardBuff: 4, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Berserker", "玉藻猫", "Tamamo Cat", "地", 9026, 11458, 800, 1000, 1100, 1150, 1200, 0, 0, 0, 0, 0, "", 0.8, { cardColor: 1.5, cardBuff: 6, fixedDamageBuff: 0, critialPowerBuff: 0 });
@@ -215,7 +230,7 @@ function intialData() {
 
     //----------------------------------MoonCancer---------------------------------------------------------------------//
     /******************************************4星********************************************************************/
-    intialServant("MoonCancer", "BB","BB", "人", 8197, 13643, 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
+    intialServant("MoonCancer", "BB", "BB", "人", 8197, 13643, 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
 
     //----------------------------------Altergo---------------------------------------------------------------------//
     /******************************************5星********************************************************************/
@@ -263,7 +278,7 @@ function intialData() {
 *    fixedDamageBuff: 0(神性Debuff), 
 *    critialPowerBuff: 0(暴击威力Buff)
 */
-function intialServant(career, name,eName, camp, atk, hp, tl1, tl2, tl3, tl4, tl5, oc1, oc2, oc3, oc4, oc5, type, cardColor, careerSkill) {
+function intialServant(career, name, eName, camp, atk, hp, tl1, tl2, tl3, tl4, tl5, oc1, oc2, oc3, oc4, oc5, type, cardColor, careerSkill) {
     id++;
     var tl = new Array();
     tl["tl1"] = tl1;
@@ -285,7 +300,7 @@ function intialServant(career, name,eName, camp, atk, hp, tl1, tl2, tl3, tl4, tl
         id: id,
         career: career,
         name: name,
-        eName:eName,
+        eName: eName,
         camp: camp,
         atk: atk,
         hp: hp,
