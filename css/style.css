@@ -35,18 +35,18 @@ table th, table td {
     width: 50%;
     height: 80%;
     position: absolute;
-    top:5%;
+    top: 5%;
     left: 25%;
     display: none;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    background-color:white;
+    background-color: white;
 }
 
 .close {
     float: right;
-    font-weight:bold;
+    font-weight: bold;
     font-size: 46px;
     line-height: 46px;
 }
@@ -57,4 +57,12 @@ table th, table td {
 
 input[type="checkbox"] {
     vertical-align: middle;
+}
+
+.cards {
+    text-align: center;
+}
+
+.cards img {
+    width: 7%;
 }

@@ -38,6 +38,13 @@
             </tr>
 
             <tr>
+                <td>配卡</td>
+                <td colspan="5">
+                    <div id="divCards" class="cards"></div>
+                </td>
+            </tr>
+
+            <tr>
                 <td>首卡颜色
                 </td>
                 <td>
@@ -319,6 +326,13 @@
 
         //3.职介技能
         bindServantCareerSkillInfo(servant);
+
+        //4.配卡
+        var cardsStr = servant.cards;
+        if (cardsStr&&cardsStr.length==5) {//ABBBQ
+            var cardHtml = getCardsHtml(cardsStr);
+            $("divCards").innerHTML = cardHtml;
+        }
 
     }
 
