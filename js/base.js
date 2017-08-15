@@ -1,5 +1,5 @@
 ﻿//查询
-$("txtWord").onblur = function () {
+$("txtWord").oninput = function () {
     search();
 }
 $("btnSearch").onclick = function () {

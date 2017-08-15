@@ -72,7 +72,8 @@ function check(key) {
     if (word == "") {
         return true;
     }
-    return  key.indexOf(word) != -1;
+    return new RegExp(word, "gi").test(key);//忽略大小写
+    //return key.indexOf(word) != -1;
 }
 
 
