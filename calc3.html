@@ -228,7 +228,7 @@
         $("ckIsSpecialAttack").checked = false;
         $("txtCardBuff").setAttribute("data-value", "0");
         var id = this.value;
-        if (id != "-1") {
+        if (id != "-1"&&id!="") {
             changeOc();
             bindServantData(id);
         }
