@@ -62,6 +62,20 @@ function compare(property) {
         return value2 - value1;
     }
 }
+
+//根据关键词查询结果
+var word = "";
+function contains(servant) {
+    return servant.keys.find(check);
+}
+function check(key) {
+    if (word == "") {
+        return true;
+    }
+    return  key.indexOf(word) != -1;
+}
+
+
 //父容器中，使其自适应内容高度
 function resizeWindow() {
     //IE中：document.frames['iframe的name'].document.getElementById('元素的ID');
@@ -116,13 +130,18 @@ function removeClass(ele, cls) {
     }
 }
 
-//过滤特殊符号
+//过滤特殊符号（图片文件名）
 function filterStr(str) {
-    return str.replace(/\s+/gi, " ").replace(/[\s][〔（]/gi, "_").replace(/[\s〔（・&']/gi, "_").replace(/[〕)）]/gi, "");
+    return str.replace(/\s+/gi, " ").replace(/[\s〔（・&']/gi, "_").replace(/[〕)）]/gi, "");
+}
+
+//过滤特殊符号（搜索关键词）
+function filterStr2(str) {
+    return str.replace(/\s+/gi, "").replace(/[〔（・&'〕)）]/gi, "");
 }
 
 //返回配卡html字符串
 function getCardsHtml(str) {
-    str= str.replace(/([A])/gi, "!").replace(/[B]/gi, "@").replace(/[Q]/gi, "#");
+    str = str.replace(/([A])/gi, "!").replace(/[B]/gi, "@").replace(/[Q]/gi, "#");
     return str.replace(/([!])/gi, "<img src='images/Box/Arts.png'/>").replace(/[@]/gi, "<img src='images/Box/Buster.png'/>").replace(/[#]/gi, "<img src='images/Box/Quick.png'/>");
 }

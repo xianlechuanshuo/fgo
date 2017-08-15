@@ -16,6 +16,8 @@
                     <select id="ddlChooseServant">
                         <option value="-1">|----------------------请选择从者-------------------------|</option>
                     </select>
+                    <input type="text" id="txtWord" />
+                    <input type="button" id="btnSearch" value="查询" />
                     <a href="javascript:void(0)" id="btnShowSkills">从者技能详情</a>
                 </td>
             </tr>
@@ -215,56 +217,62 @@
 </body>
 </html>
 <script src="js/data.js"></script>
-<script src="js/common.js"></script>
+<script src="js/common.js" ></script>
+<script src="js/base.js" ></script>
 <script type="text/javascript">
-    window.onload = function () {
-        intialData();
-        intialServantList();
-        //下拉从者选中项发生变化事件
-        $("ddlChooseServant").onchange = function () {
-            $("ckIsSpecialAttack").checked = false;
-            $("txtCardBuff").setAttribute("data-value", "0");
-            var id = this.value;
-            if (id != "-1") {
-                changeOc();
-                bindServantData(id);
-            }
-        }
-        //宝具等级选中项发生变化事件
-        $("ddlTreasureLevel").onchange = function () {
-            changeTreasureRate();
-        };
-
-        //OC等级选中项发生变化事件
-        $("ddlOc").onchange = function () {
+    /***********************************************************/
+    intialData();
+    intialServantList();
+    //下拉从者选中项发生变化事件
+    $("ddlChooseServant").onchange = function () {
+        $("ckIsSpecialAttack").checked = false;
+        $("txtCardBuff").setAttribute("data-value", "0");
+        var id = this.value;
+        if (id != "-1") {
             changeOc();
-        };
-        //Hp值变动事件：动态计算双子宝具倍率
-        $("txtRemainHp").onchange = function () {
-            changeOc();
-        }
-        $("txtFufuHp").onchange = function () {
-            changeOc();
-        }
-        $("txtCardHp").onchange = function () {
-            changeOc();
-        }
-
-        //是否特攻
-        $("ckIsSpecialAttack").onclick = function () {
-            changeOc();
-        }
-        
-        //显示从者技能详情
-        $("btnShowSkills").onclick = function () {
-            showSkillsWin();
-        }
-
-        //关闭从者技能详情
-        $("btnClose").onclick = function () {
-            hideSkillsWin();
+            bindServantData(id);
         }
     }
+    //宝具等级选中项发生变化事件
+    $("ddlTreasureLevel").onchange = function () {
+        changeTreasureRate();
+    };
+
+    //OC等级选中项发生变化事件
+    $("ddlOc").onchange = function () {
+        changeOc();
+    };
+    //Hp值变动事件：动态计算双子宝具倍率
+    $("txtRemainHp").onchange = function () {
+        changeOc();
+    }
+    $("txtFufuHp").onchange = function () {
+        changeOc();
+    }
+    $("txtCardHp").onchange = function () {
+        changeOc();
+    }
+
+    //是否特攻
+    $("ckIsSpecialAttack").onclick = function () {
+        changeOc();
+    }
+
+    //显示从者技能详情
+    $("btnShowSkills").onclick = function () {
+        showSkillsWin();
+    }
+
+    //关闭从者技能详情
+    $("btnClose").onclick = function () {
+        hideSkillsWin();
+    }
+
+
+
+    //判断
+    /***********************************************************/
+
     //绑定从者基本信息
     function bindServantData(id) {
         var servant = servants[id];
@@ -449,7 +457,7 @@
 
             //设置回被动卡牌buff
             var originNum = getTxtAttrFloatNum("txtCardBuff", "data-value");
-            $("txtCardBuff").value = originNum ;
+            $("txtCardBuff").value = originNum;
         }
     }
 
