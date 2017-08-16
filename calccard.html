@@ -202,113 +202,114 @@
 <script src="js/common.js"></script>
 <script src="js/base.js"></script>
 <script type="text/javascript">
-    window.onload = function () {
-        intialData();
-        intialServantList();
-        //下拉从者选中项发生变化事件
-        $("ddlChooseServant").onchange = function () {
-            $("txtCardBuff").setAttribute("data-value", "0");
-            $("txtCardBuff").value = 0;
+    /****************************************************************************/
+    intialData();
+    intialServantList();
+    //下拉从者选中项发生变化事件
+    $("ddlChooseServant").onchange = function () {
+        $("txtCardBuff").setAttribute("data-value", "0");
+        $("txtCardBuff").value = 0;
 
-            $("txtCritialPowerBuff").setAttribute("data-value", "0");
-            $("ckIsCritical").checked = false;
-            $("txtCritialPowerBuff").disabled = true;
+        $("txtCritialPowerBuff").setAttribute("data-value", "0");
+        $("ckIsCritical").checked = false;
+        $("txtCritialPowerBuff").disabled = true;
 
-            var id = this.value;
-            if (id != "-1"&&id!="") {
-                bindServantData(id);
-            }
-        }
-
-        //首卡颜色选中项发生变化事件
-        $("ddlFirstCardColor").onchange = function () {
-            if (getDdlText("ddlCardPosition") == "一位" && getDdlText("ddlFirstCardColor") == "红色") {
-                var cardColors = $("ddlCardColor").options;
-                for (var i = 0; i < cardColors.length; i++) {
-                    var cardColor = cardColors[i];
-                    if (cardColor.text == "Buster") {
-                        cardColor.selected = true;
-                    }
-                }
-            }
-        }
-
-        //卡色选中项发生变化事件
-        $("ddlCardColor").onchange = function () {
-            var cardEnabled = false;
-            if (getDdlAttrText("ddlCardColor", "type") == "ea1" || getDdlAttrText("ddlCardColor", "type") == "ea2") {
-                //ex卡不吃卡牌buff
-                cardEnabled = true;
-                $("txtCardBuff").value = 0;
-
-                $("ddlCardPosition").disabled = true;
-                var cardPostions = $("ddlCardPosition").options
-                for (var i = 0; i < cardPostions.length; i++) {
-                    if (cardPostions[i].getAttribute("type") == "ea") {
-                        cardPostions[i].selected = true;
-                    }
-                }
-
-            }
-            else if (getDdlText("ddlCardColor") == "Buster" && getDdlText("ddlCardPosition") == "一位") {
-                $("ddlFirstCardColor").selectedIndex = 1;
-                var index = parseInt($("ddlChooseServant").value);
-                bindServantCareerSkillInfo(servants[index]);
-            }
-            else {
-                $("ddlCardPosition").disabled = false;
-                if (getDdlAttrText("ddlCardPosition", "type") == "ea") {
-                    $("ddlCardPosition").selectedIndex = 0;
-                }
-                var index = parseInt($("ddlChooseServant").value);
-                bindServantCareerSkillInfo(servants[index]);
-            }
-            $("txtCardBuff").disabled = cardEnabled;
-        }
-
-        //卡位选中项发生变化事件
-        $("ddlCardPosition").onchange = function () {
-            var cardEnabled2 = false;
-            if (getDdlAttrText("ddlCardPosition", "type") == "ea") {
-                //ex卡不吃卡牌buff
-                cardEnabled2 = true;
-                $("txtCardBuff").value = 0;
-
-                if (getDdlAttrText("ddlCardColor", "type") != "ea1" && getDdlAttrText("ddlCardColor", "type") != "ea2") {
-                    alert("请在卡色处选择Extra Attack");
-                    $("ddlCardPosition").selectedIndex = 0;
-                    cardEnabled2 = false;
-                    var index = parseInt($("ddlChooseServant").value);
-                    bindServantCareerSkillInfo(servants[index]);
-                }
-
-            }
-            $("txtCardBuff").disabled = cardEnabled2;
-        }
-
-        //暴击
-        $("txtCritialPowerBuff").disabled = $("ckIsCritical").checked ? false : true;
-        $("ckIsCritical").onchange = function () {
-            if ($("ckIsCritical").checked) {//暴击
-                $("txtCritialPowerBuff").disabled = false;
-                $("txtCritialPowerBuff").value = getTxtAttrFloatNum("txtCritialPowerBuff", "data-value");
-            }
-            else {//不暴击
-                $("txtCritialPowerBuff").disabled = true;
-                $("txtCritialPowerBuff").value = 0;
-            }
-        }
-
-        //显示从者技能详情
-        $("btnShowSkills").onclick = function () {
-            showSkillsWin();
-        }
-
-        //关闭从者技能详情
-        $("btnClose").onclick = function () {
-            hideSkillsWin();
+        var id = this.value;
+        if (id != "-1" && id != "") {
+            bindServantData(id);
         }
     }
+
+    //首卡颜色选中项发生变化事件
+    $("ddlFirstCardColor").onchange = function () {
+        if (getDdlText("ddlCardPosition") == "一位" && getDdlText("ddlFirstCardColor") == "红色") {
+            var cardColors = $("ddlCardColor").options;
+            for (var i = 0; i < cardColors.length; i++) {
+                var cardColor = cardColors[i];
+                if (cardColor.text == "Buster") {
+                    cardColor.selected = true;
+                }
+            }
+        }
+    }
+
+    //卡色选中项发生变化事件
+    $("ddlCardColor").onchange = function () {
+        var cardEnabled = false;
+        if (getDdlAttrText("ddlCardColor", "type") == "ea1" || getDdlAttrText("ddlCardColor", "type") == "ea2") {
+            //ex卡不吃卡牌buff
+            cardEnabled = true;
+            $("txtCardBuff").value = 0;
+
+            $("ddlCardPosition").disabled = true;
+            var cardPostions = $("ddlCardPosition").options
+            for (var i = 0; i < cardPostions.length; i++) {
+                if (cardPostions[i].getAttribute("type") == "ea") {
+                    cardPostions[i].selected = true;
+                }
+            }
+
+        }
+        else if (getDdlText("ddlCardColor") == "Buster" && getDdlText("ddlCardPosition") == "一位") {
+            $("ddlFirstCardColor").selectedIndex = 1;
+            var index = parseInt($("ddlChooseServant").value);
+            bindServantCareerSkillInfo(servants[index]);
+        }
+        else {
+            $("ddlCardPosition").disabled = false;
+            if (getDdlAttrText("ddlCardPosition", "type") == "ea") {
+                $("ddlCardPosition").selectedIndex = 0;
+            }
+            var index = parseInt($("ddlChooseServant").value);
+            bindServantCareerSkillInfo(servants[index]);
+        }
+        $("txtCardBuff").disabled = cardEnabled;
+    }
+
+    //卡位选中项发生变化事件
+    $("ddlCardPosition").onchange = function () {
+        var cardEnabled2 = false;
+        if (getDdlAttrText("ddlCardPosition", "type") == "ea") {
+            //ex卡不吃卡牌buff
+            cardEnabled2 = true;
+            $("txtCardBuff").value = 0;
+
+            if (getDdlAttrText("ddlCardColor", "type") != "ea1" && getDdlAttrText("ddlCardColor", "type") != "ea2") {
+                alert("请在卡色处选择Extra Attack");
+                $("ddlCardPosition").selectedIndex = 0;
+                cardEnabled2 = false;
+                var index = parseInt($("ddlChooseServant").value);
+                bindServantCareerSkillInfo(servants[index]);
+            }
+
+        }
+        $("txtCardBuff").disabled = cardEnabled2;
+    }
+
+    //暴击
+    $("txtCritialPowerBuff").disabled = $("ckIsCritical").checked ? false : true;
+    $("ckIsCritical").onchange = function () {
+        if ($("ckIsCritical").checked) {//暴击
+            $("txtCritialPowerBuff").disabled = false;
+            $("txtCritialPowerBuff").value = getTxtAttrFloatNum("txtCritialPowerBuff", "data-value");
+        }
+        else {//不暴击
+            $("txtCritialPowerBuff").disabled = true;
+            $("txtCritialPowerBuff").value = 0;
+        }
+    }
+
+    //显示从者技能详情
+    $("btnShowSkills").onclick = function () {
+        showSkillsWin();
+    }
+
+    //关闭从者技能详情
+    $("btnClose").onclick = function () {
+        hideSkillsWin();
+    }
+    /****************************************************************************/
+
     //绑定从者基本信息
     function bindServantData(id) {
         var servant = servants[id];

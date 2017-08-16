@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <link href="css/style.css" rel="stylesheet" />
     <style type="text/css">
         body {
             font-size: 12px;
@@ -13,9 +14,19 @@
         window.onload = function () {
             resizeParentWindow();
         }
+        //跳转到首页
+        function redirectHomePage() {
+            window.top.location = 'index.html';
+        }
+        //跳转到友情链接
+        function redirectLinks() {
+            window.top.location = 'https://fgo-archive.github.io/index/';
+        }
     </script>
 </head>
 <body id="content">
+    <b>2017-08-16</b><br />
+    --<a href="javascript:void(0)" onclick="redirectHomePage()">首页</a>新增友情链接：<a href="javascript:void(0)" onclick="redirectLinks()">NP计算器&羁绊礼装表</a><br />
     <b>2017-08-15</b><br />
     --宝具伤害计算器和指令卡伤害计算器新增查询从者功能<br />
     <b>2017-08-13</b><br />
