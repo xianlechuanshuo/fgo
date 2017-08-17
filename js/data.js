@@ -83,7 +83,7 @@ function intialData() {
     intialServant("Lancer", "神枪 李书文", "Li Shu Wen", ["神枪李书文", "李大师"], "人", 9653, 11360, "AABQQ", 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1);
     intialServant("Lancer", "贞德・Alter・Santa・Lily", "Jeanne d'Arc・Alter・Santa・Lily", ["贞德", "童贞", "幼贞", "黑贞Lily"], "人", 9261, 11870, "ABBQQ", 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5);
 
-    intialServant("Lancer", "源赖光", "Minamoto Yorimitsu", ["源赖光", "L奶光", "枪奶光"], "人", 9168, 12112, "ABBQQ", 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: -3, cardBuff: "6|11", fixedDamageBuff: 150, critialPowerBuff: 0 });
+    intialServant("Lancer", "源赖光", "Minamoto Yorimitsu2", ["源赖光", "L奶光", "枪奶光"], "人", 9168, 12112, "ABBQQ", 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: -3, cardBuff: "6|11", fixedDamageBuff: 150, critialPowerBuff: 0 });
 
 
     intialServant("Lancer", "伊丽莎白・巴陶里", "Erzsebet Bathory", ["伊丽莎白巴陶里", "L龙娘", "爱抖露"], "人", 9122, 11870, "ABBQQ", 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
