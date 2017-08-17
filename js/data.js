@@ -49,6 +49,10 @@ function intialData() {
     intialServant("Archer", "克洛伊·冯·爱因兹贝伦", "Chloe・von・Einzbern", ["克洛伊冯爱因兹贝伦", "小黑"], "天", 9845, 10914, "AABQQ", 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 8 });
     intialServant("Archer", "特里斯坦", "Tristan", ["特里斯坦", "老崔", "崔悲伤"], "地", 9735, 11637, "AABQQ", 1200, 1600, 1800, 1900, 2000, 0, 0, 0, 0, 0, "", 0.8, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 8 });
     intialServant("Archer", "织田信长", "Oda Nobunaga", ["织田信长", "第六天萌王", "Nobu", "钉宫"], "人", 9494, 11637, "AABBQ", 300, 400, 450, 475, 500, 150, 162.5, 175, 187.5, 200, "TreasureSpecialAttack", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 8 });
+
+    intialServant("Archer", "海伦娜・布拉瓦茨基", "Helena Blavatsky2", ["海伦娜布拉瓦茨基", "外星萝莉", "奥特曼"], "人", 9446, 11404, "AABQQ", 450, 600, 675, 712.5, 750, 0, 0, 0, 0, 0, "", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 6 });
+
+
     intialServant("Archer", "安妮・伯妮&玛丽・里德", "Anne Bonny&Mary Read2", ["安妮伯妮玛丽里德", "A双子"], "人", 9446, 11521, "AABBQ", 600, 800, 900, 950, 1000, 600, 600, 600, 600, 600, "TreasureSpecialRemainHpAttack", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 10 });
     intialServant("Archer", "卫宫", "Emiya", ["卫宫", "红A", "核弹剑仙"], "人", 9398, 11521, "AAABQ", 400, 500, 550, 575, 600, 0, 0, 0, 0, 0, "", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 8 });
     intialServant("Archer", "卫宫〔Alter〕", "Emiya〔Alter〕", ["卫宫", "黑A"], "人", 8996, 12250, "AABQQ", 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 10 });
@@ -78,6 +82,10 @@ function intialData() {
     intialServant("Lancer", "阿尔托莉雅・潘德拉贡〔Alter〕", "Altria Pendragon（Alter)2", ["阿尔托莉雅潘德拉贡", "黑枪呆", "乳下", "南半球"], "天", 9968, 11761, "ABBQQ", 400, 500, 550, 575, 600, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 0.8, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Lancer", "神枪 李书文", "Li Shu Wen", ["神枪李书文", "李大师"], "人", 9653, 11360, "AABQQ", 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1);
     intialServant("Lancer", "贞德・Alter・Santa・Lily", "Jeanne d'Arc・Alter・Santa・Lily", ["贞德", "童贞", "幼贞", "黑贞Lily"], "人", 9261, 11870, "ABBQQ", 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5);
+
+    intialServant("Lancer", "源赖光", "Minamoto Yorimitsu", ["源赖光", "L奶光", "枪奶光"], "人", 9168, 12112, "ABBQQ", 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: -3, cardBuff: "6|11", fixedDamageBuff: 150, critialPowerBuff: 0 });
+
+
     intialServant("Lancer", "伊丽莎白・巴陶里", "Erzsebet Bathory", ["伊丽莎白巴陶里", "L龙娘", "爱抖露"], "人", 9122, 11870, "ABBQQ", 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Lancer", "清姬", "Kiyohime2", ["L清姬", "L种田"], "地", 8936, 11870, "ABBQQ", 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1.5, cardBuff: 12, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Lancer", "芬恩・麦克库尔", "Fionn mac Cumhaill", ["芬恩麦克库尔", "ntr事主", "苦主", "神代主任"], "天", 8930, 12750, "AABQQ", 600, 750, 825, 862.5, 900, 0, 0, 0, 0, 0, "", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 125, critialPowerBuff: 0 });
@@ -100,6 +108,11 @@ function intialData() {
     intialServant("Rider", "奥兹曼迪亚斯", "Ozymandias", ["奥兹曼迪亚斯", "拉二"], "天", 11971, 12830, "AABBQ", 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 0.8, cardBuff: 11, fixedDamageBuff: 175, critialPowerBuff: 0 });
     intialServant("Rider", "伊斯坎达尔", "Iskandar", ["伊斯坎达尔", "大帝"], "人", 11560, 13219, "AABBQ", 400, 500, 550, 575, 600, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 0.8, cardBuff: 11, fixedDamageBuff: 150, critialPowerBuff: 0 });
     intialServant("Rider", "弗朗西斯・德雷克", "Francis Drake", ["弗朗西斯德雷克", "船长", "bba"], "星", 11326, 12830, "AABBQ", 400, 500, 550, 575, 600, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 0.8, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
+
+
+    intialServant("Rider", "阿尔托莉雅・潘德拉贡〔Alter〕", "Altria Pendragon（Alter）3", ["阿尔托莉雅潘德拉贡", "R无毛"], "人", 10776, 14256, "AABQQ", 1200, 1600, 1800, 1900, 2000, 0, 0, 0, 0, 0, "", 0.8, { cardColor: 0.8, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 12 });
+
+
     intialServant("Rider", "女王梅芙", "Medb", ["女王梅芙", "碧池"], "地", 10296, 13968, "AABBQ", 800, 1000, 1100, 1150, 1200, 150, 162.5, 175, 187.5, 200, "TreasureSpecialAttack", 1.5, { cardColor: 0.8, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
 
     /******************************************4星********************************************************************/
