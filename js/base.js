@@ -1,4 +1,14 @@
-﻿//查询
+﻿//显示从者技能详情
+$("btnShowSkills").onclick = function () {
+    showSkillsWin();
+}
+
+//关闭从者技能详情
+$("btnClose").onclick = function () {
+    hideSkillsWin();
+}
+
+//查询
 $("txtWord").oninput = function () {
     search();
 }
@@ -30,4 +40,24 @@ function search() {
     }
     intialServantList();
     $("ddlChooseServant").onchange();
+}
+
+
+//跳转到茹西教王的理想鄉
+$("btnRedirectKazemai").onclick = function () {
+    redirectLink('https://kazemai.github.io/fgo-vz/svtData.html?no=');
+}
+//跳转到wiki
+$("btnRedirectWiki").onclick = function () {
+    redirectLink('http://fgowiki.com/guide/petdetail/');
+}
+//跳转页面
+function redirectLink(link) {
+    var id = $("ddlChooseServant").value;
+    if (id != "-1" && id != "") {
+        window.location =link+ servants[id].servantNo;
+    }
+    else {
+        alert("请选择从者");
+    }
 }
