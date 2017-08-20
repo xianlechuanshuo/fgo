@@ -55,7 +55,7 @@ $("btnRedirectWiki").onclick = function () {
 function redirectLink(link) {
     var id = $("ddlChooseServant").value;
     if (id != "-1" && id != "") {
-        window.location =link+ servants[id].servantNo;
+        window.top.location =link+ servants[id].servantNo;
     }
     else {
         alert("请选择从者");
