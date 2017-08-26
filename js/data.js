@@ -138,11 +138,11 @@ function intialData() {
     /******************************************5星********************************************************************/
     intialServant("Caster", "玄奘三蔵", "Genjou Sanzou", 113, ["玄奘三蔵", "师傅"], "人", 11658, 12965, "AAABQ", 800, 1000, 1100, 1150, 1200, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 12, fixedDamageBuff: 125, critialPowerBuff: 0 });
     intialServant("Caster", "尼禄・克劳狄乌斯", "Nero Claudius2",175, ["尼禄克劳狄乌斯", "C尼禄"], "人", 10857, 13685, "AABBQ", 300, 400, 450, 475, 500, 20, 30, 40, 50, 60, "TreasurePowerBuff", 1.5, { cardColor: -2, cardBuff: "8|11", fixedDamageBuff: 0, critialPowerBuff: 0 });
-    intialServant("Caster", "伊莉雅斯菲尔", "Illyasviel",136, ["伊莉雅斯菲尔", "伊莉雅"], "人", 10857, 13825, "AAABQ", 600, 800, 900, 950, 1000, 20, 35, 50, 65, 80, "TreasureSpecialCardPowerAttack", 1.5);
+    intialServant("Caster", "伊莉雅斯菲尔", "Illyasviel", 136, ["伊莉雅斯菲尔", "马猴烧酒", "魔伊"], "人", 10857, 13825, "AAABQ", 800, 1000, 1100, 1150, 1200, 20, 40, 60, 80, 100, "TreasureSpecialCardPowerAttack", 1.5);
     intialServant("Caster", "莱昂纳多・达・芬奇", "Leonardo da Vinci",127, ["莱昂纳多达芬奇"], "星", 10598, 14259, "AAABQ", 450, 600, 675, 712, 750, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Caster", "诸葛孔明〔艾尔梅洛伊二世〕", "El-Melloi II", 37, ["诸葛孔明", "村夫", "孔日天", "王妃", "为所欲为"], "人", 10598, 14259, "AAABQ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
 
-    intialServant("Caster", "梅林", "Merlin", 150, ["梅林", "魔法少女梅林", "梅日天", "为所欲为"], "地", 10546, 14259, "AAABQ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 6, fixedDamageBuff: 0, critialPowerBuff: 0 });
+    intialServant("Caster", "梅林", "Merlin", 150, ["梅林", "马猴烧酒梅林", "梅日天", "为所欲为"], "地", 10546, 14259, "AAABQ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 6, fixedDamageBuff: 0, critialPowerBuff: 0 });
 
     intialServant("Caster", "山鲁佐德", "Scheherazade",169, ["山鲁佐德", "1001"], "人", 9212, 15846, "AAABQ", 450, 600, 675, 712, 750, 200, 225, 250, 275, 300, "TreasureSpecialAttack", 1, { cardColor: 1, cardBuff: 11.5, fixedDamageBuff: 0, critialPowerBuff: 0 });
 
