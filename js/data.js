@@ -110,7 +110,7 @@ function intialData() {
     intialServant("Rider", "弗朗西斯・德雷克", "Francis Drake",65, ["弗朗西斯德雷克", "船长", "bba"], "星", 11326, 12830, "AABBQ", 400, 500, 550, 575, 600, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 0.8, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
 
 
-    intialServant("Rider", "阿尔托莉雅・潘德拉贡〔Alter〕", "Altria Pendragon（Alter）3",179, ["阿尔托莉雅潘德拉贡", "R无毛"], "人", 10776, 14256, "AABQQ", 1200, 1600, 1800, 1900, 2000, 0, 0, 0, 0, 0, "", 0.8, { cardColor: 0.8, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 12 });
+    intialServant("Rider", "阿尔托莉雅・潘德拉贡〔Alter〕", "Altria Pendragon（Alter）3",179, ["阿尔托莉雅潘德拉贡", "R有毛"], "人", 10776, 14256, "AABQQ", 1200, 1600, 1800, 1900, 2000, 0, 0, 0, 0, 0, "", 0.8, { cardColor: 0.8, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 12 });
 
 
     intialServant("Rider", "女王梅芙", "Medb",99, ["女王梅芙", "碧池"], "地", 10296, 13968, "AABBQ", 800, 1000, 1100, 1150, 1200, 150, 162.5, 175, 187.5, 200, "TreasureSpecialAttack", 1.5, { cardColor: 0.8, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });

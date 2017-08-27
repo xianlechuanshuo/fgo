@@ -133,7 +133,7 @@ function removeClass(ele, cls) {
 
 //过滤特殊符号（图片文件名）
 function filterStr(str) {
-    return str.replace(/\s+/gi, " ").replace(/[\s〔（・&']/gi, "_").replace(/[〕)）]/gi, "");
+    return str.replace(/\s+/gi, " ").replace(/[\s(〔（・&']/gi, "_").replace(/[〕)）]/gi, "");
 }
 
 //过滤特殊符号（搜索关键词）
@@ -146,3 +146,14 @@ function getCardsHtml(str) {
     str = str.replace(/([A])/gi, "!").replace(/[B]/gi, "@").replace(/[Q]/gi, "#");
     return str.replace(/([!])/gi, "<img src='images/Box/Arts.png'/>").replace(/[@]/gi, "<img src='images/Box/Buster.png'/>").replace(/[#]/gi, "<img src='images/Box/Quick.png'/>");
 }
+
+//下载文件
+function downloadFile(src) {
+    let $a = document.createElement('a');
+    $a.setAttribute("href", src);
+    $a.setAttribute("download", "");
+
+    let evObj = document.createEvent('MouseEvents');
+    evObj.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
+    $a.dispatchEvent(evObj);
+};

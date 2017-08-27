@@ -6,8 +6,10 @@
     <link href="css/style.css" rel="stylesheet" />
 
 </head>
-<body id="content">
-    <div id="showSkillsWin" class="showSkills"><a id="btnClose" class="close" href="javascript:void(0)">☒</a></div>
+<body id="content" onunload="setStorage()">
+    <div id="box" class="clearfix">
+        <div id="showSkillsWin" class="showSkills"><a id="btnClose" class="close" href="javascript:void(0)">☒</a></div>
+    </div>
     <div id="divServant">
         <table>
             <tr>
@@ -15,8 +17,9 @@
                     <select id="ddlChooseServant">
                         <option value="-1">|----------------------请选择从者-------------------------|</option>
                     </select>
-                    <input type="text" id="txtWord"/>
+                    <input type="text" id="txtWord" />
                     <input type="button" id="btnSearch" value="查询" />&nbsp;
+                    <a href="javascript:void(0)" id="btnShowMaterials">强化素材详情</a>&nbsp;
                     <a href="javascript:void(0)" id="btnShowSkills">从者技能详情</a>&nbsp;
                     <a href="javascript:void(0)" id="btnRedirectKazemai">前往理想鄉</a>&nbsp;
                     <a href="javascript:void(0)" id="btnRedirectWiki">前往wiki</a>&nbsp;
@@ -207,6 +210,8 @@
     /****************************************************************************/
     intialData();
     intialServantList();
+    loadStorage(false);
+
     //下拉从者选中项发生变化事件
     $("ddlChooseServant").onchange = function () {
         $("txtCardBuff").setAttribute("data-value", "0");
@@ -659,25 +664,5 @@
         //17.删除操作     
         newRow.insertCell(-1).innerHTML = "<a href='javascript:void(0)' onclick='delTr(this," + obj.guid + ")'>删</a>"
     }
-    function showResult() {
-        showDiv("divResult");
-    }
-    function hidResult() {
-        hideDiv("divResult");
-    }
 
-    function showSkillsWin() {
-        var id = $("ddlChooseServant").value;
-        if (id == "-1") {
-            alert("请选择从者");
-            return;
-        }
-        showDiv("showSkillsWin");
-        var servant = servants[id];
-        var eName = filterStr(servant.eName);
-        $("showSkillsWin").style.backgroundImage = "url(images/" + eName + ".png)";
-    }
-    function hideSkillsWin() {
-        hideDiv("showSkillsWin");
-    }
 </script>
