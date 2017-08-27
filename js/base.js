@@ -43,7 +43,7 @@ function hidResult() {
     hideDiv("divResult");
 }
 
-function showWin(type){
+function showWin(type,ext){
     let id = $("ddlChooseServant").value;
     if (id == "-1") {
         alert("请选择从者");
@@ -52,12 +52,12 @@ function showWin(type){
     showDiv("showSkillsWin");
     let servant = servants[id];
     let eName = filterStr(servant.eName);
-    $("showSkillsWin").style.backgroundImage = `url(images/${type}/${eName}.png)`;
+    $("showSkillsWin").style.backgroundImage = `url(images/${type}/${eName}${ext})`;
 }
 
     //显示技能图
     function showSkillsWin() {
-        showWin("Skill")
+        showWin("Skill",".png")
 
     }
     //隐藏技能图
@@ -66,7 +66,7 @@ function showWin(type){
     }
     //显示强化素材图
     function showMaterialsWin(){
-        showWin("Material");
+        showWin("Material",".jpg");
     }
 
     //查询
