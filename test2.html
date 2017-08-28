@@ -5,14 +5,16 @@
     <title></title>
 </head>
 <body>
-
+    <a href="javascript:void(0)" onclick="test()">test</a>
 </body>
 </html>
 <script>
-    if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
-        alert("移动端");
-    }
-    else {
-        alert("PC端")
+    function test() {
+        if (navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
+            alert("移动端");
+        }
+        else {
+            alert("PC端")
+        }
     }
 </script>
