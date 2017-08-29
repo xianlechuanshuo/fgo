@@ -1,3 +1,4 @@
+"use strict";
 var servants = new Array();
 var id = 0;
 function intialData() {
