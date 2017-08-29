@@ -11,7 +11,7 @@
 <script src="js/common.js"></script>
 <script>
     function test() {
-        if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
+        if (navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
             $("btnTest").onclick = function () {
                 if (new Date().getTime() - touchtime < 500) {//dbclick
                     alert("移动端双击");
