@@ -17,6 +17,8 @@
                     <select id="ddlChooseServant">
                         <option value="-1">|----------------------请选择从者-------------------------|</option>
                     </select>
+                    <label for="ckIsMaxGrail">
+                        <input type="checkbox" id="ckIsMaxGrail" />圣杯MAX</label>
                     <input type="text" id="txtWord" />
                     <input type="button" id="btnSearch" value="查询" />&nbsp;
                     <a href="javascript:void(0)" id="btnShowMaterials">强化素材详情</a>&nbsp;
@@ -211,9 +213,27 @@
     intialData();
     intialServantList();
     loadStorage(false);
+    
+    //圣杯MAX勾选框改变事件
+    $("ckIsMaxGrail").onchange = function () {
+        var id = $("ddlChooseServant").value;
+        if (id == "-1") {
+            alert("请选择从者");
+            return;
+        }
+        var servant = servants[id];
+        var check = $("ckIsMaxGrail").checked;
+        if (check) {
+            $("txtAttack").value = servant.maxAtk;
+        }
+        else {
+            $("txtAttack").value = servant.atk;
+        }
+    }
 
     //下拉从者选中项发生变化事件
     $("ddlChooseServant").onchange = function () {
+        $("ckIsMaxGrail").checked = false;
         $("txtCardBuff").setAttribute("data-value", "0");
         $("txtCardBuff").value = 0;
 
@@ -517,6 +537,11 @@
         var resultAvg = Math.round((resultMin + resultMax) * 1.0 / 2);
 
         var servantName = getDdlText("ddlChooseServant");
+
+        var isMaxGrail = $("ckIsMaxGrail").checked;
+        if (isMaxGrail) {
+            servantName = "<span class='text-gradient'>" + servantName + "</span>";
+        }
 
         var model = {
             guid: guid,

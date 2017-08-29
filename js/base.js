@@ -36,6 +36,7 @@ $("showSkillsWin").ondblclick =function(){
 
 
 
+
 //显示查询结果
 function showResult() {
     showDiv("divResult");

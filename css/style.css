@@ -55,7 +55,7 @@ table th, table td {
     display: none;
 }
 
-input[type="checkbox"] {
+input[type="checkbox"], select {
     vertical-align: middle;
 }
 
@@ -63,6 +63,31 @@ input[type="checkbox"] {
     text-align: center;
 }
 
-.cards img {
-    width: 7%;
+    .cards img {
+        width: 7%;
+    }
+
+/****清除浮动*****/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+/**字体颜色渐变**/
+.text-gradient {
+    font-weight: bold;
+    font-family: helvetica;
+    text-align: center;
+    background: -webkit-linear-gradient(left, #4f185d, #fe5d4b); /* 背景色渐变 */
+    -webkit-background-clip: text; /* 规定背景的划分区域 */
+    -webkit-text-fill-color: transparent; /* 防止字体颜色覆盖 */
 }
