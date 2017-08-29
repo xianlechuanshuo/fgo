@@ -34,6 +34,7 @@ $("showSkillsWin").ondblclick =function(){
 }
 
 
+
 //显示查询结果
 function showResult() {
     showDiv("divResult");
@@ -55,84 +56,84 @@ function showWin(type,ext){
     $("showSkillsWin").style.backgroundImage = `url(images/${type}/${eName}${ext})`;
 }
 
-    //显示技能图
-    function showSkillsWin() {
-        showWin("Skill",".png")
+//显示技能图
+function showSkillsWin() {
+    showWin("Skill",".png")
 
-    }
-    //隐藏技能图
-    function hideSkillsWin() {
-        hideDiv("showSkillsWin");
-    }
-    //显示强化素材图
-    function showMaterialsWin(){
-        showWin("Material",".jpg");
-    }
+}
+//隐藏技能图
+function hideSkillsWin() {
+    hideDiv("showSkillsWin");
+}
+//显示强化素材图
+function showMaterialsWin(){
+    showWin("Material",".jpg");
+}
 
-    //查询
-    function search() {
-        //清空从者数据数组
-        servants.length = 0;
-        //重置计数器
-        id = 0;
-        //重新初始化从者数据数组
-        intialData();
-        //过滤关键词特殊字符
-        word = filterStr2($("txtWord").value);
-        //根据关键词查询匹配结果
-        servants = servants.filter(contains);
-        //更新数组序号
-        var tmpServants = new Array();
-        for (var i = 0; i < servants.length; i++) {
-            tmpServants[servants[i].id] = servants[i];
-        }
-        servants = tmpServants;
+//查询
+function search() {
+    //清空从者数据数组
+    servants.length = 0;
+    //重置计数器
+    id = 0;
+    //重新初始化从者数据数组
+    intialData();
+    //过滤关键词特殊字符
+    word = filterStr2($("txtWord").value);
+    //根据关键词查询匹配结果
+    servants = servants.filter(contains);
+    //更新数组序号
+    var tmpServants = new Array();
+    for (var i = 0; i < servants.length; i++) {
+        tmpServants[servants[i].id] = servants[i];
+    }
+    servants = tmpServants;
 
-        $("ddlChooseServant").length = 0;
-        if (word == "") {
-            $("ddlChooseServant").options.add(new Option("|----------------------请选择从者-------------------------|", -1));
-        }
-        intialServantList();
-        $("ddlChooseServant").onchange();
+    $("ddlChooseServant").length = 0;
+    if (word == "") {
+        $("ddlChooseServant").options.add(new Option("|----------------------请选择从者-------------------------|", -1));
     }
+    intialServantList();
+    $("ddlChooseServant").onchange();
+}
 
 
-    //跳转到茹西教王的理想鄉
-    $("btnRedirectKazemai").onclick = function () {
-        redirectLink('https://kazemai.github.io/fgo-vz/svtData.html?no=');
+//跳转到茹西教王的理想鄉
+$("btnRedirectKazemai").onclick = function () {
+    redirectLink('https://kazemai.github.io/fgo-vz/svtData.html?no=');
+}
+//跳转到wiki
+$("btnRedirectWiki").onclick = function () {
+    redirectLink('http://fgowiki.com/guide/petdetail/');
+}
+//跳转页面
+function redirectLink(link) {
+    var id = $("ddlChooseServant").value;
+    if (id != "-1" && id != "") {
+        window.top.location = link + servants[id].servantNo;
     }
-    //跳转到wiki
-    $("btnRedirectWiki").onclick = function () {
-        redirectLink('http://fgowiki.com/guide/petdetail/');
+    else {
+        alert("请选择从者");
     }
-    //跳转页面
-    function redirectLink(link) {
-        var id = $("ddlChooseServant").value;
-        if (id != "-1" && id != "") {
-            window.top.location = link + servants[id].servantNo;
-        }
-        else {
-            alert("请选择从者");
-        }
+}
+//设置本地存储信息
+function setStorage() {
+    if (storage) {
+        //另外，在iPhone/iPad上有时设置setItem()时会出现诡异的QUOTA_EXCEEDED_ERR错误，这时一般在setItem之前，先removeItem()就ok了。
+        storage.removeItem("ddlChooseServant");
+        storage.setItem("ddlChooseServant", $("ddlChooseServant").value);
     }
-    //设置本地存储信息
-    function setStorage() {
-        if (storage) {
-            //另外，在iPhone/iPad上有时设置setItem()时会出现诡异的QUOTA_EXCEEDED_ERR错误，这时一般在setItem之前，先removeItem()就ok了。
-            storage.removeItem("ddlChooseServant");
-            storage.setItem("ddlChooseServant", $("ddlChooseServant").value);
-        }
-    }
-    //加载本地存储信息
-    function loadStorage(isTreasure=true) {
-        if (storage) {
-            let id = storage.getItem("ddlChooseServant");
-            if (id != "" && id != "-1") {
-                $("ddlChooseServant").value = id;
-                if (isTreasure) {
-                    changeOc();
-                }
-                bindServantData(id);
+}
+//加载本地存储信息
+function loadStorage(isTreasure=true) {
+    if (storage) {
+        let id = storage.getItem("ddlChooseServant");
+        if (id != "" && id != "-1") {
+            $("ddlChooseServant").value = id;
+            if (isTreasure) {
+                changeOc();
             }
+            bindServantData(id);
         }
     }
+}
