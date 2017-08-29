@@ -84,6 +84,7 @@ input[type="checkbox"], select {
 
 /**字体颜色渐变**/
 .text-gradient {
+    display:block;
     word-wrap:normal;
     font-weight: bold;
     font-family: helvetica;
