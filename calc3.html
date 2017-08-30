@@ -4,14 +4,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="css/style.css" rel="stylesheet" />
+    <style>
+        .servant tr:nth-child(2) td:nth-child(odd) {
+            width: 10%;
+        }
 
+        .servant tr:nth-child(2) td:nth-child(even) {
+            width: 15%;
+        }
+    </style>
 </head>
 <body id="content" onunload="setStorage()">
     <div id="box" class="clearfix">
         <div id="showSkillsWin" class="showSkills"><a id="btnClose" class="close" href="javascript:void(0)">☒</a></div>
     </div>
     <div id="divServant">
-        <table>
+        <table class="servant">
             <tr>
                 <td colspan="8">
                     <select id="ddlChooseServant">
@@ -199,13 +207,13 @@
 
     <div id="divResult">
         <b>结果：<a href="javascript:void(0)" onclick="clearTable(1)">清空</a></b>
-        <table id="tbResult">
+        <table id="tbResult" class="result">
             <tr>
                 <th>排名</th>
                 <th>从者</th>
                 <th>ATK</th>
-                <th>HP</th>
                 <th>剩余HP</th>
+                <th>阵营克制</th>
                 <th>宝具等级</th>
                 <th>宝具倍率</th>
                 <th>宝具特攻(oc)</th>
@@ -233,23 +241,23 @@
     loadStorage(true);
 
     //圣杯MAX勾选框改变事件
-    $("ckIsMaxGrail").onchange=function(){
+    $("ckIsMaxGrail").onchange = function () {
         var id = $("ddlChooseServant").value;
         if (id == "-1") {
             alert("请选择从者");
             return;
         }
         var servant = servants[id];
-        var check  =  $("ckIsMaxGrail").checked;
+        var check = $("ckIsMaxGrail").checked;
         if (check) {
-            $("txtAttack").value=servant.maxAtk;
-            $("txtMaxHp").value=servant.maxHp;
-            $("txtRemainHp").value=servant.maxHp;
+            $("txtAttack").value = servant.maxAtk;
+            $("txtMaxHp").value = servant.maxHp;
+            $("txtRemainHp").value = servant.maxHp;
         }
         else {
-            $("txtAttack").value=servant.atk;
-            $("txtMaxHp").value=servant.hp;
-            $("txtRemainHp").value=servant.hp;    
+            $("txtAttack").value = servant.atk;
+            $("txtMaxHp").value = servant.hp;
+            $("txtRemainHp").value = servant.hp;
         }
     }
     //下拉从者选中项发生变化事件
@@ -580,7 +588,7 @@
         resultMin = Math.floor(resultMin);
 
         var resultMax = attack * 0.23 * [treasureRate * cardColor * (1 + cardBuff)] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff) * (1 + specialAttackPowerBuff + treasurePowerBuff) * treasureSpecialAttack + (fixedDamageBuff - enemyFixedDamageReductionBuff);
-        resultMax = Math.round(resultMax);
+        resultMax = Math.floor(resultMax);
 
         var resultAvg = Math.round((resultMin + resultMax) * 1.0 / 2);
 
@@ -596,7 +604,7 @@
         var tl = getDdlText("ddlTreasureLevel");
         var oc = getDdlText("ddlOc");
 
-        var isMaxGrail=$("ckIsMaxGrail").checked;
+        var isMaxGrail = $("ckIsMaxGrail").checked;
         if (isMaxGrail) {
             servantName = "<span class='text-gradient'>" + servantName + "</span>";
         }
@@ -606,6 +614,7 @@
             servantName: servantName,
             atk: attack,
             hp: totalHp,
+            campResist: getDdlText("ddlCampResist"),
             remainHp: remainHp,
             cardColor: cardColor,
             tl: tl,
@@ -675,10 +684,12 @@
         newRow.insertCell(-1).innerHTML = obj.servantName;
         //3.ATK          
         newRow.insertCell(-1).innerHTML = obj.atk;
-        //4.HP           
-        newRow.insertCell(-1).innerHTML = obj.hp;
-        //5.剩余HP        
+
+        //4.剩余HP        
         newRow.insertCell(-1).innerHTML = obj.remainHp;
+
+        //5.阵营克制
+        newRow.insertCell(-1).innerHTML = obj.campResist;
 
         //6.宝具等级      
         newRow.insertCell(-1).innerHTML = obj.tl;

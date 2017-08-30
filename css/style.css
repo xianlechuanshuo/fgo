@@ -8,25 +8,23 @@ table {
     font-size: 14px;
 }
 
-#divResult table th, #divResult table td {
-    font-size: 12px;
-    text-align: center;
-}
+
 
 table th, table td {
     border: 1px solid #000;
     padding: 5px;
 }
 
-#divServant table td:nth-child(1) {
-    width: 150px;
+.result {
+    font-size: 12px;
+    text-align: center;
 }
 
-#divServant table td:nth-child(2) {
-    width: 250px;
+.servant, .result {
+    width: 100%;
 }
 
-#divServant table tr:nth-child(1) td, #divServant table tr:last-child td {
+.servant tr:nth-child(1), .servant tr:last-child {
     text-align: center;
 }
 
@@ -84,8 +82,8 @@ input[type="checkbox"], select {
 
 /**字体颜色渐变**/
 .text-gradient {
-    display:block;
-    word-wrap:normal;
+    display: block;
+    word-wrap: normal;
     font-weight: bold;
     font-family: helvetica;
     text-align: center;

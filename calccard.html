@@ -4,14 +4,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="css/style.css" rel="stylesheet" />
+    <style>
+        .servant tr:nth-child(3) td:nth-child(odd) {
+            width: 13%;
+        }
 
+        .servant tr:nth-child(3) td:nth-child(even) {
+            width: 20%;
+        }
+    </style>
 </head>
 <body id="content" onunload="setStorage()">
     <div id="box" class="clearfix">
         <div id="showSkillsWin" class="showSkills"><a id="btnClose" class="close" href="javascript:void(0)">☒</a></div>
     </div>
     <div id="divServant">
-        <table>
+        <table class="servant">
             <tr>
                 <td colspan="6">
                     <select id="ddlChooseServant">
@@ -181,11 +189,12 @@
 
     <div id="divResult">
         <b>结果：<a href="javascript:void(0)" onclick="clearTable(1)">清空</a></b>
-        <table id="tbResult">
+        <table id="tbResult" class="result">
             <tr>
                 <th>排名</th>
                 <th>从者</th>
                 <th>ATK</th>
+                <th>阵营克制</th>
                 <th>首卡颜色</th>
                 <th>卡色</th>
                 <th>卡位</th>
@@ -213,7 +222,7 @@
     intialData();
     intialServantList();
     loadStorage(false);
-    
+
     //圣杯MAX勾选框改变事件
     $("ckIsMaxGrail").onchange = function () {
         var id = $("ddlChooseServant").value;
@@ -530,7 +539,7 @@
         resultMin = Math.floor(resultMin);
 
         var resultMax = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff) * (1 + specialAttackPowerBuff + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
-        resultMax = Math.round(resultMax);
+        resultMax = Math.floor(resultMax);
 
         //alert("指令卡伤害：" + resultMin + "~" + resultMax);
 
@@ -547,6 +556,7 @@
             guid: guid,
             servantName: servantName,
             atk: attack,
+            campResist: getDdlText("ddlCampResist"),
             firstCard: getDdlText("ddlFirstCardColor"),
             cardColor: getDdlText("ddlCardColor"),
             cardPosition: getDdlText("ddlCardPosition"),
@@ -592,7 +602,7 @@
         //1.排名
         var firstCell = newRow.insertCell(-1);
         firstCell.innerHTML = "总伤害";
-        firstCell.colSpan = "13";//设置单元格跨13列
+        firstCell.colSpan = "14";//设置单元格跨14列
         firstCell.align = "center";//居中显示
 
         //14.指令卡伤害最小值          
@@ -657,36 +667,39 @@
         newRow.insertCell(-1).innerHTML = obj.servantName;
         //3.ATK          
         newRow.insertCell(-1).innerHTML = obj.atk;
-        //4.首卡颜色
+        //4.阵营克制
+        newRow.insertCell(-1).innerHTML = obj.campResist;
+
+        //5.首卡颜色
         newRow.insertCell(-1).innerHTML = obj.firstCard;
-        //5.卡色
+        //6.卡色
         newRow.insertCell(-1).innerHTML = obj.cardColor;
-        //6.卡位
+        //7.卡位
         newRow.insertCell(-1).innerHTML = obj.cardPosition;
 
-        //7.卡牌Buff     
+        //8.卡牌Buff     
         newRow.insertCell(-1).innerHTML = obj.cardBuff;
-        //8.攻击力Buff   
+        //9.攻击力Buff   
         newRow.insertCell(-1).innerHTML = obj.attackBuff;
-        //9.特攻威力Buff 
+        //10.特攻威力Buff 
         newRow.insertCell(-1).innerHTML = obj.specialAttackPowerBuff;
 
-        //10.敌人防御力Buff    
+        //11.敌人防御力Buff    
         newRow.insertCell(-1).innerHTML = obj.enemyDefenceBuff;
-        //11.Buster Chain
+        //12.Buster Chain
         newRow.insertCell(-1).innerHTML = obj.isBusterChain;
-        //12.暴击
+        //13.暴击
         newRow.insertCell(-1).innerHTML = obj.isCritial;
-        //13.暴击威力Buff
+        //14.暴击威力Buff
         newRow.insertCell(-1).innerHTML = obj.critialPowerBuff;
 
-        //14.指令卡伤害最小值          
+        //15.指令卡伤害最小值          
         newRow.insertCell(-1).innerHTML = obj.min;
-        //15.指令卡伤害最大值          
+        //16.指令卡伤害最大值          
         newRow.insertCell(-1).innerHTML = obj.max;
-        //16.指令卡伤害平均值         
+        //17.指令卡伤害平均值         
         newRow.insertCell(-1).innerHTML = obj.avg;
-        //17.删除操作     
+        //18.删除操作     
         newRow.insertCell(-1).innerHTML = "<a href='javascript:void(0)' onclick='delTr(this," + obj.guid + ")'>删</a>"
     }
 
