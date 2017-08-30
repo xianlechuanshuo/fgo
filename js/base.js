@@ -129,6 +129,7 @@ function setStorage() {
 //加载本地存储信息
 //360浏览器不支持es6中的函数参数默认值
 function loadStorage(isTreasure) {
+    $("ckIsMaxGrail").checked=false;
     if (storage) {
         let id = storage.getItem("ddlChooseServant");
         if (id != "" && id != "-1") {
