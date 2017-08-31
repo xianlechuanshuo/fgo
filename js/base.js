@@ -132,7 +132,8 @@ function loadStorage(isTreasure) {
     $("ckIsMaxGrail").checked=false;
     if (storage) {
         let id = storage.getItem("ddlChooseServant");
-        if (id != "" && id != "-1") {
+        if (id!=null&&id != "" && id != "-1") {
+            console.log("ok");
             $("ddlChooseServant").value = id;
             if (isTreasure) {
                 changeOc();
