@@ -133,7 +133,6 @@ function loadStorage(isTreasure) {
     if (storage) {
         let id = storage.getItem("ddlChooseServant");
         if (id!=null&&id != "" && id != "-1") {
-            console.log("ok");
             $("ddlChooseServant").value = id;
             if (isTreasure) {
                 changeOc();
