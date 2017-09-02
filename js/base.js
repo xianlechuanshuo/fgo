@@ -101,17 +101,27 @@ function search() {
 
 //新开标签页打开链接
 function openTab(link){
-    let parent=document.body;
-    let a=document.createElement("a");
+    //let parent=document.body;
+    //let a=document.createElement("a");
+    //a.href=link;
+    //a.target="_blank";
+    //a.style.display="none";
+    //a.id="a1";
+    ////a.innerHTML="";
+    //parent.appendChild(a);
+    //document.getElementById("a1").click();
+    //parent.removeChild(a);//记得删除掉a标签
+
+    let a=document.getElementById("a1");
+    if(!a){
+        a=document.createElement("a");
+    }
     a.href=link;
     a.target="_blank";
     a.style.display="none";
     a.id="a1";
-    //a.innerHTML="";
-    parent.appendChild(a);
-
+    document.body.appendChild(a);
     document.getElementById("a1").click();
-    parent.removeChild(a);//记得删除掉a标签
     
 }
 
