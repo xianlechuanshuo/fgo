@@ -108,7 +108,7 @@ function openTab(link){
     a.style.display="none";
     a.id="a1";
     //a.innerHTML="";
-    document.body.appendChild(a);
+    parent.appendChild(a);
 
     document.getElementById("a1").click();
     parent.removeChild(a);//记得删除掉a标签
