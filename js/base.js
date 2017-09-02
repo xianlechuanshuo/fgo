@@ -101,6 +101,7 @@ function search() {
 
 //新开标签页打开链接
 function openTab(link){
+    let parent=document.body;
     let a=document.createElement("a");
     a.href=link;
     a.target="_blank";
@@ -109,7 +110,9 @@ function openTab(link){
     //a.innerHTML="";
     document.body.appendChild(a);
 
-    document.getElementById("a1").click();			
+    document.getElementById("a1").click();
+    parent.removeChild(a);//记得删除掉a标签
+    
 }
 
 //跳转到茹西教王的理想鄉
