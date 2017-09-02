@@ -99,6 +99,18 @@ function search() {
     $("ddlChooseServant").onchange();
 }
 
+//新开标签页打开链接
+function openTab(link){
+    let a=document.createElement("a");
+    a.href=link;
+    a.target="_blank";
+    a.style.display="none";
+    a.id="a1";
+    //a.innerHTML="";
+    document.body.appendChild(a);
+
+    document.getElementById("a1").click();			
+}
 
 //跳转到茹西教王的理想鄉
 $("btnRedirectKazemai").onclick = function () {
@@ -112,7 +124,8 @@ $("btnRedirectWiki").onclick = function () {
 function redirectLink(link) {
     var id = $("ddlChooseServant").value;
     if (id != "-1" && id != "") {
-        window.top.location = link + servants[id].servantNo;
+        //window.top.location = link + servants[id].servantNo;
+        openTab(link + servants[id].servantNo);
     }
     else {
         alert("请选择从者");
