@@ -114,14 +114,13 @@ function openTab(link){
 
     let a=document.getElementById("a1");
     if(!a){
-        a=document.createElement("a");
-        a.href=link;
+        a=document.createElement("a");   
         a.target="_blank";
         a.style.display="none";
         a.id="a1";
         document.body.appendChild(a);
     }
-    
+    a.href=link;
     a.click();
     
 }
