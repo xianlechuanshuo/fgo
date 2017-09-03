@@ -6,8 +6,8 @@
     <style>
         body {
             text-align: center;
-            padding-top:10%;
-            font-size:30px;
+            padding-top: 10%;
+            font-size: 30px;
         }
     </style>
 </head>
@@ -44,11 +44,12 @@
 
     $("ckIsFastClick").onchange = function () {
         if (browser.versions.mobile || browser.versions.ios || browser.versions.android ||
-browser.versions.iPhone || browser.versions.iPad) {
+    browser.versions.iPhone || browser.versions.iPad) {
             if (this.checked) {
                 loadScript("js/fastclick.js");
                 window.addEventListener("load", function () {
-                    FastClick.attach(document.body);
+                    //FastClick.attach(document.body);
+                    FastClick.attach($("btnTest"));
                 }, false);
             }
         }
