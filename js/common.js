@@ -174,7 +174,13 @@ function openTab(link){
 }
 //动态加载js脚本
 function loadScript(src){
-   let script =document.createElement("script");
-   script.src=src;
-   document.body.appendChild(script);
+    //js/fastclick.js
+   let id=src.replace(/js\//gi,"").replace(/\.js/gi,"").replace(/\.min/gi,"");
+   let script =document.getElementById(id);
+   if (!script) {
+       script=document.createElement("script");
+       script.src=src;
+       script.id=id;
+       document.body.appendChild(script);
+   }
 }

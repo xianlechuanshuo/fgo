@@ -3,8 +3,16 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+    <label for="ckIsFastClick">
+        启用fastclick<input type="checkbox" id="ckIsFastClick" />
+    </label>
     <a id="btnTest" href="javascript:void(0)">测试</a>
 </body>
 </html>
@@ -30,21 +38,22 @@
         }(),
         language: (navigator.browserLanguage || navigator.language).toLowerCase()
     }
-    if (browser.versions.mobile || browser.versions.ios || browser.versions.android ||
+
+
+    $("ckIsFastClick").onchange = function () {
+        if (browser.versions.mobile || browser.versions.ios || browser.versions.android ||
 browser.versions.iPhone || browser.versions.iPad) {
-        loadScript("js/fastclick.js");
-        window.addEventListener("load", function () {
-            FastClick.attach(document.body);
-        }, false);
+            if (this.checked) {
+                loadScript("js/fastclick.js");
+                window.addEventListener("load", function () {
+                    FastClick.attach(document.body);
+                }, false);
+            }
+        }
+
     }
     $("btnTest").onclick = function () {
-        if (browser.versions.mobile || browser.versions.ios || browser.versions.android ||
-  browser.versions.iPhone || browser.versions.iPad) {
-            openTab("https://m.baidu.com");
-        }
-        else {
-            openTab("https://www.baidu.com");
-        }
+        openTab("https://www.baidu.com");
     }
 
 </script>
