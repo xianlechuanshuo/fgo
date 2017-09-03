@@ -99,20 +99,6 @@ function search() {
     $("ddlChooseServant").onchange();
 }
 
-//新开标签页打开链接
-function openTab(link){
-    let a=document.getElementById("a1");
-    if(!a){
-        a=document.createElement("a");   
-        a.target="_blank";
-        a.style.display="none";
-        a.id="a1";
-        document.body.appendChild(a);
-    }
-    a.href=link;
-    a.click();
-}
-
 //跳转到茹西教王的理想鄉
 $("btnRedirectKazemai").onclick = function () {
     redirectLink('https://kazemai.github.io/fgo-vz/svtData.html?no=');
