@@ -311,14 +311,14 @@ function intialData() {
 */
 function intialServant(career, name, eName, servantNo, keys, camp, atk, hp, maxAtk, maxHp, cards, tl1, tl2, tl3, tl4, tl5, oc1, oc2, oc3, oc4, oc5, type, cardColor, careerSkill, treasureSideEffect) {
     id++;
-    var tl = new Array();
+    var tl = {};
     tl["tl1"] = tl1;
     tl["tl2"] = tl2;
     tl["tl3"] = tl3;
     tl["tl4"] = tl4;
     tl["tl5"] = tl5;
 
-    var oc = new Array();
+    var oc = {};
     oc["oc1"] = oc1;
     oc["oc2"] = oc2;
     oc["oc3"] = oc3;

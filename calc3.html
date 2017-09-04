@@ -508,6 +508,9 @@
             //设置回被动卡牌buff
             var originNum = getTxtAttrFloatNum("txtCardBuff", "value");
             $("txtCardBuff").value = originNum;
+
+            //宝具副效果补充
+            bindTreasureSideEffect(servant);
         }
     }
 
