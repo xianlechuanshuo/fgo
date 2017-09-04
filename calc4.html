@@ -25,13 +25,12 @@
             var links = $$("a");
             for (var i = 0; i < links.length; i++) {
                 links[i].onclick = function () {
-                    //var url = this.getAttribute("data-url");
                     var url = this.dataset.url;
 
                     //获取选中的a标签
                     var active = document.querySelector(".active");
 
-                    //移除选中a标签的"selected"类名
+                    //移除选中a标签的"active"类名
                     active.classList.remove("active");
 
                     //给当前选中的a标签添加"active"类名

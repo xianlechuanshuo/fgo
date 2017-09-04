@@ -33,19 +33,19 @@ function getDdlText(id) {
 //获取下拉列表选中项的自定义属性值
 function getDdlAttrText(id, name) {
     var index = $(id).selectedIndex;
-    var text = $(id).options[index].getAttribute(name);
+    var text = $(id).options[index].dataset[name];
     return text;
 }
 
 //获取文本框的自定属性值，并转换为float数值
 function getTxtAttrFloatNum(id, name) {
-    var text = $(id).getAttribute(name);
+    var text = $(id).dataset[name];
     return parseFloat(text);
 }
 
 //获取文本框的自定属性值，并转换为整型数值
 function getTxtAttrIntNum(id, name) {
-    var text = $(id).getAttribute(name);
+    var text = $(id).dataset[name];
     return parseInt(text);
 }
 
@@ -95,10 +95,6 @@ function resizeWindow() {
 //内容页中，使父窗口iContent自适应内容高度
 function resizeParentWindow() {
     var height = $("content").offsetHeight;//获取body的高度
-    //var iContent = window.parent.frames["iContent"] ;
-    //if (iContent) {
-    //    iContent.style.height = (height + 60) + "px";
-    //}
 
     //获取到父容器iContent的dom对象
     var iContent = window.parent.document.getElementById('iContent');
@@ -114,23 +110,6 @@ function hasClass(elem, cls) {
     return new RegExp(' ' + cls + ' ').test(' ' + elem.className + ' ');
 }
 
-//添加类
-function addClass(ele, cls) {
-    if (!hasClass(ele, cls)) {
-        ele.className = ele.className == '' ? cls : ele.className + ' ' + cls;
-    }
-}
-
-//移除类
-function removeClass(ele, cls) {
-    if (hasClass(ele, cls)) {
-        var newClass = ' ' + ele.className.replace(/[\t\r\n]/g, '') + ' ';
-        while (newClass.indexOf(' ' + cls + ' ') >= 0) {
-            newClass = newClass.replace(' ' + cls + ' ', ' ');
-        }
-        ele.className = newClass.replace(/^\s+|\s+$/g, '');
-    }
-}
 
 //过滤特殊符号（图片文件名）
 function filterStr(str) {
@@ -150,13 +129,14 @@ function getCardsHtml(str) {
 
 //下载文件
 function downloadFile(src) {
-    let $a = document.createElement('a');
-    $a.setAttribute("href", src);
-    $a.setAttribute("download", "");
+    let a = document.createElement('a');
+
+    a.href=src;
+    a.download="";
 
     let evObj = document.createEvent('MouseEvents');
     evObj.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
-    $a.dispatchEvent(evObj);
+    a.dispatchEvent(evObj);
 }
 
 //新开标签页打开链接
@@ -177,10 +157,10 @@ function loadScript(src){
     //js/fastclick.js
    let id=src.replace(/js\//gi,"").replace(/\.js/gi,"").replace(/\.min/gi,"");
    let script =document.getElementById(id);
-   if (!script) {
-       script=document.createElement("script");
-       script.src=src;
-       script.id=id;
-       document.body.appendChild(script);
-   }
+    if (!script) {
+        script=document.createElement("script");
+        script.src=src;
+        script.id=id;
+        document.body.appendChild(script);
+    }
 }

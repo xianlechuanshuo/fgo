@@ -264,7 +264,9 @@
     $("ddlChooseServant").onchange = function () {
         $("ckIsSpecialAttack").checked = false;
         $("ckIsMaxGrail").checked = false;
-        $("txtCardBuff").setAttribute("data-value", "0");
+
+        $("txtCardBuff").dataset.value = 0;
+
         var id = this.value;
         if (id != "-1" && id != "") {
             changeOc();
@@ -337,6 +339,19 @@
         //6.职介技能
         bindServantCareerSkillInfo(servant);
 
+        //7.宝具副效果补充(oc特攻只能展示一种副效果，如：1001的oc特攻只展示了宝具特攻，副效果的20宝具威力buff没展示，在这进行补充)
+        bindTreasureSideEffect(servant);
+    }
+
+    //宝具副效果补充
+    function bindTreasureSideEffect(servant) {
+        var treasureSideEffect = servant.treasureSideEffect;
+        if (treasureSideEffect) {
+            var treasurePowerBuff=treasureSideEffect.treasurePowerBuff;
+            if (!isNaN(treasurePowerBuff)) {//单个数值，比如1001的20宝具威力buff
+                $("txtTreasurePowerBuff").value = treasurePowerBuff;
+            }
+        }
     }
 
     //绑定从者职介信息
@@ -355,33 +370,39 @@
             /************************************卡牌Buff******************************************************/
             //0.8(Quick)，1(Arts)，1.5(Buster)，0(All)，-1(None)，-2(Quick和Arts)，-3(Buster和Quick)
             if ((cardColor == 0.8 || cardColor == 1 || cardColor == 1.5) && cardColor == cardColorValue) {
-                $("txtCardBuff").setAttribute("data-value", careerSkill.cardBuff);
+                $("txtCardBuff").dataset.value = careerSkill.cardBuff;
+
                 $("txtCardBuff").value = careerSkill.cardBuff;
             }
             else if (cardColor == 0) {//215
-                $("txtCardBuff").setAttribute("data-value", careerSkill.cardBuff);
+                $("txtCardBuff").dataset.value = careerSkill.cardBuff;
+
                 $("txtCardBuff").value = careerSkill.cardBuff;
             }
                 //Quick和Arts
             else if (cardColor == -2 && cardColorValue == 0.8 && cardBuffs && cardBuffs.length == 2) {
                 var quickBuff = cardBuffs[0];
-                $("txtCardBuff").setAttribute("data-value", quickBuff);
+                $("txtCardBuff").dataset.value = quickBuff;
+
                 $("txtCardBuff").value = quickBuff;
             }
             else if (cardColor == -2 && cardColorValue == 1 && cardBuffs && cardBuffs.length == 2) {
                 var artsBuff = cardBuffs[1];
-                $("txtCardBuff").setAttribute("data-value", artsBuff);
+                $("txtCardBuff").dataset.value = artsBuff;
+
                 $("txtCardBuff").value = artsBuff;
             }
                 //Buster和Quick
             else if (cardColor == -3 && cardColorValue == 1.5 && cardBuffs && cardBuffs.length == 2) {
                 var busterBuff = cardBuffs[0];
-                $("txtCardBuff").setAttribute("data-value", busterBuff);
+                $("txtCardBuff").dataset.value = busterBuff;
+
                 $("txtCardBuff").value = busterBuff;
             }
             else if (cardColor == -3 && cardColorValue == 0.8 && cardBuffs && cardBuffs.length == 2) {
                 var quickBuff = cardBuffs[1];
-                $("txtCardBuff").setAttribute("data-value", quickBuff);
+                $("txtCardBuff").dataset.value = quickBuff;
+
                 $("txtCardBuff").value = quickBuff;
             }
             /****************************************固定伤害Buff**************************************************/
@@ -463,7 +484,8 @@
             }
             else if (ocs["type"] == "TreasureSpecialCardPowerAttack") {//R金时OC绿魔放
                 //由于多了职介技能(被动buff)，这里稍微麻烦点，需要做累加操作。
-                var originNum = getTxtAttrFloatNum("txtCardBuff", "data-value");
+                var originNum = getTxtAttrFloatNum("txtCardBuff", "value");
+
                 $("txtCardBuff").value = originNum + ocs[ocLevel];
             }
             else if (ocs["type"] == "TreasureSpecialAtkPowerAttack") {//B兰OC加攻
@@ -483,7 +505,7 @@
 
 
             //设置回被动卡牌buff
-            var originNum = getTxtAttrFloatNum("txtCardBuff", "data-value");
+            var originNum = getTxtAttrFloatNum("txtCardBuff", "value");
             $("txtCardBuff").value = originNum;
         }
     }

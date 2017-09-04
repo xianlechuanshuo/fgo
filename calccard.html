@@ -77,20 +77,20 @@
                 <td>卡色</td>
                 <td>
                     <select id="ddlCardColor">
-                        <option value="0.8" type="">Quick</option>
-                        <option value="1.0" type="">Arts</option>
-                        <option value="1.5" type="">Buster</option>
-                        <option value="1.0" type="ea1">Extra Attack</option>
-                        <option value="1.0" type="ea2">Extra Attack(前3张卡同色)</option>
+                        <option value="0.8" data-type="">Quick</option>
+                        <option value="1.0" data-type="">Arts</option>
+                        <option value="1.5" data-type="">Buster</option>
+                        <option value="1.0" data-type="ea1">Extra Attack</option>
+                        <option value="1.0" data-type="ea2">Extra Attack(前3张卡同色)</option>
                     </select>
                 </td>
                 <td>卡位</td>
                 <td>
                     <select id="ddlCardPosition">
-                        <option value="1.0" type="">一位</option>
-                        <option value="1.2" type="">二位</option>
-                        <option value="1.4" type="">三位</option>
-                        <option value="1.0" type="ea">四位(Extra Attack)</option>
+                        <option value="1.0" data-type="">一位</option>
+                        <option value="1.2" data-type="">二位</option>
+                        <option value="1.4" data-type="">三位</option>
+                        <option value="1.0" data-type="ea">四位(Extra Attack)</option>
                     </select>
                 </td>
 
@@ -247,10 +247,12 @@
     //下拉从者选中项发生变化事件
     $("ddlChooseServant").onchange = function () {
         $("ckIsMaxGrail").checked = false;
-        $("txtCardBuff").setAttribute("data-value", "0");
+        $("txtCardBuff").dataset.value=0;
+
         $("txtCardBuff").value = 0;
 
-        $("txtCritialPowerBuff").setAttribute("data-value", "0");
+        $("txtCritialPowerBuff").dataset.value=0;
+
         $("ckIsCritical").checked = false;
         $("txtCritialPowerBuff").disabled = true;
 
@@ -282,9 +284,9 @@
             $("txtCardBuff").value = 0;
 
             $("ddlCardPosition").disabled = true;
-            var cardPostions = $("ddlCardPosition").options
+            var cardPostions = $("ddlCardPosition").options;
             for (var i = 0; i < cardPostions.length; i++) {
-                if (cardPostions[i].getAttribute("type") == "ea") {
+                if (cardPostions[i].dataset.type == "ea") {
                     cardPostions[i].selected = true;
                 }
             }
@@ -331,7 +333,7 @@
     $("ckIsCritical").onchange = function () {
         if ($("ckIsCritical").checked) {//暴击
             $("txtCritialPowerBuff").disabled = false;
-            $("txtCritialPowerBuff").value = getTxtAttrFloatNum("txtCritialPowerBuff", "data-value");
+            $("txtCritialPowerBuff").value = getTxtAttrFloatNum("txtCritialPowerBuff", "value");
         }
         else {//不暴击
             $("txtCritialPowerBuff").disabled = true;
@@ -388,37 +390,39 @@
             /************************************卡牌Buff******************************************************/
             //0.8(Quick)，1(Arts)，1.5(Buster)，0(All)，-1(None)，-2(Quick和Arts)，-3(Buster和Quick)
             if ((cardColor == 0.8 || cardColor == 1 || cardColor == 1.5) && cardColor == cardColorValue) {
-                $("txtCardBuff").setAttribute("data-value", careerSkill.cardBuff);
+                $("txtCardBuff").dataset.value=careerSkill.cardBuff;
+
                 $("txtCardBuff").value = careerSkill.cardBuff;
             }
             else if (cardColor == 0) {//215
-                $("txtCardBuff").setAttribute("data-value", careerSkill.cardBuff);
+                $("txtCardBuff").dataset.value=careerSkill.cardBuff;
                 $("txtCardBuff").value = careerSkill.cardBuff;
             }
                 //Quick和Arts
             else if (cardColor == -2 && cardColorValue == 0.8 && cardBuffs && cardBuffs.length == 2) {
                 var quickBuff = cardBuffs[0];
-                $("txtCardBuff").setAttribute("data-value", quickBuff);
+                $("txtCardBuff").dataset.value=careerSkill.quickBuff;
                 $("txtCardBuff").value = quickBuff;
             }
             else if (cardColor == -2 && cardColorValue == 1 && cardBuffs && cardBuffs.length == 2) {
                 var artsBuff = cardBuffs[1];
-                $("txtCardBuff").setAttribute("data-value", artsBuff);
+                $("txtCardBuff").dataset.value=careerSkill.artsBuff;
                 $("txtCardBuff").value = artsBuff;
             }
                 //Buster和Quick
             else if (cardColor == -3 && cardColorValue == 1.5 && cardBuffs && cardBuffs.length == 2) {
                 var busterBuff = cardBuffs[0];
-                $("txtCardBuff").setAttribute("data-value", busterBuff);
+                $("txtCardBuff").dataset.value=careerSkill.busterBuff;
                 $("txtCardBuff").value = busterBuff;
             }
             else if (cardColor == -3 && cardColorValue == 0.8 && cardBuffs && cardBuffs.length == 2) {
                 var quickBuff = cardBuffs[1];
-                $("txtCardBuff").setAttribute("data-value", quickBuff);
+                $("txtCardBuff").dataset.value=careerSkill.quickBuff;
                 $("txtCardBuff").value = quickBuff;
             }
             else {
-                $("txtCardBuff").setAttribute("data-value", 0);
+                $("txtCardBuff").dataset.value=0;
+
                 $("txtCardBuff").value = 0;
             }
             /****************************************固定伤害Buff**************************************************/
@@ -433,7 +437,8 @@
             else {
                 $("txtCritialPowerBuff").value = careerSkill.critialPowerBuff;
             }
-            $("txtCritialPowerBuff").setAttribute("data-value", careerSkill.critialPowerBuff);
+
+            $("txtCritialPowerBuff").dataset.value = careerSkill.critialPowerBuff;
         }
 
     }
