@@ -347,8 +347,9 @@
     function bindTreasureSideEffect(servant) {
         var treasureSideEffect = servant.treasureSideEffect;
         if (treasureSideEffect) {
-            var treasurePowerBuff=treasureSideEffect.treasurePowerBuff;
-            if (!isNaN(treasurePowerBuff)) {//单个数值，比如1001的20宝具威力buff
+            var treasurePowerBuff = treasureSideEffect.treasurePowerBuff;
+            //!isNaN(null)，返回true，需要去掉这种情况
+            if (treasurePowerBuff&&!isNaN(treasurePowerBuff)) {//单个数值，比如1001的20宝具威力buff
                 $("txtTreasurePowerBuff").value = treasurePowerBuff;
             }
         }
