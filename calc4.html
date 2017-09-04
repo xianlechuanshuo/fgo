@@ -11,13 +11,10 @@
             text-decoration: none;
             color: white;
             border: 1px solid gray;
-        }
-
-        .unselected {
             background: gray;
         }
 
-        .selected {
+        .active {
             background: blue;
         }
     </style>
@@ -29,13 +26,16 @@
             for (var i = 0; i < links.length; i++) {
                 links[i].onclick = function () {
                     var url = this.getAttribute("data-url");
-                    //设置选中a标签样式前，先把所有a标签样式设置成unselected。
-                    for (var j = 0; j < links.length; j++) {
-                        links[j].className = "unselected";
-                    }
-                    this.className = "selected";
+                    
+                    //获取选中的a标签
+                    var active = document.querySelector(".active");
 
-                    //window.frames["iContent"].src = url;
+                    //移除选中a标签的"selected"类名
+                    active.classList.remove("active");
+
+                    //给当前选中的a标签添加"active"类名
+                    this.classList.add("active");
+
                     $("iContent").src = url;
                     resizeWindow();
                 }
@@ -47,10 +47,10 @@
     </script>
 </head>
 <body>
-    <a href="javascript:void(0)" class="selected" data-url="calc3.html">宝具伤害计算器</a>
-    <a href="javascript:void(0)" class="unselected" data-url="calccard.html">指令卡伤害计算器</a>
-    <a href="javascript:void(0)" class="unselected" data-url="guid.html">FGO伤害计算公式</a>
-    <a href="javascript:void(0)" class="unselected" data-url="updatelog.html">更新日志</a>
+    <a href="javascript:void(0)" class="active" data-url="calc3.html">宝具伤害计算器</a>
+    <a href="javascript:void(0)" data-url="calccard.html">指令卡伤害计算器</a>
+    <a href="javascript:void(0)" data-url="guid.html">FGO伤害计算公式</a>
+    <a href="javascript:void(0)" data-url="updatelog.html">更新日志</a>
     <div>
         <iframe id="iContent" name="iContentN" src="calc3.html" scrolling="auto" frameborder="0" style="width: 100%;"></iframe>
     </div>
