@@ -25,8 +25,9 @@
             var links = $$("a");
             for (var i = 0; i < links.length; i++) {
                 links[i].onclick = function () {
-                    var url = this.getAttribute("data-url");
-                    
+                    //var url = this.getAttribute("data-url");
+                    var url = this.dataset.url;
+
                     //获取选中的a标签
                     var active = document.querySelector(".active");
 
