@@ -20,7 +20,7 @@
 </head>
 <body id="content" onunload="setStorage()">
     <div id="box" class="clearfix">
-        <div id="showSkillsWin" class="showSkills"><a id="btnClose" class="close" href="javascript:void(0)">☒</a></div>
+        <div id="showSkillsWin" class="showSkills"><a id="btnClose" class="close" href="javascript:;">☒</a></div>
     </div>
     <div id="divServant">
         <table class="servant">
@@ -33,10 +33,10 @@
                         <input type="checkbox" id="ckIsMaxGrail" />圣杯MAX</label>
                     <input type="text" id="txtWord" />
                     <input type="button" id="btnSearch" value="查询" />&nbsp;
-                    <a href="javascript:void(0)" id="btnShowMaterials">强化素材详情</a>&nbsp;
-                    <a href="javascript:void(0)" id="btnShowSkills">从者技能详情</a>&nbsp;
-                    <a href="javascript:void(0)" id="btnRedirectKazemai">前往理想鄉</a>&nbsp;
-                    <a href="javascript:void(0)" id="btnRedirectWiki">前往wiki</a>&nbsp;
+                    <a href="javascript:;" id="btnShowMaterials">强化素材详情</a>&nbsp;
+                    <a href="javascript:;" id="btnShowSkills">从者技能详情</a>&nbsp;
+                    <a href="javascript:;" id="btnRedirectKazemai">前往理想鄉</a>&nbsp;
+                    <a href="javascript:;" id="btnRedirectWiki">前往wiki</a>&nbsp;
                 </td>
             </tr>
             <tr>
@@ -192,7 +192,7 @@
     <br />
 
     <div id="divResult">
-        <b>结果：<a href="javascript:void(0)" onclick="clearTable(1)">清空</a></b>
+        <b>结果：<a href="javascript:;" onclick="clearTable(1)">清空</a></b>
         <table id="tbResult" class="result">
             <tr>
                 <th>排名</th>
@@ -709,7 +709,7 @@
         //17.指令卡伤害平均值         
         newRow.insertCell(-1).innerHTML = obj.avg;
         //18.删除操作     
-        newRow.insertCell(-1).innerHTML = "<a href='javascript:void(0)' onclick='delTr(this," + obj.guid + ")'>删</a>"
+        newRow.insertCell(-1).innerHTML = "<a href='javascript:;' onclick='delTr(this," + obj.guid + ")'>删</a>"
     }
 
 </script>
