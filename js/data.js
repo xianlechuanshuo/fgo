@@ -21,7 +21,7 @@ function intialData() {
 
 
     intialServant("Saber", "高文", "Gawain", 123, ["大高文", "太阳骑士"], "地", 10173, 11419, 12317, 13845, "ABBBQ", 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 0.8, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
-    intialServant("Saber", "兰斯洛特", "Lancelot", 121, ["兰斯洛特", "剑长江", "岳父"], "地", 9949, 11589, 12046, 14051, "AABBQ", 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1, { cardColor: 0.8, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
+    intialServant("Saber", "兰斯洛特", "Lancelot", 121, ["剑兰斯洛特", "S兰斯洛特", "剑长江", "岳父"], "地", 9949, 11589, 12046, 14051, "AABBQ", 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1, { cardColor: 0.8, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 }, {cardPowerBuff:30});
     intialServant("Saber", "伊丽莎白・巴陶里〔勇者〕", "Erzsebet Bathory（Brave)", 138, ["伊丽莎白巴陶里", "S龙娘", "剑龙娘"], "地", 9899, 11248, 11986, 13638, "AABBQ", 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 6, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Saber", "罗摩", "Rama", 101, ["罗摩", "红阿塔"], "天", 9854, 11993, 11931, 14541, "AABBQ", 600, 800, 900, 950, 1000, 150, 162.5, 175, 187.5, 200, "TreasureSpecialAttack", 1.5, { cardColor: 0.8, cardBuff: 11, fixedDamageBuff: 200, critialPowerBuff: 0 });
     intialServant("Saber", "铃鹿御前", "Suzuka Gozen", 165, ["铃鹿御前"], "天", 9544, 11753, 11556, 14250, "AABBQ", 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 0.8, cardBuff: 8, fixedDamageBuff: 200, critialPowerBuff: 0 });
@@ -308,6 +308,7 @@ function intialData() {
 *    critialPowerBuff: 0(暴击威力Buff)
 * @param {Object} treasureSideEffect 宝具副效果(oc特攻只能显示一种副效果，所以剩余其他的副效果存储到这个对象里)
 *    treasurePowerBuff：宝具威力buff
+*    cardPowerBuff：卡牌buff
 */
 function intialServant(career, name, eName, servantNo, keys, camp, atk, hp, maxAtk, maxHp, cards, tl1, tl2, tl3, tl4, tl5, oc1, oc2, oc3, oc4, oc5, type, cardColor, careerSkill, treasureSideEffect) {
     id++;

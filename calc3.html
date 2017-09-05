@@ -347,12 +347,18 @@
     function bindTreasureSideEffect(servant) {
         var treasureSideEffect = servant.treasureSideEffect;
         if (treasureSideEffect) {
-            var treasurePowerBuff = treasureSideEffect.treasurePowerBuff;
+            var treasurePowerBuff = treasureSideEffect.treasurePowerBuff;//宝具威力buff
             //!isNaN(null)，返回true，需要去掉这种情况
-            if (treasurePowerBuff&&!isNaN(treasurePowerBuff)) {//单个数值，比如1001的20宝具威力buff
+            if (treasurePowerBuff&&!isNaN(treasurePowerBuff)) {//单个数值，比如1001宝具的20%宝具威力buff
                 $("txtTreasurePowerBuff").value = treasurePowerBuff;
             }
+
+            var cardPowerBuff = treasureSideEffect.cardPowerBuff;//卡牌buff
+            if (cardPowerBuff && !isNaN(cardPowerBuff)) {//单个数值，比如剑兰宝具的30%蓝魔放buff
+                $("txtCardBuff").value = cardPowerBuff;
+            }
         }
+        
     }
 
     //绑定从者职介信息
