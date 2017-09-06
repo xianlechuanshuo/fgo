@@ -130,33 +130,26 @@ function getCardsHtml(str) {
 //下载文件
 function downloadFile(src) {
     let a = document.createElement('a');
-
     a.href=src;
     a.download="";
-
-    let evObj = document.createEvent('MouseEvents');
-    evObj.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
-    a.dispatchEvent(evObj);
+    a.click();
 }
 
 //新开标签页打开链接
 function openTab(link){
-    let a=document.getElementById("a1");
-    if(!a){
-        a=document.createElement("a");   
-        a.target="_blank";
-        a.style.display="none";
-        a.id="a1";
-        document.body.appendChild(a);
-    }
+    let a=document.createElement("a");   
+    a.target="_blank";
     a.href=link;
     a.click();
 }
+
 //动态加载js脚本
 function loadScript(src){
-    //js/fastclick.js
-   let id=src.replace(/js\//gi,"").replace(/\.js/gi,"").replace(/\.min/gi,"");
-   let script =document.getElementById(id);
+    //js/jquery-1.12.4.min.js
+    let pos = src.lastIndexOf("/");
+    let filename = src.substr(pos +1);//jquery-1.12.4.min.js
+    let id=filename.replace(/[.-]/gi,"");//jquery1124minjs
+    let script =document.getElementById(id);
     if (!script) {
         script=document.createElement("script");
         script.src=src;
