@@ -247,10 +247,13 @@
     //下拉从者选中项发生变化事件
     $("ddlChooseServant").onchange = function () {
         $("ckIsMaxGrail").checked = false;
-        $("txtCardBuff").dataset.value=0;
 
         $("txtCardBuff").value = 0;
+        $("txtCardBuff").dataset.value=0;
 
+        $("txtFixedDamageBuff").value = 0;
+
+        $("txtCritialPowerBuff").value = 0;
         $("txtCritialPowerBuff").dataset.value=0;
 
         $("ckIsCritical").checked = false;
@@ -440,7 +443,6 @@
 
             $("txtCritialPowerBuff").dataset.value = careerSkill.critialPowerBuff;
         }
-
     }
 
     function intialServantList() {

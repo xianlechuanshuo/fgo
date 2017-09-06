@@ -264,7 +264,7 @@
     $("ddlChooseServant").onchange = function () {
         $("ckIsSpecialAttack").checked = false;
         $("ckIsMaxGrail").checked = false;
-
+        $("txtFixedDamageBuff").value = 0;
         $("txtCardBuff").dataset.value = 0;
 
         var id = this.value;
