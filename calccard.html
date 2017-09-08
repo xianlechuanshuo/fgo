@@ -268,13 +268,8 @@
     //首卡颜色选中项发生变化事件
     $("ddlFirstCardColor").onchange = function () {
         if (getDdlText("ddlCardPosition") == "一位" && getDdlText("ddlFirstCardColor") == "红色") {
-            var cardColors = $("ddlCardColor").options;
-            for (var i = 0; i < cardColors.length; i++) {
-                var cardColor = cardColors[i];
-                if (cardColor.text == "Buster") {
-                    cardColor.selected = true;
-                }
-            }
+            document.querySelector("#ddlCardColor option[value='1.5']").selected = true;
+            $("ddlCardColor").onchange();
         }
     }
 
@@ -287,13 +282,11 @@
             $("txtCardBuff").value = 0;
 
             $("ddlCardPosition").disabled = true;
-            var cardPostions = $("ddlCardPosition").options;
-            for (var i = 0; i < cardPostions.length; i++) {
-                if (cardPostions[i].dataset.type == "ea") {
-                    cardPostions[i].selected = true;
-                }
-            }
+            document.querySelector("#ddlCardPosition option[data-type='ea']").selected = true;
 
+        }
+        else if (getDdlText("ddlCardColor") != "Buster"&&getDdlText("ddlCardPosition") == "一位") {
+            $("ddlFirstCardColor").selectedIndex = 0;
         }
         else if (getDdlText("ddlCardColor") == "Buster" && getDdlText("ddlCardPosition") == "一位") {
             $("ddlFirstCardColor").selectedIndex = 1;
@@ -304,6 +297,14 @@
             $("ddlCardPosition").disabled = false;
             if (getDdlAttrText("ddlCardPosition", "type") == "ea") {
                 $("ddlCardPosition").selectedIndex = 0;
+
+                if (getDdlText("ddlCardColor") != "Buster") {
+                    $("ddlFirstCardColor").selectedIndex = 0;
+                }
+                else {
+                    $("ddlFirstCardColor").selectedIndex = 1;
+                }
+                
             }
             var index = parseInt($("ddlChooseServant").value);
             bindServantCareerSkillInfo(servants[index]);
