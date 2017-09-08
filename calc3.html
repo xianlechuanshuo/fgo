@@ -79,7 +79,7 @@
                 <td>
                     <select id="ddlCardColor">
                         <option value="0.8">Quick</option>
-                        <option value="1.0">Arts</option>
+                        <option value="1">Arts</option>
                         <option value="1.5">Buster</option>
                     </select>
                 </td>
@@ -319,13 +319,7 @@
         changeTreasureRate(servant);
 
         //4.卡色
-        var cardColors = $("ddlCardColor").options;
-        for (var i = 0; i < cardColors.length; i++) {
-            var cardColor = cardColors[i];
-            if (cardColor.value == servant.cardColor) {
-                cardColor.selected = true;
-            }
-        }
+        document.querySelector("#ddlCardColor option[value='"+servant.cardColor+"']").selected=true;
 
         //5.从者职介
         var careers = $("ddlCareer").options;
