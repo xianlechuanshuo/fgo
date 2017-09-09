@@ -92,7 +92,7 @@ input[type="checkbox"], select {
 }
 
 .weak,.resist,.normal{
-    font-weight: bold;
+
 }
 .weak{
     color:red;
