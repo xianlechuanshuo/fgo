@@ -13,8 +13,8 @@
             width: 20%;
         }
 
-        .servant tr:nth-child(1)  {
-            white-space:nowrap;
+        .servant tr:nth-child(1) {
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -249,12 +249,12 @@
         $("ckIsMaxGrail").checked = false;
 
         $("txtCardBuff").value = 0;
-        $("txtCardBuff").dataset.value=0;
+        $("txtCardBuff").dataset.value = 0;
 
         $("txtFixedDamageBuff").value = 0;
 
         $("txtCritialPowerBuff").value = 0;
-        $("txtCritialPowerBuff").dataset.value=0;
+        $("txtCritialPowerBuff").dataset.value = 0;
 
         $("ckIsCritical").checked = false;
         $("txtCritialPowerBuff").disabled = true;
@@ -285,7 +285,7 @@
             document.querySelector("#ddlCardPosition option[data-type='ea']").selected = true;
 
         }
-        else if (getDdlText("ddlCardColor") != "Buster"&&getDdlText("ddlCardPosition") == "一位") {
+        else if (getDdlText("ddlCardColor") != "Buster" && getDdlText("ddlCardPosition") == "一位") {
             $("ddlFirstCardColor").selectedIndex = 0;
         }
         else if (getDdlText("ddlCardColor") == "Buster" && getDdlText("ddlCardPosition") == "一位") {
@@ -304,7 +304,7 @@
                 else {
                     $("ddlFirstCardColor").selectedIndex = 1;
                 }
-                
+
             }
             var index = parseInt($("ddlChooseServant").value);
             bindServantCareerSkillInfo(servants[index]);
@@ -394,38 +394,38 @@
             /************************************卡牌Buff******************************************************/
             //0.8(Quick)，1(Arts)，1.5(Buster)，0(All)，-1(None)，-2(Quick和Arts)，-3(Buster和Quick)
             if ((cardColor == 0.8 || cardColor == 1 || cardColor == 1.5) && cardColor == cardColorValue) {
-                $("txtCardBuff").dataset.value=careerSkill.cardBuff;
+                $("txtCardBuff").dataset.value = careerSkill.cardBuff;
 
                 $("txtCardBuff").value = careerSkill.cardBuff;
             }
             else if (cardColor == 0) {//215
-                $("txtCardBuff").dataset.value=careerSkill.cardBuff;
+                $("txtCardBuff").dataset.value = careerSkill.cardBuff;
                 $("txtCardBuff").value = careerSkill.cardBuff;
             }
                 //Quick和Arts
             else if (cardColor == -2 && cardColorValue == 0.8 && cardBuffs && cardBuffs.length == 2) {
                 var quickBuff = cardBuffs[0];
-                $("txtCardBuff").dataset.value=careerSkill.quickBuff;
+                $("txtCardBuff").dataset.value = careerSkill.quickBuff;
                 $("txtCardBuff").value = quickBuff;
             }
             else if (cardColor == -2 && cardColorValue == 1 && cardBuffs && cardBuffs.length == 2) {
                 var artsBuff = cardBuffs[1];
-                $("txtCardBuff").dataset.value=careerSkill.artsBuff;
+                $("txtCardBuff").dataset.value = careerSkill.artsBuff;
                 $("txtCardBuff").value = artsBuff;
             }
                 //Buster和Quick
             else if (cardColor == -3 && cardColorValue == 1.5 && cardBuffs && cardBuffs.length == 2) {
                 var busterBuff = cardBuffs[0];
-                $("txtCardBuff").dataset.value=careerSkill.busterBuff;
+                $("txtCardBuff").dataset.value = careerSkill.busterBuff;
                 $("txtCardBuff").value = busterBuff;
             }
             else if (cardColor == -3 && cardColorValue == 0.8 && cardBuffs && cardBuffs.length == 2) {
                 var quickBuff = cardBuffs[1];
-                $("txtCardBuff").dataset.value=careerSkill.quickBuff;
+                $("txtCardBuff").dataset.value = careerSkill.quickBuff;
                 $("txtCardBuff").value = quickBuff;
             }
             else {
-                $("txtCardBuff").dataset.value=0;
+                $("txtCardBuff").dataset.value = 0;
 
                 $("txtCardBuff").value = 0;
             }
@@ -564,6 +564,14 @@
             servantName = "<span class='text-gradient'>" + servantName + "</span>";
         }
 
+        var careerResistClassName = "normal";//非克制
+        if (careerResist > 1) {//克制
+            careerResistClassName = "weak";
+        }
+        else if (careerResist < 1) {//被克制
+            careerResistClassName = "resist";
+        }
+
         var model = {
             guid: guid,
             servantName: servantName,
@@ -581,7 +589,8 @@
             critialPowerBuff: getFloat("txtCritialPowerBuff"),
             min: resultMin,
             max: resultMax,
-            avg: resultAvg
+            avg: resultAvg,
+            careerResistClassName: careerResistClassName
         };
         resultArr.push(model);
         showResult();
@@ -617,12 +626,18 @@
         firstCell.colSpan = "14";//设置单元格跨14列
         firstCell.align = "center";//居中显示
 
-        //14.指令卡伤害最小值          
-        newRow.insertCell(-1).innerHTML = min;
-        //15.指令卡伤害最大值          
-        newRow.insertCell(-1).innerHTML = max;
-        //16.指令卡伤害平均值         
-        newRow.insertCell(-1).innerHTML = avg;
+        //14.指令卡伤害最小值
+        var minCell = newRow.insertCell(-1);
+        minCell.innerHTML = min;
+        minCell.classList.add("normal");
+        //15.指令卡伤害最大值   
+        var maxCell = newRow.insertCell(-1);
+        maxCell.innerHTML = max;
+        maxCell.classList.add("normal");
+        //16.指令卡伤害平均值     
+        var avgCell = newRow.insertCell(-1);
+        avgCell.innerHTML = avg;
+        avgCell.classList.add("normal");
         //17.删除操作     
         newRow.insertCell(-1).innerHTML = "&nbsp;"
     }
@@ -705,12 +720,18 @@
         //14.暴击威力Buff
         newRow.insertCell(-1).innerHTML = obj.critialPowerBuff;
 
-        //15.指令卡伤害最小值          
-        newRow.insertCell(-1).innerHTML = obj.min;
-        //16.指令卡伤害最大值          
-        newRow.insertCell(-1).innerHTML = obj.max;
-        //17.指令卡伤害平均值         
-        newRow.insertCell(-1).innerHTML = obj.avg;
+        //15.指令卡伤害最小值
+        var min = newRow.insertCell(-1);
+        min.innerHTML = obj.min;
+        min.classList.add(obj.careerResistClassName);
+        //16.指令卡伤害最大值         
+        var max = newRow.insertCell(-1);
+        max.innerHTML = obj.max;
+        max.classList.add(obj.careerResistClassName);
+        //17.指令卡伤害平均值
+        var avg = newRow.insertCell(-1);
+        avg.innerHTML = obj.avg;
+        avg.classList.add(obj.careerResistClassName);
         //18.删除操作     
         newRow.insertCell(-1).innerHTML = "<a href='javascript:;' onclick='delTr(this," + obj.guid + ")'>删</a>"
     }

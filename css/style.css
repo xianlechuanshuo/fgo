@@ -9,7 +9,6 @@ table {
 }
 
 
-
 table th, table td {
     border: 1px solid #000;
     padding: 5px;
@@ -90,4 +89,14 @@ input[type="checkbox"], select {
     background: -webkit-linear-gradient(left, #4f185d, #fe5d4b); /* 背景色渐变 */
     -webkit-background-clip: text; /* 规定背景的划分区域 */
     -webkit-text-fill-color: transparent; /* 防止字体颜色覆盖 */
+}
+
+.weak,.resist,.normal{
+    font-weight: bold;
+}
+.weak{
+    color:red;
+}
+.resist{
+    color:blue;
 }

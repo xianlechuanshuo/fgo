@@ -12,6 +12,7 @@
         .servant tr:nth-child(2) td:nth-child(even) {
             width: 15%;
         }
+
     </style>
 </head>
 <body id="content" onunload="setStorage()">
@@ -634,7 +635,13 @@
         if (isMaxGrail) {
             servantName = "<span class='text-gradient'>" + servantName + "</span>";
         }
-
+        var careerResistClassName="normal";//非克制
+        if(careerResist>1){//克制
+            careerResistClassName="weak";
+        }
+        else if(careerResist<1){//被克制
+            careerResistClassName="resist";
+        }
         var model = {
             guid: guid,
             servantName: servantName,
@@ -654,7 +661,8 @@
             enemyDefenceBuff: getFloat("txtEnemyDefenceBuff"),
             min: resultMin,
             max: resultMax,
-            avg: resultAvg
+            avg: resultAvg,
+            careerResistClassName:careerResistClassName
         };
         resultArr.push(model);
         showResult();
@@ -733,12 +741,18 @@
         newRow.insertCell(-1).innerHTML = obj.specialAttackPowerBuff;
         //15.特攻威力Buff     
         newRow.insertCell(-1).innerHTML = obj.enemyDefenceBuff;
-        //16.宝具伤害最小值          
-        newRow.insertCell(-1).innerHTML = obj.min;
-        //17.宝具伤害最大值          
-        newRow.insertCell(-1).innerHTML = obj.max;
-        //18.宝具伤害平均值         
-        newRow.insertCell(-1).innerHTML = obj.avg;
+        //16.宝具伤害最小值    
+        var min=newRow.insertCell(-1);   
+        min.innerHTML = obj.min;
+        min.classList.add(obj.careerResistClassName);
+        //17.宝具伤害最大值  
+        var max=newRow.insertCell(-1);        
+        max.innerHTML = obj.max;
+        max.classList.add(obj.careerResistClassName);
+        //18.宝具伤害平均值       
+        var avg=newRow.insertCell(-1);  
+        avg.innerHTML = obj.avg;
+        avg.classList.add(obj.careerResistClassName);
         //19.删除操作     
         newRow.insertCell(-1).innerHTML = "<a href='javascript:;' onclick='delTr(this," + obj.guid + ")'>删</a>"
     }
