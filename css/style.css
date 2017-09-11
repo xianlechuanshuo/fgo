@@ -100,3 +100,6 @@ input[type="checkbox"], select {
 .resist{
     color:blue;
 }
+.search {
+    width:200px;
+}

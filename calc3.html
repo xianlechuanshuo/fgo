@@ -12,7 +12,6 @@
         .servant tr:nth-child(2) td:nth-child(even) {
             width: 15%;
         }
-
     </style>
 </head>
 <body id="content" onunload="setStorage()">
@@ -28,7 +27,7 @@
                     </select>
                     <label for="ckIsMaxGrail">
                         <input type="checkbox" id="ckIsMaxGrail" />圣杯MAX</label>
-                    <input type="text" id="txtWord" />
+                    <input type="text" id="txtWord" class="search" />
                     <input type="button" id="btnSearch" value="查询" />&nbsp;
                     <a href="javascript:;" id="btnShowMaterials">强化素材详情</a>&nbsp;
                     <a href="javascript:;" id="btnShowSkills">从者技能详情</a>&nbsp;
@@ -54,7 +53,12 @@
                     <input type="text" id="txtCardAtk" value="0" />
                 </td>
             </tr>
-
+            <tr>
+                <td>属性</td>
+                <td><span id="spanAttributes"></span></td>
+                <td>特性</td>
+                <td colspan="5"><span id="spanCharacteristics"></span></td>
+            </tr>
             <tr>
 
                 <td>Hp最大值</td>
@@ -320,7 +324,7 @@
         changeTreasureRate(servant);
 
         //4.卡色
-        document.querySelector("#ddlCardColor option[value='"+servant.cardColor+"']").selected=true;
+        document.querySelector("#ddlCardColor option[value='" + servant.cardColor + "']").selected = true;
 
         //5.从者职介
         var careers = $("ddlCareer").options;
@@ -336,7 +340,15 @@
 
         //7.宝具副效果补充(oc特攻只能展示一种副效果，如：1001的oc特攻只展示了宝具特攻，副效果的20宝具威力buff没展示，在这进行补充)
         bindTreasureSideEffect(servant);
+
+        //8.属性
+        bindAttributes(servant);
+
+        //9.特性
+        bindCharacteristics(servant);
     }
+
+
 
     //宝具副效果补充
     function bindTreasureSideEffect(servant) {
@@ -344,7 +356,7 @@
         if (treasureSideEffect) {
             var treasurePowerBuff = treasureSideEffect.treasurePowerBuff;//宝具威力buff
             //!isNaN(null)，返回true，需要去掉这种情况
-            if (treasurePowerBuff&&!isNaN(treasurePowerBuff)) {//单个数值，比如1001宝具的20%宝具威力buff
+            if (treasurePowerBuff && !isNaN(treasurePowerBuff)) {//单个数值，比如1001宝具的20%宝具威力buff
                 $("txtTreasurePowerBuff").value = treasurePowerBuff;
             }
 
@@ -353,7 +365,7 @@
                 $("txtCardBuff").value = cardPowerBuff;
             }
         }
-        
+
     }
 
     //绑定从者职介信息
@@ -635,12 +647,12 @@
         if (isMaxGrail) {
             servantName = "<span class='text-gradient'>" + servantName + "</span>";
         }
-        var careerResistClassName="normal";//非克制
-        if(careerResist>1){//克制
-            careerResistClassName="weak";
+        var careerResistClassName = "normal";//非克制
+        if (careerResist > 1) {//克制
+            careerResistClassName = "weak";
         }
-        else if(careerResist<1){//被克制
-            careerResistClassName="resist";
+        else if (careerResist < 1) {//被克制
+            careerResistClassName = "resist";
         }
         var model = {
             guid: guid,
@@ -662,7 +674,7 @@
             min: resultMin,
             max: resultMax,
             avg: resultAvg,
-            careerResistClassName:careerResistClassName
+            careerResistClassName: careerResistClassName
         };
         resultArr.push(model);
         showResult();
@@ -742,15 +754,15 @@
         //15.特攻威力Buff     
         newRow.insertCell(-1).innerHTML = obj.enemyDefenceBuff;
         //16.宝具伤害最小值    
-        var min=newRow.insertCell(-1);   
+        var min = newRow.insertCell(-1);
         min.innerHTML = obj.min;
         min.classList.add(obj.careerResistClassName);
         //17.宝具伤害最大值  
-        var max=newRow.insertCell(-1);        
+        var max = newRow.insertCell(-1);
         max.innerHTML = obj.max;
         max.classList.add(obj.careerResistClassName);
         //18.宝具伤害平均值       
-        var avg=newRow.insertCell(-1);  
+        var avg = newRow.insertCell(-1);
         avg.innerHTML = obj.avg;
         avg.classList.add(obj.careerResistClassName);
         //19.删除操作     

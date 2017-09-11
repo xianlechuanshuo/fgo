@@ -31,7 +31,7 @@
                     </select>
                     <label for="ckIsMaxGrail">
                         <input type="checkbox" id="ckIsMaxGrail" />圣杯MAX</label>
-                    <input type="text" id="txtWord" />
+                    <input type="text" id="txtWord" class="search" />
                     <input type="button" id="btnSearch" value="查询" />&nbsp;
                     <a href="javascript:;" id="btnShowMaterials">强化素材详情</a>&nbsp;
                     <a href="javascript:;" id="btnShowSkills">从者技能详情</a>&nbsp;
@@ -42,6 +42,12 @@
             <tr>
                 <td>阵营</td>
                 <td colspan="5" style="text-align: center; font-weight: bold;"><span id="spanCamp"></span></td>
+            </tr>
+            <tr>
+                <td>属性</td>
+                <td><span id="spanAttributes"></span></td>
+                <td>特性</td>
+                <td colspan="5"><span id="spanCharacteristics"></span></td>
             </tr>
             <tr>
                 <td>攻击力</td>
@@ -376,6 +382,11 @@
             $("divCards").innerHTML = cardHtml;
         }
 
+        //5.属性
+        bindAttributes(servant);
+
+        //6.特性
+        bindCharacteristics(servant);
     }
 
     //绑定从者职介信息

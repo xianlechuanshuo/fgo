@@ -78,14 +78,31 @@ function search() {
     servants.length = 0;
     //重置计数器
     id = 0;
+
     //重新初始化从者数据数组
     intialData();
+
+
     //过滤关键词特殊字符
     word = filterStr2($("txtWord").value);
+
     //根据关键词查询匹配结果
-    servants = servants.filter(contains);
+    if(word[0]=="$"){
+        word=word.substr(1);
+        servants = servants.filter(containsAttribute);
+    }
+    else if(word[0]=="#"){
+        word=word.substr(1);
+        servants = servants.filter(containsCharacteristics);
+    }
+    else{
+        servants = servants.filter(contains);
+    }
+
+    
+    
     //更新数组序号
-    var tmpServants = new Array();
+    var tmpServants = [];
     for (var i = 0; i < servants.length; i++) {
         tmpServants[servants[i].id] = servants[i];
     }
@@ -98,6 +115,32 @@ function search() {
     intialServantList();
     $("ddlChooseServant").onchange();
 }
+
+//点击属性和特性超链接字体
+function autoClickSearch(obj){
+    $("txtWord").value=obj.dataset.value;
+    $("btnSearch").click();
+}
+
+//根据关键词查询结果
+var word = "";
+function contains(servant) {
+    return servant.keys.find(check);
+}
+function containsAttribute(servant) {
+    return servant.attributes.find(check);
+}
+function containsCharacteristics(servant) {
+    return servant.characteristics.find(check);
+}
+function check(key) {
+    if (word == "") {
+        return true;
+    }
+    return new RegExp(word, "gi").test(key);//忽略大小写
+    //return key.indexOf(word) != -1;
+}
+
 
 //跳转到茹西教王的理想鄉
 $("btnRedirectKazemai").onclick = function () {
@@ -141,3 +184,26 @@ function loadStorage(isTreasure) {
         }
     }
 }
+
+//绑定属性和特性值
+function binds(servant,key,id,flag){
+    let attributes = servant[key].clone();//数组复制，不影响原数组
+    if (attributes instanceof Array && attributes.length > 0) {
+        for (let i = 0; i < attributes.length; i++) {
+            attributes[i]= `<a href=\"javascript:;\" data-value=\"${flag}${attributes[i]}\" onclick=\"autoClickSearch(this)\">${attributes[i]}</a>`;
+        }
+
+        attributes = attributes.join("&nbsp;&nbsp;&nbsp;&nbsp;");
+        $(id).innerHTML = attributes;
+    }
+}
+
+//属性
+function bindAttributes(servant) {
+    binds(servant,"attributes","spanAttributes","$");
+}
+//特性  
+function bindCharacteristics(servant) {
+    binds(servant,"characteristics","spanCharacteristics","#");
+}
+

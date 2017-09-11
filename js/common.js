@@ -64,18 +64,7 @@ function compare(property) {
     }
 }
 
-//根据关键词查询结果
-var word = "";
-function contains(servant) {
-    return servant.keys.find(check);
-}
-function check(key) {
-    if (word == "") {
-        return true;
-    }
-    return new RegExp(word, "gi").test(key);//忽略大小写
-    //return key.indexOf(word) != -1;
-}
+
 
 
 //父容器中，使其自适应内容高度
@@ -157,3 +146,5 @@ function loadScript(src){
         document.body.appendChild(script);
     }
 }
+//数组复制，不影响原数组
+Array.prototype.clone=function(){ return this.slice(0); } 
