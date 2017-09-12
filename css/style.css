@@ -103,3 +103,7 @@ input[type="checkbox"], select {
 .search {
     width:200px;
 }
+
+.label {
+    font-size:14px;
+}
