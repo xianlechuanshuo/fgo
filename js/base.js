@@ -175,6 +175,9 @@ function setStorage() {
         //另外，在iPhone/iPad上有时设置setItem()时会出现诡异的QUOTA_EXCEEDED_ERR错误，这时一般在setItem之前，先removeItem()就ok了。
         storage.removeItem("ddlChooseServant");
         storage.setItem("ddlChooseServant", $("ddlChooseServant").value);
+
+        //清除缓存
+        storage.removeItem("servants");
     }
 }
 //加载本地存储信息

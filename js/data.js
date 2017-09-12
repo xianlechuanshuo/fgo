@@ -2,6 +2,16 @@
 var servants = [];//定义数组
 var id = 0;
 function intialData() {
+    //除非刷新页面，或者重新打开页面，完整的从者数据只会创建一次，提高执行效率
+    let servantsStorage=window.localStorage.getItem("servants");
+    if (servantsStorage) {
+        servantsStorage = JSON.parse(servantsStorage);
+        if(servantsStorage instanceof Array&&servantsStorage.length>0){
+            servants=servantsStorage;
+            return;
+        }
+    }
+
     //----------------------------------Saber---------------------------------------------------------------------//
     /******************************************5星********************************************************************/
     intialServant("Saber", "亚瑟・潘德拉贡〔Prototype〕", "Arthur Pendragon〔Prototype〕", 160, ["亚瑟", "旧剑", "亚瑟潘德拉贡"], "地", ["秩序", "善"], ["骑乘", "人型", "龙", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克", "亚瑟", "所爱之人", "王"], 12465, 13975, 13645, 15310, "AABBQ", 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 0.8, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
@@ -316,7 +326,7 @@ function intialData() {
 *    cardPowerBuff：卡牌buff
 */
 function intialServant(career, name, eName, servantNo, keys, camp, attributes, characteristics, atk, hp, maxAtk, maxHp, cards, tl1, tl2, tl3, tl4, tl5, oc1, oc2, oc3, oc4, oc5, type, cardColor, careerSkill, treasureSideEffect) {
-    id++;
+    //id++;//下标最好还是从0开始
     var tl = {};
     tl["tl1"] = tl1;
     tl["tl2"] = tl2;
@@ -355,5 +365,6 @@ function intialServant(career, name, eName, servantNo, keys, camp, attributes, c
         treasureSideEffect: treasureSideEffect
     }
     servants[id] = model;
+    id++;
 }
 
