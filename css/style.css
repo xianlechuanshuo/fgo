@@ -104,6 +104,8 @@ input[type="checkbox"], select {
     width:200px;
 }
 
-.label {
+.label td {
     font-size:14px;
+    max-height:99999px;
+    -webkit-text-size-adjust: none;
 }
