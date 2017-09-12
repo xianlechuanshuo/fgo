@@ -103,9 +103,8 @@ input[type="checkbox"], select {
 .search {
     width:200px;
 }
-
+/**禁用移动端font boosting特性，解决移动端文字字体变大的问题**/
 .label td {
-    font-size:14px;
     max-height:99999px;
     -webkit-text-size-adjust: none;
 }
