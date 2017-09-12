@@ -95,6 +95,10 @@ function search() {
         word=word.substr(1);
         servants = servants.filter(containsCharacteristics);
     }
+    else if(word[0]=="@"){
+        word=word.substr(1);
+        servants = servants.filter(containsCamp);    
+    }
     else{
         servants = servants.filter(contains);
     }
@@ -133,6 +137,10 @@ function containsAttribute(servant) {
 function containsCharacteristics(servant) {
     return servant.characteristics.find(check);
 }
+function containsCamp(servant){
+    return servant.camp==word;
+}
+
 function check(key) {
     if (word == "") {
         return true;
@@ -206,4 +214,33 @@ function bindAttributes(servant) {
 function bindCharacteristics(servant) {
     binds(servant,"characteristics","spanCharacteristics","#");
 }
+//加载搜索提示(类似自动完成)
+function bindSearchTips(){
+    let tips=[],
+        tmpCamp,
+        tmpAttributes,
+        tmpCharacteristics;
+    servants.forEach(function(servant){
+        tmpCamp=servant.camp;
+        tmpAttributes=servant.attributes.clone();
+        tmpCharacteristics=servant.characteristics.clone();
 
+        tips.push(`@${tmpCamp}`);
+
+        tmpAttributes.forEach(function(a){
+            tips.push(`$${a}`);
+        });
+    tmpCharacteristics.forEach(function(c){
+            tips.push(`#${c}`);
+        });
+    })
+    //去重
+    tips=Array.from(new Set(tips));
+    //加载属性和特性的搜索提示(类似自动完成)
+    let dlTips=$("dlTips");
+    tips.forEach(function(t){
+        let opt=document.createElement("option");
+        opt.value=t;
+        dlTips.appendChild(opt);
+    })
+}

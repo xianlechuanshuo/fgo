@@ -27,13 +27,13 @@
                     </select>
                     <label for="ckIsMaxGrail">
                         <input type="checkbox" id="ckIsMaxGrail" />圣杯MAX</label>
-                    <input type="text" id="txtWord" class="search" />
+                    <input type="text" id="txtWord" class="search" list="dlTips"/>
                     <input type="button" id="btnSearch" value="查询" />&nbsp;
                     <a href="javascript:;" id="btnShowMaterials">强化素材详情</a>&nbsp;
                     <a href="javascript:;" id="btnShowSkills">从者技能详情</a>&nbsp;
                     <a href="javascript:;" id="btnRedirectKazemai">前往理想鄉</a>&nbsp;
                     <a href="javascript:;" id="btnRedirectWiki">前往wiki</a>&nbsp;
-                    
+                    <datalist id="dlTips"></datalist>
                 </td>
             </tr>
 
@@ -244,6 +244,7 @@
     intialData();
     intialServantList();
     loadStorage(true);
+    bindSearchTips();
 
     //圣杯MAX勾选框改变事件
     $("ckIsMaxGrail").onchange = function () {
@@ -311,7 +312,8 @@
     function bindServantData(id) {
         var servant = servants[id];
         //0.阵营
-        $("spanCamp").innerHTML = servant.camp;
+        //$("spanCamp").innerHTML = servant.camp;
+        $("spanCamp").innerHTML = "<a href='javascript:;' data-value='@" + servant.camp + "' onclick='autoClickSearch(this)'>" + servant.camp + "</a>"
 
         //1.攻击力
         $("txtAttack").value = servant.atk;
