@@ -5,6 +5,8 @@ https://git-scm.com/download/
 --------------------------------------------------------------------------------
 打开git-bash.exe，在桌面快捷方式/开始菜单/安装目录中
 因为Git是分布式版本控制系统，所以需要填写用户名和邮箱作为一个标识，用户和邮箱为你github注册的账号和邮箱
+git config --global user.name "zhangsan"
+git config --global user.email "zhangsan@163.com"
 
 ps1：git config  –global 参数，有了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然你也可以对某个仓库指定的不同的用户名和邮箱。
 ps2：查看配置信息： git config --list
@@ -104,8 +106,3 @@ vi a.txt
 不创建gh-pages，需要自己手动发布，如下：
 Settings->GitHub Pages->Source->Select Source即可。
 ********************************************************
-
-
-
-
-
