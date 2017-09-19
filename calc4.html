@@ -35,24 +35,45 @@
 
                     //给当前选中的a标签添加"active"类名
                     this.classList.add("active");
-
-                    $("iContent").src = url;
-                    resizeWindow();
+                    if (url.indexOf("http")==-1) {
+                        $("iContent").src = url;
+                        resizeWindow();
+                    }
+                    else {
+                        resetChoose();
+                        window.location = url;
+                    }
                 }
             }
 
         }
 
         window.onresize = resizeWindow;
+
+        //每次跳转到其它域名的网页前重新设置默认选中项以及iframe的src属性值
+        function resetChoose() {
+            var active = document.querySelector(".active");
+
+            //移除选中a标签的"active"类名
+            active.classList.remove("active");
+
+            //默认选中第一个
+            var first = document.querySelector("a");
+            first.classList.add("active");
+            $("iContent").src = first.dataset.url;
+        }
     </script>
 </head>
 <body>
-    <a href="javascript:;" class="active" data-url="calc3.html">宝具伤害计算器</a>
-    <a href="javascript:;" data-url="calccard.html">指令卡伤害计算器</a>
-    <a href="javascript:;" data-url="guid.html">FGO伤害计算公式</a>
-    <a href="javascript:;" data-url="updatelog.html">更新日志</a>
+    <nav>
+        <a href="javascript:;" class="active" data-url="calc3.html">宝具伤害计算器</a>
+        <a href="javascript:;" data-url="calccard.html">指令卡伤害计算器</a>
+        <a href="javascript:;" data-url="https://fgo-archive.github.io/index/np_cal.html">NP计算器</a>
+        <a href="javascript:;" data-url="guid.html">FGO伤害计算公式</a>
+        <a href="javascript:;" data-url="updatelog.html">更新日志</a>
+    </nav>
     <div>
-        <iframe id="iContent" name="iContentN" src="calc3.html" scrolling="auto" frameborder="0" style="width: 100%;"></iframe>
+        <iframe id="iContent" src="calc3.html" scrolling="auto" frameborder="0" style="width: 100%;"></iframe>
     </div>
 </body>
 </html>
