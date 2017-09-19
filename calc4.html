@@ -5,13 +5,23 @@
     <title></title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <style type="text/css">
+        nav {
+            position: relative;
+            height:34px;
+        }
+
         a {
-            margin: 8px;
+            margin-right: 5px;
+            margin-bottom:5px;
             padding: 5px;
             text-decoration: none;
             color: white;
             border: 1px solid gray;
             background: gray;
+            display: block;
+            float: left;
+            width: 140px;
+            text-align: center;
         }
 
         .active {
@@ -35,7 +45,7 @@
 
                     //给当前选中的a标签添加"active"类名
                     this.classList.add("active");
-                    if (url.indexOf("http")==-1) {
+                    if (url.indexOf("http") == -1) {
                         $("iContent").src = url;
                         resizeWindow();
                     }
@@ -50,7 +60,7 @@
 
         window.onresize = resizeWindow;
 
-        //每次跳转到其它域名的网页前重新设置默认选中项以及iframe的src属性值
+        //每次新开标签页打开其它域名的网页前重新设置默认选中项以及iframe的src属性值
         function resetChoose() {
             var active = document.querySelector(".active");
 

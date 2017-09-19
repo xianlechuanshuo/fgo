@@ -9,10 +9,10 @@ table {
 }
 
 
-table th, table td {
-    border: 1px solid #000;
-    padding: 5px;
-}
+    table th, table td {
+        border: 1px solid #000;
+        padding: 5px;
+    }
 
 .result {
     font-size: 12px;
@@ -23,9 +23,9 @@ table th, table td {
     width: 100%;
 }
 
-.servant tr:nth-child(1), .servant tr:last-child {
-    text-align: center;
-}
+    .servant tr:nth-child(1), .servant tr:last-child {
+        text-align: center;
+    }
 
 .showSkills {
     outline: #808080 solid thick;
@@ -91,20 +91,29 @@ input[type="checkbox"], select {
     -webkit-text-fill-color: transparent; /* 防止字体颜色覆盖 */
 }
 
-.weak,.resist,.normal{
+.weak, .resist, .normal {
     font-weight: bold;
 }
-.weak{
-    color:red;
+
+.weak {
+    color: red;
 }
-.resist{
-    color:blue;
+
+.resist {
+    color: blue;
 }
+
 .search {
-    width:200px;
+    width: 200px;
 }
 /**禁用移动端font boosting特性，解决移动端文字字体变大的问题**/
-.label td {
-    max-height:99999px;
+.label {
+    max-height: 99999px;
     -webkit-text-size-adjust: none;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
 }
