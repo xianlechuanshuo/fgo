@@ -1,4 +1,10 @@
-﻿a {
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+
+a {
     text-decoration: none;
     color: blue;
 }
@@ -56,6 +62,10 @@ input[type="checkbox"], select {
     vertical-align: middle;
 }
 
+input[type="button"] {
+    padding: 1px 6px;
+}
+
 .cards {
     text-align: center;
 }
@@ -110,10 +120,4 @@ input[type="checkbox"], select {
 .label {
     max-height: 99999px;
     -webkit-text-size-adjust: none;
-}
-
-
-* {
-    margin: 0;
-    padding: 0;
 }
