@@ -1,28 +1,37 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
     <title></title>
+    <link href="css/style.css" rel="stylesheet" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <style type="text/css">
-        nav {
-            position: relative;
-            height:34px;
+        nav, .content {
+            margin: 5px;
         }
 
-        a {
+        ul {
+            height: 34px;
+            list-style: none;
+        }
+
+        nav > ul > li {
+            width: 140px;
             margin-right: 5px;
-            margin-bottom:5px;
-            padding: 5px;
-            text-decoration: none;
-            color: white;
+            margin-bottom: 5px;
             border: 1px solid gray;
             background: gray;
             display: block;
             float: left;
-            width: 140px;
             text-align: center;
         }
+
+            nav > ul > li > a {
+                padding:5px;
+                display:block;
+                color: white;
+                width: 130px;
+            }
 
         .active {
             background: blue;
@@ -76,13 +85,15 @@
 </head>
 <body>
     <nav>
-        <a href="javascript:;" class="active" data-url="calc3.html">宝具伤害计算器</a>
-        <a href="javascript:;" data-url="calccard.html">指令卡伤害计算器</a>
-        <a href="javascript:;" data-url="https://fgo-archive.github.io/index/np_cal.html">NP计算器</a>
-        <a href="javascript:;" data-url="guid.html">FGO伤害计算公式</a>
-        <a href="javascript:;" data-url="updatelog.html">更新日志</a>
+        <ul>
+            <li><a href="javascript:;" class="active" data-url="calc3.html">宝具伤害计算器</a></li>
+            <li><a href="javascript:;" data-url="calccard.html">指令卡伤害计算器</a></li>
+            <li><a href="javascript:;" data-url="https://fgo-archive.github.io/index/np_cal.html">NP计算器</a></li>
+            <li><a href="javascript:;" data-url="guid.html">FGO伤害计算公式</a></li>
+            <li><a href="javascript:;" data-url="updatelog.html">更新日志</a></li>
+        </ul>
     </nav>
-    <div>
+    <div class="content">
         <iframe id="iContent" src="calc3.html" scrolling="auto" frameborder="0" style="width: 100%;"></iframe>
     </div>
 </body>
