@@ -54,7 +54,7 @@ table {
     line-height: 46px;
 }
 
-#divResult {
+.resultWrapper {
     display: none;
 }
 
