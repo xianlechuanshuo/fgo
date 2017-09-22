@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+body {
+    /**禁用移动端font boosting特性，解决移动端文字字体变大的问题**/
+    max-height: 99999px;
+    -webkit-text-size-adjust: none;
+}
 
 a {
     text-decoration: none;
@@ -116,8 +121,4 @@ input[type="button"] {
 .search {
     width: 200px;
 }
-/**禁用移动端font boosting特性，解决移动端文字字体变大的问题**/
-.label {
-    max-height: 99999px;
-    -webkit-text-size-adjust: none;
-}
+
