@@ -191,6 +191,11 @@ function intialData() {
 
     intialServant("Assassin", "卡米拉", "Carmilla", 46, ["卡米拉", "大龙娘", "铁处女"], "地",["混沌","恶"],["人型","被「天地乖离开辟之星」所克","被「人类神话雷电降临」所克","被「神秘杀」所克"], 9408, 10473, 11391, 12698, "ABQQQ", 600, 800, 900, 950, 1000, 120, 132.5, 145, 157.5, 170, "TreasureSpecialAttack", 1.5,null);
     intialServant("Assassin", "斯卡哈", "Scathach2", 133, ["斯卡哈", "bba", "师匠"], "星",["中立","善"],["人型","被「天地乖离开辟之星」所克","王"], 9049, 11168, 10956, 13541, "ABQQQ", 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 0.8,null);
+   
+
+    intialServant("Assassin", "斯忒诺", "Stheno", 41, ["大姐", "斯忒诺"], "天",["混沌","善"],["人型","神性","被「天地乖离开辟之星」所克","被「人类神话雷电降临」所克","被「神秘杀」所克"], 8985, 11518, 10879, 13965, "ABQQQ", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 300, critialPowerBuff: 0 });
+
+
     intialServant("Assassin", "武则天", "Wu Ze Tian", 170, ["武则天"], "人",["秩序","恶"],["人型","被「天地乖离开辟之星」所克","王"], 8981, 10942, 10874, 13267, "ABBQQ", 1200, 1600, 1800, 1900, 2000, 0, 0, 0, 0, 0, "", 0.8,null);
     intialServant("Assassin", "卫宫〔Assassin〕", "Emiya（Assassin)", 109, ["卫宫", "切丝", "Papa"], "人",["混沌","恶"],["人型","被「天地乖离开辟之星」所克","所爱之人"], 8958, 11168, 10846, 13541, "AABQQ", 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 10 });
     intialServant("Assassin", "两仪式〔Assassin〕", "Ryougi Shiki（Assassin)", 92, ["两仪式", "214", "A214", "哈根女王", "杀式"], "人",["混沌","善"],["人型","被「天地乖离开辟之星」所克"], 8867, 11055, 10736, 13404, "AABQQ", 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 10 });
