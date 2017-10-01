@@ -379,8 +379,10 @@
         //4.配卡
         var cardsStr = servant.cards;
         if (cardsStr && cardsStr.length == 5) {//ABBBQ
-            var cardHtml = getCardsHtml(cardsStr);
-            $("divCards").innerHTML = cardHtml;
+            // var cardHtml = getCardsHtml(cardsStr);
+            // $("divCards").innerHTML = cardHtml;
+            //用CSS精灵减少图片的http请求次数(由原来3次变成现在的1次)
+            appendCards(cardsStr);
         }
 
         //5.属性

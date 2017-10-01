@@ -115,6 +115,38 @@ function getCardsHtml(str) {
     str = str.replace(/([A])/gi, "!").replace(/[B]/gi, "@").replace(/[Q]/gi, "#");
     return str.replace(/([!])/gi, "<img src='images/Box/Arts.png'/>").replace(/[@]/gi, "<img src='images/Box/Buster.png'/>").replace(/[#]/gi, "<img src='images/Box/Quick.png'/>");
 }
+function appendCards(str){
+   //BBQAA
+    // <ul>
+    //     <li class="Buster"></li>
+    //     <li class="Buster"></li>
+    //     <li class="Quick"></li>
+    //     <li class="Arts"></li>
+    //     <li class="Arts"></li>
+    // </ul>
+    let ul=document.createElement("ul");
+    let li;
+    let divCard=document.querySelector(".cards");
+    for (let i = 0; i < str.length; i++) {
+        let card=str[i];
+        li=document.createElement("li");
+        li.className=getFullCardName(card);
+        ul.appendChild(li);
+    }
+    divCard.innerHTML="";
+    divCard.appendChild(ul);
+}
+function getFullCardName(card){
+    switch (card)
+    {
+        case "B":
+          return "buster";
+        case "Q":
+          return "quick"
+        case "A":
+          return "arts";
+    }
+}
 
 //下载文件
 function downloadFile(src) {

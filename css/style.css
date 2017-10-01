@@ -74,10 +74,43 @@ input[type="button"] {
 .cards {
     text-align: center;
 }
+.cards>ul{
+    list-style: none;
+}
+.cards>ul>li{
+    display: inline-block;
+    /*原图140X140，这里缩放成72X72*/
+    height:72px;
+    width:72px;
+    /*三个图，单个宽度72px，三个总共宽度216px*/
+    background-size: 216px;
+    background-image: url(../images/Box/Box.png);
+    background-repeat: no-repeat;
+}
 
-    .cards img {
-        width: 7%;
-    }
+/*
+    background-position:x y;(x、y单位是%)
+    x：-{容器(container)的宽度—背景图片的宽度}*x百分比，超出的部分隐藏。
+    y：-{容器(container)的高度—背景图片的高度}*y百分比，超出的部分隐藏。
+*/
+
+/*Quick*/
+.cards>ul>li.quick{
+}
+/*Buster*/
+.cards>ul>li.buster{
+    /*-(240-80)*0.5=-80px*/
+    background-position: 50%;
+}
+/*Arts*/
+.cards>ul>li.arts{
+    /*-(240-80)*1=-160px*/
+    background-position: 100%;
+}
+
+/*.cards img {
+    width: 7%;
+}*/
 
 /****清除浮动*****/
 .clearfix:before, .clearfix:after {
