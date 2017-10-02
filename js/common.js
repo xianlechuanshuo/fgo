@@ -110,11 +110,6 @@ function filterStr2(str) {
     return str.replace(/\s+/gi, "").replace(/[〔（・&'〕)）]/gi, "");
 }
 
-//返回配卡html字符串
-function getCardsHtml(str) {
-    str = str.replace(/([A])/gi, "!").replace(/[B]/gi, "@").replace(/[Q]/gi, "#");
-    return str.replace(/([!])/gi, "<img src='images/Box/Arts.png'/>").replace(/[@]/gi, "<img src='images/Box/Buster.png'/>").replace(/[#]/gi, "<img src='images/Box/Quick.png'/>");
-}
 function appendCards(str){
    //BBQAA
     // <ul>

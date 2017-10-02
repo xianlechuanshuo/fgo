@@ -313,7 +313,6 @@
     function bindServantData(id) {
         var servant = servants[id];
         //0.阵营
-        //$("spanCamp").innerHTML = servant.camp;
         $("spanCamp").innerHTML = "<a href='javascript:;' data-value='@" + servant.camp + "' onclick='autoClickSearch(this)'>" + servant.camp + "</a>"
 
         //1.攻击力

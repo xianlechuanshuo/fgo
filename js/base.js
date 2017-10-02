@@ -29,10 +29,6 @@ $("btnSearch").onclick = function () {
 
 //双击下载图片
 $("showSkillsWin").ondblclick =function(){
-    // //url("images/Material/Miyamoto_Musashi.png")
-    // let url= $("showSkillsWin").style.backgroundImage;
-    // url=url.replace("url(\"","").replace("\")","");
-    
     let url= document.querySelector(".skillImg").src;
     downloadFile(url);
 }
@@ -58,7 +54,6 @@ function showWin(type,ext){
     showDiv("showSkillsWin");
     let servant = servants[id];
     let eName = filterStr(servant.eName);
-    //$("showSkillsWin").style.backgroundImage = `url(images/${type}/${eName}${ext})`;
     document.querySelector(".skillImg").src=`images/${type}/${eName}${ext}`;
 }
 

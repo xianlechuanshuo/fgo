@@ -382,8 +382,6 @@
         //4.配卡
         var cardsStr = servant.cards;
         if (cardsStr && cardsStr.length == 5) {//ABBBQ
-            // var cardHtml = getCardsHtml(cardsStr);
-            // $("divCards").innerHTML = cardHtml;
             //用CSS精灵减少图片的http请求次数(由原来3次变成现在的1次)
             appendCards(cardsStr);
         }
@@ -569,8 +567,6 @@
 
         var resultMax = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff) * (1 + specialAttackPowerBuff + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
         resultMax = Math.floor(resultMax);
-
-        //alert("指令卡伤害：" + resultMin + "~" + resultMax);
 
         var resultAvg = Math.round((resultMin + resultMax) * 1.0 / 2);
 

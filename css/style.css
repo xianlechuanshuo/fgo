@@ -108,10 +108,6 @@ input[type="button"] {
     background-position: 100%;
 }
 
-/*.cards img {
-    width: 7%;
-}*/
-
 /****清除浮动*****/
 .clearfix:before, .clearfix:after {
     content: "";
@@ -139,6 +135,7 @@ input[type="button"] {
     -webkit-text-fill-color: transparent; /* 防止字体颜色覆盖 */
 }
 
+/*克制、被克制、非克制样式*/
 .weak, .resist, .normal {
     font-weight: bold;
 }
