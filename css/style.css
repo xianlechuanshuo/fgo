@@ -34,21 +34,16 @@ table {
     width: 100%;
 }
 
-    .servant tr:nth-child(1), .servant tr:last-child {
-        text-align: center;
-    }
+.servant tr:nth-child(1), .servant tr:last-child {
+    text-align: center;
+}
 
 .showSkills {
     outline: #808080 solid thick;
-    width: 50%;
-    height: 80%;
     position: absolute;
-    top: 5%;
-    left: 25%;
+    top:2%;
+    left: 28%;
     display: none;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
     background-color: white;
 }
 
@@ -57,6 +52,11 @@ table {
     font-weight: bold;
     font-size: 46px;
     line-height: 46px;
+}
+
+.skillImg{
+    max-width: 600px;
+    max-height:600px;
 }
 
 .resultWrapper {
