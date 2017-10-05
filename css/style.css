@@ -39,7 +39,7 @@ table {
 }
 
 .showSkills {
-    outline: #808080 solid thick;
+    border: #808080 solid thick;
     position: absolute;
     top:2%;
     left: 28%;
