@@ -299,8 +299,6 @@
         }
         else if (getDdlText("ddlCardColor") == "Buster" && getDdlText("ddlCardPosition") == "一位") {
             $("ddlFirstCardColor").selectedIndex = 1;
-            var index = parseInt($("ddlChooseServant").value);
-            bindServantCareerSkillInfo(servants[index]);
         }
         else {
             $("ddlCardPosition").disabled = false;
@@ -313,11 +311,10 @@
                 else {
                     $("ddlFirstCardColor").selectedIndex = 1;
                 }
-
             }
-            var index = parseInt($("ddlChooseServant").value);
-            bindServantCareerSkillInfo(servants[index]);
         }
+        var index = parseInt($("ddlChooseServant").value);
+        bindServantCareerSkillInfo(servants[index]);
         $("txtCardBuff").disabled = cardEnabled;
     }
 
