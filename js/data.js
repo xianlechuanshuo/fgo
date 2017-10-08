@@ -282,11 +282,27 @@ function intialData() {
     /******************************************4星********************************************************************/
     intialServant("Altergo", "帕森莉普（热情迷唇）", "Passionlip", 164, ["帕森莉普热情迷唇"], "地",["秩序","中庸"],["人型","神性","被「天地乖离开辟之星」所克","被「人类神话雷电降临」所克","被「神秘杀」所克"], 10299, 10901, 12470, 13217, "ABBBQ", 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 200, critialPowerBuff: 6 });
 
+
+    //加载各等级atk和hp
+    loadLvs();  
+
     //设置缓存
     window.localStorage.setItem("servants", JSON.stringify(servants));
 
 }
 
+//加载各等级atk和hp
+function loadLvs(){
+    servants.forEach(function(s){
+        let lvArr=[];
+        lvs.forEach(function(l){
+            if(l.n==s.servantNo){
+                lvArr.push(l);
+            }
+        })
+        s.lvs=lvArr;
+    })
+}
 
 
 /**

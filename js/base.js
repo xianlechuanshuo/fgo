@@ -33,9 +33,6 @@ $("showSkillsWin").ondblclick =function(){
     downloadFile(url);
 }
 
-
-
-
 //显示查询结果
 function showResult() {
     showDiv("divResult");
