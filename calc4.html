@@ -37,8 +37,8 @@
             background: blue;
         }
     </style>
-    <script src="js/common.js"></script>
-    <script type="text/javascript">
+ <script src="js/common.js"></script>
+<script type="text/javascript">
         window.onload = function () {
             resizeWindow();
             var links = $$("a");
@@ -54,7 +54,11 @@
 
                     //给当前选中的a标签添加"active"类名
                     this.classList.add("active");
-                    if (url.indexOf("http") == -1) {
+                    if (url.indexOf("homepage")!=-1) {
+                        resetChoose();
+                        window.location="index.html";
+                    }
+                    else if (url.indexOf("http") == -1) {
                         $("iContent").src = url;
                         resizeWindow();
                     }
@@ -76,20 +80,23 @@
             //移除选中a标签的"active"类名
             active.classList.remove("active");
 
-            //默认选中第一个
-            var first = document.querySelector("a");
+            //默认选中第二个
+            //由于这几个a标签不是兄弟元素，所以只能通过li元素来找
+            var first = document.querySelector("ul li:nth-child(2)>a");
             first.classList.add("active");
             $("iContent").src = first.dataset.url;
         }
-    </script>
+</script>
 </head>
 <body>
     <nav>
         <ul>
+            <li><a href="javascript:;" data-url="homepage">首页</a></li>        
             <li><a href="javascript:;" class="active" data-url="calc3.html">宝具伤害计算器</a></li>
             <li><a href="javascript:;" data-url="calccard.html">指令卡伤害计算器</a></li>
             <li><a href="javascript:;" data-url="https://fgo-archive.github.io/index/np_cal.html">NP计算器</a></li>
             <li><a href="javascript:;" data-url="guid.html">FGO伤害计算公式</a></li>
+            <li><a href="javascript:;" data-url="http://bbs.ngacn.cc/read.php?tid=11783224">BUG反馈</a></li>
             <li><a href="javascript:;" data-url="updatelog.html">更新日志</a></li>
         </ul>
     </nav>
@@ -98,6 +105,8 @@
     </div>
 </body>
 </html>
+
+
 
 
 
