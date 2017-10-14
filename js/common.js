@@ -25,41 +25,41 @@ function hideDiv(id) {
 
 //获取下拉列表选中项文本值
 function getDdlText(id) {
-    var index = $(id).selectedIndex;
-    var text = $(id).options[index].text;
+    let index = $(id).selectedIndex;
+    let text = $(id).options[index].text;
     return text;
 }
 
 //获取下拉列表选中项的自定义属性值
 function getDdlAttrText(id, name) {
-    var index = $(id).selectedIndex;
-    var text = $(id).options[index].dataset[name];
+    let index = $(id).selectedIndex;
+    let text = $(id).options[index].dataset[name];
     return text;
 }
 
 //获取文本框的自定属性值，并转换为float数值
 function getTxtAttrFloatNum(id, name) {
-    var text = $(id).dataset[name];
+    let text = $(id).dataset[name];
     return parseFloat(text);
 }
 
 //获取文本框的自定属性值，并转换为整型数值
 function getTxtAttrIntNum(id, name) {
-    var text = $(id).dataset[name];
+    let text = $(id).dataset[name];
     return parseInt(text);
 }
 
 // 对数组的原型添加remove方法
 Array.prototype.remove = function (from, to) {
-    var rest = this.slice((to || from) + 1 || this.length);
+    let rest = this.slice((to || from) + 1 || this.length);
     this.length = from < 0 ? this.length + from : from;
     return this.push.apply(this, rest);
 };
 //从大到小排序
 function compare(property) {
     return function (a, b) {
-        var value1 = a[property];
-        var value2 = b[property];
+        let value1 = a[property];
+        let value2 = b[property];
         return value2 - value1;
     }
 }
@@ -72,10 +72,10 @@ function resizeWindow() {
     //IE中：document.frames['iframe的name'].document.getElementById('元素的ID');
     //非IE中：window.frames["iContent"].contentWindow.document.getElementById('content')
     //iframe的id与name不能一样
-    //var height = window.frames["iContent"].contentWindow ? window.frames["iContent"].contentWindow.document.getElementById('content').offsetHeight : document.frames['iContentN'].document.getElementById('content').offsetHeight;
+    //let height = window.frames["iContent"].contentWindow ? window.frames["iContent"].contentWindow.document.getElementById('content').offsetHeight : document.frames['iContentN'].document.getElementById('content').offsetHeight;
 
     //通用方法：通过contentWindow获取到内容页面的高度
-    var height = $('iContent').contentWindow.document.getElementById('content').offsetHeight;
+    let height = $('iContent').contentWindow.document.getElementById('content').offsetHeight;
     if (iContent) {
         $("iContent").style.height = (height + 300) + "px";
     }
@@ -83,10 +83,10 @@ function resizeWindow() {
 
 //内容页中，使父窗口iContent自适应内容高度
 function resizeParentWindow() {
-    var height = $("content").offsetHeight;//获取body的高度
+    let height = $("content").offsetHeight;//获取body的高度
 
     //获取到父容器iContent的dom对象
-    var iContent = window.parent.document.getElementById('iContent');
+    let iContent = window.parent.document.getElementById('iContent');
     if (iContent) {
         iContent.style.height = (height + 300) + "px";
     }

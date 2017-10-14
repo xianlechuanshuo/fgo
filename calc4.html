@@ -27,8 +27,8 @@
         }
 
             nav > ul > li > a {
-                padding:5px;
-                display:block;
+                padding: 5px;
+                display: block;
                 color: white;
                 width: 130px;
             }
@@ -37,17 +37,18 @@
             background: blue;
         }
     </style>
- <script src="js/common.js"></script>
-<script type="text/javascript">
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        "use strict";
         window.onload = function () {
             resizeWindow();
-            var links = $$("a");
-            for (var i = 0; i < links.length; i++) {
+            let links = $$("a");
+            for (let i = 0; i < links.length; i++) {
                 links[i].onclick = function () {
-                    var url = this.dataset.url;
+                    let url = this.dataset.url;
 
                     //获取选中的a标签
-                    var active = document.querySelector(".active");
+                    let active = document.querySelector(".active");
 
                     //移除选中a标签的"active"类名
                     active.classList.remove("active");
@@ -64,29 +65,28 @@
                     }
                 }
             }
-
         }
-
+ 
         window.onresize = resizeWindow;
 
         //每次新开标签页打开其它域名的网页前重新设置默认选中项以及iframe的src属性值
         function resetChoose() {
-            var active = document.querySelector(".active");
+            let active = document.querySelector(".active");
 
             //移除选中a标签的"active"类名
             active.classList.remove("active");
 
             //默认选中第1个
             //由于这几个a标签不是兄弟元素，所以只能通过li元素来找
-            var first = document.querySelector("ul li:nth-child(1)>a");
+            let first = document.querySelector("ul li:nth-child(1)>a");
             first.classList.add("active");
             $("iContent").src = first.dataset.url;
         }
-</script>
+    </script>
 </head>
 <body>
     <nav>
-        <ul>      
+        <ul>
             <li><a href="javascript:;" class="active" data-url="calc3.html">宝具伤害计算器</a></li>
             <li><a href="javascript:;" data-url="calccard.html">指令卡伤害计算器</a></li>
             <li><a href="javascript:;" data-url="https://fgo-archive.github.io/index/np_cal.html">NP计算器</a></li>
@@ -100,7 +100,6 @@
     </div>
 </body>
 </html>
-
 
 
 

@@ -354,14 +354,14 @@ function loadLvs(){
 */
 function intialServant(career, name, eName, servantNo, keys, camp, attributes, characteristics, atk, hp, maxAtk, maxHp, cards, tl1, tl2, tl3, tl4, tl5, oc1, oc2, oc3, oc4, oc5, type, cardColor, careerSkill, treasureSideEffect) {
     //id++;//下标最好还是从0开始
-    var tl = {};
+    let tl = {};
     tl["tl1"] = tl1;
     tl["tl2"] = tl2;
     tl["tl3"] = tl3;
     tl["tl4"] = tl4;
     tl["tl5"] = tl5;
 
-    var oc = {};
+    let oc = {};
     oc["oc1"] = oc1;
     oc["oc2"] = oc2;
     oc["oc3"] = oc3;
@@ -370,7 +370,7 @@ function intialServant(career, name, eName, servantNo, keys, camp, attributes, c
 
     oc["type"] = type;
 
-    var model = {
+    let model = {
         id: id,
         career: career,
         name: name,

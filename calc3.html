@@ -352,6 +352,7 @@
 <script src="js/common.js"></script>
 <script src="js/base.js"></script>
 <script type="text/javascript">
+    "use strict";
     /***********************************************************/
     intialData();
     intialServantList();
@@ -360,13 +361,13 @@
 
     //圣杯MAX勾选框改变事件
     $("ckIsMaxGrail").onchange = function () {
-        var id = $("ddlChooseServant").value;
+        let id = $("ddlChooseServant").value;
         if (id == "-1") {
             alert("请选择从者");
             return;
         }
-        var servant = servants[id];
-        var check = $("ckIsMaxGrail").checked;
+        let servant = servants[id];
+        let check = $("ckIsMaxGrail").checked;
         if (check) {
             $("txtAttack").value = servant.maxAtk;
             $("txtMaxHp").value = servant.maxHp;
@@ -388,7 +389,7 @@
         $("txtCardBuff").dataset.value = 0;
         $("ddlLvs").selectedIndex=0;
 
-        var id = this.value;
+        let id = this.value;
         if (id != "-1" && id != "") {
             changeOc();
             bindServantData(id);
@@ -421,14 +422,14 @@
 
      //等级下拉列表选中项改变事件
     $("ddlLvs").onchange=function(){
-        var id=$("ddlChooseServant").value;
+        let id=$("ddlChooseServant").value;
         if (id == "-1" || id == "") {
             return;
         }
 
-        var servant = servants[id];  
+        let servant = servants[id];  
 
-        var lv=this.value;
+        let lv=this.value;
         //默认【圣杯MAX】非勾选状态
         $("ckIsMaxGrail").checked=false;
 
@@ -456,7 +457,7 @@
 
     //绑定从者基本信息
     function bindServantData(id) {
-        var servant = servants[id];
+        let servant = servants[id];
         //0.阵营
         $("spanCamp").innerHTML = "<a href='javascript:;' data-value='@" + servant.camp + "' onclick='autoClickSearch(this)'>" + servant.camp + "</a>"
 
@@ -474,9 +475,9 @@
         document.querySelector("#ddlCardColor option[value='" + servant.cardColor + "']").selected = true;
 
         //5.从者职介
-        var careers = $("ddlCareer").options;
-        for (var i = 0; i < careers.length; i++) {
-            var career = careers[i];
+        let careers = $("ddlCareer").options;
+        for (let i = 0; i < careers.length; i++) {
+            let career = careers[i];
             if (career.text == servant.career) {
                 career.selected = true;
             }
@@ -499,15 +500,15 @@
 
     //宝具副效果补充
     function bindTreasureSideEffect(servant) {
-        var treasureSideEffect = servant.treasureSideEffect;
+        let treasureSideEffect = servant.treasureSideEffect;
         if (treasureSideEffect) {
-            var treasurePowerBuff = treasureSideEffect.treasurePowerBuff;//宝具威力buff
+            let treasurePowerBuff = treasureSideEffect.treasurePowerBuff;//宝具威力buff
             //!isNaN(null)，返回true，需要去掉这种情况
             if (treasurePowerBuff && !isNaN(treasurePowerBuff)) {//单个数值，比如1001宝具的20%宝具威力buff
                 $("txtTreasurePowerBuff").value = treasurePowerBuff;
             }
 
-            var cardPowerBuff = treasureSideEffect.cardPowerBuff;//卡牌buff
+            let cardPowerBuff = treasureSideEffect.cardPowerBuff;//卡牌buff
             if (cardPowerBuff && !isNaN(cardPowerBuff)) {//单个数值，比如剑兰宝具的30%蓝魔放buff
                 $("txtCardBuff").value = cardPowerBuff;
             }
@@ -518,16 +519,16 @@
     //绑定从者职介信息
     function bindServantCareerSkillInfo(servant) {
         //{ cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 }
-        var careerSkill = servant.careerSkill;
+        let careerSkill = servant.careerSkill;
 
         if (careerSkill) {
-            var cardColorValue = getFloat("ddlCardColor");
-            var cardBuffs = careerSkill.cardBuff;
+            let cardColorValue = getFloat("ddlCardColor");
+            let cardBuffs = careerSkill.cardBuff;
             if (isNaN(cardBuffs)) {//"12|11"
                 cardBuffs = careerSkill.cardBuff.split('|');
             }
 
-            var cardColor = careerSkill.cardColor;
+            let cardColor = careerSkill.cardColor;
             /************************************卡牌Buff******************************************************/
             //0.8(Quick)，1(Arts)，1.5(Buster)，0(All)，-1(None)，-2(Quick和Arts)，-3(Buster和Quick)
             if ((cardColor == 0.8 || cardColor == 1 || cardColor == 1.5) && cardColor == cardColorValue) {
@@ -542,26 +543,26 @@
             }
                 //Quick和Arts
             else if (cardColor == -2 && cardColorValue == 0.8 && cardBuffs && cardBuffs.length == 2) {
-                var quickBuff = cardBuffs[0];
+                let quickBuff = cardBuffs[0];
                 $("txtCardBuff").dataset.value = quickBuff;
 
                 $("txtCardBuff").value = quickBuff;
             }
             else if (cardColor == -2 && cardColorValue == 1 && cardBuffs && cardBuffs.length == 2) {
-                var artsBuff = cardBuffs[1];
+                let artsBuff = cardBuffs[1];
                 $("txtCardBuff").dataset.value = artsBuff;
 
                 $("txtCardBuff").value = artsBuff;
             }
                 //Buster和Quick
             else if (cardColor == -3 && cardColorValue == 1.5 && cardBuffs && cardBuffs.length == 2) {
-                var busterBuff = cardBuffs[0];
+                let busterBuff = cardBuffs[0];
                 $("txtCardBuff").dataset.value = busterBuff;
 
                 $("txtCardBuff").value = busterBuff;
             }
             else if (cardColor == -3 && cardColorValue == 0.8 && cardBuffs && cardBuffs.length == 2) {
-                var quickBuff = cardBuffs[1];
+                let quickBuff = cardBuffs[1];
                 $("txtCardBuff").dataset.value = quickBuff;
 
                 $("txtCardBuff").value = quickBuff;
@@ -577,25 +578,25 @@
 
     //计算双子宝具总倍率
     function calTreasureSpecialRemainHpAttackRate() {
-        var ocLevel = $("ddlOc").value;
-        var id = $("ddlChooseServant").value;
+        let ocLevel = $("ddlOc").value;
+        let id = $("ddlChooseServant").value;
         servant = servants[id];
-        var ocs = servant.oc;
+        let ocs = servant.oc;
 
-        var tl = $("ddlTreasureLevel").value;
+        let tl = $("ddlTreasureLevel").value;
         //原宝具倍率
-        var treasureRate = servant.tl[tl];
+        let treasureRate = servant.tl[tl];
 
         //附加倍率《超蓄力威力提升》 (此倍率×自身已损失HP所占百分比,与宝具倍率加算)
         //【※总倍率＝攻击倍率+HP特攻倍率*(1—现在HP/最大HP)】
-        var maxHp = getFloat("txtMaxHp");
-        var fufuHp = getFloat("txtFufuHp");
-        var cardHp = getFloat("txtCardHp");
-        var totalHp = maxHp + fufuHp + cardHp;
+        let maxHp = getFloat("txtMaxHp");
+        let fufuHp = getFloat("txtFufuHp");
+        let cardHp = getFloat("txtCardHp");
+        let totalHp = maxHp + fufuHp + cardHp;
 
-        var remainHp = getFloat("txtRemainHp");
+        let remainHp = getFloat("txtRemainHp");
         //附加倍率
-        var additionalRate = ocs[ocLevel] * (1 - remainHp / totalHp);
+        let additionalRate = ocs[ocLevel] * (1 - remainHp / totalHp);
 
         //总宝具倍率
         treasureRate += additionalRate;
@@ -605,14 +606,14 @@
     }
     //计算自爆弓宝具总倍率
     function calTreasureSpecialExplosionAttackRate() {
-        var ocLevel = $("ddlOc").value;
-        var id = $("ddlChooseServant").value;
+        let ocLevel = $("ddlOc").value;
+        let id = $("ddlChooseServant").value;
         servant = servants[id];
-        var ocs = servant.oc;
+        let ocs = servant.oc;
 
-        var tl = $("ddlTreasureLevel").value;
+        let tl = $("ddlTreasureLevel").value;
         //原宝具倍率
-        var treasureRate = servant.tl[tl];
+        let treasureRate = servant.tl[tl];
 
         //总宝具倍率
         treasureRate += ocs[ocLevel];
@@ -623,13 +624,13 @@
     //OC等级选中项发生变化事件
     function changeOc(servant) {
         if (!servant) {
-            var id = $("ddlChooseServant").value;
+            let id = $("ddlChooseServant").value;
             servant = servants[id];
         }
 
-        var ocLevel = $("ddlOc").value;
-        var isSpecialAttack = $("ckIsSpecialAttack");
-        var ocs = servant.oc;
+        let ocLevel = $("ddlOc").value;
+        let isSpecialAttack = $("ckIsSpecialAttack");
+        let ocs = servant.oc;
         if (isSpecialAttack.checked) {//是特攻
             if (ocs["type"] == "TreasureSpecialAttack") {//宝具特攻
                 $("txtTreasureSpecialAttack").value = ocs[ocLevel];
@@ -645,7 +646,7 @@
             }
             else if (ocs["type"] == "TreasureSpecialCardPowerAttack") {//R金时OC绿魔放
                 //由于多了职介技能(被动buff)，这里稍微麻烦点，需要做累加操作。
-                var originNum = getTxtAttrFloatNum("txtCardBuff", "value");
+                let originNum = getTxtAttrFloatNum("txtCardBuff", "value");
 
                 $("txtCardBuff").value = originNum + ocs[ocLevel];
             }
@@ -666,7 +667,7 @@
 
 
             //设置回被动卡牌buff
-            var originNum = getTxtAttrFloatNum("txtCardBuff", "value");
+            let originNum = getTxtAttrFloatNum("txtCardBuff", "value");
             $("txtCardBuff").value = originNum;
 
             //宝具副效果补充
@@ -678,12 +679,12 @@
     //宝具等级选中项发生变化事件
     function changeTreasureRate(servant) {
         if (!servant) {
-            var id = $("ddlChooseServant").value;
+            let id = $("ddlChooseServant").value;
             servant = servants[id];
         }
 
-        var tl = $("ddlTreasureLevel").value;
-        var treasureRate = servant.tl[tl];
+        let tl = $("ddlTreasureLevel").value;
+        let treasureRate = servant.tl[tl];
 
         $("txtTreasureRate").value = treasureRate;
         if (servant.oc.type == "TreasureSpecialRemainHpAttack" && $("ckIsSpecialAttack").checked) {//双子宝具特攻并且勾选了特攻
@@ -694,11 +695,11 @@
         }
     }
     function intialServantList() {
-        for (var key in servants) {
+        for (let key in servants) {
             if (isNaN(key)) {
                 return;
             }
-            var item = servants[key];
+            let item = servants[key];
             $("ddlChooseServant").options.add(new Option("【" + item.career + "】" + item.name, item.id));
         }
     }
@@ -715,93 +716,93 @@
         }
         guid++;
         //1.攻击力
-        var attack = getFloat("txtAttack");
+        let attack = getFloat("txtAttack");
 
         //2.芙芙Atk
-        var fufuAtk = getFloat("txtFufuAtk");
+        let fufuAtk = getFloat("txtFufuAtk");
 
         //3.礼装Atk
-        var cardAtk = getFloat("txtCardAtk");
+        let cardAtk = getFloat("txtCardAtk");
 
         attack += fufuAtk + cardAtk;
 
         //4.宝具倍率(%)
-        var treasureRate = getFloat("txtTreasureRate") / 100;
+        let treasureRate = getFloat("txtTreasureRate") / 100;
 
         //5.卡色
-        var cardColor = getFloat("ddlCardColor");
+        let cardColor = getFloat("ddlCardColor");
 
         //6.职介克制
-        var careerResist = getFloat("ddlCareerResist");
+        let careerResist = getFloat("ddlCareerResist");
 
         //7.阵营克制
-        var campResist = getFloat("ddlCampResist");
+        let campResist = getFloat("ddlCampResist");
 
         //8.从者职介 
-        var career = getFloat("ddlCareer");
+        let career = getFloat("ddlCareer");
 
         //9.宝具威力Buff(%)
-        var treasurePowerBuff = getFloat("txtTreasurePowerBuff") / 100;
+        let treasurePowerBuff = getFloat("txtTreasurePowerBuff") / 100;
 
         //10.卡牌Buff(%)
-        var cardBuff = getFloat("txtCardBuff") / 100;
+        let cardBuff = getFloat("txtCardBuff") / 100;
 
         //11.攻击力Buff(%)
-        var attackBuff = getFloat("txtAttackBuff") / 100;
+        let attackBuff = getFloat("txtAttackBuff") / 100;
 
         //12.敌方防御力Buff(%)
-        var enemyDefenceBuff = getFloat("txtEnemyDefenceBuff") / 100;
+        let enemyDefenceBuff = getFloat("txtEnemyDefenceBuff") / 100;
 
         //13.特攻威力Buff(%)
-        var specialAttackPowerBuff = getFloat("txtSpecialAttackPowerBuff") / 100;
+        let specialAttackPowerBuff = getFloat("txtSpecialAttackPowerBuff") / 100;
 
         //14.敌方特防威力Buff(%)
-        var specialDefencePowerBuff = getFloat("txtSpecialDefencePowerBuff") / 100;
+        let specialDefencePowerBuff = getFloat("txtSpecialDefencePowerBuff") / 100;
 
         //15.固定伤害Buff
-        var fixedDamageBuff = getFloat("txtFixedDamageBuff");
+        let fixedDamageBuff = getFloat("txtFixedDamageBuff");
 
         //16.敌方固定减伤Buff
-        var enemyFixedDamageReductionBuff = getFloat("txtEnemyFixedDamageReductionBuff");
+        let enemyFixedDamageReductionBuff = getFloat("txtEnemyFixedDamageReductionBuff");
 
         //17.宝具特攻(%)     
-        var treasureSpecialAttack = getFloat("txtTreasureSpecialAttack") / 100;
+        let treasureSpecialAttack = getFloat("txtTreasureSpecialAttack") / 100;
         /*
             ATK×攻击补正(0.23)×[宝具倍率×卡牌伤害倍率×(1+卡牌BUFF)]×职阶补正×职阶相性补正×阵营相性补正×乱数补正×(1+攻击力BUFF—敌方防御力BUFF—敌方特防威力BUFF)×(1+特攻威力BUFF+宝具威力BUFF)×宝具特攻
             +(固定伤害BUFF—敌方固定伤害BUFF)
         */
-        var resultMin = attack * 0.23 * [treasureRate * cardColor * (1 + cardBuff)] * career * careerResist * campResist * 0.9 * (1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff) * (1 + specialAttackPowerBuff + treasurePowerBuff) * treasureSpecialAttack + (fixedDamageBuff - enemyFixedDamageReductionBuff);
+        let resultMin = attack * 0.23 * [treasureRate * cardColor * (1 + cardBuff)] * career * careerResist * campResist * 0.9 * (1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff) * (1 + specialAttackPowerBuff + treasurePowerBuff) * treasureSpecialAttack + (fixedDamageBuff - enemyFixedDamageReductionBuff);
         resultMin = Math.floor(resultMin);
 
-        var resultMax = attack * 0.23 * [treasureRate * cardColor * (1 + cardBuff)] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff) * (1 + specialAttackPowerBuff + treasurePowerBuff) * treasureSpecialAttack + (fixedDamageBuff - enemyFixedDamageReductionBuff);
+        let resultMax = attack * 0.23 * [treasureRate * cardColor * (1 + cardBuff)] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff) * (1 + specialAttackPowerBuff + treasurePowerBuff) * treasureSpecialAttack + (fixedDamageBuff - enemyFixedDamageReductionBuff);
         resultMax = Math.floor(resultMax);
 
-        var resultAvg = Math.round((resultMin + resultMax) * 1.0 / 2);
+        let resultAvg = Math.round((resultMin + resultMax) * 1.0 / 2);
 
-        var servantName = getDdlText("ddlChooseServant");
+        let servantName = getDdlText("ddlChooseServant");
 
-        var maxHp = getFloat("txtMaxHp");
-        var fufuHp = getFloat("txtFufuHp");
-        var cardHp = getFloat("txtCardHp");
-        var totalHp = maxHp + fufuHp + cardHp;
+        let maxHp = getFloat("txtMaxHp");
+        let fufuHp = getFloat("txtFufuHp");
+        let cardHp = getFloat("txtCardHp");
+        let totalHp = maxHp + fufuHp + cardHp;
 
-        var remainHp = getFloat("txtRemainHp");
+        let remainHp = getFloat("txtRemainHp");
 
-        var tl = getDdlText("ddlTreasureLevel");
-        var oc = getDdlText("ddlOc");
+        let tl = getDdlText("ddlTreasureLevel");
+        let oc = getDdlText("ddlOc");
 
-        var isMaxGrail = $("ckIsMaxGrail").checked;
+        let isMaxGrail = $("ckIsMaxGrail").checked;
         if (isMaxGrail) {
             servantName = "<span class='text-gradient'>" + servantName + "</span>";
         }
-        var careerResistClassName = "normal";//非克制
+        let careerResistClassName = "normal";//非克制
         if (careerResist > 1) {//克制
             careerResistClassName = "weak";
         }
         else if (careerResist < 1) {//被克制
             careerResistClassName = "resist";
         }
-        var model = {
+        let model = {
             guid: guid,
             servantName: servantName,
             atk: attack,
@@ -833,19 +834,19 @@
     function reSort() {
         resultArr.sort(compare("avg"));
         clearTable();
-        for (var i = 0; i < resultArr.length; i++) {
+        for (let i = 0; i < resultArr.length; i++) {
             createTr(resultArr[i]);
         }
     }
 
     //删除指定行
     function delTr(obj, guid) {
-        for (var i = 0; i < resultArr.length; i++) {
+        for (let i = 0; i < resultArr.length; i++) {
             if (resultArr[i].guid == guid) {
                 resultArr.remove(i);
             }
         }
-        var deleteRow = obj.parentElement.parentElement;
+        let deleteRow = obj.parentElement.parentElement;
         deleteRow.parentElement.removeChild(deleteRow);
         reSort();
         if (!resultArr || resultArr.length <= 0) {
@@ -860,9 +861,9 @@
             hidResult();
         }
         rankIndex = 0;
-        var tb = document.getElementById("tbResult");
-        var len = tb.rows.length
-        for (var i = len - 1; i > 0; i--) {
+        let tb = document.getElementById("tbResult");
+        let len = tb.rows.length
+        for (let i = len - 1; i > 0; i--) {
             tb.deleteRow(i);
         }
         resizeParentWindow();
@@ -870,8 +871,8 @@
     //新增Tr
     function createTr(obj) {
         rankIndex++;
-        var tb = document.getElementById("tbResult");
-        var newRow = tb.insertRow(-1);
+        let tb = document.getElementById("tbResult");
+        let newRow = tb.insertRow(-1);
         //1.排名
         newRow.insertCell(-1).innerHTML = rankIndex;
 
@@ -907,15 +908,15 @@
         //14.特攻威力Buff     
         newRow.insertCell(-1).innerHTML = obj.enemyDefenceBuff;
         //15.宝具伤害最小值    
-        var min = newRow.insertCell(-1);
+        let min = newRow.insertCell(-1);
         min.innerHTML = obj.min;
         min.classList.add(obj.careerResistClassName);
         //16.宝具伤害最大值  
-        var max = newRow.insertCell(-1);
+        let max = newRow.insertCell(-1);
         max.innerHTML = obj.max;
         max.classList.add(obj.careerResistClassName);
         //17.宝具伤害平均值       
-        var avg = newRow.insertCell(-1);
+        let avg = newRow.insertCell(-1);
         avg.innerHTML = obj.avg;
         avg.classList.add(obj.careerResistClassName);
         //18.删除操作     

@@ -102,8 +102,8 @@ function search() {
     
     
     //更新数组序号
-    var tmpServants = [];
-    for (var i = 0; i < servants.length; i++) {
+    let tmpServants = [];
+    for (let i = 0; i < servants.length; i++) {
         tmpServants[servants[i].id] = servants[i];
     }
     servants = tmpServants;
@@ -156,7 +156,7 @@ $("btnRedirectWiki").onclick = function () {
 }
 //跳转页面
 function redirectLink(link) {
-    var id = $("ddlChooseServant").value;
+    let id = $("ddlChooseServant").value;
     if (id != "-1" && id != "") {
         //window.top.location = link + servants[id].servantNo;
         openTab(link + servants[id].servantNo);
