@@ -16,15 +16,21 @@
         }
         //跳转到首页
         function redirectHomePage() {
-            window.top.location = 'index.html';
+            redirectLinks('index.html')
         }
         //跳转到友情链接
-        function redirectLinks() {
-            window.top.location = 'https://fgo-archive.github.io/index/';
+        function redirectLinks(link) {
+            window.top.location = link;
         }
     </script>
 </head>
 <body id="content">
+    <h4>2017-10-17</h4>
+    <p>
+        --<a href="javascript:;" onclick="redirectHomePage()">首页</a>新增【<a href="javascript:;" onclick="redirectLinks('https://xianlechuanshuo.github.io/fgo2/calc4.html')">宝具伤害计算器v4兼容版</a>】
+        <br>
+        <br>
+    </p>
     <h4>2017-10-15</h4>
     <p>
         --更新【巴御前(Archer)】从者数据<br>
@@ -164,7 +170,7 @@
     </p>
     <h4>2017-08-16</h4>
     <p>
-        --<a href="javascript:;" onclick="redirectHomePage()">首页</a>新增友情链接：<a href="javascript:;" onclick="redirectLinks()">NP计算器&羁绊礼装表</a><br />
+        --<a href="javascript:;" onclick="redirectHomePage()">首页</a>新增友情链接：<a href="javascript:;" onclick="redirectLinks('https://fgo-archive.github.io/index/')">NP计算器&羁绊礼装表</a><br />
         <br />
     </p>
     <h4>2017-08-15</h4>
