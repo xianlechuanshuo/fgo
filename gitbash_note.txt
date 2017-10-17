@@ -12,7 +12,7 @@ ps1：git config  –global 参数，有了这个参数，表示你这台机器�
 ps2：查看配置信息： git config --list
 ps3：清空信息：clear
 
-二、第一次上传本地项目到github上：(其实完全可以clone空的git项目下来，再push上去，也更推荐这种)
+二、第一次上传本地项目到github上：(其实完全可以clone空的git项目下来，再push上去)
 --------------------------------------------------------------------------------
 ************************************************************************
 *github网页端创建仓库的时候不能创建ReadMe文件，否者下面提交操作会失败！*
@@ -37,6 +37,12 @@ git remote add origin https://github.com/xianlechuanshuo/test2.git
 git push -u origin master(直接git push即可，不行再用这个)
 
 PS：第一次连接，会要求输入账号密码，之后基本不需要，因为git会有缓存
+PS2：创建文件指令  echo "# fgo2" >> README.md
+PS3：如果有以下提示信息：
+		fatal: The current branch master has no upstream branch.
+		To push the current branch and set the remote as upstream
+		解决方法：
+		git push --set-upstream origin master
 
 三、更新操作：
 更新操作1(本地存在git项目)：
@@ -84,6 +90,9 @@ git commit -m "新增2222.txt"
 6.提交操作(将本地仓库的文件提交到远程仓库)
 git push --set-upstream origin gh-pages(直接git push即可，不行再用这个)
 
+ps：如果没有可以提交的数据，则提示以下信息：
+Your branch is up-to-date with 'origin/gh-pages'.
+nothing to commit, working tree clean
 
 四、vim编辑器操作
 1.进入vim编辑器：
