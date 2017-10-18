@@ -26,23 +26,43 @@
             text-align: center;
         }
 
-            nav > ul > li > a {
-                padding: 5px;
-                display: block;
-                color: white;
-                width: 130px;
-            }
+        nav > ul > li > a {
+            padding: 5px;
+            display: block;
+            color: white;
+            width: 130px;
+        }
 
         .active {
             background: blue;
         }
+
+        #to_top{
+          text-align:center;  
+          background:#06c; 
+          display:none;
+          position:fixed;
+          right:10px;
+          bottom:10px;
+          cursor:pointer; 
+        }
+        #to_top>a{
+          text-decoration: none;
+          display: block;
+          outline-style:none;
+          color:#fff;
+          width:30px; 
+          height:40px; 
+          padding:20px; 
+          font:14px/20px arial; 
+        }        
     </style>
     <script src="js/common.js"></script>
     <script type="text/javascript">
         "use strict";
         window.onload = function () {
             resizeWindow();
-            let links = $$("a");
+            let links = document.querySelectorAll("#top a");
             for (let i = 0; i < links.length; i++) {
                 links[i].onclick = function () {
                     let url = this.dataset.url;
@@ -67,8 +87,6 @@
             }
         }
  
-        window.onresize = resizeWindow;
-
         //每次新开标签页打开其它域名的网页前重新设置默认选中项以及iframe的src属性值
         function resetChoose() {
             let active = document.querySelector(".active");
@@ -82,10 +100,22 @@
             first.classList.add("active");
             $("iContent").src = first.dataset.url;
         }
+
+        window.onresize = resizeWindow;
+
+        window.onscroll=function(){
+            let t=document.documentElement.scrollTop||document.body.scrollTop;
+            if(t>100){
+                $("to_top").style.display="block";
+            }
+            else{
+                $("to_top").style.display="none";
+            }
+        }
     </script>
 </head>
 <body>
-    <nav>
+    <nav id="top">
         <ul>
             <li><a href="javascript:;" class="active" data-url="calc3.html">宝具伤害计算器</a></li>
             <li><a href="javascript:;" data-url="calccard.html">指令卡伤害计算器</a></li>
@@ -97,6 +127,9 @@
     </nav>
     <div class="content">
         <iframe id="iContent" src="calc3.html" scrolling="auto" frameborder="0" style="width: 100%;"></iframe>
+    </div>
+    <div id="to_top">
+        <a href="#top">返回顶部</a>
     </div>
 </body>
 </html>
