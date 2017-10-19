@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>A&Q</title>
+	<style>
+		body{
+			margin:0;
+			padding:0;
+			background: #FFF0CD;
+			font-size:14px;
+		}
+
+		.content{
+		    line-height: 1.9em;
+		    font-size: 1.085em;
+		    display: inline;
+		}		
+		/*折叠内容标题*/
+		.collapse_title>button{
+		    background: #ead5bc;
+		    color: #444;
+		    border: 1px solid #f5e8cb;
+		    box-shadow: 0 0 2px 0 #888;
+		    line-height: 1.5em;
+		    border-radius: 0.25em;
+		    padding: 0 0.5em;
+		    margin: 0.1em 0.2em;
+		}
+		/*折叠内容*/
+		.collapse_content{
+			display:none;
+		}	
+		.collapse_content>img{
+			width:50%;
+		}
+		.collapse_content>img.large{
+			width:95%;
+		}
+		.show{
+			display:block;
+		}
+		.red{
+			color:#D00;
+		}
+		.blue{
+			color:#06B;
+		}	
+        #to_top{
+          text-align:center;  
+          background:#06c; 
+          display:none;
+          position:fixed;
+          right:10px;
+          bottom:10px;
+        }
+        #to_top>a{
+          text-decoration: none;
+          display: block;
+          outline-style:none;
+          color:#fff;
+          width:30px; 
+          height:40px; 
+          padding:20px; 
+          font:14px/20px arial; 
+        }   			
+	</style>
+</head>
+<body>
+<div>
+	<!------------------------------------ Q1 ---------------------------------->
+	<span class="content" id="top">
+		<span class="red">Q 楼主为什么v4版我的从者下拉列表是空的？</span><br>
+		<span class="blue">A 因为v4版用了es6，如果是安卓端的UC浏览器和自带的浏览器，对es6支持很差，可以用v4兼容版，首页会罗列出所有版本的地址，所以请收藏下首页。</span>
+	</span>	
+	<div class="collapse_title" data-open="0" data-open-id="1"><button>+</button>图片预览</div>
+	<div class="collapse_content" id="collapse_content_1">
+		<img src="" alt="" data-src="images/Q&A/01.jpg" data-large="0">
+	</div>
+	<br>
+	<br>
+	<!------------------------------------ Q2 ---------------------------------->
+	<span class="content">
+		<span class="red">Q 楼主哪里可以查看计算公式？</span><br>
+		<span class="blue">A 计算器页面导航条中【FGO伤害计算公式】</span>
+	</span>	
+	<div class="collapse_title" data-open="0" data-open-id="2"><button>+</button>图片预览</div>
+	<div class="collapse_content" id="collapse_content_2">
+		<img src="" alt="" data-src="images/Q&A/02.jpg" data-large="0">
+	</div>
+	<br>
+	<br>
+	<!------------------------------------ Q3 ---------------------------------->
+	<span class="content">
+		<span class="red">Q 特攻威力Buff是宝具特攻Buff吗？如果不是，怎么区分特攻威力和宝具特攻？</span><br>
+		<span class="blue">A1 不是。</span><br>
+		<span class="blue">A2 简单区分方法：看是否有持续回合数，比如杰克的女性特攻，是1回合的特攻，所以是特攻威力，又比如枪狐的男性特攻，没有持续回合，所以是宝具特攻。此外活动礼装的幅度极高的"攻击力UP"效果实质上是特攻威力，还有终章中打魔神柱，羁绊Buff效果实质上也是特攻威力。</span>
+	</span>	
+	<div class="collapse_title" data-open="0" data-open-id="3"><button>+</button>图片预览</div>
+	<div class="collapse_content" id="collapse_content_3">
+		<img src="" alt="" data-src="images/Q&A/03_1.jpg" data-large="0">
+		<img src="" alt="" data-src="images/Q&A/03_2.jpg" data-large="0">
+	</div>	
+	<br>
+	<br>
+	<!------------------------------------ Q4 ---------------------------------->
+	<span class="content">
+		<span class="red">Q 宝具OC怎么设置？</span><br>
+		<span class="blue">A1 跟OC相关的，请先勾选特攻，再选择OC等级。</span><br>
+	</span>	
+	<div class="collapse_title" data-open="0" data-open-id="4"><button>+</button>图片预览</div>
+	<div class="collapse_content" id="collapse_content_4">
+		<img src="" alt="" data-src="images/Q&A/04.jpg" data-large="0">
+	</div>	
+	<br>
+	<br>	
+</div>
+<div id="to_top">
+    <a href="#top">返回顶部</a>
+</div>
+</body>
+</html>
+
+<script>
+	function $(id) {
+	    return document.getElementById(id);
+	}
+	(function(){
+		var ctitles=document.querySelectorAll(".collapse_title");
+		ctitles.forEach(function(ctitle){
+			ctitle.onclick=function(){
+				var open=this.dataset.open;
+				var id="collapse_content_"+this.dataset.openId;
+
+				if(!open||!id)return;
+
+				if(open=="0"){//原来是关闭状态，点击后要变成打开状态
+					$(id).classList.add("show");
+
+					var imgs=document.querySelectorAll("#"+id+">img");
+					imgs.forEach(function(img){
+						img.src=img.dataset.src;
+					});
+				}
+				else{//原来是打开状态，点击后要变成关闭状态
+					$(id).classList.remove("show");
+				}
+				this.dataset.open=open=="0"?"1":"0";
+				this.children[0].innerHTML=open=="0"?"-":"+";
+			}
+		})
+
+		var imgs=document.querySelectorAll(".collapse_content>img");
+		imgs.forEach(function(img){
+			img.onclick=function(){
+				var large=this.dataset.large;
+				if(large=="0"){//原来是缩放状态，点击后变大
+					img.classList.add("large");
+				}
+				else{//原来是放大状态，点击后变小
+					img.classList.remove("large");
+				}
+				this.dataset.large=large=="0"?"1":"0";		
+			}
+		})
+	})();
+    window.onscroll=function(){
+        let t=document.documentElement.scrollTop||document.body.scrollTop;
+        if(t>100){
+            $("to_top").style.display="block";
+        }
+        else{
+            $("to_top").style.display="none";
+        }
+    }	
+</script>
