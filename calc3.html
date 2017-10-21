@@ -856,13 +856,15 @@
     }
     //清空table
     function clearTable(obj) {
-        if (obj == 1) {
+        if (obj == 1) {//清空resultArr数组
             resultArr.length = 0;
             hidResult();
         }
+
         rankIndex = 0;
         let tb = document.getElementById("tbResult");
-        let len = tb.rows.length
+        let len = tb.rows.length;
+        //清空table数据
         for (let i = len - 1; i > 0; i--) {
             tb.deleteRow(i);
         }
