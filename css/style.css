@@ -45,8 +45,9 @@ table {
 
     /*绝对定位盒子居中*/
     left: 50%;
+    /*这里的负号代表跟元素原来移动方向相反的方向*/
     margin-left: -300px;
-    
+
     display: none;
     background-color: white;
 }
