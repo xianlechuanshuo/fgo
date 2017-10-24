@@ -42,7 +42,11 @@ table {
     border: #808080 solid thick;
     position: absolute;
     top:2%;
-    left: 28%;
+
+    /*绝对定位盒子居中*/
+    left: 50%;
+    margin-left: -300px;
+    
     display: none;
     background-color: white;
 }
