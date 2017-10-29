@@ -77,13 +77,16 @@ input[type="button"] {
 }
 
 .cards {
-    text-align: center;
+    width:360px;
+    margin:0 auto;
 }
 .cards>ul{
     list-style: none;
+    height:72px;
 }
 .cards>ul>li{
-    display: inline-block;
+    display: block;
+    float:left;
     /*原图140X140，这里缩放成72X72*/
     height:72px;
     width:72px;
