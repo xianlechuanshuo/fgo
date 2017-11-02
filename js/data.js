@@ -83,7 +83,9 @@ function intialData() {
     intialServant("Archer", "大卫", "David", 63, ["大卫", "所罗门他爸", "卫日天", "制杖弓兵"], "天", ["秩序", "中立"], ["人型", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克", "王"], 7736, 8643, 10470, 11719, "AAABQ", 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 10 });
     intialServant("Archer", "幼吉尔", "Child Gil", 95, ["幼吉尔", "幼闪"], "天", ["混沌", "善"], ["人型", "神性", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克", "王"], 7696, 8731, 10415, 11838, "AABBQ", 400, 500, 550, 575, 600, 0, 0, 0, 0, 0, "", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 175, critialPowerBuff: 10 });
     intialServant("Archer", "尤瑞艾莉", "Euryale", 15, ["尤瑞艾莉", "二姐"], "天", ["混沌", "善"], ["人型", "神性", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克"], 7032, 9506, 9517, 12889, "AABQQ", 1200, 1200, 1200, 1200, 1200, 250, 250, 250, 250, 250, "TreasureSpecialAttack", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 300, critialPowerBuff: 11 });
-    intialServant("Archer", "俵藤太", "Tawara Toda", 125, ["俵藤太", "送水工", "送米工"], "人", ["中立", "善"], ["人型", "被「天地乖离开辟之星」所克", "所爱之人"], 7032, 9800, 9517, 13287, "AABBQ", 300, 400, 450, 475, 500, 50, 62, 75, 87, 100, "TreasureSpecialAttack", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 8 });
+
+    intialServant("Archer", "俵藤太", "Tawara Toda", 125, ["俵藤太", "送水工", "送米工"], "人", ["中立", "善"], ["人型", "被「天地乖离开辟之星」所克", "所爱之人"], 7032, 9800, 9517, 13287, "AABBQ", 400, 500, 550, 575, 600, 50, 62, 75, 87, 100, "SpecialAttackPowerBuff", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 8 });
+
     intialServant("Archer", "比利小子", "Billy the Kid", 105, ["比利小子"], "人", ["混沌", "中庸"], ["骑乘", "人型", "被「天地乖离开辟之星」所克"], 6890, 9506, 9325, 12889, "AABQQ", 1600, 2000, 2200, 2300, 2400, 0, 0, 0, 0, 0, "", 0.8, { cardColor: 0.8, cardBuff: 7, fixedDamageBuff: 0, critialPowerBuff: 10 });
     intialServant("Archer", "罗宾汉", "Robin Hood", 13, ["罗宾汉", "绿茶", "种树茶"], "人", ["中立", "善"], ["人型", "被「天地乖离开辟之星」所克", "所爱之人"], 6715, 10187, 9088, 13812, "AABQQ", 900, 1200, 1350, 1425, 1500, 200, 212.5, 225, 237.5, 250, "TreasureSpecialAttack", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 10 });
     intialServant("Archer", "阿拉什", "Arash", 16, ["阿拉什", "自爆弓", "流星一条"], "地", ["混沌", "中庸"], ["人型", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克", "所爱之人"], 5816, 7122, 9037, 10979, "AABBQ", 800, 1000, 1100, 1150, 1200, 0, 200, 400, 600, 800, "TreasureSpecialExplosionAttack", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 6 });
@@ -213,7 +215,7 @@ function intialData() {
 
 
     intialServant("Assassin", "武则天", "Wu Ze Tian", 170, ["武则天"], "人",["秩序","恶"],["人型","被「天地乖离开辟之星」所克","王"], 8981, 10942, 10874, 13267, "ABBQQ", 1200, 1600, 1800, 1900, 2000, 0, 0, 0, 0, 0, "", 0.8,null);
-    intialServant("Assassin", "卫宫〔Assassin〕", "Emiya（Assassin)", 109, ["卫宫", "切丝", "Papa"], "人",["混沌","恶"],["人型","被「天地乖离开辟之星」所克","所爱之人"], 8958, 11168, 10846, 13541, "AABQQ", 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 10 });
+    intialServant("Assassin", "卫宫〔Assassin〕", "Emiya（Assassin)", 109, ["卫宫", "切丝", "Papa"], "人",["混沌","恶"],["人型","被「天地乖离开辟之星」所克","所爱之人"], 8958, 11168, 10846, 13541, "AABQQ", 1200, 1500, 1650, 1725, 1800, 0, 0, 0, 0, 0, "", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 10 });
     
     intialServant("Assassin", "加藤段藏", "Katou Danzou", 188, ["加藤段藏"], "地",["中立","中庸"],["人型","被「天地乖离开辟之星」所克","被「人类神话雷电降临」所克","被「神秘杀」所克"], 8935, 11055, 10818, 13404, "ABBQQ", 300, 400, 450, 475, 500, 150, 162.5, 175, 187.5, 200, "TreasureSpecialAttack", 1.5,null);
 
@@ -226,7 +228,9 @@ function intialData() {
 
     /******************************************3星及以下********************************************************************/
     intialServant("Assassin", "荆轲", "Jing Ke", 42, ["荆轲"], "人",["混沌","善"],["人型","被「天地乖离开辟之星」所克"], 7207, 8293, 9754, 11244, "ABQQQ", 1600, 2000, 2200, 2300, 2400, 0, 0, 0, 0, 0, "", 0.8,null);
-    intialServant("Assassin", "风魔小太郎", "Fuuma Koutarou", 117, ["风魔小太郎"], "人",["混沌","恶"],["人型","被「天地乖离开辟之星」所克"], 7091, 8844, 9597, 11991, "ABQQQ", 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 0.8,null);
+
+    intialServant("Assassin", "风魔小太郎", "Fuuma Koutarou", 117, ["风魔小太郎"], "人",["混沌","恶"],["人型","被「天地乖离开辟之星」所克"], 7091, 8844, 9597, 11991, "ABQQQ", 800, 1000, 1100, 1150, 1200, 0, 0, 0, 0, 0, "", 0.8,null);
+
     intialServant("Assassin", "百貌的哈桑", "Hassan of Hundred Faces", 110, ["百貌的哈桑"], "人",["秩序","恶"],["人型","被「天地乖离开辟之星」所克"], 6686, 9310, 9049, 12623, "AABQQ", 1200, 1500, 1650, 1725, 1800, 0, 0, 0, 0, 0, "", 1,null);
     intialServant("Assassin", "静谧的哈桑", "Hassan of Serenity", 124, ["静谧的哈桑"], "人",["秩序","恶"],["人型","被「天地乖离开辟之星」所克"], 6636, 9310, 8981, 12623, "AABQQ", 1200, 1500, 1650, 1725, 1800, 0, 0, 0, 0, 0, "", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 10 });
     intialServant("Assassin", "咒腕的哈桑", "Hassan of the Cursed Arm", 40, ["咒腕的哈桑"], "人",["秩序","恶"],["人型","被「天地乖离开辟之星」所克"], 6280, 7594, 9100, 10960, "ABQQQ", 1200, 1600, 1800, 1900, 2000, 0, 0, 0, 0, 0, "", 0.8,null);
