@@ -694,11 +694,11 @@
  +(固定伤害BUFF—敌方固定伤害BUFF)
  + ATK×Buster Chain加成
         */
-        let resultMin = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 0.9 * (1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff) * (1 + specialAttackPowerBuff + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
-        resultMin = Math.floor(resultMin);
+        let resultMin = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 0.9 *Math.max(0,(1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff))* (1 + specialAttackPowerBuff + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
+        resultMin = Math.floor(Math.max(0,resultMin));
 
-        let resultMax = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 1.1 * (1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff) * (1 + specialAttackPowerBuff + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
-        resultMax = Math.floor(resultMax);
+        let resultMax = attack * 0.23 * [cardColor * cardPostion * (1 + cardBuff) + firstCardColor] * career * careerResist * campResist * 1.1 * Math.max(0,(1 + attackBuff - enemyDefenceBuff - specialDefencePowerBuff)) * (1 + specialAttackPowerBuff + critialPowerBuff) * critialCorrection * exAttackReward + (fixedDamageBuff - enemyFixedDamageReductionBuff) + attack * busterChain;
+        resultMax = Math.floor(Math.max(0,resultMax));
 
         let resultAvg = Math.round((resultMin + resultMax) * 1.0 / 2);
 
