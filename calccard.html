@@ -390,13 +390,14 @@
     $("ddlCardColor").onchange = function () {
         let cardEnabled = false;
         if (getDdlAttrText("ddlCardColor", "type") == "ea1" || getDdlAttrText("ddlCardColor", "type") == "ea2") {
-            //ex卡不吃卡牌buff
+            //ex卡不吃卡牌buff以及不吃buster chain buff
             cardEnabled = true;
             $("txtCardBuff").value = 0;
 
             $("ddlCardPosition").disabled = true;
             document.querySelector("#ddlCardPosition option[data-type='ea']").selected = true;
 
+            $("ckIsBusterChain").checked=false;
         }
         else if (getDdlText("ddlCardColor") != "Buster" && getDdlText("ddlCardPosition") == "一位") {
             $("ddlFirstCardColor").selectedIndex = 0;
@@ -420,6 +421,8 @@
         let index = parseInt($("ddlChooseServant").value);
         bindServantCareerSkillInfo(servants[index]);
         $("txtCardBuff").disabled = cardEnabled;
+        $("ckIsBusterChain").disabled=cardEnabled;
+
         if(cardEnabled){
             $("txtCardBuff").value = 0;
         }        
@@ -429,9 +432,10 @@
     $("ddlCardPosition").onchange = function () {
         let cardEnabled2 = false;
         if (getDdlAttrText("ddlCardPosition", "type") == "ea") {
-            //ex卡不吃卡牌buff
+            //ex卡不吃卡牌buff以及不吃buster chain buff
             cardEnabled2 = true;
             $("txtCardBuff").value = 0;
+            $("ckIsBusterChain").checked=false;
 
             if (getDdlAttrText("ddlCardColor", "type") != "ea1" && getDdlAttrText("ddlCardColor", "type") != "ea2") {
                 alert("请在卡色处选择Extra Attack");
@@ -442,7 +446,9 @@
             }
 
         }
-        $("txtCardBuff").disabled = cardEnabled2;      
+        $("txtCardBuff").disabled = cardEnabled2; 
+        $("ckIsBusterChain").disabled=cardEnabled2;
+     
     }
 
     //暴击
