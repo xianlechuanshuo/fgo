@@ -4,6 +4,17 @@ var storage = window.localStorage;
 if (!storage) {
     alert("请使用支持html5的浏览器!");
 }
+//IOS safari浏览器无痕模式下localStorage不起作用，我们需要做判断，存在问题则提示
+if (typeof localStorage === 'object') {
+    try {
+        localStorage.removeItem('localStorage');
+        localStorage.setItem('localStorage', 1);
+        localStorage.removeItem('localStorage');
+    } catch (e) {
+        alert('Your web browser does not support storing settings locally. In Safari, the most common cause of this is using "Private Browsing Mode". Some settings may not save or some features may not work properly for you.');
+    }
+}
+
 
 //显示从者技能详情
 $("btnShowSkills").onclick = function () {
