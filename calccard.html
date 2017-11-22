@@ -484,6 +484,9 @@
                 $("ckIsMaxGrail").checked=true;
                 $("ckIsMaxGrail").onchange();
             }
+            else if(lv.a==servant.atk){
+                $("ddlLvs").selectedIndex=0;//默认
+            }            
         }
         else{//默认
             $("txtAttack").value=servant.atk; 
