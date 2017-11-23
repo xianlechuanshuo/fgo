@@ -254,3 +254,19 @@ function bindSearchTips(){
         dlTips.appendChild(opt);
     })
 }
+(function(){
+    var nums=document.querySelectorAll("input[type=number]");
+    nums.forEach(function(n){
+        n.onfocus=function(){
+            setTimeout(function(){
+                //光标默认最后
+                n.setAttribute("type","text");
+            },0);
+        }
+        n.onblur=function(){
+            //失去焦点后，计算值
+            n.value=eval2(n.value);
+            n.setAttribute("type","number");
+        }
+    })
+})();
