@@ -257,8 +257,11 @@ function bindSearchTips(){
 (function(){
     var nums=document.querySelectorAll("input[type=number]");
     nums.forEach(function(n){
-        n.oninput=function(){
-            n.setAttribute("type","text");
+        n.onfocus=function(){
+            setTimeout(function(){
+                //光标默认最后
+                n.setAttribute("type","text");
+            },0);      
         }
         n.onblur=function(){
             //失去焦点后，计算值
