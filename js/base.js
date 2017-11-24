@@ -255,18 +255,12 @@ function bindSearchTips(){
     })
 }
 (function(){
-    var nums=document.querySelectorAll("input[type=number]");
+    var nums=document.querySelectorAll("#txtCardBuff,#txtAttackBuff,#txtEnemyDefenceBuff");
     nums.forEach(function(n){
-        n.onfocus=function(){
-            setTimeout(function(){
-                //光标默认最后
-                n.setAttribute("type","text");
-            },0);
-        }
+        n.setAttribute("type","text");
         n.onblur=function(){
             //失去焦点后，计算值
-            n.value=eval2(n.value);
-            n.setAttribute("type","number");
+            n.value=eval2(n.value);   
         }
     })
 })();
