@@ -178,11 +178,12 @@ Array.prototype.clone=function(){ return this.slice(0); }
 
 //eval替代方法
 function eval2(str){
+    let result;
     try{
-        let result = new Function('return '+str)();
-        if(!result) return 0;
+        result = new Function('return '+str)();
     }
     catch(e){
         return 0;
     }
+    return result?result:0;
 }   
