@@ -179,7 +179,8 @@ Array.prototype.clone=function(){ return this.slice(0); }
 //eval替代方法
 function eval2(str){
     try{
-        return new Function('return '+str)();
+        let result = new Function('return '+str)();
+        if(!result) return 0;
     }
     catch(e){
         return 0;
