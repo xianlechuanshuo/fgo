@@ -182,6 +182,6 @@ function eval2(str){
         return new Function('return '+str)();
     }
     catch(e){
-        return parseFloat(str);
+        return 0;
     }
 }   
