@@ -255,12 +255,13 @@ function bindSearchTips(){
     })
 }
 (function(){
-    var nums=document.querySelectorAll("#txtCardBuff,#txtAttackBuff,#txtEnemyDefenceBuff");
-    nums.forEach(function(n){
+    let nums=document.querySelectorAll("#txtCardBuff,#txtAttackBuff,#txtEnemyDefenceBuff");
+    for(let i=0;i<nums.length;i++){//避免作用域问题，还是用for和let搭配使用
+        let n=nums[i];
         n.type="text";
         n.onblur=function(){
             //失去焦点后，计算值
             n.value=eval2(n.value);   
-        }
-    })
+        }       
+    }
 })();
