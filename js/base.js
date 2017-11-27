@@ -255,7 +255,7 @@ function bindSearchTips(){
     })
 }
 (function(){
-    var nums=document.querySelectorAll("#txtCardBuff,#txtAttackBuff,#txtEnemyDefenceBuff");
+    let nums=document.querySelectorAll("#txtCardBuff,#txtAttackBuff,#txtEnemyDefenceBuff");
     nums.forEach(function(n){
         n.type="text";
         n.onblur=function(){
@@ -264,3 +264,4 @@ function bindSearchTips(){
         }
     })
 })();
+
