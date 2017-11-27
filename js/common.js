@@ -185,5 +185,6 @@ function eval2(str){
     catch(e){
         return 0;
     }
-    return result?result:0;
+
+    return isNaN(result)?0:result;
 }   
