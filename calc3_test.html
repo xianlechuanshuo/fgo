@@ -288,7 +288,7 @@
                 </td>
                 <td>敌方防御力Buff(%)</td>
                 <td>
-                    <input type="number" id="txtEnemyDefenceBuff" value="0" />
+                    <input type="text" id="txtEnemyDefenceBuff" value="0" />
                 </td>
             </tr>
             <tr>
@@ -357,10 +357,11 @@
     (function(){
         let nums=document.querySelectorAll("#txtCardBuff,#txtAttackBuff,#txtEnemyDefenceBuff");
         nums.forEach(function(n){
+            //number->text，会出现奇怪的问题：比如我选择b奶光，然后切后台关闭浏览器，重开浏览器，浏览器自动打开我们之前打开的网页，【敌方防御力Buff】的文本值会跟【固定伤害Buff】的文本值一样，还有如果切后台关闭浏览器前【固定伤害Buff】设置了跟新的值，重开浏览器后，【敌方防御力Buff】会被设置成这个新的值。。。。
             //n.type="text";
             n.onblur=function(){
                 //失去焦点后，计算值
-                //this.value=eval2(this.value);   
+                this.value=eval2(this.value);   
             }
         })
     })();
