@@ -1,9 +1,19 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<html>
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet">
+    <style type="text/css">
+        .blue {
+            color: #0000ff;
+        }
+
+        .formula {
+            text-indent: 2.5em;
+            color: #ff0000;
+            font-weight: bold;
+        }
+    </style>
     <script src="js/common.js"></script>
     <script type="text/javascript">
         window.onload = function () {
@@ -13,1054 +23,1227 @@
 </head>
 <body id="content">
     <div>
-        <h4 class="freshman">FGO伤害计算公式(资料来源：<a href="http://fgowiki.com/archives/1078">http://fgowiki.com/archives/1078</a>)</h4>
+        <h2>FGO伤害计算公式(资料来源：<a href="http://fgowiki.com/archives/1078">http://fgowiki.com/archives/1078</a>)</h2>
+        <p>以指令卡与宝具对敌方造成的伤害，是由伤害公式进行计算。普通指令卡与宝具的伤害计算公式存在些许差异，以下分别说明。</p>
+        <br>
+        <h3>一、指令卡伤害计算公式</h3>
+        <p class="formula">
+            <span>ATK</span><span class="blue">×</span><span>攻击补正</span><span class="blue">×[</span><span>卡牌伤害倍率</span><span class="blue">×</span><span>位置加成</span><span class="blue">×(</span><span>1</span><span class="blue">+</span><span>卡牌BUFF</span><span class="blue">)</span><span class="blue">+</span><span>首位加成</span><span class="blue">]×</span><span>职阶补正<span class="blue">×</span></span><span>职阶相性补正<span class="blue">×</span></span><span>阵营相性补正<span class="blue">×</span></span><span>乱数补正<span class="blue">×(</span></span><span>1</span><span class="blue">+</span><span>攻击力BUFF</span><span class="blue">—</span><span>敌方防御力BUFF<span><span class="blue">—</span><span>敌方特防威力BUFF</span>)</span><span class="blue">×(</span></span><span>1</span><span class="blue">+</span><span>特攻威力BUFF</span><span class="blue">+</span><span>暴击威力BUFF</span><span class="blue">)</span><span class="blue">×</span><span>暴击补正</span><span class="blue">×</span><span>EX攻击奖励</span>
+            <span class="blue">+(</span><span>固定伤害BUFF</span><span class="blue">—</span><span>敌方固定伤害BUFF</span><span class="blue">)</span>
+            <span class="blue">+</span> <span>ATK<span class="blue">×</span></span><span>Buster&nbsp;Chain加成</span>
+        </p>
+        <br>
+        <h3>公式各项注解</h3>
+        <h4>①ATK：</h4>
+        <p>从者面板ATK与该从者所装备的礼装ATK之和，即从者实际ATK。</p><br>
+        <h4>②攻击补正：</h4>
+        <p>常数[0.23]。</p><br>
+        <h4>③卡牌伤害倍率：</h4>
+        <p>根据卡色分别为Buster卡[1.5]、Arts卡[1.0]、Quick卡[0.8]、EX攻击[1.0]。</p> <br>
+        <h4>④位置加成：</h4>
+        <p>根据指令卡位置分别为第一位[1.0]、第二位[1.2]、第三位[1.4]和第四位（即EX攻击）[1.0]。</p> <br>
+        <h4>⑤卡牌BUFF：</h4>
+        <p>此项是“卡牌性能BUFF－卡牌性能DEBUFF”的简写。影响此项的因素有从者保有技能"魔力放出"、怪物技能"蹂躏准备"、从者职阶技能"骑乘"、相关概念礼装、相关宝具特效等等。</p> <br>
+        <h4>⑥首位加成：</h4>
+        <p> 分为首卡为红卡[0.5]、首卡非红卡[0]两种情况。</p><br>
+        <h4>⑦职阶补正(资料来源：<a href="https://www9.atwiki.jp/f_go/pages/304.html#id_4fab6dde">https://www9.atwiki.jp/f_go/pages/304.html#id_4fab6dde</a>)</h4>
+        <table>
+            <tr>
+
+                <td rowspan="3" colspan="2" style="color:#000000; text-align:center;">
+                    Class<br>補正
+                </td>
+
+                <td colspan="16" style="background-color:#CCFFFF; color:#000000; text-align:center;">
+                    攻撃側
+                </td>
+
+            </tr>
+            <tr>
+
+                <td rowspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    剣
+                </td>
+
+                <td rowspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    弓
+                </td>
+
+                <td rowspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    槍
+                </td>
+
+                <td rowspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    騎
+                </td>
+
+                <td rowspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    術
+                </td>
+
+                <td rowspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    殺
+                </td>
+
+                <td rowspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    狂
+                </td>
+
+                <td rowspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    盾
+                </td>
+
+                <td rowspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    裁
+                </td>
+
+                <td rowspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    讐
+                </td>
+
+                <td rowspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    月
+                </td>
+
+                <td rowspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    分
+                </td>
+
+                <td colspan="3" style="background-color:#CCFFCC; color:#000000; text-align:center;">
+                    獣
+                </td>
+
+                <td rowspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    外
+                </td>
+
+            </tr>
+            <tr>
+
+                <td style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    Ⅰ
+                </td>
+
+                <td style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    Ⅱ
+                </td>
 
-        <pre class="helperContent">以指令卡与宝具对敌方造成的伤害，是由伤害公式进行计算。普通指令卡与宝具的伤害计算公式存在些许差异，以下分别说明。</pre>
-        <br />
-        <pre>
-<h4>一、指令卡伤害计算公式(公式修改原因：<a href="http://bbs.ngacn.cc/read.php?tid=11637015">http://bbs.ngacn.cc/read.php?tid=11637015)</a></h4>
-<del><strong><span style="color: #ff0000;">ATK</span><span style="color: #0000ff;">×</span><span style="color: #ff0000;">攻击补正</span><span style="color: #0000ff;">×[</span><span style="color: #ff0000;">卡牌伤害倍率</span><span style="color: #0000ff;">×</span><span style="color: #ff0000;">位置加成</span><span style="color: #0000ff;">×(</span><span style="color: #ff0000;">1</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">卡牌BUFF</span><span style="color: #0000ff;">)</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">首位加成</span><span style="color: #0000ff;">]×</span><span style="color: #ff0000;">职阶补正<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">职阶相性补正<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">阵营相性补正<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">乱数补正<span style="color: #0000ff;">×(</span></span><span style="color: #ff0000;">1</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">攻击力BUFF</span><span style="color: #0000ff;">—</span><span style="color: #ff0000;">敌方防御力BUFF<span style="color: #0000ff;">)</span><span style="color: #0000ff;">×(</span></span><span style="color: #ff0000;">1</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">特攻威力BUFF</span><span style="color: #0000ff;">—</span><span style="color: #ff0000;">敌方特防威力BUFF</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">暴击威力BUFF</span><span style="color: #0000ff;">)</span><span style="color: #0000ff;">×</span><span style="color: #ff0000;">暴击补正</span><span style="color: #0000ff;">×</span><span style="color: #ff0000;">EX攻击奖励</span></strong>
-<strong> <span style="color: #0000ff;">+(</span><span style="color: #ff0000;">固定伤害BUFF</span><span style="color: #0000ff;">—</span><span style="color: #ff0000;">敌方固定伤害BUFF</span><span style="color: #0000ff;">)</span></strong>
-<strong> <span style="color: #0000ff;">+</span> <span style="color: #ff0000;">ATK<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">Buster&nbsp;Chain加成</span></strong>
-</del>
-<strong><span style="color: #ff0000;">ATK</span><span style="color: #0000ff;">×</span><span style="color: #ff0000;">攻击补正</span><span style="color: #0000ff;">×[</span><span style="color: #ff0000;">卡牌伤害倍率</span><span style="color: #0000ff;">×</span><span style="color: #ff0000;">位置加成</span><span style="color: #0000ff;">×(</span><span style="color: #ff0000;">1</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">卡牌BUFF</span><span style="color: #0000ff;">)</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">首位加成</span><span style="color: #0000ff;">]×</span><span style="color: #ff0000;">职阶补正<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">职阶相性补正<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">阵营相性补正<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">乱数补正<span style="color: #0000ff;">×(</span></span><span style="color: #ff0000;">1</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">攻击力BUFF</span><span style="color: #0000ff;">—</span><span style="color: #ff0000;">敌方防御力BUFF<span style="color: #0000ff;"><span style="color: #0000ff;">—</span><span style="color: #ff0000;">敌方特防威力BUFF</span>)</span><span style="color: #0000ff;">×(</span></span><span style="color: #ff0000;">1</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">特攻威力BUFF</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">暴击威力BUFF</span><span style="color: #0000ff;">)</span><span style="color: #0000ff;">×</span><span style="color: #ff0000;">暴击补正</span><span style="color: #0000ff;">×</span><span style="color: #ff0000;">EX攻击奖励</span></strong>
-<strong> <span style="color: #0000ff;">+(</span><span style="color: #ff0000;">固定伤害BUFF</span><span style="color: #0000ff;">—</span><span style="color: #ff0000;">敌方固定伤害BUFF</span><span style="color: #0000ff;">)</span></strong>
-<strong> <span style="color: #0000ff;">+</span> <span style="color: #ff0000;">ATK<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">Buster&nbsp;Chain加成</span></strong>
-&nbsp;
-<h5><strong>公式各项注解</strong></h5>
-<strong>①ATK</strong>：
-从者面板ATK与该从者所装备的礼装ATK之和，即从者实际ATK。<br />
-<strong>②攻击补正</strong>：
-常数[0.23]。<br />
-<strong>③卡牌伤害倍率</strong>：
-根据卡色分别为Buster卡[1.5]、Arts卡[1.0]、Quick卡[0.8]、EX攻击[1.0]。<br />
-<strong>④位置加成</strong>：
-根据指令卡位置分别为第一位[1.0]、第二位[1.2]、第三位[1.4]和第四位（即EX攻击）[1.0]。<br />
-<strong>⑤卡牌BUFF</strong>：
-此项是“卡牌性能BUFF－卡牌性能DEBUFF”的简写。影响此项的因素有从者保有技能"魔力放出"、怪物技能"蹂躏准备"、从者职阶技能"骑乘"、相关概念礼装、相关宝具特效等等。<br />
-<strong>⑥首位加成</strong>：
-分为首卡为红卡[0.5]、首卡非红卡[0]两种情况。<br />
-<strong>⑦职阶补正(资料来源：<a href="https://www9.atwiki.jp/f_go/pages/304.html#id_4fab6dde">https://www9.atwiki.jp/f_go/pages/304.html#id_4fab6dde</a>)</strong>：
-<del>不同职阶固有的攻击系数，三骑士Saber[1.00]、Archer[0.95]、Lancer[1.05]，四骑Rider[1.0]、Caster[0.9]、Assassin[0.9]、Berserker[1.1]，其他职阶Ruler[1.1]、Shielder[1.0]、Alter-ego[1.0]、Avenger[1.1]、Beast[1.0]。</del>
-</pre>
-        <div>
+                <td style="background-color:#CCFFCC; color:#000000; text-align:center; width:26px;">
+                    Ⅲ
+                </td>
 
-            <table cellspacing="1" border="0">
+            </tr>
+            <tr>
 
-                <tbody>
+                <td colspan="2" style="background-color:#CCFFCC; color:#000000; text-align:center;">
+                    倍率
+                </td>
 
-                    <tr>
+                <td style="color:#000000; text-align:right; width:26px;"></td>
 
-                        <td rowspan="3" colspan="2" style="color: #000000; text-align: center;">Class<br>
-                            補正
-                        </td>
+                <td style="background-color:#C0C0C0; color:#000000; text-align:right; width:26px;">
+                    0.95
+                </td>
 
-                        <td colspan="15" style="background-color: #CCFFFF; color: #000000; text-align: center;">攻撃側
-                        </td>
+                <td style="background-color:#FFCC99; color:#000000; text-align:right; width:26px;">
+                    1.05
+                </td>
 
-                    </tr>
+                <td style="color:#000000; text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="background-color:#C0C0C0; color:#000000; text-align:right; width:26px;">
+                    0.9
+                </td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">剣
-                        </td>
+                <td style="background-color:#C0C0C0; color:#000000; text-align:right; width:26px;">
+                    0.9
+                </td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">弓
-                        </td>
+                <td style="background-color:#FFCC99; color:#000000; text-align:right; width:26px;">
+                    1.1
+                </td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">槍
-                        </td>
+                <td style="color:#000000; text-align:right; width:26px;"></td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">騎
-                        </td>
+                <td style="background-color:#FFCC99; color:#000000; text-align:right; width:26px;">
+                    1.1
+                </td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">術
-                        </td>
+                <td style="background-color:#FFCC99; color:#000000; text-align:right; width:26px;">
+                    1.1
+                </td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">殺
-                        </td>
+                <td style="color:#000000; text-align:right; width:26px;"></td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">狂
-                        </td>
+                <td style="color:#000000; text-align:right; width:26px;"></td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">盾
-                        </td>
+                <td style="color:#000000; text-align:right; width:26px;"></td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">裁
-                        </td>
+                <td style="color:#000000; text-align:right; width:26px;"></td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">讐
-                        </td>
+                <td style="color:#000000; text-align:right; width:26px;"></td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">月
-                        </td>
+                <td style="color:#000000; text-align:right; width:26px;"></td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">分
-                        </td>
+            </tr>
+        </table>
+        <br>
+        <h4>⑧职阶相性补正(资料来源：<a href="https://www9.atwiki.jp/f_go/pages/304.html#id_4fab6dde">https://www9.atwiki.jp/f_go/pages/304.html#id_4fab6dde</a>)</h4>
+        <table>
+            <tr>
 
-                        <td colspan="3" style="background-color: #CCFFCC; color: #000000; text-align: center;">獣
-                        </td>
+                <td rowspan="3" colspan="3" style="background-color:#FFF; text-align:center;">
+                    Class<br>相性
+                </td>
 
-                    </tr>
+                <td colspan="16" style="background-color:#CCFFFF; text-align:center;">
+                    攻撃側
+                </td>
 
-                    <tr>
+            </tr>
+            <tr>
 
-                        <td style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">Ⅰ
-                        </td>
+                <td rowspan="2" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    剣
+                </td>
 
-                        <td style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">Ⅱ
-                        </td>
+                <td rowspan="2" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    弓
+                </td>
 
-                        <td style="background-color: #CCFFCC; color: #000000; text-align: center; width: 26px;">Ⅲ
-                        </td>
+                <td rowspan="2" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    槍
+                </td>
 
-                    </tr>
+                <td rowspan="2" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    騎
+                </td>
 
-                    <tr>
+                <td rowspan="2" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    術
+                </td>
 
-                        <td colspan="2" style="background-color: #CCFFCC; color: #000000; text-align: center;">倍率
-                        </td>
+                <td rowspan="2" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    殺
+                </td>
 
-                        <td style="color: #000000; text-align: right; width: 26px;"></td>
+                <td rowspan="2" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    狂
+                </td>
 
-                        <td style="background-color: #C0C0C0; color: #000000; text-align: right; width: 26px;">0.95
-                        </td>
+                <td rowspan="2" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    盾
+                </td>
 
-                        <td style="background-color: #FFCC99; color: #000000; text-align: right; width: 26px;">1.05
-                        </td>
+                <td rowspan="2" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    裁
+                </td>
 
-                        <td style="color: #000000; text-align: right; width: 26px;"></td>
+                <td rowspan="2" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    讐
+                </td>
 
-                        <td style="background-color: #C0C0C0; color: #000000; text-align: right; width: 26px;">0.9
-                        </td>
+                <td rowspan="2" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    月
+                </td>
 
-                        <td style="background-color: #C0C0C0; color: #000000; text-align: right; width: 26px;">0.9
-                        </td>
+                <td rowspan="2" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    分
+                </td>
 
-                        <td style="background-color: #FFCC99; color: #000000; text-align: right; width: 26px;">1.1
-                        </td>
+                <td colspan="3" style="background-color:#CCFFCC; text-align:center;">
+                    獣
+                </td>
 
-                        <td style="color: #000000; text-align: right; width: 26px;"></td>
+                <td rowspan="2" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    外
+                </td>
 
-                        <td style="background-color: #FFCC99; color: #000000; text-align: right; width: 26px;">1.1
-                        </td>
+            </tr>
+            <tr>
 
-                        <td style="background-color: #FFCC99; color: #000000; text-align: right; width: 26px;">1.1
-                        </td>
+                <td style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    Ⅰ
+                </td>
 
-                        <td style="color: #000000; text-align: right; width: 26px;"></td>
+                <td style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    Ⅱ
+                </td>
 
-                        <td style="color: #000000; text-align: right; width: 26px;"></td>
+                <td style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    Ⅲ
+                </td>
 
-                        <td style="color: #000000; text-align: right; width: 26px;"></td>
+            </tr>
+            <tr>
 
-                        <td style="color: #000000; text-align: right; width: 26px;"></td>
+                <td rowspan="16" style="background-color:#CCFFFF; text-align:center; width:26px;">
+                    防<br>御<br>側
+                </td>
 
-                        <td style="color: #000000; text-align: right; width: 26px;"></td>
+                <td colspan="2" style="background-color:#CCFFCC; text-align:center;">
+                    剣
+                </td>
 
-                    </tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                </tbody>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-            </table>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-        </div>
-        <br />
-        <pre>
-<strong>⑧职阶相性补正(资料来源：<a href="https://www9.atwiki.jp/f_go/pages/304.html#id_4fab6dde">https://www9.atwiki.jp/f_go/pages/304.html#id_4fab6dde</a>)</strong>：
-<del>根据职阶克制关系，分为有克制[2.0]（攻击侧为Berserker时[1.5]）、被克制[0.5]和无克制[1.0]三种情况。</del>
-</pre>
-        <div>
+                <td style="text-align:right; width:26px;"></td>
 
-            <table cellspacing="1" border="0">
+                <td style="text-align:right; width:26px;"></td>
 
-                <tbody>
+                <td style="text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                        <td rowspan="3" colspan="3" style="background-color: #FFF; text-align: center;">Class<br>
-                            相性
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="15" style="background-color: #CCFFFF; text-align: center;">攻撃側
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                    </tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; text-align: center; width: 26px;">剣
-                        </td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; text-align: center; width: 26px;">弓
-                        </td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; text-align: center; width: 26px;">槍
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; text-align: center; width: 26px;">騎
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; text-align: center; width: 26px;">術
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; text-align: center; width: 26px;">殺
-                        </td>
+            </tr>
+            <tr>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; text-align: center; width: 26px;">狂
-                        </td>
+                <td colspan="2" style="background-color:#CCFFCC; text-align:center;">
+                    弓
+                </td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; text-align: center; width: 26px;">盾
-                        </td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; text-align: center; width: 26px;">裁
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; text-align: center; width: 26px;">讐
-                        </td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; text-align: center; width: 26px;">月
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td rowspan="2" style="background-color: #CCFFCC; text-align: center; width: 26px;">分
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="3" style="background-color: #CCFFCC; text-align: center;">獣
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                    </tr>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #CCFFCC; text-align: center; width: 26px;">Ⅰ
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #CCFFCC; text-align: center; width: 26px;">Ⅱ
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #CCFFCC; text-align: center; width: 26px;">Ⅲ
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                    </tr>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                    <tr>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td rowspan="15" style="background-color: #CCFFFF; text-align: center; width: 26px;">防<br>
-                            御<br>
-                            側
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="2" style="background-color: #CCFFCC; text-align: center;">剣
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+            </tr>
+            <tr>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td colspan="2" style="background-color:#CCFFCC; text-align:center;">
+                    槍
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                    </tr>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="2" style="background-color: #CCFFCC; text-align: center;">弓
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+            </tr>
+            <tr>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td colspan="2" style="background-color:#CCFFCC; text-align:center;">
+                    騎
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                    </tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="2" style="background-color: #CCFFCC; text-align: center;">槍
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+            </tr>
+            <tr>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td colspan="2" style="background-color:#CCFFCC; text-align:center;">
+                    術
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                    </tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="2" style="background-color: #CCFFCC; text-align: center;">騎
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+            </tr>
+            <tr>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td colspan="2" style="background-color:#CCFFCC; text-align:center;">
+                    殺
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                    </tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="2" style="background-color: #CCFFCC; text-align: center;">術
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+            </tr>
+            <tr>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td colspan="2" style="background-color:#CCFFCC; text-align:center;">
+                    狂
+                </td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                    </tr>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="2" style="background-color: #CCFFCC; text-align: center;">殺
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+            </tr>
+            <tr>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td colspan="2" style="background-color:#CCFFCC; text-align:center;">
+                    盾
+                </td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                    </tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="2" style="background-color: #CCFFCC; text-align: center;">狂
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+            </tr>
+            <tr>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td colspan="2" style="background-color:#CCFFCC; text-align:center;">
+                    裁
+                </td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                    </tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="2" style="background-color: #CCFFCC; text-align: center;">盾
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+            </tr>
+            <tr>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td colspan="2" style="background-color:#CCFFCC; text-align:center;">
+                    讐
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                    </tr>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="2" style="background-color: #CCFFCC; text-align: center;">裁
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+            </tr>
+            <tr>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td colspan="2" style="background-color:#CCFFCC; text-align:center;">
+                    月
+                </td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                    </tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="2" style="background-color: #CCFFCC; text-align: center;">讐
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+            </tr>
+            <tr>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td colspan="2" style="background-color:#CCFFCC; text-align:center;">
+                    分
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                    </tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="2" style="background-color: #CCFFCC; text-align: center;">月
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+            </tr>
+            <tr>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td rowspan="3" style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    獣
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    Ⅰ
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="background-color: #C0C0C0; text-align: right; width: 26px;">0.5
-                        </td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                    </tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td colspan="2" style="background-color: #CCFFCC; text-align: center;">分
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+            </tr>
+            <tr>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    Ⅱ
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                    </tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td rowspan="3" style="background-color: #CCFFCC; text-align: center; width: 26px;">獣
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #CCFFCC; text-align: center; width: 26px;">Ⅰ
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+            </tr>
+            <tr>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#CCFFCC; text-align:center; width:26px;">
+                    Ⅲ
+                </td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFCC99; text-align: right; width: 26px;">2.0
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.5
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.2
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFFFCC; text-align:right; width:26px;">
+                    1.2
+                </td>
 
-                    </tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #CCFFCC; text-align: center; width: 26px;">Ⅱ
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+            </tr>
+            <tr>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td colspan="2" style="background-color:#CCFFCC; text-align:center;">
+                    外
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#C0C0C0; text-align:right; width:26px;">
+                    0.5
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                    </tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                    <tr>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="background-color: #CCFFCC; text-align: center; width: 26px;">Ⅲ
-                        </td>
+                <td style="text-align:right; width:26px;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color:#FFCC99; text-align:right; width:26px;">
+                    2.0
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+            </tr>
+        </table>
+        <br>
+        <h4>⑨阵营相性补正(资料来源：<a href="https://www9.atwiki.jp/f_go/pages/304.html#id_4fab6dde">https://www9.atwiki.jp/f_go/pages/304.html#id_4fab6dde</a>)：</h4>
+        <table>
+            <tr>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td rowspan="2" colspan="2" style="color: #000000; text-align: center;">
+                    Servant<br>
+                    相性
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td colspan="5" style="background-color: #CCFFFF; color: #000000; text-align: center;">
+                    攻撃側
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+            </tr>
+            <tr>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color: #CCFFCC; color: #000000; text-align: center;">
+                    人
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color: #CCFFCC; color: #000000; text-align: center;">
+                    天
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color: #CCFFCC; color: #000000; text-align: center;">
+                    地
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color: #CCFFCC; color: #000000; text-align: center;">
+                    星
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color: #CCFFCC; color: #000000; text-align: center;">
+                    獣
+                </td>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.2
-                        </td>
+            </tr>
+            <tr>
 
-                        <td style="background-color: #FFFFCC; text-align: right; width: 26px;">1.2
-                        </td>
+                <td rowspan="5" style="background-color: #CCFFFF; color: #000000; text-align: center;">
+                    防<br>
+                    御<br>
+                    側
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color: #CCFFCC; color: #000000; text-align: center;">
+                    人
+                </td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="color: #000000; text-align: right;"></td>
 
-                        <td style="text-align: right; width: 26px;"></td>
+                <td style="background-color: #C0C0C0; color: #000000; text-align: right;">
+                    0.9
+                </td>
 
-                    </tr>
+                <td style="background-color: #FFCC99; color: #000000; text-align: right;">
+                    1.1
+                </td>
 
-                </tbody>
+                <td style="color: #000000; text-align: right;"></td>
 
-            </table>
+                <td style="color: #000000; text-align: right;"></td>
 
-        </div>
-        <br />
-        <pre>
-<strong>⑨阵营相性补正(资料来源：<a href="https://www9.atwiki.jp/f_go/pages/304.html#id_4fab6dde">https://www9.atwiki.jp/f_go/pages/304.html#id_4fab6dde</a>)</strong>：
-<del>有克制[1.1]、被克制[0.9]和无克制[1.0]三种情况。</del>
-</pre>
-        <div>
+            </tr>
+            <tr>
 
-            <table cellspacing="1" border="0">
+                <td style="background-color: #CCFFCC; color: #000000; text-align: center;">
+                    天
+                </td>
 
-                <tbody>
+                <td style="background-color: #FFCC99; color: #000000; text-align: right;">
+                    1.1
+                </td>
 
-                    <tr>
+                <td style="color: #000000; text-align: right;"></td>
 
-                        <td rowspan="2" colspan="2" style="color: #000000; text-align: center;">Servant<br>
-                            相性
-                        </td>
+                <td style="background-color: #C0C0C0; color: #000000; text-align: right;">
+                    0.9
+                </td>
 
-                        <td colspan="5" style="background-color: #CCFFFF; color: #000000; text-align: center;">攻撃側
-                        </td>
+                <td style="color: #000000; text-align: right;"></td>
 
-                    </tr>
+                <td style="color: #000000; text-align: right;"></td>
 
-                    <tr>
+            </tr>
+            <tr>
 
-                        <td style="background-color: #CCFFCC; color: #000000; text-align: center;">人
-                        </td>
+                <td style="background-color: #CCFFCC; color: #000000; text-align: center;">
+                    地
+                </td>
 
-                        <td style="background-color: #CCFFCC; color: #000000; text-align: center;">天
-                        </td>
+                <td style="background-color: #C0C0C0; color: #000000; text-align: right;">
+                    0.9
+                </td>
 
-                        <td style="background-color: #CCFFCC; color: #000000; text-align: center;">地
-                        </td>
+                <td style="background-color: #FFCC99; color: #000000; text-align: right;">
+                    1.1
+                </td>
 
-                        <td style="background-color: #CCFFCC; color: #000000; text-align: center;">星
-                        </td>
+                <td style="color: #000000; text-align: right;"></td>
 
-                        <td style="background-color: #CCFFCC; color: #000000; text-align: center;">獣
-                        </td>
+                <td style="color: #000000; text-align: right;"></td>
 
-                    </tr>
+                <td style="color: #000000; text-align: right;"></td>
 
-                    <tr>
+            </tr>
+            <tr>
 
-                        <td rowspan="5" style="background-color: #CCFFFF; color: #000000; text-align: center;">防<br>
-                            御<br>
-                            側
-                        </td>
+                <td style="background-color: #CCFFCC; color: #000000; text-align: center;">
+                    星
+                </td>
 
-                        <td style="background-color: #CCFFCC; color: #000000; text-align: center;">人
-                        </td>
+                <td style="color: #000000; text-align: right;"></td>
 
-                        <td style="color: #000000; text-align: right;"></td>
+                <td style="color: #000000; text-align: right;"></td>
 
-                        <td style="background-color: #C0C0C0; color: #000000; text-align: right;">0.9
-                        </td>
+                <td style="color: #000000; text-align: right;"></td>
 
-                        <td style="background-color: #FFCC99; color: #000000; text-align: right;">1.1
-                        </td>
+                <td style="color: #000000; text-align: right;"></td>
 
-                        <td style="color: #000000; text-align: right;"></td>
+                <td style="background-color: #FFCC99; color: #000000; text-align: right;">
+                    1.1
+                </td>
 
-                        <td style="color: #000000; text-align: right;"></td>
+            </tr>
+            <tr>
 
-                    </tr>
+                <td style="background-color: #CCFFCC; color: #000000; text-align: center;">
+                    獣
+                </td>
 
-                    <tr>
+                <td style="color: #000000; text-align: right;"></td>
 
-                        <td style="background-color: #CCFFCC; color: #000000; text-align: center;">天
-                        </td>
+                <td style="color: #000000; text-align: right;"></td>
 
-                        <td style="background-color: #FFCC99; color: #000000; text-align: right;">1.1
-                        </td>
+                <td style="color: #000000; text-align: right;"></td>
 
-                        <td style="color: #000000; text-align: right;"></td>
+                <td style="background-color: #FFCC99; color: #000000; text-align: right;">
+                    1.1
+                </td>
 
-                        <td style="background-color: #C0C0C0; color: #000000; text-align: right;">0.9
-                        </td>
+                <td style="color: #000000; text-align: right;"></td>
 
-                        <td style="color: #000000; text-align: right;"></td>
+            </tr>
+        </table>
+        <br>
+        <h4>⑩乱数补正：</h4>
+        <p>由系统在特定范围内随机生成[0.9～1.1]的随机数补正。</p> <br>
 
-                        <td style="color: #000000; text-align: right;"></td>
+        <h4>⑪攻击力BUFF：</h4>
+        <p>此项是“攻击力BUFF－攻击力DEBUFF”的简写。影响此项的因素有从者保有技能"怪力"、从者保有技能"破坏工作"、Master技能"瞬间强化"、相关概念礼装、相关宝具特效等等。</p> <br>
 
-                    </tr>
+        <h4>⑫敌方防御力BUFF：</h4>
+        <p>此项是“敌方防御力BUFF－防御力DEBUFF”的简写。影响此项的因素有从者保有技能"变化"、从者保有技能"拷问技术"、怪物技能"硬化"、相关宝具特效等等。</p> <br>
 
-                    <tr>
+        <h4>⑬特攻威力BUFF：</h4>
+        <p>
+            敌人在Buff特攻范围内时计算此项，是针对特定对象的威力UP状态。例如从者保有技能"处刑人"、"银河流星剑"、相关概念礼装等等。某些活动期内，活动礼装的幅度极高的“攻击力UP”效果实质上也按特攻威力BUFF参与计算。
+            另外，多个特攻叠加的情况，增幅为直接加算，这种情况只会发生在存在多个特攻Buff同时被触发时。同一个Buff，即使是有多个范围的特攻Buff，被触发一个以上特攻条件时仍然只计算一次增幅。
+        </p><br>
 
-                        <td style="background-color: #CCFFCC; color: #000000; text-align: center;">地
-                        </td>
+        <h4>⑭敌方特防威力BUFF：</h4>
+        <p> 根本不存在与特攻所相对的“特防“这个概念，所谓的“特防”全部都是在特定条件下的普通防御力up。</p><br>
 
-                        <td style="background-color: #C0C0C0; color: #000000; text-align: right;">0.9
-                        </td>
+        <h4>⑮暴击补正：</h4>
+        <p> 暴击时计算此项。为定值[2.0]。</p><br>
 
-                        <td style="background-color: #FFCC99; color: #000000; text-align: right;">1.1
-                        </td>
+        <h4>⑯暴击威力BUFF：</h4>
+        <p>暴击时计算此项。这里是“暴击威力BUFF－暴击威力DEBUFF”的简写。影响此项的因素有从者保有技能"心眼(伪)"、从者保有技能"鉴识眼"、怪物技能"畏怖"、从者职阶技能"单独行动"、相关概念礼装等等。</p><br>
 
-                        <td style="color: #000000; text-align: right;"></td>
+        <h4>⑰EX攻击奖励：</h4>
+        <p>指令卡为EX攻击时计算此项。有前三张指令卡同色（Chain）[3.5]和不同色[2.0]两种情况。</p><br>
 
-                        <td style="color: #000000; text-align: right;"></td>
+        <h4>⑱固定伤害BUFF：</h4>
+        <p>增加固定伤害的BUFF。如从者保有技能"军师的指挥"、从者职阶技能"神性"、相关概念礼装等等。</p><br>
 
-                        <td style="color: #000000; text-align: right;"></td>
+        <h4>⑲敌方固定伤害BUFF：</h4>
+        <p>敌方减免固定伤害的BUFF。如从者保有技能"军师的忠言"等。</p><br>
 
-                    </tr>
+        <h4>⑳Buster&nbsp;Chain加成：</h4>
+        <p>当指令卡为EX攻击时，不计算此项。有前三张指令卡都为红卡[0.2]和不都为红卡[0]两种情况。</p><br>
 
-                    <tr>
-
-                        <td style="background-color: #CCFFCC; color: #000000; text-align: center;">星
-                        </td>
-
-                        <td style="color: #000000; text-align: right;"></td>
-
-                        <td style="color: #000000; text-align: right;"></td>
-
-                        <td style="color: #000000; text-align: right;"></td>
-
-                        <td style="color: #000000; text-align: right;"></td>
-
-                        <td style="background-color: #FFCC99; color: #000000; text-align: right;">1.1
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td style="background-color: #CCFFCC; color: #000000; text-align: center;">獣
-                        </td>
-
-                        <td style="color: #000000; text-align: right;"></td>
-
-                        <td style="color: #000000; text-align: right;"></td>
-
-                        <td style="color: #000000; text-align: right;"></td>
-
-                        <td style="background-color: #FFCC99; color: #000000; text-align: right;">1.1
-                        </td>
-
-                        <td style="color: #000000; text-align: right;"></td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-        <br />
-        <pre>
-<strong>⑩乱数补正</strong>：
-由系统在特定范围内随机生成[0.9～1.1]的随机数补正。<br />
-<strong>⑪攻击力BUFF</strong>：
-此项是“攻击力BUFF－攻击力DEBUFF”的简写。影响此项的因素有从者保有技能"怪力"、从者保有技能"破坏工作"、Master技能"瞬间强化"、相关概念礼装、相关宝具特效等等。<br />
-<strong>⑫敌方防御力BUFF</strong>：
-此项是“敌方防御力BUFF－防御力DEBUFF”的简写。影响此项的因素有从者保有技能"变化"、从者保有技能"拷问技术"、怪物技能"硬化"、相关宝具特效等等。<br />
-<strong>⑬特攻威力BUFF</strong>：
-敌人在Buff特攻范围内时计算此项，是针对特定对象的威力UP状态。例如从者保有技能"处刑人"、"银河流星剑"、相关概念礼装等等。某些活动期内，活动礼装的幅度极高的“攻击力UP”效果实质上也按特攻威力BUFF参与计算。
-另外，多个特攻叠加的情况，增幅为直接加算，这种情况只会发生在存在多个特攻Buff同时被触发时。同一个Buff，即使是有多个范围的特攻Buff，被触发一个以上特攻条件时仍然只计算一次增幅。<br />
-<strong>⑭敌方特防威力BUFF</strong>：
-<del>我方在敌方Buff特防范围内时计算此项，是针对特定对象的防御力UP状态。如从者保有技能"屠龙者"。</del>
-根本不存在与特攻所相对的“特防“这个概念，所谓的“特防”全部都是在特定条件下的普通防御力up。<br />
-<strong>⑮暴击补正</strong>：
-暴击时计算此项。为定值[2.0]。<br />
-<strong>⑯暴击威力BUFF</strong>：
-暴击时计算此项。这里是“暴击威力BUFF－暴击威力DEBUFF”的简写。影响此项的因素有从者保有技能"心眼(伪)"、从者保有技能"鉴识眼"、怪物技能"畏怖"、从者职阶技能"单独行动"、相关概念礼装等等。<br />
-<strong>⑰EX攻击奖励</strong>：
-指令卡为EX攻击时计算此项。有前三张指令卡同色（Chain）[3.5]和不同色[2.0]两种情况。<br />
-<strong>⑱固定伤害BUFF</strong>：
-增加固定伤害的BUFF。如从者保有技能"军师的指挥"、从者职阶技能"神性"、相关概念礼装等等。<br />
-<strong>⑲敌方固定伤害BUFF</strong>：
-敌方减免固定伤害的BUFF。如从者保有技能"军师的忠言"等。<br />
-<strong>⑳Buster&nbsp;Chain加成</strong>：
-当指令卡为EX攻击时，不计算此项。有前三张指令卡都为红卡[0.2]和不都为红卡[0]两种情况。<br />
-        <h4>二、<strong>宝具伤害计算公式</strong>(公式修改原因：<a href="http://bbs.ngacn.cc/read.php?tid=11637015">http://bbs.ngacn.cc/read.php?tid=11637015)</a></h4>
-<del><strong><span style="color: #ff0000;">ATK</span><span style="color: #0000ff;">×</span><span style="color: #ff0000;">攻击补正</span><span style="color: #0000ff;">×[</span><span style="color: #ff0000;">宝具倍率</span><span style="color: #0000ff;">×<span style="color: #ff0000;">卡牌伤害倍率</span>×(</span><span style="color: #ff0000;">1</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">卡牌BUFF</span><span style="color: #0000ff;">)</span><span style="color: #0000ff;">]×</span><span style="color: #ff0000;">职阶补正<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">职阶相性补正<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">阵营相性补正<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">乱数补正<span style="color: #0000ff;">×(</span></span><span style="color: #ff0000;">1</span><span style="color: #ff0000;"><span style="color: #0000ff;">+</span></span><span style="color: #ff0000;">攻击力BUFF</span><span style="color: #ff0000;"><span style="color: #0000ff;">—</span></span><span style="color: #ff0000;">敌方防御力BUFF<span style="color: #0000ff;">)</span><span style="color: #0000ff;">×(</span></span><span style="color: #ff0000;">1</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">特攻威力BUFF</span><span style="color: #ff0000;"><span style="color: #0000ff;">—</span></span><span style="color: #ff0000;">敌方特防威力BUFF</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">宝具威力BUFF</span><span style="color: #0000ff;">)</span><span style="color: #0000ff;">×</span><span style="color: #ff0000;">宝具特攻
-<span style="color: #0000ff;">+(</span><span style="color: #ff0000;">固定伤害BUFF</span><span style="color: #0000ff;">—</span><span style="color: #ff0000;">敌方固定伤害BUFF</span><span style="color: #0000ff;">)</span></span></strong></del>
-
-<strong><span style="color: #ff0000;">ATK</span><span style="color: #0000ff;">×</span><span style="color: #ff0000;">攻击补正</span><span style="color: #0000ff;">×[</span><span style="color: #ff0000;">宝具倍率</span><span style="color: #0000ff;">×<span style="color: #ff0000;">卡牌伤害倍率</span>×(</span><span style="color: #ff0000;">1</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">卡牌BUFF</span><span style="color: #0000ff;">)</span><span style="color: #0000ff;">]×</span><span style="color: #ff0000;">职阶补正<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">职阶相性补正<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">阵营相性补正<span style="color: #0000ff;">×</span></span><span style="color: #ff0000;">乱数补正<span style="color: #0000ff;">×(</span></span><span style="color: #ff0000;">1</span><span style="color: #ff0000;"><span style="color: #0000ff;">+</span></span><span style="color: #ff0000;">攻击力BUFF</span><span style="color: #ff0000;"><span style="color: #0000ff;">—</span></span><span style="color: #ff0000;">敌方防御力BUFF<span style="color: #0000ff;"><span style="color: #ff0000;"><span style="color: #0000ff;">—</span></span><span style="color: #ff0000;">敌方特防威力BUFF</span>)</span><span style="color: #0000ff;">×(</span></span><span style="color: #ff0000;">1</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">特攻威力BUFF</span><span style="color: #0000ff;">+</span><span style="color: #ff0000;">宝具威力BUFF</span><span style="color: #0000ff;">)</span><span style="color: #0000ff;">×</span><span style="color: #ff0000;">宝具特攻
-<span style="color: #0000ff;">+(</span><span style="color: #ff0000;">固定伤害BUFF</span><span style="color: #0000ff;">—</span><span style="color: #ff0000;">敌方固定伤害BUFF</span><span style="color: #0000ff;">)</span></span></strong>
+        <h3>二、宝具伤害计算公式</h3>
+        <p class="formula">
+            <span>ATK</span><span class="blue">×</span><span>攻击补正</span><span class="blue">×[</span><span>宝具倍率</span><span>×<span>卡牌伤害倍率</span>×(</span><span>1</span><span class="blue">+</span><span>卡牌BUFF</span><span class="blue">)</span><span class="blue">]×</span><span>职阶补正<span class="blue">×</span></span><span>职阶相性补正<span class="blue">×</span></span><span>阵营相性补正<span class="blue">×</span></span><span>乱数补正<span class="blue">×(</span></span><span>1</span><span><span class="blue">+</span></span><span>攻击力BUFF</span><span><span class="blue">—</span></span><span>敌方防御力BUFF<span><span><span class="blue">—</span></span><span>敌方特防威力BUFF</span>)</span><span class="blue">×(</span></span><span>1</span><span class="blue">+</span><span>特攻威力BUFF</span><span class="blue">+</span><span>宝具威力BUFF</span><span class="blue">)</span><span class="blue">×</span><span>
+                宝具特攻
+                <span class="blue">+(</span><span>固定伤害BUFF</span><span class="blue">—</span><span>敌方固定伤害BUFF</span><span class="blue">)</span>
+            </span>
+        </p>
         &nbsp;
-<h5><strong>公式各项注解</strong></h5>
-与普通指令卡相比，由于宝自身特性所以公式中省略了暴击补正和EX攻击奖励，多计算了宝具倍率和宝具特攻并把暴击威力BUFF等位替换为了宝具威力BUFF。另外首位加成、位置加成和Buster&nbsp;Chain加成这三项均未被列入公式中，因此宝具伤害与卡位、首位是否为Buster卡和是否组成Buster&nbsp;Chain等因素无关，日常操作时这一点尤其需要注意。
-<strong>（省略指令卡公式中注解过的项目）</strong>
+        <h3>公式各项注解</h3>
+        <p>与普通指令卡相比，由于宝自身特性所以公式中省略了暴击补正和EX攻击奖励，多计算了宝具倍率和宝具特攻并把暴击威力BUFF等位替换为了宝具威力BUFF。另外首位加成、位置加成和Buster&nbsp;Chain加成这三项均未被列入公式中，因此宝具伤害与卡位、首位是否为Buster卡和是否组成Buster&nbsp;Chain等因素无关，日常操作时这一点尤其需要注意。</p>
+        <h4>（省略指令卡公式中注解过的项目）</h4>
+        <br>
+        <h4>①宝具倍率：</h4>
+        <p> 宝具特有的伤害倍率。</p><br>
 
-<strong>①宝具倍率</strong>：
-宝具特有的伤害倍率。<br />
-<strong>②宝具威力BUFF</strong>：
-这里是“宝具威力BUFF-宝具威力DEBUFF”的简写。影响此项的因素有从者保有技能"军略"、从者保有技能"过载"、怪物技能"畏敬"、相关概念礼装等等。<br />
-<strong>③宝具特攻</strong>：
-“宝具特攻”与“特攻”的区别在于前者只加成宝具本身，作为宝具特效存在；后者是状态附加，持续时间内任何攻击都受加成。
-</pre>
+        <h4>②宝具威力BUFF：</h4>
+        <p>这里是“宝具威力BUFF-宝具威力DEBUFF”的简写。影响此项的因素有从者保有技能"军略"、从者保有技能"过载"、怪物技能"畏敬"、相关概念礼装等等。</p><br>
+        <h4>③宝具特攻：</h4>
+        <p>“宝具特攻”与“特攻”的区别在于前者只加成宝具本身，作为宝具特效存在；后者是状态附加，持续时间内任何攻击都受加成。</p>
     </div>
 </body>
 </html>

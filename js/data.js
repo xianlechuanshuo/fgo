@@ -187,6 +187,10 @@ function intialData() {
 
     intialServant("Caster", "童谣", "Nursery Rhyme", 74, ["童谣"], "人",["中立","中庸"],["人型","被「天地乖离开辟之星」所克"], 8629, 11882, 10448, 14407, "AAABQ", 600, 750, 825, 862.5, 900, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Caster", "海伦娜・布拉瓦茨基", "Helena Blavatsky", 100, ["海伦娜布拉瓦茨基", "外星萝莉"], "人",["混沌","善"],["人型","被「天地乖离开辟之星」所克"], 8629, 11882, 10448, 14407, "AAABQ", 600, 750, 825, 862.5, 900, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
+    
+    intialServant("Caster", "示巴女王", "Queen of Sheba", 194, ["示巴女王", "所罗门老婆"], "人",["中立","善"],["人型","被「天地乖离开辟之星」所克","王"], 8629, 12127, 10448, 14704, "AAABQ", 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 6, fixedDamageBuff: 0, critialPowerBuff: 0 });
+
+
     intialServant("Caster", "伊丽莎白・巴陶里〔万圣节〕", "Erzsebet Bathory（Halloween)", 61, ["伊丽莎白巴陶里", "C龙娘"], "人",["混沌","恶"],["人型","龙","被「天地乖离开辟之星」所克"], 8616, 11404, 10432, 13827, "AAABQ", 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Caster", "吉尔伽美什〔Caster〕", "Gilgamesh(Caster)", 145, ["吉尔伽美什", "C闪"], "人",["秩序", "善"],["人型","神性","被「天地乖离开辟之星」所克","所爱之人","王"], 8460, 12005, 10243, 14556, "AAABQ", 450, 600, 675, 712, 750, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 10, fixedDamageBuff: 175, critialPowerBuff: 0 });
     intialServant("Caster", "托马斯・爱迪生", "Thomas Edison", 103, ["托马斯爱迪生", "托马狮", "艾迪牲", "大总统"], "人",["秩序","中庸"],["人型","被「天地乖离开辟之星」所克"], 7952, 11882, 9628, 14407, "AAABQ", 600, 750, 825, 862.5, 900, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 4, fixedDamageBuff: 0, critialPowerBuff: 0 });
@@ -323,6 +327,9 @@ function intialData() {
 
     intialServant("Altergo", "机械伊丽酱", "mekaerichan", 190, ["机械伊丽酱","机械龙娘I号"], "人",["秩序","善"],["人型","被「天地乖离开辟之星」所克"], 9997, 10901, 12104, 13217, "ABBBQ", 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Altergo", "机械伊丽酱Ⅱ号机", "mekaerichan", 191, ["机械伊丽酱Ⅱ号机","机械龙娘II号"], "人",["秩序","善"],["人型","被「天地乖离开辟之星」所克"], 9997, 10901, 12104, 13217, "ABBBQ", 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 0 });
+
+    //----------------------------------Foreigner---------------------------------------------------------------------//
+    /******************************************5星********************************************************************/
 
 
     //加载各等级atk和hp
