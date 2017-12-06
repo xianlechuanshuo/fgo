@@ -25,6 +25,10 @@ $("btnShowMaterials").onclick=function(){
     showMaterialsWin();
 }
 
+$("btnShowNP").onclick=function(){
+    showNPWin();
+}
+
 //关闭从者技能详情
 $("btnClose").onclick = function () {
     hideSkillsWin();
@@ -77,6 +81,11 @@ function hideSkillsWin() {
 //显示强化素材图
 function showMaterialsWin(){
     showWin("Material",".jpg");
+}
+
+//显示NP获取TOP5图
+function showNPWin(){
+    showWin("NP",".png");
 }
 
 //查询
