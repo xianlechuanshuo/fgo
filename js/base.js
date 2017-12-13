@@ -262,6 +262,18 @@ function bindSearchTips(){
         opt.value=t;
         dlTips.appendChild(opt);
     })
+
+    let dlCardTips=$("dlCardTips");
+    dlCardTips.innerHTML=`
+        <option value="786">20级宝石翁</option>
+        <option value="1089">40级宝石翁</option>
+        <option value="2000">100级宝石翁</option>
+        <option value="332">20级虚数</option>
+        <option value="471">40级虚数</option>
+        <option value="750">80级虚数</option>
+        <option value="943">20级黑杯</option>
+        <option value="1307">40级黑杯</option>
+        <option value="2400">100级黑杯</option>`;
 }
 (function(){
     let nums=document.querySelectorAll("#txtCardBuff,#txtAttackBuff,#txtEnemyDefenceBuff");
