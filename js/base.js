@@ -273,7 +273,9 @@ function bindSearchTips(){
         <option value="750">80级虚数</option>
         <option value="943">20级黑杯</option>
         <option value="1307">40级黑杯</option>
-        <option value="2400">100级黑杯</option>`;
+        <option value="2400">100级黑杯</option>
+        <option value="393">20级魔性菩薩</option>
+        `;
 }
 (function(){
     let nums=document.querySelectorAll("#txtCardBuff,#txtAttackBuff,#txtEnemyDefenceBuff");
