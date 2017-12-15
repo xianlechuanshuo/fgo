@@ -71,6 +71,11 @@ function intialData() {
 
 
     intialServant("Archer", "克洛伊·冯·爱因兹贝伦", "Chloe・von・Einzbern", 137, ["克洛伊冯爱因兹贝伦", "小黑"], "天", ["混沌", "善"], ["人型", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克"], 9845, 10914, 11920, 13233, "AABQQ", 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 8 });
+
+
+    intialServant("Archer", "阿提拉·the·圣〔诞〕", "Artila2", 197, ["A提拉","A大王", "圣诞弓大王"], "星", ["混沌", "善"], ["骑乘","人型","神性","王"], 9759, 11637, 11816, 14110, "AABQQ", 1200, 1600, 1800, 1900, 2000, 0, 0, 0, 0, 0, "", 0.8, { cardColor:0.8, cardBuff: 12, fixedDamageBuff: 175, critialPowerBuff: 10 });
+
+
     intialServant("Archer", "特里斯坦", "Tristan", 122, ["特里斯坦", "老崔", "崔悲伤"], "地", ["秩序", "善"], ["人型", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克"], 9735, 11637, 11787, 14110, "AABQQ", 1600, 2000, 2200, 2300, 2400, 0, 0, 0, 0, 0, "", 0.8, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 8 });
     intialServant("Archer", "织田信长", "Oda Nobunaga", 69, ["织田信长", "第六天萌王", "Nobu", "钉宫"], "人", ["中立", "中庸"], ["人型", "被「天地乖离开辟之星」所克", "王"], 9494, 11637, 11495, 14110, "AABBQ", 300, 400, 450, 475, 500, 150, 162.5, 175, 187.5, 200, "TreasureSpecialAttack", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 8 });
 
@@ -103,6 +108,10 @@ function intialData() {
     intialServant("Lancer", "阿尔托莉雅・潘德拉贡〔Lancer〕", "Altria Pendragon(Lancer)", 119, ["阿尔托莉雅潘德拉贡", "白枪呆", "乳上", "北半球"], "天", ["秩序", "善"], ["骑乘", "人型", "龙", "阿尔托莉雅脸", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克", "亚瑟", "王"], 10995, 15606, 12036, 17097, "ABBQQ", 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 0.8, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Lancer", "恩奇都", "Enkidu", 143, ["恩奇都", "小恩"], "天", ["中立", "中庸"], ["人型", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克"], 10780, 15300, 11800, 16762, "ABQQQ", 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, null);
     intialServant("Lancer", "玉藻前", "Tamamo no Mae2", 128, ["玉藻前", "L狐", "水狐", "水壶"], "天", ["中立", "夏"], ["骑乘", "人型", "神性", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克"], 10726, 15147, 11741, 16594, "ABBQQ", 600, 800, 900, 950, 1000, 150, 162, 175, 187, 200, "TreasureSpecialAttack", 1.5, { cardColor: -2, cardBuff: "10|10", fixedDamageBuff: 230, critialPowerBuff: 0 });
+    
+
+    intialServant("Lancer", "艾蕾什基伽尔", "Ereshkigal", 196, ["艾蕾什基伽尔"], "天", ["混沌", "恶"], ["人型", "神性", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克","王"], 10343, 16065, 11322, 17600, "ABBQQ", 300, 400, 450, 475, 500, 10, 20, 30, 40, 50, "TreasureSpecialCardPowerAttack", 1.5, { cardColor:1, cardBuff: 11, fixedDamageBuff: 225, critialPowerBuff: 0 });
+
 
     /******************************************4星********************************************************************/
     intialServant("Lancer", "阿尔托莉雅・潘德拉贡〔Alter〕", "Altria Pendragon（Alter)2", 78, ["阿尔托莉雅潘德拉贡", "黑枪呆", "乳下", "南半球"], "天", ["秩序", "善"], ["骑乘", "人型", "龙", "阿尔托莉雅脸", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克", "亚瑟", "王"], 9968, 11761, 12069, 14260, "ABBQQ", 400, 500, 550, 575, 600, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 0.8, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
