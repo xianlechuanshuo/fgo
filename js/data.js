@@ -110,7 +110,7 @@ function intialData() {
     intialServant("Lancer", "玉藻前", "Tamamo no Mae2", 128, ["玉藻前", "L狐", "水狐", "水壶"], "天", ["中立", "夏"], ["骑乘", "人型", "神性", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克"], 10726, 15147, 11741, 16594, "ABBQQ", 600, 800, 900, 950, 1000, 150, 162, 175, 187, 200, "TreasureSpecialAttack", 1.5, { cardColor: -2, cardBuff: "10|10", fixedDamageBuff: 230, critialPowerBuff: 0 });
     
 
-    intialServant("Lancer", "艾蕾什基伽尔", "Ereshkigal", 196, ["艾蕾什基伽尔"], "天", ["混沌", "恶"], ["人型", "神性", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克","王"], 10343, 16065, 11322, 17600, "ABBQQ", 300, 400, 450, 475, 500, 10, 20, 30, 40, 50, "TreasureSpecialCardPowerAttack", 1.5, { cardColor:1, cardBuff: 11, fixedDamageBuff: 225, critialPowerBuff: 0 });
+    intialServant("Lancer", "艾蕾什基伽尔", "Ereshkigal", 196, ["艾蕾什基伽尔"], "地", ["混沌", "恶"], ["人型", "神性", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克","王"], 10343, 16065, 11322, 17600, "ABBQQ", 300, 400, 450, 475, 500, 10, 20, 30, 40, 50, "TreasureSpecialCardPowerAttack", 1.5, { cardColor:1, cardBuff: 11, fixedDamageBuff: 225, critialPowerBuff: 0 });
 
 
     /******************************************4星********************************************************************/
