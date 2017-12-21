@@ -73,7 +73,7 @@ function intialData() {
     intialServant("Archer", "克洛伊·冯·爱因兹贝伦", "Chloe・von・Einzbern", 137, ["克洛伊冯爱因兹贝伦", "小黑"], "天", ["混沌", "善"], ["人型", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克"], 9845, 10914, 11920, 13233, "AABQQ", 900, 1200, 1350, 1425, 1500, 0, 0, 0, 0, 0, "", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 8 });
 
 
-    intialServant("Archer", "阿提拉·the·圣〔诞〕", "Artila2", 197, ["A提拉","A大王", "圣诞弓大王"], "星", ["混沌", "善"], ["骑乘","人型","神性","王"], 9759, 11637, 11816, 14110, "AABQQ", 1200, 1600, 1800, 1900, 2000, 0, 0, 0, 0, 0, "", 0.8, { cardColor:0.8, cardBuff: 12, fixedDamageBuff: 175, critialPowerBuff: 10 });
+    intialServant("Archer", "阿提拉·the·圣〔诞〕", "Artila2", 197, ["A提拉","A大王", "圣诞弓大王","咩大王","咩提拉"], "星", ["混沌", "善"], ["骑乘","人型","神性","王"], 9759, 11637, 11816, 14110, "AABQQ", 1200, 1600, 1800, 1900, 2000, 0, 0, 0, 0, 0, "", 0.8, { cardColor:0.8, cardBuff: 12, fixedDamageBuff: 175, critialPowerBuff: 10 });
 
 
     intialServant("Archer", "特里斯坦", "Tristan", 122, ["特里斯坦", "老崔", "崔悲伤"], "地", ["秩序", "善"], ["人型", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克"], 9735, 11637, 11787, 14110, "AABQQ", 1600, 2000, 2200, 2300, 2400, 0, 0, 0, 0, 0, "", 0.8, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 8 });
@@ -98,7 +98,7 @@ function intialData() {
 
     intialServant("Archer", "比利小子", "Billy the Kid", 105, ["比利小子"], "人", ["混沌", "中庸"], ["骑乘", "人型", "被「天地乖离开辟之星」所克"], 6890, 9506, 9325, 12889, "AABQQ", 1600, 2000, 2200, 2300, 2400, 0, 0, 0, 0, 0, "", 0.8, { cardColor: 0.8, cardBuff: 7, fixedDamageBuff: 0, critialPowerBuff: 10 });
     intialServant("Archer", "罗宾汉", "Robin Hood", 13, ["罗宾汉", "绿茶", "种树茶"], "人", ["中立", "善"], ["人型", "被「天地乖离开辟之星」所克", "所爱之人"], 6715, 10187, 9088, 13812, "AABQQ", 900, 1200, 1350, 1425, 1500, 200, 212.5, 225, 237.5, 250, "TreasureSpecialAttack", 1, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 10 });
-    intialServant("Archer", "阿拉什", "Arash", 16, ["阿拉什", "自爆弓", "流星一条"], "地", ["混沌", "中庸"], ["人型", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克", "所爱之人"], 5816, 7122, 9037, 10979, "AABBQ", 800, 1000, 1100, 1150, 1200, 0, 200, 400, 600, 800, "TreasureSpecialExplosionAttack", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 6 });
+    intialServant("Archer", "阿拉什", "Arash", 16, ["阿拉什", "自爆弓", "流星一条","大英雄"], "地", ["混沌", "中庸"], ["人型", "被「天地乖离开辟之星」所克", "被「人类神话雷电降临」所克", "被「神秘杀」所克", "所爱之人"], 5816, 7122, 9037, 10979, "AABBQ", 800, 1000, 1100, 1150, 1200, 0, 200, 400, 600, 800, "TreasureSpecialExplosionAttack", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 6 });
 
     //----------------------------------Lancer---------------------------------------------------------------------//
     /******************************************5星********************************************************************/
