@@ -239,7 +239,7 @@ function intialData() {
     intialServant("Assassin", "“山之翁”", "Yama no okina", 154, ["山之翁", "王哈桑", "狂战信条"], "人",["秩序","恶"],["人型","被「天地乖离开辟之星」所克","所爱之人"], 11848, 13338, 12969, 14612, "ABBBQ", 600, 800, 900, 950, 1000, 0, 0, 0, 0, 0, "", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 0, critialPowerBuff: 8 });
     intialServant("Assassin", "谜之女主角X", "Mysterious Heroine X", 86, ["谜之女主角X", "X毛", "蜜汁女主角", "星战呆毛"], "星",["混沌","善"],["骑乘","人型","龙","阿尔托莉雅脸","亚瑟","王"], 11761, 12696, 12874, 13909, "AABQQ", 1600, 2000, 2200, 2300, 2400, 150, 162.5, 175, 187.5, 200, "TreasureSpecialAttack", 0.8, { cardColor: 0.8, cardBuff: 12, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Assassin", "开膛手杰克", "Jack the Ripper", 75, ["开膛手杰克", "女儿"], "地",["混沌","恶"],["人型","被「天地乖离开辟之星」所克","被「人类神话雷电降临」所克","被「神秘杀」所克"], 11557, 12696, 12651, 13909, "ABQQQ", 1400, 1800, 2000, 2100, 2200, 50, 62.5, 75, 87.5, 100, "SpecialAttackPowerBuff", 0.8,null);
-    intialServant("Assassin", "克利奥帕特拉", "Cleopatra", 139, ["克利奥帕特拉", "超高校的艳后"], "人",["秩序","中庸"],["人型","神性","被「天地乖离开辟之星」所克","王"], 11088, 13402, 12138, 14682, "ABBQQ", 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 125, critialPowerBuff: 0 });
+    intialServant("Assassin", "克利奥帕特拉", "Cleopatra", 139, ["克利奥帕特拉", "超高校的艳后"], "人",["秩序","中庸"],["人型","神性","被「天地乖离开辟之星」所克","王"], 11088, 13402, 12138, 14682, "ABBQQ", 300, 400, 450, 475, 500, 30, 40, 50, 60, 70, "TreasureSpecialCardPowerAttack", 1.5, { cardColor: -1, cardBuff: 0, fixedDamageBuff: 125, critialPowerBuff: 0 });
 
 
 
