@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,18 @@
 
         .servant tr:nth-child(2) td:nth-child(even) {
             width: 15%;
+        }
+        .servant tr:nth-child(2){
+            text-align: center;
+        } 
+        .servant tr:nth-child(2)>td:nth-child(2) input{
+            width:300px;
+        }                     
+        .switchCotent{
+            display:none;
+        }
+        .switchCotent.showSwitchContent{
+            display:block;
         }
     </style>
 </head>
@@ -40,6 +52,24 @@
                 </td>
             </tr>
             <tr>
+                <td colspan="2">
+                    <div class="switchBtn">
+                        <label for="rdSave"><input type="radio" id="rdSave" data-divid="divSave" name="switch">存档</label>
+                        <label for="rdLoad"><input type="radio" id="rdLoad" data-divid="divLoad" name="switch">读档</label>                     
+                    </div>
+                </td>
+                <td colspan="6">
+                    <div class="switchCotent" id="divSave">
+                        存档名：<input type="text" id="txtSaveTitle"> <a href="javascript:;" id="btnSave">保存</a>
+                    </div>
+                    <div class="switchCotent" id="divLoad">
+                        <select id="ddlSaveList"></select>
+                        <a href="javascript:;" id="btnLoad">加载</a>
+                        <a href="javascript:;" id="btnRemove">删除</a>
+                    </div>
+                </td>
+            </tr>            
+            <tr>
                 <td>阵营</td>
                 <td><span id="spanCamp"></span></td>  
                 <td>属性</td>
@@ -59,7 +89,7 @@
                         <option value="96">Lv.96</option>
                         <option value="95">Lv.95</option>
                         <option value="94">Lv.94</option>
-                        <option value="93">Lv.93</option>
+                        <option valu+e="93">Lv.93</option>
                         <option value="92">Lv.92</option>
                         <option value="91">Lv.91</option>
                         <option value="90">Lv.90</option>
@@ -361,6 +391,270 @@
     intialServantList();
     loadStorage(true);
     bindSearchTips();
+
+    (function(){
+        window.Global_save=[];
+        let n=1;//默认选择存档
+        let saveStorage=window.localStorage.getItem("saveStorage");
+        if (saveStorage) {
+            saveStorage = JSON.parse(saveStorage);
+            
+            window.Global_save=saveStorage;
+            if(window.Global_save.length>0){
+                loadSaveList();
+                n=2;//有存档则默认选择读档
+            }
+
+        }
+
+        document.querySelector(`.servant .switchCotent:nth-child(${n})`).classList.add("showSwitchContent");
+
+        document.querySelector(`.servant .switchBtn>label:nth-child(${n})>input`).checked=true;
+
+        let switchBtns=document.querySelectorAll(".servant .switchBtn input[type=radio]");
+        
+        switchBtns.forEach(function(s){
+            s.onchange=function(){
+                //console.log(this);
+                let switchCotents=document.querySelectorAll(".servant .switchCotent");
+                switchCotents.forEach(function(sc){
+                    sc.classList.remove("showSwitchContent");
+                })
+                $(this.dataset.divid).classList.add("showSwitchContent");
+            }
+        })
+    })();
+
+
+    function loadSaveList(){
+        updateSaveStorage();
+        //清空旧的存档列表信息
+        $("ddlSaveList").innerHTML="";
+        //重新生成新的存档列表信息
+        window.Global_save.forEach(function(s){
+            $("ddlSaveList").options.add(new Option(s.title, s.guid));
+        })
+    }
+    function updateSaveStorage(){
+        storage.removeItem("saveStorage");
+        window.Global_save.sort(compare("guid"));
+        storage.setItem("saveStorage", JSON.stringify(window.Global_save));            
+    }
+    function getMaxGuidId(){
+        let max=0;
+        window.Global_save.forEach(function(s){
+            if(max<s.guid){
+                max=s.guid;
+            }
+        })
+        return max+1;
+    }
+    //保存
+    $("btnSave").onclick=function(){
+        let id = $("ddlChooseServant").value;
+        if (id == "-1") {
+            alert("请选择从者");
+            return;
+        }
+        let title=$("txtSaveTitle").value;
+        if(title==""){
+            alert("存档名不允许为空!");
+            return;
+        }
+        if(window.Global_save.length>0){
+            for(let i=0;i<window.Global_save.length;i++){
+                let s=window.Global_save[i];
+                 if(s.title==title){
+                    alert("该存档名已存在，请重命名!");
+                    return;
+                }               
+            }
+        }   
+        let saveObj={
+            guid:getMaxGuidId(),
+            id:id,//从者下拉列表value值
+            title:title,//存档名
+            isMaxGrail:$("ckIsMaxGrail").checked,//是否圣杯MAX
+            lv:$("ddlLvs").value,//等级
+            atk:$("txtAttack").value,//攻击力
+            hp:$("txtMaxHp").value,//Hp最大值
+            remainHp:$("txtRemainHp").value,//剩余Hp值
+            fufuAtk:$("txtFufuAtk").value,//芙芙Atk
+            fufuHp:$("txtFufuHp").value,//芙芙Hp
+            cardAtk:$("txtCardAtk").value,//礼装Atk
+            cardHp:$("txtCardHp").value,//礼装Hp
+            cardColor:$("ddlCardColor").value,//卡色
+            treasureLevel:$("ddlTreasureLevel").value,//宝具等级
+            treasureRate:$("txtTreasureRate").value,//宝具倍率
+            isSpecialAttack:$("ckIsSpecialAttack").checked,//是否特攻
+            oc:$("ddlOc").value,//OC等级
+            career:getDdlText("ddlCareer"),//从者职介
+            careerResist:getDdlText("ddlCareerResist"),//职介克制
+            campResist:getDdlText("ddlCampResist"),//阵营克制
+            treasureSpecialAttack:$("txtTreasureSpecialAttack").value,//宝具特攻
+            treasurePowerBuff:$("txtTreasurePowerBuff").value,//宝具威力Buff
+            cardBuff:$("txtCardBuff").value,//卡牌Buff
+            attackBuff:$("txtAttackBuff").value,//攻击力Buff
+            enemyDefenceBuff:$("txtEnemyDefenceBuff").value,//敌方防御力Buff
+            specialAttackPowerBuff:$("txtSpecialAttackPowerBuff").value,//特攻威力Buff
+            specialDefencePowerBuff:$("txtSpecialDefencePowerBuff").value,//敌方特防威力BUff
+            fixedDamageBuff:$("txtFixedDamageBuff").value,//固定伤害Buff
+            enemyFixedDamageReductionBuff:$("txtEnemyFixedDamageReductionBuff").value//敌方固定减伤Buff
+        };
+
+        window.Global_save.push(saveObj);
+        loadSaveList();
+        $("txtSaveTitle").value="";
+        alert("存档保存成功!");
+    }
+
+    //加载
+    $("btnLoad").onclick=function(){
+        let guid=$("ddlSaveList").value;
+        if(guid==""){
+            alert("没东西可加载!");
+            return;
+        }     
+        let currentSaveObj;
+
+        window.Global_save.forEach(function(s){
+            if(s.guid==guid){
+                currentSaveObj=s;
+                //1. forEach中不能使用break，用了会抛出异常
+                //2. forEach中使用return 语句不会直接跳出整个方法，阻断下面代码执行
+                return;              
+            }
+        })
+        if(currentSaveObj){
+            $("txtWord").value="";
+            search();
+            $("ddlChooseServant").value=currentSaveObj.id;
+            $("ddlChooseServant").onchange();
+
+            //加载具体存档信息
+            console.log(currentSaveObj);
+            
+            //是否圣杯MAX
+            $("ckIsMaxGrail").checked=currentSaveObj.isMaxGrail;
+
+            //等级
+            $("ddlLvs").value=currentSaveObj.lv;
+
+            //攻击力
+            $("txtAttack").value=currentSaveObj.atk;
+
+            //Hp最大值
+            $("txtMaxHp").value=currentSaveObj.hp;
+
+            //剩余Hp值
+            $("txtRemainHp").value=currentSaveObj.remainHp;
+
+            //芙芙Atk
+            $("txtFufuAtk").value=currentSaveObj.fufuAtk;
+
+            //芙芙Hp
+            $("txtFufuHp").value=currentSaveObj.fufuHp;
+
+            //礼装Atk
+            $("txtCardAtk").value=currentSaveObj.cardAtk;
+
+            //礼装Hp
+            $("txtCardHp").value=currentSaveObj.cardHp;
+
+            //卡色
+            $("ddlCardColor").value=currentSaveObj.cardColor;
+
+            //宝具等级
+            $("ddlTreasureLevel").value=currentSaveObj.treasureLevel;
+
+            //宝具倍率
+            $("txtTreasureRate").value=currentSaveObj.treasureRate;
+
+            //是否特攻
+            $("ckIsSpecialAttack").checked=currentSaveObj.isSpecialAttack;
+
+            //OC等级
+            $("ddlOc").value=currentSaveObj.oc;
+
+            //从者职介
+            let careers = $("ddlCareer").options;
+            for (let i = 0; i < careers.length; i++) {
+                let career = careers[i];
+                if (career.text == currentSaveObj.career) {
+                    career.selected = true;
+                }
+            }
+
+            //职介克制
+            let careerResists=$("ddlCareerResist").options;
+            for (let i = 0; i < careerResists.length; i++) {
+                let careerResist = careerResists[i];
+                if (careerResist.text == currentSaveObj.careerResist) {
+                    careerResist.selected = true;
+                }
+            }  
+
+            //阵营克制
+            let campResists=$("ddlCampResist").options;
+            for (let i = 0; i < campResists.length; i++) {
+                let campResist = campResists[i];
+                if (campResist.text == currentSaveObj.campResist) {
+                    campResist.selected = true;
+                }
+            }     
+
+            //宝具特攻
+            $("txtTreasureSpecialAttack").value=currentSaveObj.treasureSpecialAttack;
+
+            //宝具威力Buff
+            $("txtTreasurePowerBuff").value=currentSaveObj.treasurePowerBuff;
+
+            //卡牌Buff
+            $("txtCardBuff").value=currentSaveObj.cardBuff;
+
+            //攻击力Buff
+            $("txtAttackBuff").value=currentSaveObj.attackBuff;
+
+            //敌方防御力Buff
+            $("txtEnemyDefenceBuff").value=currentSaveObj.enemyDefenceBuff;
+
+            //特攻威力Buff
+            $("txtSpecialAttackPowerBuff").value=currentSaveObj.specialAttackPowerBuff;
+
+            //敌方特防威力Buff
+            $("txtSpecialDefencePowerBuff").value=currentSaveObj.specialDefencePowerBuff;
+
+            //固定伤害Buff
+            $("txtFixedDamageBuff").value=currentSaveObj.fixedDamageBuff;
+
+            //敌方固定减伤Buff
+            $("txtEnemyFixedDamageReductionBuff").value=currentSaveObj.enemyFixedDamageReductionBuff;
+
+        }
+    }
+ 
+
+    //删除
+    $("btnRemove").onclick=function(){
+        let guid=$("ddlSaveList").value;
+        if(guid==""){
+            alert("没东西可删!");
+            return;
+        }
+        for(let i=0;i<window.Global_save.length;i++){
+            let s=window.Global_save[i];
+            if(s.guid==guid){
+                //删除指定项
+                window.Global_save.remove(i);
+                //更新缓存
+                loadSaveList();
+                return;
+            }
+        }
+
+    }
+
+
 
     //圣杯MAX勾选框改变事件
     $("ckIsMaxGrail").onchange = function () {

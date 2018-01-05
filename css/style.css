@@ -34,7 +34,7 @@ table {
     width: 100%;
 }
 
-.servant tr:nth-child(1), .servant tr:last-child {
+.servant tr:nth-child(1), .servant tr:last-child{
     text-align: center;
 }
 
@@ -68,7 +68,7 @@ table {
     display: none;
 }
 
-input[type="checkbox"], select {
+input[type="checkbox"], input[type="radio"], select {
     vertical-align: middle;
 }
 
