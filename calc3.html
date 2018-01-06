@@ -395,7 +395,7 @@
     (function(){
         window.Global_save=[];
         let n=1;//默认选择存档
-        let saveStorage=window.localStorage.getItem("saveStorage");
+        let saveStorage=storage.getItem("saveStorage");
         if (saveStorage) {
             saveStorage = JSON.parse(saveStorage);
             

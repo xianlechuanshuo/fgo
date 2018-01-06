@@ -5,11 +5,11 @@ if (!storage) {
     alert("请使用支持html5的浏览器!");
 }
 //IOS safari浏览器无痕模式下localStorage不起作用，我们需要做判断，存在问题则提示
-if (typeof localStorage === 'object') {
+if (typeof storage === 'object') {
     try {
-        localStorage.removeItem('localStorage');
-        localStorage.setItem('localStorage', 1);
-        localStorage.removeItem('localStorage');
+        storage.removeItem('localStorage');
+        storage.setItem('localStorage', 1);
+        storage.removeItem('localStorage');
     } catch (e) {
         alert('Your web browser does not support storing settings locally. In Safari, the most common cause of this is using "Private Browsing Mode". Some settings may not save or some features may not work properly for you.');
     }
