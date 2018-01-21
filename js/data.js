@@ -222,7 +222,11 @@ function intialData() {
 
     /******************************************3星及以下********************************************************************/
     intialServant("Caster", "美狄亚", "Medea", 31, ["美狄亚", "C妈", "Saber控"], "地",["中立","恶"],["人型","被「天地乖离开辟之星」所克","被「人类神话雷电降临」所克","被「神秘杀」所克"], 7418, 8643, 10039, 11719, "AAABQ", 600, 750, 825, 862.5, 900, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
-    intialServant("Caster", "杰罗尼莫", "Geronimo", 104, ["杰罗尼莫", "萨满"], "人",["中立","善"],["人型","被「天地乖离开辟之星」所克","所爱之人"], 6857, 9123, 9280, 12369, "AABBQ", 400, 550, 625, 662.5, 700, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
+
+
+    intialServant("Caster", "杰罗尼莫", "Geronimo", 104, ["杰罗尼莫", "萨满"], "人",["中立","善"],["人型","被「天地乖离开辟之星」所克","所爱之人"], 6857, 9123, 9280, 12369, "AABBQ", 600, 750, 825, 862.5, 900, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 8, fixedDamageBuff: 0, critialPowerBuff: 0 });
+
+
     intialServant("Caster", "梅菲斯托费勒斯", "Mephistopheles", 35, ["梅菲斯托费勒斯", "子安", "梅菲斯特"], "地",["混沌","恶"],["人型","被「天地乖离开辟之星」所克","被「人类神话雷电降临」所克","被「神秘杀」所克"], 6839, 9216, 9255, 12495, "AAABQ", 400, 500, 550, 575, 600, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 7, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Caster", "冯・霍恩海姆・帕拉塞尔苏斯", "Von Hohenheim Paracelsus", 79, ["冯霍恩海姆帕拉塞尔苏斯", "豆爸"], "人",["混沌","善"],["人型","被「天地乖离开辟之星」所克","所爱之人"], 6711, 9506, 9082, 12889, "AAABQ", 400, 500, 550, 575, 600, 0, 0, 0, 0, 0, "", 1, { cardColor: 1, cardBuff: 10, fixedDamageBuff: 0, critialPowerBuff: 0 });
     intialServant("Caster", "库・丘林", "Cu Chulainn2", 38, ["库丘林", "C狗", "法狗"], "天",["秩序","中庸"],["人型","神性","被「天地乖离开辟之星」所克","被「人类神话雷电降临」所克","被「神秘杀」所克","所爱之人"], 6580, 9604, 8905, 13022, "AAABQ", 300, 400, 450, 475, 500, 0, 0, 0, 0, 0, "", 1.5, { cardColor: 1, cardBuff: 8, fixedDamageBuff: 175, critialPowerBuff: 0 });
