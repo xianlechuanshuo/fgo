@@ -136,10 +136,12 @@ function search() {
     $("ddlChooseServant").onchange();
 }
 
-//点击属性和特性超链接字体
+//点击阵营、属性和特性超链接字体
 function autoClickSearch(obj){
-    $("txtWord").value=obj.dataset.value;
-    $("btnSearch").click();
+    if(confirm(`你确定要搜索关键词【${obj.dataset.value}】?`)){
+        $("txtWord").value=obj.dataset.value;
+        $("btnSearch").click();        
+    }
 }
 
 //根据关键词查询结果

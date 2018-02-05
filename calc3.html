@@ -643,17 +643,18 @@
             alert("没东西可删!");
             return;
         }
-        for(let i=0;i<window.Global_save.length;i++){
-            let s=window.Global_save[i];
-            if(s.guid==guid){
-                //删除指定项
-                window.Global_save.remove(i);
-                //更新缓存
-                loadSaveList();
-                return;
-            }
+        if(confirm("你确定要删除该存档?")){
+            for(let i=0;i<window.Global_save.length;i++){
+                let s=window.Global_save[i];
+                if(s.guid==guid){
+                    //删除指定项
+                    window.Global_save.remove(i);
+                    //更新缓存
+                    loadSaveList();
+                    return;
+                }
+            }         
         }
-
     }
 
 
