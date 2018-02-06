@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+    .resultWrapper table{
+        width:1000px;
+        margin:0 auto;
+    }
+    .result{
+        border-collapse: collapse;
+        text-align: center;
+    }
+    .result tr>td:nth-child(2){
+        text-align: left;
+    }
+    .tr1{
+
+    }
+    .result th,.tr1 td{
+        border:1px solid #000;
+    }
+    .active{
+        background-color: gray;
+        color:#fff;
+    }
+    #to_top{
+      text-align:center;  
+      background:#06c; 
+      display:none;
+      position:fixed;
+      right:10px;
+      bottom:10px;
+    }
+    #to_top>a{
+      text-decoration: none;
+      display: block;
+      outline-style:none;
+      color:#fff;
+      width:30px; 
+      height:40px; 
+      padding:20px; 
+      font:14px/20px arial; 
+    }     
+    </style>
+</head>
+<body>
+    <div class="resultWrapper">
+        <table id="tbResult" class="result">
+            <tr>
+                <th>排名</th>
+                <th>从者</th>
+                <th>等级</th>
+                <th class="rankAttr" data-rank="attack">面板ATK</th>
+                <th class="rankAttr" data-rank="realAttack">实际ATK</th>
+                <th class="rankAttr" data-rank="hp">HP</th>
+                <th class="rankAttr" data-rank="totalValue">总面板白值</th>
+                <th class="rankAttr" data-rank="totalRealValue">总实际白值</th>
+                <th>差值</th>
+            </tr>
+        </table>
+    </div>
+    <div id="to_top">
+        <a href="#top">返回顶部</a>
+    </div>    
+</body>
+</html>
+<script src="js/lvs.js"></script>
+<script src="js/data.js"></script>
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    "use strict";
+    /***********************************************************/
+    intialData();  
+
+    var resultArr = [];
+    var rankIndex = 0;
+    var guid = 0;
+    (function(attr){
+        let model;
+        let lvs=[70,80,90,100];
+        servants.forEach(function(servant){
+            //默认等级
+            model={
+                name:`【${servant.career}】${servant.name}`,
+                lv:"默认",
+                attack:servant.atk+1000,
+                realAttack:Math.floor(servant.atk*getCareerNum(servant.career))+1000,
+                hp:servant.hp+1000,
+                totalValue:servant.atk+servant.hp+2000,
+                totalRealValue:Math.floor(servant.atk*getCareerNum(servant.career))+servant.hp+2000,
+                diff:0
+            };
+            resultArr.push(model);
+            lvs.forEach(function(lv){
+                if(servant.lvs[lv-1].a>servant.atk){//大于默认等级的atk
+                    model={
+                        name:`【${servant.career}】${servant.name}`,
+                        lv:lv,
+                        attack:servant.lvs[lv-1].a+1000,
+                        realAttack:Math.floor(servant.lvs[lv-1].a*getCareerNum(servant.career))+1000,
+                        hp:servant.lvs[lv-1].h+1000,
+                        totalValue:servant.lvs[lv-1].a+servant.lvs[lv-1].h+2000,
+                        totalRealValue:Math.floor(servant.lvs[lv-1].a*getCareerNum(servant.career))+servant.lvs[lv-1].h+2000,
+                        diff:0
+                    };
+                    resultArr.push(model);
+                }
+            });           
+        });
+        document.querySelector(`.rankAttr[data-rank=${attr}]`).classList.add("active");
+        reSort(attr);
+
+        let ranks=document.querySelectorAll(".result .rankAttr");
+        ranks.forEach(function(rank){
+            rank.onclick=function(){
+                 document.querySelector(".rankAttr.active").classList.remove("active");
+                 this.classList.add("active");
+                 reSort(this.dataset.rank);
+            }
+        })
+
+    })("totalRealValue");
+
+    window.onscroll=function(){
+        let t=document.documentElement.scrollTop||document.body.scrollTop;
+        if(t>100){
+            $("to_top").style.display="block";
+        }
+        else{
+            $("to_top").style.display="none";
+        }
+    }   
+
+    function getCareerNum(career){
+        switch(career){
+            case "Saber":
+            case "Rider":
+            case "Shielder":
+            case "MoonCancer":
+            case "Altergo":
+            case "Foreigner":
+                return 1.0;
+            case "Archer":
+                return 0.95;
+            case "Lancer":
+                return 1.05;
+            case "Caster":
+            case "Assassin":
+                return 0.9;
+            case "Berserker":
+            case "Ruler":
+            case "Avenger":
+                return 1.1;                
+        }
+    }
+
+    //从大到小重新排序
+    function reSort(attr) {
+        resultArr.sort(compare(attr));
+        clearTable();
+        let max=resultArr[0][attr];
+        for (let i = 0; i < resultArr.length; i++) {
+            //计算差值
+            resultArr[i].diff=max-resultArr[i][attr];
+            createTr(resultArr[i]);
+        }
+    }
+    //清空table
+    function clearTable(obj) {
+        if (obj == 1) {//清空resultArr数组
+            resultArr.length = 0;
+        }
+
+        rankIndex = 0;
+        let tb = $("tbResult");
+        let len = tb.rows.length;
+        //清空table数据
+        for (let i = len - 1; i > 0; i--) {
+            tb.deleteRow(i);
+        }
+    }
+    //新增Tr
+    function createTr(obj) {
+        rankIndex++;
+        let tb = $("tbResult");
+        let newRow = tb.insertRow(-1);
+        newRow.classList.add("tr1");
+        //1.排名
+        newRow.insertCell(-1).innerHTML = rankIndex;
+
+        //2.从者
+        newRow.insertCell(-1).innerHTML = obj.name;
+
+        //3.等级
+        newRow.insertCell(-1).innerHTML = obj.lv;      
+
+        //4.面板ATK          
+        newRow.insertCell(-1).innerHTML = obj.attack;
+
+        //5.实际ATK       
+        newRow.insertCell(-1).innerHTML = obj.realAttack;
+
+        //6.HP
+        newRow.insertCell(-1).innerHTML = obj.hp;
+
+        //7.总面板白值      
+        newRow.insertCell(-1).innerHTML = obj.totalValue;
+
+        //8.总实际白值      
+        newRow.insertCell(-1).innerHTML = obj.totalRealValue;
+
+        //9.差值
+        newRow.insertCell(-1).innerHTML = obj.diff;
+      
+    }
+
+
+</script>

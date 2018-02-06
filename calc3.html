@@ -998,17 +998,20 @@
         }
     }
     function intialServantList() {
-        for (let key in servants) {
-            if (isNaN(key)) {
-                return;
-            }
-            let item = servants[key];
-            $("ddlChooseServant").options.add(new Option("【" + item.career + "】" + item.name, item.id));
-        }
+        // for (let key in servants) {
+        //     if (isNaN(key)) {
+        //         return;
+        //     }
+        //     let item = servants[key];
+        //     $("ddlChooseServant").options.add(new Option("【" + item.career + "】" + item.name, item.id));
+        // }
+        servants.forEach(function(servant){
+             $("ddlChooseServant").options.add(new Option(`【${servant.career}】${servant.name}`, servant.id));           
+        })
     }
 
 
-    var resultArr = new Array();
+    var resultArr = [];
     var rankIndex = 0;
     var guid = 0;
     //计算宝具伤害
@@ -1165,7 +1168,7 @@
         }
 
         rankIndex = 0;
-        let tb = document.getElementById("tbResult");
+        let tb = $("tbResult");
         let len = tb.rows.length;
         //清空table数据
         for (let i = len - 1; i > 0; i--) {
@@ -1176,7 +1179,7 @@
     //新增Tr
     function createTr(obj) {
         rankIndex++;
-        let tb = document.getElementById("tbResult");
+        let tb = $("tbResult");
         let newRow = tb.insertRow(-1);
         //1.排名
         newRow.insertCell(-1).innerHTML = rankIndex;
