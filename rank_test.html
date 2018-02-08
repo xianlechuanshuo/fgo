@@ -855,9 +855,11 @@
                 totalRealValue:Math.floor((servant.atk+1000)*getCareerNum(servant.career))+servant.hp+1000,
                 diff:0
             };
-            alert(`condition.dataset.condition:${condition.dataset.condition}`);
+            //alert(`condition.dataset.condition:${condition.dataset.condition}`);//OK，确实是all
+            alert(`careers.includes(servant.career):${careers.includes(servant.career)}`);
+            alert(`stars.includes(servant.star):${careers.includes(servant.star)}`);
             if(condition.dataset.condition!="grailMaxOnly"&&careers.includes(servant.career)&&stars.includes(servant.star)){
-                alert("push默认");
+                alert("push默认");//不OK
                 resultArr.push(model);
             }
 
