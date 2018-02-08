@@ -263,8 +263,10 @@
 
 
         let ckRaritys=document.querySelectorAll(".rarity input[type=checkbox]");
+        alert(`ckRaritys.length：${ckRaritys.length}`);
         ckRaritys.forEach(function(ckRarity){
             ckRarity.checked=true;
+            alert(ckRarity.checked);
         });
 
 
@@ -856,10 +858,10 @@
                 diff:0
             };
             //alert(`condition.dataset.condition:${condition.dataset.condition}`);//OK，确实是all
-            alert(`careers.includes(servant.career):${careers.includes(servant.career)}`);
-            alert(`stars.includes(servant.star):${careers.includes(servant.star)}`);
+            //alert(`careers.includes(servant.career):${careers.includes(servant.career)}`);//OK，是true
+            //alert(`stars.includes(servant.star):${careers.includes(servant.star)}`);//不OK，是false，星级手机端没先设置好
             if(condition.dataset.condition!="grailMaxOnly"&&careers.includes(servant.career)&&stars.includes(servant.star)){
-                alert("push默认");//不OK
+                //alert("push默认");//不OK
                 resultArr.push(model);
             }
 
@@ -885,7 +887,7 @@
             });  
 
         }); 
-        alert(`resultArr.length:${resultArr.length}`);
+        //alert(`resultArr.length:${resultArr.length}`);
     }
 
     window.onscroll=function(){
