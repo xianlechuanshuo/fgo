@@ -3,13 +3,7 @@
 function $(id) {
     return document.getElementById(id);
 }
-//根据标签获取dom集合
-function $$(tagname) {
-    return document.getElementsByTagName(tagname);
-}
-function $$$(classname) {
-    return document.getElementsByClassName(classname);
-}
+
 //根据id返回对应控件的value值，并转换为float值
 function getFloat(id) {
     return parseFloat($(id).value);

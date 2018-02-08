@@ -8,6 +8,12 @@
         width:1000px;
         margin:0 auto;
     }
+    .resultWrapper .fsCondition{
+        width:720px;
+        margin:0 auto;
+        text-align:center;
+    }
+
     .result{
         border-collapse: collapse;
         text-align: center;
@@ -18,7 +24,7 @@
     .tr1{
 
     }
-    .result th,.tr1 td{
+    .result th,.result td,.tr1 td{
         border:1px solid #000;
     }
     .active{
@@ -42,18 +48,193 @@
       height:40px; 
       padding:20px; 
       font:14px/20px arial; 
+    } 
+    .fsCondition .class span{
+        width:50px;
+        height:50px;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: 800px;  /*总共16个，16*50=800*/
+        background-image: url(images/Class/ClassA.png);      
+    }
+
+    .saber{
+        background-position: 0 0;
+    }
+    .saber2{
+        background-position: 0 -50px;
+    }    
+    .archer{
+        background-position: -50px 0;
+    }
+    .archer2{
+        background-position: -50px -50px;
+    }    
+    .lancer{
+        background-position: -100px 0;
+    }  
+    .lancer2{
+        background-position: -100px -50px;
+    }      
+    .rider{
+        background-position: -150px 0;
+    }  
+    .rider2{
+        background-position: -150px -50px;
     }     
+    .caster{
+        background-position: -200px 0;
+    }   
+    .caster2{
+        background-position: -200px -50px;
+    } 
+    .assassin{
+        background-position: -250px 0;
+    }   
+    .assassin2{
+        background-position: -250px -50px;
+    }       
+    .berserker{
+        background-position: -300px 0;
+    }  
+    .berserker2{
+        background-position: -300px -50px;
+    }     
+    .shielder{
+        background-position: -350px 0;
+    } 
+    .shielder2{
+        background-position: -350px -50px;
+    }    
+    .ruler{
+        background-position: -400px 0;
+    }  
+    .ruler2{
+        background-position: -400px -50px;
+    }     
+    .avenger{
+        background-position: -450px 0;
+    }  
+    .avenger2{
+        background-position: -450px -50px;
+    }    
+    .altergo{
+        background-position: -500px 0;
+    }   
+    .altergo2{
+        background-position: -500px -50px;
+    }     
+    .mooncancer{
+        background-position: -550px 0;
+    }  
+    .mooncancer2{
+        background-position: -550px -50px;
+    }    
+    .foreigner{
+        background-position: -600px 0;
+    } 
+    .foreigner2{
+        background-position: -600px -50px;
+    }     
+    .classAllOn{
+        background-position: -650px 0;
+    }
+    .classAllOff{
+        background-position: -700px 0;
+    }
+    .rarityAllOnOrOff{
+        background-position: -750px 0;
+    }    
+    .star {
+        color: #FFD500;
+        text-shadow: 1px 1px 1px #000000;
+        font-size: 110%;
+        text-align:center;
+    }                          
     </style>
 </head>
 <body>
+
     <div class="resultWrapper">
+    <fieldset class="fsCondition">
+    <legend>筛选条件</legend>
+    <div class="class">
+        <span class="classAllOn" title="职介全选"></span>
+        <span class="classAllOff" title="职介全消"></span>
+        <span class="rarityAllOnOrOff" title="稀有度全选/消" data-on="1"></span>  
+        <br>
+        <span class="saber" name="class" title="Saber" data-on="1"></span>
+        <span class="archer" name="class" title="Archer" data-on="1"></span>
+        <span class="lancer" name="class" title="Lancer" data-on="1"></span>
+        <span class="rider" name="class" title="Rider" data-on="1"></span>
+        <span class="caster" name="class" title="Caster" data-on="1"></span>
+        <span class="assassin" name="class" title="Assassin" data-on="1"></span>
+        <span class="berserker" name="class" title="Berserker" data-on="1"></span>
+        <span class="shielder" name="class" title="Shielder" data-on="1"></span>
+        <span class="ruler" name="class" title="Ruler" data-on="1"></span>
+        <span class="avenger" name="class" title="Avenger" data-on="1"></span>
+        <span class="altergo" name="class" title="Altergo" data-on="1"></span>
+        <span class="mooncancer" name="class" title="MoonCancer" data-on="1"></span>
+        <span class="foreigner" name="class" title="Foreigner" data-on="1"></span>
+    </div>
+    <div class="rarity">
+        <label for="rarity0"><input type="checkbox" id="rarity0" value="0"><span class="star">－</span></label> 
+        <label for="rarity1"><input type="checkbox" id="rarity1" value="1"><span class="star">★</span></label> 
+        <label for="rarity2"><input type="checkbox" id="rarity2" value="2"><span class="star">★★</span></label>    
+        <label for="rarity3"><input type="checkbox" id="rarity3" value="3"><span class="star">★★★</span></label>    
+        <label for="rarity4"><input type="checkbox" id="rarity4" value="4"><span class="star">★★★★</span></label>    
+        <label for="rarity5"><input type="checkbox" id="rarity5" value="5"><span class="star">★★★★★</span></label>    
+    </div>
+
+    <div class="sepcialCondition">
+        <label for="rdAll"><input type="radio" id="rdAll" name="condition" data-condition="all">全部</label>
+        <label for="rdGrailOnly"><input type="radio" id="rdGrailOnly" name="condition" data-condition="grailMaxOnly">仅百级圣杯</label>
+        <label for="rdNormalOnly"><input type="radio" id="rdNormalOnly" name="condition" data-condition="normalOnly">仅默认</label>       
+    </div>
+
+    <div class="target">
+    目标职介：
+        <select id="ddlTargetCareer">
+            <option value="Saber">Saber</option>
+            <option value="Archer">Archer</option>
+            <option value="Lancer">Lancer</option>
+            <option value="Rider">Rider</option>
+            <option value="Caster">Caster</option>
+            <option value="Assassin">Assassin</option>
+            <option value="Berserker">Berserker</option>
+            <option value="Ruler">Ruler</option>
+            <option value="Avenger">Avenger</option>
+            <option value="Shielder">Shielder</option>
+            <option value="MoonCancer">MoonCancer</option>
+            <option value="Altergo">Altergo</option>
+            <option value="BeastI">BeastI</option>
+            <option value="BeastII">BeastII</option>
+            <option value="BeastIII">BeastIII</option>
+            <option value="Foreigner">Foreigner</option>
+
+        </select>
+    目标阵营：
+        <select id="ddlTargetCamp">
+            <option value="天">天</option>
+            <option value="地">地</option>
+            <option value="人">人</option>
+            <option value="星">星</option>
+            <option value="兽">兽</option>
+        </select>         
+    </div>  
+
+    </fieldset>
+        <br>
         <table id="tbResult" class="result">
             <tr>
                 <th>排名</th>
                 <th>从者</th>
+                <th>星级</th>
                 <th>等级</th>
+                <th>阵营</th>
                 <th class="rankAttr" data-rank="attack">面板ATK</th>
                 <th class="rankAttr" data-rank="realAttack">实际ATK</th>
+                <th class="rankAttr" data-rank="combatAttack">实战ATK</th>
                 <th class="rankAttr" data-rank="hp">HP</th>
                 <th class="rankAttr" data-rank="totalValue">总面板白值</th>
                 <th class="rankAttr" data-rank="totalRealValue">总实际白值</th>
@@ -62,7 +243,7 @@
         </table>
     </div>
     <div id="to_top">
-        <a href="#top">返回顶部</a>
+        <a href="#">返回顶部</a>
     </div>    
 </body>
 </html>
@@ -77,51 +258,621 @@
     var resultArr = [];
     var rankIndex = 0;
     var guid = 0;
-    (function(attr){
-        let model;
-        let lvs=[70,80,90,100];
-        servants.forEach(function(servant){
-            //默认等级
-            model={
-                name:`【${servant.career}】${servant.name}`,
-                lv:"默认",
-                attack:servant.atk+1000,
-                realAttack:Math.floor(servant.atk*getCareerNum(servant.career))+1000,
-                hp:servant.hp+1000,
-                totalValue:servant.atk+servant.hp+2000,
-                totalRealValue:Math.floor(servant.atk*getCareerNum(servant.career))+servant.hp+2000,
-                diff:0
-            };
-            resultArr.push(model);
-            lvs.forEach(function(lv){
-                if(servant.lvs[lv-1].a>servant.atk){//大于默认等级的atk
-                    model={
-                        name:`【${servant.career}】${servant.name}`,
-                        lv:lv,
-                        attack:servant.lvs[lv-1].a+1000,
-                        realAttack:Math.floor(servant.lvs[lv-1].a*getCareerNum(servant.career))+1000,
-                        hp:servant.lvs[lv-1].h+1000,
-                        totalValue:servant.lvs[lv-1].a+servant.lvs[lv-1].h+2000,
-                        totalRealValue:Math.floor(servant.lvs[lv-1].a*getCareerNum(servant.career))+servant.lvs[lv-1].h+2000,
-                        diff:0
-                    };
-                    resultArr.push(model);
-                }
-            });           
+    (function(attr,con){
+        document.querySelector(`.sepcialCondition>label:nth-child(${con})>input[type=radio][name=condition]`).checked=true;
+
+
+        let ckRaritys=document.querySelectorAll(".rarity input[type=checkbox]");
+        ckRaritys.forEach(function(ckRarity){
+            ckRarity.checked=true;
         });
+
+
+        loadData();
         document.querySelector(`.rankAttr[data-rank=${attr}]`).classList.add("active");
         reSort(attr);
 
+        //面板ATK、实际ATK、实战ATK、HP、总面板白值、总实际白值
         let ranks=document.querySelectorAll(".result .rankAttr");
         ranks.forEach(function(rank){
             rank.onclick=function(){
                  document.querySelector(".rankAttr.active").classList.remove("active");
                  this.classList.add("active");
+                 loadData();
                  reSort(this.dataset.rank);
             }
-        })
+        });
 
-    })("totalRealValue");
+        //全部、仅百级圣杯、仅默认
+        let conditions=document.querySelectorAll("input[type=radio][name=condition]");         
+        conditions.forEach(function(c){
+            c.onclick=function(){
+                refresh();
+            }
+        });
+
+        //目标职介、目标阵营下拉列表onchange事件
+        $("ddlTargetCareer").onclick=function(){
+            refresh();       
+        }
+        $("ddlTargetCamp").onclick=function(){
+            refresh();
+        }
+
+
+        //职介全选点击事件
+        document.querySelector(".classAllOn").onclick=function(){
+            let classes=document.querySelectorAll(".class>span[name=class]");
+            classes.forEach(function(c){
+                c.className=getClassName(c.title,1);
+                c.dataset.on=1;
+            })
+            refresh();
+        }
+        //职介全消点击事件
+        document.querySelector(".classAllOff").onclick=function(){
+            let classes=document.querySelectorAll(".class>span[name=class]");
+            classes.forEach(function(c){
+                c.className=getClassName(c.title,2);
+                c.dataset.on=0;
+            })
+            refresh();
+        }  
+
+        //稀有度全选/消 点击事件
+        document.querySelector(".rarityAllOnOrOff").onclick=function(){
+            let on=this.dataset.on;
+            let ckRaritys=document.querySelectorAll(".rarity input[type=checkbox]");
+            ckRaritys.forEach(function(ckRarity){
+                ckRarity.checked=on=="1"?false:true;
+            });  
+            this.dataset.on=on=="1"?"0":"1";      
+            refresh();
+        }
+
+        //单个职介点击事件
+        let classes=document.querySelectorAll(".class>span[name=class]");
+        classes.forEach(function(c){
+            c.onclick=function(){
+                let on=this.dataset.on;
+                this.className=getClassName(this.title,on=="1"?2:1);
+                this.dataset.on=on=="1"?0:1;
+                refresh();
+            }
+        })
+        //单个星级点击事件
+        ckRaritys.forEach(function(ckRarity){
+            ckRarity.onchange=function(){
+                refresh();
+            }
+        });
+        
+    })("totalRealValue",2);
+
+    function getClassName(career,on){
+        return career.toLocaleLowerCase()+(on==1?"":"2");
+    }
+
+    function refresh(){
+        let rank=document.querySelector(".rankAttr.active").dataset.rank;
+        loadData();
+        reSort(rank);           
+    }
+
+    function getCareerResistAndCampResist(servant){
+        let targetCareer=$("ddlTargetCareer").value,
+        targetCamp=$("ddlTargetCamp").value,
+        careerResist=1,
+        campResist=1;
+        switch(servant.career){
+            case "Saber":
+                switch(targetCareer){
+                    case "Saber":
+                    case "Rider":
+                    case "Caster":
+                    case "Assassin":
+                    case "Avenger":
+                    case "Shielder":
+                    case "MoonCancer":
+                    case "Altergo":
+                    case "BeastI":
+                    case "BeastII":
+                    case "BeastIII":
+                    case "Foreigner":
+                        careerResist=1.0;
+                        break;
+                    case "Archer":
+                    case "Ruler":
+                        careerResist=0.5;
+                        break;
+                    case "Lancer":
+                    case "Berserker":
+                        careerResist=2.0;
+                        break;   
+                }
+                break;
+            case "Archer":
+                switch(targetCareer){
+                    case "Archer":
+                    case "Rider":
+                    case "Caster":
+                    case "Assassin":
+                    case "Avenger":
+                    case "Shielder":
+                    case "MoonCancer":
+                    case "Altergo":
+                    case "BeastI":
+                    case "BeastII":
+                    case "BeastIII":
+                    case "Foreigner":
+                        careerResist=1.0;
+                        break;
+                    case "Lancer":
+                    case "Ruler":
+                        careerResist=0.5;
+                        break;
+                    case "Saber":
+                    case "Berserker":
+                        careerResist=2.0;
+                        break;   
+                }            
+                break;
+            case "Lancer":
+                switch(targetCareer){
+                    case "Lancer":
+                    case "Rider":
+                    case "Caster":
+                    case "Assassin":
+                    case "Avenger":
+                    case "Shielder":
+                    case "MoonCancer":
+                    case "Altergo":
+                    case "BeastI":
+                    case "BeastII":
+                    case "BeastIII":
+                    case "Foreigner":
+                        careerResist=1.0;
+                        break;
+                    case "Saber":
+                    case "Ruler":
+                        careerResist=0.5;
+                        break;
+                    case "Archer":
+                    case "Berserker":
+                        careerResist=2.0;
+                        break;   
+                }              
+                break;
+            case "Rider":
+                switch(targetCareer){
+                    case "Saber":
+                    case "Lancer":
+                    case "Archer":
+                    case "Rider":
+                    case "Avenger":
+                    case "Shielder":
+                    case "MoonCancer":
+                    case "Altergo":
+                    case "BeastII":
+                    case "BeastIII":
+                    case "Foreigner":
+                        careerResist=1.0;
+                        break;
+                    case "Assassin":
+                    case "Ruler":
+                    case "BeastI":
+                        careerResist=0.5;
+                        break;
+                    case "Caster":
+                    case "Berserker":
+                        careerResist=2.0;
+                        break;   
+                }             
+                break;   
+            case "Caster":
+                switch(targetCareer){
+                    case "Saber":
+                    case "Lancer":
+                    case "Archer":
+                    case "Caster":
+                    case "Avenger":
+                    case "Shielder":
+                    case "MoonCancer":
+                    case "Altergo":
+                    case "BeastII":
+                    case "BeastIII":
+                    case "Foreigner":
+                        careerResist=1.0;
+                        break;
+                    case "Rider":
+                    case "Ruler":
+                        careerResist=0.5;
+                        break;
+                    case "Assassin":
+                    case "Berserker":
+                    case "BeastI":
+                        careerResist=2.0;
+                        break;   
+                }               
+                break;     
+            case "Assassin":
+                switch(targetCareer){
+                    case "Saber":
+                    case "Lancer":
+                    case "Archer":
+                    case "Assassin":
+                    case "Avenger":
+                    case "Shielder":
+                    case "MoonCancer":
+                    case "Altergo":
+                    case "BeastII":
+                    case "BeastIII":
+                    case "Foreigner":
+                        careerResist=1.0;
+                        break;
+                    case "Caster":    
+                    case "Ruler":
+                        careerResist=0.5;
+                        break;
+                    case "Rider":
+                    case "Berserker":
+                    case "BeastI":
+                        careerResist=2.0;
+                        break;   
+                }             
+                break;   
+            case "Berserker":
+                switch(targetCareer){
+                    case "Saber":
+                    case "Lancer":
+                    case "Archer":
+                    case "Rider":
+                    case "Caster":    
+                    case "Assassin":
+                    case "Berserker":
+                    case "Ruler":
+                    case "Avenger":
+                    case "Shielder":
+                    case "MoonCancer":
+                    case "Altergo":
+                    case "BeastI":
+                        careerResist=1.5;
+                        break;
+                    case "Foreigner":
+                        careerResist=0.5;
+                        break;
+                    case "BeastII":
+                    case "BeastIII":
+                        careerResist=1.0;
+                        break;   
+                }             
+                break;     
+            case "Ruler":
+                switch(targetCareer){
+                    case "Saber":
+                    case "Lancer":
+                    case "Archer":
+                    case "Rider":
+                    case "Caster":
+                    case "Assassin":
+                    case "Ruler":
+                    case "Shielder":
+                    case "Altergo":
+                    case "BeastI":
+                    case "BeastII":
+                    case "BeastIII":
+                    case "Foreigner":
+                        careerResist=1.0;
+                        break;
+                    case "Avenger":
+                        careerResist=0.5;
+                        break;
+                    case "Berserker":
+                    case "MoonCancer":
+                        careerResist=2.0;
+                        break;   
+                }              
+                break;   
+            case "Avenger":
+                switch(targetCareer){
+                    case "Saber":
+                    case "Lancer":
+                    case "Archer":
+                    case "Rider":
+                    case "Caster":
+                    case "Assassin":
+                    case "Avenger":
+                    case "Shielder":
+                    case "Altergo":
+                    case "BeastI":
+                    case "BeastII":
+                    case "BeastIII":
+                    case "Foreigner":
+                        careerResist=1.0;
+                        break;
+                    case "MoonCancer":
+                        careerResist=0.5;
+                        break;
+                    case "Berserker":
+                    case "Ruler":
+                        careerResist=2.0;
+                        break;   
+                }              
+                break;   
+            case "Shielder":
+                switch(targetCareer){
+                    case "Saber":
+                    case "Lancer":
+                    case "Archer":
+                    case "Rider":
+                    case "Caster":
+                    case "Assassin":
+                    case "Berserker":
+                    case "Ruler":                    
+                    case "Avenger":
+                    case "Shielder":
+                    case "MoonCancer":
+                    case "Altergo":
+                    case "BeastI":
+                    case "BeastII":
+                    case "BeastIII":
+                    case "Foreigner":
+                        careerResist=1.0;
+                        break; 
+                }             
+                break;    
+            case "MoonCancer":
+                switch(targetCareer){
+                    case "Saber":
+                    case "Lancer":
+                    case "Archer":
+                    case "Rider":
+                    case "Caster":
+                    case "Assassin":
+                    case "Shielder":
+                    case "MoonCancer":
+                    case "Altergo":
+                    case "BeastI":
+                    case "BeastII":
+                    case "Foreigner":
+                        careerResist=1.0;
+                        break;
+                    case "Ruler":
+                        careerResist=0.5;
+                        break;
+                    case "Berserker":
+                    case "Avenger":
+                        careerResist=2.0;
+                        break;  
+                    case "BeastIII":
+                        careerResist=1.2;
+                        break;                                
+                }             
+                break;                                                                                           
+            case "Altergo":
+                switch(targetCareer){
+                    case "Ruler":
+                        if(servant.servantNo==167){//杀生院祈荒怼Ruler等同狂阶克制
+                            careerResist=1.5;
+                        }
+                        else{
+                            careerResist=1.0;
+                        }
+                        
+                        break;
+                    case "Shielder":
+                    case "MoonCancer":
+                    case "Altergo":
+                    case "Avenger":
+                    case "BeastI":
+                    case "BeastII":
+                        careerResist=1.0;
+                        break;
+                    case "Saber":
+                    case "Lancer":
+                    case "Archer":  
+                        careerResist=0.5;
+                        break;
+                    case "Berserker":
+                    case "Foreigner":
+                        careerResist=2.0;
+                        break;   
+                    case "Rider":
+                    case "Caster":
+                    case "Assassin":
+                        careerResist=1.5;
+                        break;   
+                    case "BeastIII":
+                        careerResist=1.2;
+                        break;                                                
+                }              
+                break;            
+            case "Foreigner":
+                switch(targetCareer){
+                    case "Saber":
+                    case "Lancer":
+                    case "Archer":
+                    case "Rider":
+                    case "Caster":
+                    case "Assassin":
+                    case "Ruler":
+                    case "Avenger":
+                    case "Shielder":
+                    case "MoonCancer":
+                    case "BeastI":
+                    case "BeastII":
+                    case "BeastIII":
+                        careerResist=1.0;
+                        break;
+                    case "Altergo":
+                        careerResist=0.5;
+                        break;
+                    case "Berserker":
+                    case "Foreigner":
+                        careerResist=2.0;
+                        break;   
+                }             
+                break;                                                    
+        }
+
+        switch(servant.camp){
+            case "天":
+                switch(targetCamp){
+                    case "天":
+                    case "星":
+                    case "兽":
+                        campResist=1;
+                        break;
+                    case "地":
+                        campResist=1.1;
+                        break;                        
+                    case "人":
+                        campResist=0.9;
+                        break;
+                }
+                break;
+            case "地":
+                switch(targetCamp){
+                    case "地":
+                    case "星":
+                    case "兽":
+                        campResist=1;
+                        break;
+                    case "人":
+                        campResist=1.1;
+                        break;                        
+                    case "天":
+                        campResist=0.9;
+                        break;
+                }            
+                break;
+            case "人":
+                switch(targetCamp){
+                    case "人":
+                    case "星":
+                    case "兽":
+                        campResist=1;
+                        break;
+                    case "天":
+                        campResist=1.1;
+                        break;                        
+                    case "地":
+                        campResist=0.9;
+                        break;
+                }              
+                break;
+            case "星":
+                switch(targetCamp){
+                    case "天":
+                    case "地":
+                    case "人":
+                    case "星":
+                        campResist=1;
+                        break;
+                    case "兽":
+                        campResist=1.1;
+                        break;  
+                }               
+                break;
+            case "兽":
+                switch(targetCamp){
+                    case "天":
+                    case "地":
+                    case "人":
+                    case "兽":
+                        campResist=1;
+                        break;
+                    case "星":
+                        campResist=1.1;
+                        break;  
+                }              
+                break;                              
+        }
+
+        return {
+            careerResist:careerResist,
+            campResist:campResist
+        };
+    }
+
+
+
+    function loadData(){
+        resultArr.length=0;
+        let condition=document.querySelector("input[type=radio][name=condition]:checked");
+        let lvs=[70,80,90,100];
+        if(condition.dataset.condition=="grailMaxOnly"){//仅百级圣杯
+            lvs=[100];
+        }
+        else if(condition.dataset.condition=="normalOnly"){//仅默认
+            lvs=[];
+        } 
+
+        let careers=[],
+        stars=[];
+
+        //职介筛选
+        let classes=document.querySelectorAll(".class>span[name=class]");
+        classes.forEach(function(c){
+            if(c.dataset.on=="1"){
+                careers.push(c.title);
+            }
+        })
+        console.log(careers);
+
+        //星级筛选
+        let ckRaritys=document.querySelectorAll(".rarity input[type=checkbox]");
+        ckRaritys.forEach(function(ckRarity){
+            if(ckRarity.checked){
+                stars.push(parseInt(ckRarity.value));
+            }
+        });
+        
+
+        let model;
+        servants.forEach(function(servant){
+            let {careerResist,campResist}=getCareerResistAndCampResist(servant);
+            //默认等级
+            model={
+                name:`【${servant.career}】${servant.name}`,
+                star:servant.star,
+                camp:servant.camp,
+                lv:"默认",
+                attack:servant.atk+1000,
+                realAttack:Math.floor((servant.atk+1000)*getCareerNum(servant.career)),
+                combatAttack:Math.floor((servant.atk+1000)*getCareerNum(servant.career)*careerResist*campResist),
+                hp:servant.hp+1000,
+                totalValue:servant.atk+servant.hp+2000,
+                totalRealValue:Math.floor((servant.atk+1000)*getCareerNum(servant.career))+servant.hp+1000,
+                diff:0
+            };
+            if(condition.dataset.condition!="grailMaxOnly"&&careers.includes(servant.career)&&stars.includes(servant.star)){
+                resultArr.push(model);
+            }
+
+            lvs.forEach(function(lv){
+                if(servant.lvs[lv-1].a>servant.atk){//大于默认等级的atk
+                    model={
+                        name:`【${servant.career}】${servant.name}`,
+                        star:servant.star,
+                        camp:servant.camp,
+                        lv:lv,
+                        attack:servant.lvs[lv-1].a+1000,
+                        realAttack:Math.floor((servant.lvs[lv-1].a+1000)*getCareerNum(servant.career)),
+                        combatAttack:Math.floor((servant.lvs[lv-1].a+1000)*getCareerNum(servant.career)*careerResist*campResist),
+                        hp:servant.lvs[lv-1].h+1000,
+                        totalValue:servant.lvs[lv-1].a+servant.lvs[lv-1].h+2000,
+                        totalRealValue:Math.floor((servant.lvs[lv-1].a+1000)*getCareerNum(servant.career))+servant.lvs[lv-1].h+1000,
+                        diff:0
+                    };
+                    if(careers.includes(servant.career)&&stars.includes(servant.star)){
+                        resultArr.push(model);
+                    }
+                }
+            });  
+
+        }); 
+    }
 
     window.onscroll=function(){
         let t=document.documentElement.scrollTop||document.body.scrollTop;
@@ -160,6 +911,7 @@
     function reSort(attr) {
         resultArr.sort(compare(attr));
         clearTable();
+        if(resultArr.length<=0)return;
         let max=resultArr[0][attr];
         for (let i = 0; i < resultArr.length; i++) {
             //计算差值
@@ -193,25 +945,34 @@
         //2.从者
         newRow.insertCell(-1).innerHTML = obj.name;
 
-        //3.等级
-        newRow.insertCell(-1).innerHTML = obj.lv;      
+        //3.星级
+        newRow.insertCell(-1).innerHTML = obj.star;
 
-        //4.面板ATK          
+        //4.等级
+        newRow.insertCell(-1).innerHTML = obj.lv;    
+
+        //5.阵营  
+        newRow.insertCell(-1).innerHTML = obj.camp;      
+
+        //6.面板ATK          
         newRow.insertCell(-1).innerHTML = obj.attack;
 
-        //5.实际ATK       
+        //7.实际ATK       
         newRow.insertCell(-1).innerHTML = obj.realAttack;
 
-        //6.HP
+        //8.实战ATK       
+        newRow.insertCell(-1).innerHTML = obj.combatAttack;
+
+        //9.HP
         newRow.insertCell(-1).innerHTML = obj.hp;
 
-        //7.总面板白值      
+        //10.总面板白值      
         newRow.insertCell(-1).innerHTML = obj.totalValue;
 
-        //8.总实际白值      
+        //11.总实际白值      
         newRow.insertCell(-1).innerHTML = obj.totalRealValue;
 
-        //9.差值
+        //12.差值
         newRow.insertCell(-1).innerHTML = obj.diff;
       
     }
