@@ -835,6 +835,10 @@
             let {careerResist,campResist}=getCareerResistAndCampResist(servant);
             if(servant.servantNo==1){
                 alert(`careerResist:${careerResist},campResist:${campResist}`);
+                let testArr=[1,2,3,4];
+                if(testArr.includes(1)){
+                    alert("testArr.includes OK!");
+                }                
             }
             
             //默认等级
@@ -851,10 +855,7 @@
                 totalRealValue:Math.floor((servant.atk+1000)*getCareerNum(servant.career))+servant.hp+1000,
                 diff:0
             };
-            let testArr=[1,2,3,4];
-            if(testArr.includes(1)){
-                alert("testArr.includes OK!");
-            }
+
             if(condition.dataset.condition!="grailMaxOnly"&&careers.includes(servant.career)&&stars.includes(servant.star)){
                 resultArr.push(model);
             }
