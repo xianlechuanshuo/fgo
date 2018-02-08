@@ -819,7 +819,7 @@
             }
         })
         //console.log(careers);
-        //alert(`careers.length：${careers.length}`);
+        alert(`careers.length：${careers.length}`);
 
         //星级筛选
         let ckRaritys=document.querySelectorAll(".rarity input[type=checkbox]");
@@ -828,61 +828,55 @@
                 stars.push(parseInt(ckRarity.value));
             }
         });
-        //alert(`stars.length：${stars.length}`);
+        alert(`stars.length：${stars.length}`);
 
         let model;
-        try{
-            servants.forEach(function(servant){
-                let {careerResist,campResist}=getCareerResistAndCampResist(servant);
-                if(servant.servantNo==1){
-                    alert(`careerResist:${careerResist},campResist:${campResist}`);
-                }
-                
-                //默认等级
-                model={
-                    name:`【${servant.career}】${servant.name}`,
-                    star:servant.star,
-                    camp:servant.camp,
-                    lv:"默认",
-                    attack:servant.atk+1000,
-                    realAttack:Math.floor((servant.atk+1000)*getCareerNum(servant.career)),
-                    combatAttack:Math.floor((servant.atk+1000)*getCareerNum(servant.career)*careerResist*campResist),
-                    hp:servant.hp+1000,
-                    totalValue:servant.atk+servant.hp+2000,
-                    totalRealValue:Math.floor((servant.atk+1000)*getCareerNum(servant.career))+servant.hp+1000,
-                    diff:0
-                };
-                if(condition.dataset.condition!="grailMaxOnly"&&careers.includes(servant.career)&&stars.includes(servant.star)){
-                    resultArr.push(model);
-                }
+        servants.forEach(function(servant){
+            let {careerResist,campResist}=getCareerResistAndCampResist(servant);
+            if(servant.servantNo==1){
+                alert(`careerResist:${careerResist},campResist:${campResist}`);
+            }
+            
+            //默认等级
+            model={
+                name:`【${servant.career}】${servant.name}`,
+                star:servant.star,
+                camp:servant.camp,
+                lv:"默认",
+                attack:servant.atk+1000,
+                realAttack:Math.floor((servant.atk+1000)*getCareerNum(servant.career)),
+                combatAttack:Math.floor((servant.atk+1000)*getCareerNum(servant.career)*careerResist*campResist),
+                hp:servant.hp+1000,
+                totalValue:servant.atk+servant.hp+2000,
+                totalRealValue:Math.floor((servant.atk+1000)*getCareerNum(servant.career))+servant.hp+1000,
+                diff:0
+            };
+            if(condition.dataset.condition!="grailMaxOnly"&&careers.includes(servant.career)&&stars.includes(servant.star)){
+                resultArr.push(model);
+            }
 
-                lvs.forEach(function(lv){
-                    if(servant.lvs[lv-1].a>servant.atk){//大于默认等级的atk
-                        model={
-                            name:`【${servant.career}】${servant.name}`,
-                            star:servant.star,
-                            camp:servant.camp,
-                            lv:lv,
-                            attack:servant.lvs[lv-1].a+1000,
-                            realAttack:Math.floor((servant.lvs[lv-1].a+1000)*getCareerNum(servant.career)),
-                            combatAttack:Math.floor((servant.lvs[lv-1].a+1000)*getCareerNum(servant.career)*careerResist*campResist),
-                            hp:servant.lvs[lv-1].h+1000,
-                            totalValue:servant.lvs[lv-1].a+servant.lvs[lv-1].h+2000,
-                            totalRealValue:Math.floor((servant.lvs[lv-1].a+1000)*getCareerNum(servant.career))+servant.lvs[lv-1].h+1000,
-                            diff:0
-                        };
-                        if(careers.includes(servant.career)&&stars.includes(servant.star)){
-                            resultArr.push(model);
-                        }
+            lvs.forEach(function(lv){
+                if(servant.lvs[lv-1].a>servant.atk){//大于默认等级的atk
+                    model={
+                        name:`【${servant.career}】${servant.name}`,
+                        star:servant.star,
+                        camp:servant.camp,
+                        lv:lv,
+                        attack:servant.lvs[lv-1].a+1000,
+                        realAttack:Math.floor((servant.lvs[lv-1].a+1000)*getCareerNum(servant.career)),
+                        combatAttack:Math.floor((servant.lvs[lv-1].a+1000)*getCareerNum(servant.career)*careerResist*campResist),
+                        hp:servant.lvs[lv-1].h+1000,
+                        totalValue:servant.lvs[lv-1].a+servant.lvs[lv-1].h+2000,
+                        totalRealValue:Math.floor((servant.lvs[lv-1].a+1000)*getCareerNum(servant.career))+servant.lvs[lv-1].h+1000,
+                        diff:0
+                    };
+                    if(careers.includes(servant.career)&&stars.includes(servant.star)){
+                        resultArr.push(model);
                     }
-                });  
+                }
+            });  
 
-            }); 
-        }
-        catch(e){
-            alert(e);
-        }
-
+        }); 
         alert(`resultArr.length:${resultArr.length}`);
     }
 
