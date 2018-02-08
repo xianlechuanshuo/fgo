@@ -833,6 +833,10 @@
         let model;
         servants.forEach(function(servant){
             let {careerResist,campResist}=getCareerResistAndCampResist(servant);
+            if(servant.servantNo==1){
+                alert(`careerResist:${careerResist},campResist:${campResist}`);
+            }
+            
             //默认等级
             model={
                 name:`【${servant.career}】${servant.name}`,
@@ -873,7 +877,7 @@
             });  
 
         }); 
-        alert(resultArr.length);
+        alert(`resultArr.length:${resultArr.length}`);
     }
 
     window.onscroll=function(){
