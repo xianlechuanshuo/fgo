@@ -347,7 +347,7 @@
             }
         });
         
-    })("totalRealValue",2);
+    })("totalRealValue",1);
 
     function getClassName(career,on){
         return career.toLocaleLowerCase()+(on==1?"":"2");
@@ -851,6 +851,10 @@
                 totalRealValue:Math.floor((servant.atk+1000)*getCareerNum(servant.career))+servant.hp+1000,
                 diff:0
             };
+            let testArr=[1,2,3,4];
+            if(testArr.includes(1)){
+                alert("testArr.includes OK!");
+            }
             if(condition.dataset.condition!="grailMaxOnly"&&careers.includes(servant.career)&&stars.includes(servant.star)){
                 resultArr.push(model);
             }
