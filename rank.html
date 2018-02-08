@@ -5,7 +5,7 @@
     <title></title>
     <style type="text/css">
     .resultWrapper table{
-        width:1000px;
+        width:1200px;
         margin:0 auto;
     }
     .resultWrapper .fsCondition{
@@ -150,7 +150,11 @@
         text-shadow: 1px 1px 1px #000000;
         font-size: 110%;
         text-align:center;
-    }                          
+    }      
+    .cardAtk input{
+        width:60px;
+        text-align: center;
+    }                    
     </style>
 </head>
 <body>
@@ -191,7 +195,9 @@
         <label for="rdGrailOnly"><input type="radio" id="rdGrailOnly" name="condition" data-condition="grailMaxOnly">仅百级圣杯</label>
         <label for="rdNormalOnly"><input type="radio" id="rdNormalOnly" name="condition" data-condition="normalOnly">仅默认</label>       
     </div>
-
+    <div class="cardAtk">
+        礼装ATK：<input type="number" id="txtCardAtk" value="786">
+    </div>
     <div class="target">
     目标职介：
         <select id="ddlTargetCareer">
@@ -232,6 +238,7 @@
                 <th>星级</th>
                 <th>等级</th>
                 <th>阵营</th>
+                <th>属性</th>
                 <th class="rankAttr" data-rank="attack">面板ATK</th>
                 <th class="rankAttr" data-rank="realAttack">实际ATK</th>
                 <th class="rankAttr" data-rank="combatAttack">实战ATK</th>
@@ -299,6 +306,10 @@
             refresh();
         }
 
+        //礼装ATK文本框oninput事件
+        $("txtCardAtk").oninput=function(){
+            refresh();
+        }
 
         //职介全选点击事件
         document.querySelector(".classAllOn").onclick=function(){
@@ -829,7 +840,8 @@
         });
         
 
-        let model;
+        let model,
+        cardAtk=parseInt($("txtCardAtk").value);
         servants.forEach(function(servant){
             let {careerResist,campResist}=getCareerResistAndCampResist(servant);
             //默认等级
@@ -837,13 +849,14 @@
                 name:`【${servant.career}】${servant.name}`,
                 star:servant.star,
                 camp:servant.camp,
+                attributes:servant.attributes,
                 lv:"默认",
-                attack:servant.atk+1000,
-                realAttack:Math.floor((servant.atk+1000)*getCareerNum(servant.career)),
-                combatAttack:Math.floor((servant.atk+1000)*getCareerNum(servant.career)*careerResist*campResist),
+                attack:servant.atk+cardAtk+1000,
+                realAttack:Math.floor((servant.atk+cardAtk+1000)*getCareerNum(servant.career)),
+                combatAttack:Math.floor((servant.atk+cardAtk+1000)*getCareerNum(servant.career)*careerResist*campResist),
                 hp:servant.hp+1000,
-                totalValue:servant.atk+servant.hp+2000,
-                totalRealValue:Math.floor((servant.atk+1000)*getCareerNum(servant.career))+servant.hp+1000,
+                totalValue:servant.atk+cardAtk+servant.hp+2000,
+                totalRealValue:Math.floor((servant.atk+cardAtk+1000)*getCareerNum(servant.career))+servant.hp+1000,
                 diff:0
             };
             if(condition.dataset.condition!="grailMaxOnly"&&careers.includes(servant.career)&&stars.includes(servant.star)){
@@ -856,13 +869,14 @@
                         name:`【${servant.career}】${servant.name}`,
                         star:servant.star,
                         camp:servant.camp,
+                        attributes:servant.attributes,
                         lv:lv,
-                        attack:servant.lvs[lv-1].a+1000,
-                        realAttack:Math.floor((servant.lvs[lv-1].a+1000)*getCareerNum(servant.career)),
-                        combatAttack:Math.floor((servant.lvs[lv-1].a+1000)*getCareerNum(servant.career)*careerResist*campResist),
+                        attack:servant.lvs[lv-1].a+cardAtk+1000,
+                        realAttack:Math.floor((servant.lvs[lv-1].a+cardAtk+1000)*getCareerNum(servant.career)),
+                        combatAttack:Math.floor((servant.lvs[lv-1].a+cardAtk+1000)*getCareerNum(servant.career)*careerResist*campResist),
                         hp:servant.lvs[lv-1].h+1000,
-                        totalValue:servant.lvs[lv-1].a+servant.lvs[lv-1].h+2000,
-                        totalRealValue:Math.floor((servant.lvs[lv-1].a+1000)*getCareerNum(servant.career))+servant.lvs[lv-1].h+1000,
+                        totalValue:servant.lvs[lv-1].a+cardAtk+servant.lvs[lv-1].h+2000,
+                        totalRealValue:Math.floor((servant.lvs[lv-1].a+cardAtk+1000)*getCareerNum(servant.career))+servant.lvs[lv-1].h+1000,
                         diff:0
                     };
                     if(careers.includes(servant.career)&&stars.includes(servant.star)){
@@ -952,27 +966,31 @@
         newRow.insertCell(-1).innerHTML = obj.lv;    
 
         //5.阵营  
-        newRow.insertCell(-1).innerHTML = obj.camp;      
+        newRow.insertCell(-1).innerHTML = obj.camp; 
 
-        //6.面板ATK          
+        //6.属性
+        newRow.insertCell(-1).innerHTML =obj.attributes.join("·");
+             
+
+        //7.面板ATK          
         newRow.insertCell(-1).innerHTML = obj.attack;
 
-        //7.实际ATK       
+        //8.实际ATK       
         newRow.insertCell(-1).innerHTML = obj.realAttack;
 
-        //8.实战ATK       
+        //9.实战ATK       
         newRow.insertCell(-1).innerHTML = obj.combatAttack;
 
-        //9.HP
+        //10.HP
         newRow.insertCell(-1).innerHTML = obj.hp;
 
-        //10.总面板白值      
+        //11.总面板白值      
         newRow.insertCell(-1).innerHTML = obj.totalValue;
 
-        //11.总实际白值      
+        //12.总实际白值      
         newRow.insertCell(-1).innerHTML = obj.totalRealValue;
 
-        //12.差值
+        //13.差值
         newRow.insertCell(-1).innerHTML = obj.diff;
       
     }
