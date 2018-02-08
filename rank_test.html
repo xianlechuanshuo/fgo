@@ -819,7 +819,7 @@
             }
         })
         //console.log(careers);
-        alert(`careers.length：${careers.length}`);
+        //alert(`careers.length：${careers.length}`);//OK
 
         //星级筛选
         let ckRaritys=document.querySelectorAll(".rarity input[type=checkbox]");
@@ -828,17 +828,17 @@
                 stars.push(parseInt(ckRarity.value));
             }
         });
-        alert(`stars.length：${stars.length}`);
+        //alert(`stars.length：${stars.length}`);//OK
 
         let model;
         servants.forEach(function(servant){
             let {careerResist,campResist}=getCareerResistAndCampResist(servant);
             if(servant.servantNo==1){
-                alert(`careerResist:${careerResist},campResist:${campResist}`);
-                let testArr=[1,2,3,4];
-                if(testArr.includes(1)){
-                    alert("testArr.includes OK!");
-                }                
+                //alert(`careerResist:${careerResist},campResist:${campResist}`);//OK，支持let{a,b}用法，servants有数据
+                // let testArr=[1,2,3,4];//OK，支持includes
+                // if(testArr.includes(1)){
+                //     alert("testArr.includes OK!");
+                // }                
             }
             
             //默认等级
@@ -855,8 +855,9 @@
                 totalRealValue:Math.floor((servant.atk+1000)*getCareerNum(servant.career))+servant.hp+1000,
                 diff:0
             };
-
+            alert(`condition.dataset.condition:${condition.dataset.condition}`);
             if(condition.dataset.condition!="grailMaxOnly"&&careers.includes(servant.career)&&stars.includes(servant.star)){
+                alert("push默认");
                 resultArr.push(model);
             }
 
