@@ -21,10 +21,7 @@
     .result tr>td:nth-child(2){
         text-align: left;
     }
-    .tr1{
-
-    }
-    .result th,.result td,.tr1 td{
+    .result th,.result td{
         border:1px solid #000;
     }
     .active{
@@ -952,7 +949,7 @@
         rankIndex++;
         let tb = $("tbResult");
         let newRow = tb.insertRow(-1);
-        newRow.classList.add("tr1");
+
         //1.排名
         newRow.insertCell(-1).innerHTML = rankIndex;
 
