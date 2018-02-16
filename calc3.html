@@ -521,26 +521,35 @@
         }     
         let currentSaveObj;
 
-        window.Global_save.forEach(function(s){
-            if(s.guid==guid){
-                currentSaveObj=s;
-                //1. forEach中不能使用break，用了会抛出异常
-                //2. forEach中使用return 语句不会直接跳出整个方法，阻断下面代码执行
-                return;              
-            }
-        })
+        try{
+            window.Global_save.forEach(function(s){
+                if(s.guid==guid){
+                    currentSaveObj=s;
+                    //1. forEach中不能使用break，用了会抛出异常
+                    //2. forEach中用return也是无法退出循环，还是会继续执行循环
+                    //3. forEach 如果要提前终止，需要将forEach()方法放在一个try块中，并能抛出一个异常  
+                    foreach.break=new Error("StopLoop");
+                }
+            })
+        }
+        catch(e){}
+
         if(currentSaveObj){
             $("txtWord").value="";
             search();
 
             //检验是否更新过，更新过则更新下id值
             if(servants[currentSaveObj.id].servantNo!=currentSaveObj.servantNo){//说明更新过
-                servants.forEach(function(servant){
-                    if(servant.servantNo===currentSaveObj.servantNo){
-                        currentSaveObj.id=servant.id;
-                        return;
-                    }
-                })
+                try{
+                    servants.forEach(function(servant){
+                        if(servant.servantNo===currentSaveObj.servantNo){
+                            currentSaveObj.id=servant.id;
+                            foreach.break=new Error("StopLoop");
+                        }
+                    })
+                }
+                catch(e){}
+
             }
 
             $("ddlChooseServant").value=currentSaveObj.id;
