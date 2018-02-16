@@ -616,13 +616,9 @@
     }
 
     function intialServantList() {
-        for (let key in servants) {
-            if (isNaN(key)) {
-                return;
-            }
-            let item = servants[key];
-            $("ddlChooseServant").options.add(new Option("【" + item.career + "】" + item.name, item.id));
-        }
+        servants.forEach(function(servant){
+             $("ddlChooseServant").options.add(new Option(`【${servant.star}】【${servant.career}】${servant.name}`, servant.id));           
+        })
     }
 
 

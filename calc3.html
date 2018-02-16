@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -1006,7 +1006,7 @@
         //     $("ddlChooseServant").options.add(new Option("【" + item.career + "】" + item.name, item.id));
         // }
         servants.forEach(function(servant){
-             $("ddlChooseServant").options.add(new Option(`【${servant.career}】${servant.name}`, servant.id));           
+             $("ddlChooseServant").options.add(new Option(`【${servant.star}】【${servant.career}】${servant.name}`, servant.id));           
         })
     }
 
