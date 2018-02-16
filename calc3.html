@@ -538,6 +538,7 @@
                 servants.forEach(function(servant){
                     if(servant.servantNo===currentSaveObj.servantNo){
                         currentSaveObj.id=servant.id;
+                        return;
                     }
                 })
             }
