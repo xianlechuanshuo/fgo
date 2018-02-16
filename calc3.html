@@ -476,6 +476,7 @@
         let saveObj={
             guid:getMaxGuidId(),
             id:id,//从者下拉列表value值
+            servantNo:servants[id].servantNo,//从者编号
             title:title,//存档名
             isMaxGrail:$("ckIsMaxGrail").checked,//是否圣杯MAX
             lv:$("ddlLvs").value,//等级
@@ -531,6 +532,16 @@
         if(currentSaveObj){
             $("txtWord").value="";
             search();
+
+            //检验是否更新过，更新过则更新下id值
+            if(servants[currentSaveObj.id].servantNo!=currentSaveObj.servantNo){//说明更新过
+                servants.forEach(function(servant){
+                    if(servant.servantNo===currentSaveObj.servantNo){
+                        currentSaveObj.id=servant.id;
+                    }
+                })
+            }
+
             $("ddlChooseServant").value=currentSaveObj.id;
             $("ddlChooseServant").onchange();
 
