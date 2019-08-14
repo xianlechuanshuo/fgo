@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         FGO Wiki从者NP获取率TOP5显示 for mooncell
-// @namespace
-// @version      0.1
+// @namespace    https://xianlechuanshuo.github.io/fgo/updatescripts/NP%20top5%20scirpt%20for%20mooncell%20wiki.js
+// @version      0.3
 // @description  FGO Wiki从者NP获取率TOP5显示(敌补正默认为1，支持宝具NP回收率计算，此外被动Buff也会自动加载)
 // @author       xianlechuanshuo
 // @require      https://cdn.bootcss.com/jquery/1.12.4/jquery.js
@@ -13,10 +13,10 @@ var jQ1 = jQuery.noConflict();
 var Global_wiki={};
 jQ1(function() {
         'use strict';
-         let no=jQ1(".wikitable.nomobile th:contains('No.')").text().replace("No.", "");
+         let no=parseInt(jQ1(".wikitable.nomobile th:contains('No.')").text().replace("No.", ""));
 
         if (isNaN(no)) {
-              console.log(`【no】不是数字`);
+              console.log(`【${no}】不是数字`);
               return;
         }
         let isOK=loadNpData(no);
@@ -25,66 +25,66 @@ jQ1(function() {
             return;
         };
 let optionsHtml=`<tr class='trCalcBox' data-show='0'><td colspan='12'>
-						<div class='calcBox'>
-							<ul>
-								<li>BUFF</li>
-								<li>
-									NP获得提升(%)：<input type='number' id='txtNpBuff' value='0'>
-									蓝魔放(%)：<input type='number' id='txtArtsBuff' value='0'>
-									绿魔放(%)：<input type='number' id='txtQuickBuff' value='0'>
-									<label for='ckSpecialSkill1'><input id='ckSpecialSkill1' type='checkbox'>第五势</label>
-								</li>
-							</ul>
-							<ul>
-								<li>首卡</li>
-								<li>
-									<label for='ckIsOverkill_first'><input id='ckIsOverkill_first' type='checkbox'>鞭尸</label>
-								</li>
-								<li>
-									<label for='ckIsCritical_first'><input id='ckIsCritical_first' type='checkbox'>暴击</label>
-								</li>
-							</ul>
-							<ul>
-								<li>次卡</li>
-								<li>
-									<label for='ckIsOverkill_second'><input id='ckIsOverkill_second' type='checkbox'>鞭尸</label>
-								</li>
-								<li>
-									<label for='ckIsCritical_second'><input id='ckIsCritical_second' type='checkbox'>暴击</label>
-								</li>
-							</ul>
-							<ul>
-								<li>尾卡</li>
-								<li>
-									<label for='ckIsOverkill_third'><input id='ckIsOverkill_third' type='checkbox'>鞭尸</label>
-								</li>
-								<li>
-									<label for='ckIsCritical_third'><input id='ckIsCritical_third' type='checkbox'>暴击</label>
-								</li>
-							</ul>
-							<ul>
-								<li>EX</li>
-								<li>
-									<label for='ckIsOverkill_ex'><input id='ckIsOverkill_ex' type='checkbox'>鞭尸</label>
-								</li>
-							</ul>
-			    			<ul class='treasureHit'>
-								<li>
-								宝具Hit数：<input type='number' id='txtTreasureHit' value='0'>
-								<label for='ckIsOverkill_treasure'><input id='ckIsOverkill_treasure' type='checkbox'>鞭尸</label>
-								宝具NP回收率(%)：<span id='spanTreasureNP'>0</span>
-								<label for='ckIsIgnoreTreasure'><input id='ckIsIgnoreTreasure' type='checkbox'>忽略宝具组合</label>
-								</li>
-							</ul>
-						</div>
-					</td></tr>`;
+                        <div class='calcBox'>
+                            <ul>
+                                <li>BUFF</li>
+                                <li>
+                                    NP获得提升(%)：<input type='number' id='txtNpBuff' value='0'>
+                                    蓝魔放(%)：<input type='number' id='txtArtsBuff' value='0'>
+                                    绿魔放(%)：<input type='number' id='txtQuickBuff' value='0'>
+                                    <label for='ckSpecialSkill1'><input id='ckSpecialSkill1' type='checkbox'>第五势</label>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>首卡</li>
+                                <li>
+                                    <label for='ckIsOverkill_first'><input id='ckIsOverkill_first' type='checkbox'>鞭尸</label>
+                                </li>
+                                <li>
+                                    <label for='ckIsCritical_first'><input id='ckIsCritical_first' type='checkbox'>暴击</label>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>次卡</li>
+                                <li>
+                                    <label for='ckIsOverkill_second'><input id='ckIsOverkill_second' type='checkbox'>鞭尸</label>
+                                </li>
+                                <li>
+                                    <label for='ckIsCritical_second'><input id='ckIsCritical_second' type='checkbox'>暴击</label>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>尾卡</li>
+                                <li>
+                                    <label for='ckIsOverkill_third'><input id='ckIsOverkill_third' type='checkbox'>鞭尸</label>
+                                </li>
+                                <li>
+                                    <label for='ckIsCritical_third'><input id='ckIsCritical_third' type='checkbox'>暴击</label>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>EX</li>
+                                <li>
+                                    <label for='ckIsOverkill_ex'><input id='ckIsOverkill_ex' type='checkbox'>鞭尸</label>
+                                </li>
+                            </ul>
+                            <ul class='treasureHit'>
+                                <li>
+                                宝具Hit数：<input type='number' id='txtTreasureHit' value='0'>
+                                <label for='ckIsOverkill_treasure'><input id='ckIsOverkill_treasure' type='checkbox'>鞭尸</label>
+                                宝具NP回收率(%)：<span id='spanTreasureNP'>0</span>
+                                <label for='ckIsIgnoreTreasure'><input id='ckIsIgnoreTreasure' type='checkbox'>忽略宝具组合</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </td></tr>`;
 
 
-     
+
         let cardBox=$(".wikitable.nomobile th:contains('配卡')").next();
         let tmpNpObj=Global_wiki.tmpNpObj;
         let npObj = {
-        	   no:no,
+               no:no,
                 arts: {
                         hit: tmpNpObj.ah,
                         num:cardBox.find("img[src*=Arts]").length,
@@ -291,9 +291,9 @@ let optionsHtml=`<tr class='trCalcBox' data-show='0'><td colspan='12'>
 
 function setFixWidth(){
         jQ1(".fixWidth").css({
-        	"display":"inline-block",
-        	"width":"120px",
-        	"text-align":"left"
+            "display":"inline-block",
+            "width":"120px",
+            "text-align":"left"
         });
 }
 
@@ -333,24 +333,24 @@ function reCalc() {
 }
 function loadNpData(no){
        'use strict';
+        let isOk = false;
         jQ1.ajaxSettings.async = false; //同步执行
         jQ1.getJSON('https://xianlechuanshuo.github.io/fgo/js/nps.json', {
                 rd: Math.random()
         },
         function(data, textStatus) {
-                let ok = false;
                 if (textStatus == "success") {
                         for (let i = 0; i < data.length; i++) {
                                 if (data[i].n == no) {
                                         Global_wiki.tmpNpObj=data[i];
-                                        ok = true;
+                                        isOk = true;
                                         break;
                                 }
                         }
                    }
-                return ok;
           });
         jQ1.ajaxSettings.async = true; //异步执行
+        return isOk;
 }
 
 function getIsOverkillAndisCritical(position) {

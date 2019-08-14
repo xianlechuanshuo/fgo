@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         FGO Wiki从者NP获取率TOP5显示
 // @namespace    https://greasyfork.org/zh-CN/scripts/34655-wiki%E4%BB%8E%E8%80%85np%E8%8E%B7%E5%8F%96%E7%8E%87%E6%98%BE%E7%A4%BA
-// @version      2.1
+// @version      2.3
 // @description  FGO Wiki从者NP获取率TOP5显示(敌补正默认为1，支持宝具NP回收率计算，此外被动Buff也会自动加载)
 // @author       xianlechuanshuo
 // @require      https://cdn.bootcss.com/jquery/1.12.4/jquery.js
@@ -84,7 +84,7 @@ let optionsHtml=`<tr class='trCalcBox' data-show='0'><td colspan='12'>
                         </div>
                     </td></tr>`;
 
-        
+
         let cardBox=jQ1("th:contains('出处')").eq(0).prev();
         let tmpNpObj=Global_wiki.tmpNpObj;
         let npObj = {
@@ -259,7 +259,7 @@ let optionsHtml=`<tr class='trCalcBox' data-show='0'><td colspan='12'>
 
                 }
                 jQ1(".trCalcBox").data("show", show == "0" ? "1": "0");
-                     
+
         });
 
         //绑定【NP获得提升】、【蓝魔放】、【绿魔放】输入内容改变事件
@@ -298,11 +298,11 @@ function setFixWidth(){
             "display":"inline-block",
             "width":"120px",
             "text-align":"left"
-        }); 
+        });
 }
 
 function getContentHtml(cardStr,npObj){
-  return `<span class='fixWidth'>${cardStr}+EX：</span> <span class='fixWidth'>首卡：${npObj.first}</span> <span class='fixWidth'>次卡：${npObj.second}</span> <span class='fixWidth'>尾卡：${npObj.third}</span><span class='fixWidth'> EX：${npObj.ex} </span><span class='fixWidth'>总计:${npObj.totalNp}</span><br>`;    
+  return `<span class='fixWidth'>${cardStr}+EX：</span> <span class='fixWidth'>首卡：${npObj.first}</span> <span class='fixWidth'>次卡：${npObj.second}</span> <span class='fixWidth'>尾卡：${npObj.third}</span><span class='fixWidth'> EX：${npObj.ex} </span><span class='fixWidth'>总计:${npObj.totalNp}</span><br>`;
 }
 
 function reCalc() {
@@ -337,26 +337,24 @@ function reCalc() {
 }
 function loadNpData(no){
        'use strict';
+        let isOk = false;
         jQ1.ajaxSettings.async = false; //同步执行
         jQ1.getJSON('https://xianlechuanshuo.github.io/fgo/js/nps.json', {
                 rd: Math.random()
         },
         function(data, textStatus) {
-                let ok = false;
                 if (textStatus == "success") {
                         for (let i = 0; i < data.length; i++) {
                                 if (data[i].n == no) {
                                         Global_wiki.tmpNpObj=data[i];
-                                        ok = true;
+                                        isOk = true;
+                                        break;
                                 }
                         }
-                        if (!ok) {
-                               console.log("没有找到数据!");
-                        };
                    }
-                return ok;
           });
         jQ1.ajaxSettings.async = true; //异步执行
+        return isOk;
 }
 
 function getIsOverkillAndisCritical(position) {
