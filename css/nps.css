@@ -20,7 +20,7 @@
         width:125px;
 }
 .calcBox>ul:last-child{
-        clear: both;;
+        clear: both;
         widows: 100%;
 }
 .calcBox>ul>li:not(:nth-child(1)){
