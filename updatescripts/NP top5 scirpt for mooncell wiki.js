@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         FGO Wiki从者NP获取率TOP5显示 for mooncell
 // @namespace    https://xianlechuanshuo.github.io/fgo/updatescripts/NP%20top5%20scirpt%20for%20mooncell%20wiki.js
-// @version      0.3
+// @version      0.4
 // @description  FGO Wiki从者NP获取率TOP5显示(敌补正默认为1，支持宝具NP回收率计算，此外被动Buff也会自动加载)
 // @author       xianlechuanshuo
 // @require      https://cdn.bootcss.com/jquery/1.12.4/jquery.js
 // @match        *://mooncell.wiki/w/*
+// @match        *://fgo.wiki/w/*
 // @grant        none
 // ==/UserScript==
 
