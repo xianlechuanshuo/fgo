@@ -1,0 +1,35 @@
+ .trCalcBox{
+        display: none;
+ }
+.calcBox{
+       height: 150px;
+       margin: 0 auto;
+       text-align: left;
+       padding: 10px 0 0 30px;
+}
+.calcBox>ul,.calcBox input[type=checkbox]{
+        list-style: none;
+        margin: 0;
+        padding:0;
+}
+.calcBox input[type=number]{
+        text-align: center;
+}
+.calcBox>ul:not(:nth-child(1)){
+        float: left;
+        width:125px;
+}
+.calcBox>ul:last-child{
+        clear: both;;
+        widows: 100%;
+}
+.calcBox>ul>li:not(:nth-child(1)){
+        padding-left: 30px;
+}
+
+.calBox input{
+        vertical-align: middle;
+}
+.calcBox input[type=number]{
+        width: 50px;
+}
