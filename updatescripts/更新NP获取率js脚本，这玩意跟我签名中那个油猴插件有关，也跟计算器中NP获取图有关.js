@@ -13,6 +13,12 @@
 
             // {"artHit":2,"busterHit":1,"quickHit":3,"exHit":4,"npbase":71,"npbaseA":71,"npbaseB":71,"npbaseQ":71,"npbaseEx":71,"npUp":0,"artUp":50,"busterUp":0,"quickUp":0,"npHit":5,"npType":1}            
             // if(no==132||no==142||no==133)console.log(JSON.stringify(a));//输出R小莫(npType1)、弓凛、杀师匠的np基础数据
+            if(no==47||no==48||no==46){
+                console.log(`${no}：${JSON.stringify(a)}`);
+                let tmp=a.npType==1?"A":(a.npType==2?"Q":"B");
+                console.log(tmp);
+            }
+
             //npType:1是蓝宝具、2是绿宝具、3是红宝具
         	var npObj={
         		n:no,//从者编号
